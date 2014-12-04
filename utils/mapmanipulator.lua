@@ -55,7 +55,7 @@ function MapManipulator:new()
 end
 
 
--- Gets the VoxelArea for the current VoxelManip.
+--- Gets the VoxelArea for the current VoxelManip.
 --
 -- @return The VoxelArea.
 function MapManipulator:get_area()

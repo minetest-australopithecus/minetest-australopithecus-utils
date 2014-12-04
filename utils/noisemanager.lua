@@ -87,7 +87,7 @@ function NoiseManager:get_noise_map(octaves, persistence, scale, spreadx, spread
 		seed = self.next_seed,
 		octaves = octaves,
 		persist = persistence,
-		eased = eased
+		eased = false
 	}
 	
 	return minetest.get_perlin_map(parameters, self.map_size)
