@@ -57,6 +57,14 @@ function BlockedCache:new(max_entries, auto_compact)
 end
 
 
+--- Clears the complete cache.
+function BlockedCache:clear()
+	self.cache = {}
+	self.index = {}
+	self.index_end = 0
+	self.index_start = 0
+end
+
 --- Compacts the cache, meaning it removes the oldest entries up to the maximum
 -- number of entries.
 function BlockedCache:compact()
