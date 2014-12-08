@@ -131,6 +131,19 @@ function mathutil.next_lower_prime(number)
 	return 0
 end
 
+--- Rounds to the nearest number with the given decimal places.
+--
+-- @param value The value to round.
+-- @param decimal_places Optional. The number of decimal places to round to,
+--                       defaults to 0.
+-- @return The rounded value.
+function mathutil.round(value, decimal_places)
+	decimal_places = decimal_places or 0
+	
+	local multiplicator = 10 ^ decimal_places
+	return math.floor(value * multiplicator + 0.5) / multiplicator
+end
+
 --- Performs a linear transform on the given value to transform the value
 -- from the range -1/1 to 0/1.
 --
