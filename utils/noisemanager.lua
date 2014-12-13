@@ -33,15 +33,16 @@ NoiseManager = {}
 
 --- Creates a new instance of NoiseManager.
 --
+-- @param start_seed The initial seed value.
 -- @return A new instance of NoiseManager.
-function NoiseManager:new()
+function NoiseManager:new(start_seed)
 	local instance = {
 		map_size = {
-			x = 80,
-			y = 80,
-			z = 80
+			x = constants.block_size,
+			y = constants.block_size,
+			z = constants.block_size
 		},
-		next_seed = 0
+		next_seed = start_seed
 	}
 	
 	setmetatable(instance, self)
