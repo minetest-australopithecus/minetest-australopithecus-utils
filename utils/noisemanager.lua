@@ -33,7 +33,7 @@ NoiseManager = {}
 
 --- Creates a new instance of NoiseManager.
 --
--- @param start_seed The initial seed value.
+-- @param start_seed Optional. The initial seed value, defaults to 0.
 -- @return A new instance of NoiseManager.
 function NoiseManager:new(start_seed)
 	local instance = {
