@@ -6,14 +6,14 @@ dofile("../utils/test.lua")
 dofile("../utils/mathutil.lua")
 
 
-function test_clamp()
+local function test_clamp()
 	test.equals(0, mathutil.clamp(0, 0, 0))
 	
 	test.equals(0, mathutil.clamp(-10, 0, 20))
 	test.equals(20, mathutil.clamp(30, 0, 20))
 end
 
-function test_round()
+local function test_round()
 	test.equals(0, mathutil.round(0))
 	
 	test.equals(0, mathutil.round(0.3))
@@ -27,6 +27,7 @@ function test_round()
 	test.equals(1.234, mathutil.round(1.2344756, 3))
 end
 
-test_clamp()
-test_round()
+test.start("mathutil")
+test.run("clamp", test_clamp)
+test.run("round", test_round)
 

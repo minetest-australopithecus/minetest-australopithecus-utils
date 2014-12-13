@@ -25,7 +25,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 --]]
 
 
---- A simple utility for testing values.
+--- A simple utility for testing values and running unit tests.
 test = {}
 
 
@@ -52,5 +52,33 @@ function test.equals(expected, actual, message)
 	if expected ~= nil and actual ~= nil then
 		assert(expected == actual, message .. "\nAssert failed! Expected <" .. tostring(expected) .. "> but got <" .. tostring(actual) .. ">")
 	end
+end
+
+--- Runs the given method and prints a formatted information including the name.
+--
+-- @param name The name of the method that is being run.
+-- @param test_method The method to run.
+function test.run(name, test_method)
+	io.write(string.rep(" ", 20 - string.len(name)))
+	io.write(name)
+	io.write(" ... ")
+	
+	local status, err = pcall(test_method)
+	
+	if status then
+		print("Passed")
+	else
+		local indentation = string.rep(" ", 28)
+		print("Failed: " .. string.gsub(err, "\n", "\n" .. indentation))
+	end
+end
+
+--- Prints the given name as header.
+--
+-- @param name The name of the header.
+function test.start(name)
+	print("\n")
+	print(string.rep(" ", 20 - string.len(name)) .. name)
+	print(string.rep("-", 80))
 end
 

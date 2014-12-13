@@ -6,7 +6,7 @@ dofile("../utils/test.lua")
 dofile("../utils/blockedcache.lua")
 
 
-function test_basic()
+local function test_basic()
 	local cache = BlockedCache:new()
 	
 	cache:put(0, 0, "a")
@@ -15,7 +15,7 @@ function test_basic()
 	test.equals("a", cache:get(0, 0))
 end
 
-function test_auto_compacting()
+local function test_auto_compacting()
 	local cache = BlockedCache:new(5, true)
 
 	cache:put(0, 0, "a")
@@ -48,6 +48,7 @@ function test_auto_compacting()
 end
 
 
-test_basic()
-test_auto_compacting()
+test.start("BlockedCache")
+test.run("auto_compacting", test_auto_compacting)
+test.run("basic", test_basic)
 
