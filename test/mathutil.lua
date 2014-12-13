@@ -6,23 +6,27 @@ dofile("../utils/test.lua")
 dofile("../utils/mathutil.lua")
 
 
-function test_big_linear()
-	test.equals(0, mathutil.big_linear(-10))
-	test.equals(0.25, mathutil.big_linear(-5))
-	test.equals(0.5, mathutil.big_linear(0))
-	test.equals(0.75, mathutil.big_linear(5))
-	test.equals(1, mathutil.big_linear(10))
+function test_clamp()
+	test.equals(0, mathutil.clamp(0, 0, 0))
+	
+	test.equals(0, mathutil.clamp(-10, 0, 20))
+	test.equals(20, mathutil.clamp(30, 0, 20))
 end
 
-function test_centered_linear()
-	test.equals(0, mathutil.centered_linear(-1))
-	test.equals(0.5, mathutil.centered_linear(-0.5))
-	test.equals(1, mathutil.centered_linear(0))
-	test.equals(0.5, mathutil.centered_linear(0.5))
-	test.equals(0, mathutil.centered_linear(1))
+function test_round()
+	test.equals(0, mathutil.round(0))
+	
+	test.equals(0, mathutil.round(0.3))
+	test.equals(0, mathutil.round(0.49))
+	test.equals(1, mathutil.round(0.50))
+	test.equals(1, mathutil.round(0.7))
+	
+	test.equals(10.2, mathutil.round(10.23456, 1))
+	test.equals(10.3, mathutil.round(10.25456, 1))
+	
+	test.equals(1.234, mathutil.round(1.2344756, 3))
 end
 
-
-test_big_linear()
-test_centered_linear()
+test_clamp()
+test_round()
 
