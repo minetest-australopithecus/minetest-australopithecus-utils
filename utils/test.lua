@@ -80,8 +80,10 @@ end
 --
 -- @param name The name of the header.
 function test.start(name)
-	print("\n")
-	print(string.rep(" ", 20 - string.len(name)) .. name)
-	print(string.rep("-", 80))
+	io.write("\n\n")
+	io.write(string.rep("-", 20 - string.len(name)))
+	io.write(name)
+	io.write(string.rep("-", 60))
+	print("")
 end
 
