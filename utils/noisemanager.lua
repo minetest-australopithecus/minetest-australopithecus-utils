@@ -42,7 +42,7 @@ function NoiseManager:new(start_seed)
 			y = constants.block_size,
 			z = constants.block_size
 		},
-		next_seed = start_seed
+		next_seed = start_seed or 0
 	}
 	
 	setmetatable(instance, self)
