@@ -68,7 +68,7 @@ function test.run(name, test_method)
 	if status then
 		print("Passed")
 	else
-		local indentation = string.rep(" ", 28)
+		local indentation = string.rep(" ", 33)
 		print("Failed: " .. string.gsub(err, "\n", "\n" .. indentation))
 	end
 end
