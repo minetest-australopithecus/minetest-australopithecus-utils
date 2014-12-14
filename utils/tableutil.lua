@@ -38,11 +38,43 @@ tableutil = {}
 function tableutil.swapped_reindex2d(data, new_x, new_y)
 	local reindexed_data = {}
 	
-	for old_x = 1, 80, 1 do
-		reindexed_data[new_x + old_x - 1] = {}
+	for old_x = 1, constants.block_size, 1 do
+		local index_x = new_x + old_x - 1
+		reindexed_data[index_x] = {}
 		
-		for old_y = 1, 80, 1 do
-			reindexed_data[new_x + old_x - 1][new_y + old_y - 1] = data[old_y][old_x]
+		for old_y = 1, constants.block_size, 1 do
+			local index_y = new_y + old_y - 1
+				
+			reindexed_data[index_x][index_y] = data[old_y][old_x]
+		end
+	end
+	
+	return reindexed_data
+end
+
+--- Reindexes the given 3d array/table, swapping the two dimensions.
+--
+-- @param data The array/table to reindex.
+-- @param new_x The new startpoint for the first dimension.
+-- @param new_y The new startpoint for the second dimension.
+-- @param new_z The new startpoint for the third dimension.
+-- @return The reindexed data.
+function tableutil.swapped_reindex3d(data, new_x, new_y, new_z)
+	local reindexed_data = {}
+	
+	for old_x = 1, constants.block_size, 1 do
+		local index_x = new_x + old_x - 1
+		reindexed_data[index_x] = {}
+	
+		for old_z = 1, constants.block_size, 1 do
+			local index_z = new_z + old_z - 1
+			reindexed_data[index_x][index_z] = {}
+		
+			for old_y = 1, constants.block_size, 1 do
+				local index_y = new_y + old_y - 1
+			
+				reindexed_data[index_x][index_z][index_y] = data[old_z][old_y][old_x]
+			end
 		end
 	end
 	
