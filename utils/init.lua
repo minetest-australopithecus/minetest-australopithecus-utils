@@ -30,7 +30,7 @@ local base_path = minetest.get_modpath(minetest.get_current_modname())
 
 -- Static utils
 dofile(base_path .. "/constants.lua")
-dofile(base_path .. "/interpolation.lua")
+dofile(base_path .. "/interpolate.lua")
 dofile(base_path .. "/mathutil.lua")
 dofile(base_path .. "/tableutil.lua")
 dofile(base_path .. "/transform.lua")

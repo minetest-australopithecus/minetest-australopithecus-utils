@@ -26,7 +26,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 --- Various mathematical functions for interpolating values.
-interpolation = {}
+interpolate = {}
 
 
 --- Performs a cosine interpolation with the given offset between the given
@@ -36,7 +36,7 @@ interpolation = {}
 -- @param min Optional. The minimum value of the range, defaults to 0.
 -- @param max Optional. The maximum value of the range, defaults to 1.
 -- @return The interpolated value at the given offset.
-function interpolation.cosine(offset, min, max)
+function interpolate.cosine(offset, min, max)
 	local value = (1 - math.cos(offset * math.pi)) / 2
 	
 	if min ~= nil and max ~= nil then

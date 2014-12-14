@@ -61,6 +61,26 @@ function transform.centered_linear(value, min, max, new_min, new_max)
 	end
 end
 
+--- Performs a cosine transform on the given value to transform the value
+-- from one range to another.
+--
+-- @param value The value to transform.
+-- @param min Optional. The original minimum value of the range, defaults to -1.
+-- @param max Optional. The original maximum value of the range, defaults to 1.
+-- @param new_min Optional. The minimum value for the new range, defaults to 0.
+-- @param new_max Optional. The maximum value for the new range, defaults to 1.
+-- @return The transformed value.
+function transform.cosine(value, min, max, new_min, new_max)
+	min = min or -1
+	max = max or 1
+	
+	if new_min == nil or new_max == nil then
+		return interpolate.cosine((value - min) / (max - min))
+	else
+		return interpolate.cosine((value - min) / (max - min)) * (new_max - new_min) + new_min
+	end
+end
+
 --- Performs a linear transform on the given value to transform the value
 -- from one range to another.
 --
