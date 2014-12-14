@@ -29,6 +29,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 local base_path = minetest.get_modpath(minetest.get_current_modname())
 
 -- Static utils
+dofile(base_path .. "/blockutil.lua")
 dofile(base_path .. "/constants.lua")
 dofile(base_path .. "/interpolate.lua")
 dofile(base_path .. "/mathutil.lua")
