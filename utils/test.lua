@@ -69,7 +69,15 @@ function test.run(name, test_method)
 		print("Passed")
 	else
 		local indentation = string.rep(" ", 25)
-		local message = string.sub(err, string.find(err, "\n") + 1)
+		local newline_index = string.find(err, "\n")
+		local testlua_index = string.find(err, "test.lua:")
+		
+		local message = err
+		
+		if newline_index ~= nil and testlua_index ~= nil and testlua_index < newline_index then 
+			message = string.sub(message, newline_index + 1)
+		end
+		
 		message = string.gsub(message, "\n", "\n" .. indentation)
 		
 		print(message)
