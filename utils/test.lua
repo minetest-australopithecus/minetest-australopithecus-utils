@@ -63,10 +63,13 @@ function test.run(name, test_method)
 	io.write(name)
 	io.write(" ... ")
 	
+	local start = os.clock()
+	
 	local status, err = pcall(test_method)
 	
 	if status then
-		print("Passed")
+		local time = math.floor((os.clock() - start) * 1000)
+		print("Passed (" .. tostring(time) .. " ms)")
 	else
 		local indentation = string.rep(" ", 25)
 		local newline_index = string.find(err, "\n")
