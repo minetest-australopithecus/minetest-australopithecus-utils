@@ -25,24 +25,37 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 --]]
 
 
--- Get the base path.
-local base_path = minetest.get_modpath(minetest.get_current_modname())
+--- Allows to easily time blocks of code. The result will be logged.
+stopwatch = {
+	active_watches = {}
+}
 
--- Static utils
-dofile(base_path .. "/blockutil.lua")
-dofile(base_path .. "/constants.lua")
-dofile(base_path .. "/interpolate.lua")
-dofile(base_path .. "/log.lua")
-dofile(base_path .. "/mathutil.lua")
-dofile(base_path .. "/stopwatch.lua")
-dofile(base_path .. "/stringutil.lua")
-dofile(base_path .. "/tableutil.lua")
-dofile(base_path .. "/transform.lua")
 
--- Instance utils
-dofile(base_path .. "/blockedcache.lua")
-dofile(base_path .. "/list.lua")
-dofile(base_path .. "/mapmanipulator.lua")
-dofile(base_path .. "/noisemanager.lua")
-dofile(base_path .. "/scatterer.lua")
+--- Start a watch with the given name.
+--
+-- @param watch_name The name of the watch to start.
+function stopwatch.start(watch_name)
+	stopwatch.active_watches[watch_name] = os.clock()
+end
+
+
+--- Stops the watch with the given name, logging the duration.
+--
+-- It will be logged as info in the format "watch_name: duration ms" or
+-- if the message is provided "message: duration ms"
+-- @param watch_name The name of the watch to stop.
+-- @param message Optional. The message to use for the log instead of the name.
+function stopwatch.stop(watch_name, message)
+	local start = stopwatch.active_watches[watch_name]
+	
+	if start ~= nil then
+		local duration = os.clock() - start
+		duration = duration * 1000
+		duration = mathutil.round(duration)
+		
+		log.info(message or watch_name, ": ", duration, " ms")
+	else
+		log.info(message or watch_name, ": ", "not started")
+	end
+end
 
