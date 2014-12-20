@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <title>Luadocs for utils//transform.lua</title>
+    <link rel="stylesheet" href="../../../luadoc.css" type="text/css" />
+    <!--meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/-->
+</head>
+
+<body>
+<div id="container">
+
+<div id="product">
+    <div id="product_logo"></div>
+    <div id="product_name"><big><b></b></big></div>
+    <div id="product_description"></div>
+</div> <!-- id="product" -->
+
+<div id="main">
+
+<div id="navigation">
+
+
+<h1>LuaDoc</h1>
+<ul>
+	
+	<li><a href="../../../index.html">Index</a></li>
+	
+</ul>
+
+
+<!-- Module list -->
+
+
+
+<!-- File list -->
+
+<h1>Files</h1>
+<ul>
+
+	<li>
+		<a href="../../../files/utils//blockedcache.html">utils//blockedcache.lua</a>
+	</li>
+
+	<li>
+		<a href="../../../files/utils//blockutil.html">utils//blockutil.lua</a>
+	</li>
+
+	<li>
+		<a href="../../../files/utils//constants.html">utils//constants.lua</a>
+	</li>
+
+	<li>
+		<a href="../../../files/utils//init.html">utils//init.lua</a>
+	</li>
+
+	<li>
+		<a href="../../../files/utils//interpolate.html">utils//interpolate.lua</a>
+	</li>
+
+	<li>
+		<a href="../../../files/utils//list.html">utils//list.lua</a>
+	</li>
+
+	<li>
+		<a href="../../../files/utils//log.html">utils//log.lua</a>
+	</li>
+
+	<li>
+		<a href="../../../files/utils//mapmanipulator.html">utils//mapmanipulator.lua</a>
+	</li>
+
+	<li>
+		<a href="../../../files/utils//mathutil.html">utils//mathutil.lua</a>
+	</li>
+
+	<li>
+		<a href="../../../files/utils//noisemanager.html">utils//noisemanager.lua</a>
+	</li>
+
+	<li>
+		<a href="../../../files/utils//scatterer.html">utils//scatterer.lua</a>
+	</li>
+
+	<li>
+		<a href="../../../files/utils//stopwatch.html">utils//stopwatch.lua</a>
+	</li>
+
+	<li>
+		<a href="../../../files/utils//stringutil.html">utils//stringutil.lua</a>
+	</li>
+
+	<li>
+		<a href="../../../files/utils//tableutil.html">utils//tableutil.lua</a>
+	</li>
+
+	<li>
+		<a href="../../../files/utils//test.html">utils//test.lua</a>
+	</li>
+
+	<li><strong>utils//transform.lua</strong></li>
+	
+</ul>
+
+
+
+
+
+
+</div> <!-- id="navigation" -->
+
+<div id="content">
+
+<h1>File <code>utils//transform.lua</code></h1>
+
+
+
+
+
+
+
+<h2>Functions</h2>
+<table class="function_list">
+
+    <tr>
+    <td class="name" nowrap><a href="#transform.big_linear">transform.big_linear</a>&nbsp;(value, new_min, new_max)</td>
+    <td class="summary">Performs a linear transform on the given value to transform the value from the range -10/10 to 0/1.</td>
+    </tr>
+
+    <tr>
+    <td class="name" nowrap><a href="#transform.centered_linear">transform.centered_linear</a>&nbsp;(value, min, max, new_min, new_max)</td>
+    <td class="summary">Performs a linear transformation on the given value with the peak in center of the min and max values.</td>
+    </tr>
+
+    <tr>
+    <td class="name" nowrap><a href="#transform.cosine">transform.cosine</a>&nbsp;(value, min, max, new_min, new_max)</td>
+    <td class="summary">Performs a cosine transform on the given value to transform the value from one range to another.</td>
+    </tr>
+
+    <tr>
+    <td class="name" nowrap><a href="#transform.linear">transform.linear</a>&nbsp;(value, min, max, new_min, new_max)</td>
+    <td class="summary">Performs a linear transform on the given value to transform the value from one range to another.</td>
+    </tr>
+
+    <tr>
+    <td class="name" nowrap><a href="#transform.small_linear">transform.small_linear</a>&nbsp;(value, new_min, new_max)</td>
+    <td class="summary">Performs a linear transform on the given value to transform the value from the range -1/1 to 0/1.</td>
+    </tr>
+
+</table>
+
+
+
+
+
+
+<br/>
+<br/>
+
+
+
+
+<h2><a name="functions"></a>Functions</h2>
+<dl class="function">
+
+
+
+<dt><a name="transform.big_linear"></a><strong>transform.big_linear</strong>&nbsp;(value, new_min, new_max)</dt>
+<dd>
+Performs a linear transform on the given value to transform the value from the range -10/10 to 0/1. 
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  value: The value to transform.
+	</li>
+	
+	<li>
+	  new_min: Optional. The minimum value for the new range, defaults to 0.
+	</li>
+	
+	<li>
+	  new_max: Optional. The maximum value for the new range, defaults to 1.
+	</li>
+	
+</ul>
+
+
+
+
+
+
+<h3>Return value:</h3>
+The transformed value.
+
+
+
+</dd>
+
+
+
+
+<dt><a name="transform.centered_linear"></a><strong>transform.centered_linear</strong>&nbsp;(value, min, max, new_min, new_max)</dt>
+<dd>
+Performs a linear transformation on the given value with the peak in center of the min and max values. 
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  value: The value to transform.
+	</li>
+	
+	<li>
+	  min: Optional. The original minimum value, defaults to -1.
+	</li>
+	
+	<li>
+	  max: Optional. The original maximum value, default to 1.
+	</li>
+	
+	<li>
+	  new_min: Optional. The minimum value for the new range, defaults to 0.
+	</li>
+	
+	<li>
+	  new_max: Optional. The maximum value for the new range, defaults to 1.
+	</li>
+	
+</ul>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="transform.cosine"></a><strong>transform.cosine</strong>&nbsp;(value, min, max, new_min, new_max)</dt>
+<dd>
+Performs a cosine transform on the given value to transform the value from one range to another. 
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  value: The value to transform.
+	</li>
+	
+	<li>
+	  min: Optional. The original minimum value of the range, defaults to -1.
+	</li>
+	
+	<li>
+	  max: Optional. The original maximum value of the range, defaults to 1.
+	</li>
+	
+	<li>
+	  new_min: Optional. The minimum value for the new range, defaults to 0.
+	</li>
+	
+	<li>
+	  new_max: Optional. The maximum value for the new range, defaults to 1.
+	</li>
+	
+</ul>
+
+
+
+
+
+
+<h3>Return value:</h3>
+The transformed value.
+
+
+
+</dd>
+
+
+
+
+<dt><a name="transform.linear"></a><strong>transform.linear</strong>&nbsp;(value, min, max, new_min, new_max)</dt>
+<dd>
+Performs a linear transform on the given value to transform the value from one range to another. 
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  value: The value to transform.
+	</li>
+	
+	<li>
+	  min: Optional. The original minimum value of the range, defaults to -1.
+	</li>
+	
+	<li>
+	  max: Optional. The original maximum value of the range, defaults to 1.
+	</li>
+	
+	<li>
+	  new_min: Optional. The minimum value for the new range, defaults to 0.
+	</li>
+	
+	<li>
+	  new_max: Optional. The maximum value for the new range, defaults to 1.
+	</li>
+	
+</ul>
+
+
+
+
+
+
+<h3>Return value:</h3>
+The transformed value.
+
+
+
+</dd>
+
+
+
+
+<dt><a name="transform.small_linear"></a><strong>transform.small_linear</strong>&nbsp;(value, new_min, new_max)</dt>
+<dd>
+Performs a linear transform on the given value to transform the value from the range -1/1 to 0/1. 
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  value: The value to transform.
+	</li>
+	
+	<li>
+	  new_min: Optional. The minimum value for the new range, defaults to 0.
+	</li>
+	
+	<li>
+	  new_max: Optional. The maximum value for the new range, defaults to 1.
+	</li>
+	
+</ul>
+
+
+
+
+
+
+<h3>Return value:</h3>
+The transformed value.
+
+
+
+</dd>
+
+
+</dl>
+
+
+
+
+
+
+
+</div> <!-- id="content" -->
+
+</div> <!-- id="main" -->
+
+<div id="about">
+    <p><a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0!" height="31" width="88" /></a></p>
+</div> <!-- id="about" -->
+
+</div> <!-- id="container" -->
+</body>
+</html>
