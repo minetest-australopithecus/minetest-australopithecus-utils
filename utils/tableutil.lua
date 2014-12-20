@@ -29,6 +29,31 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 tableutil = {}
 
 
+--- Performs a deep/recursive clone on the given table.
+--
+-- @param table The table to deep clone.
+-- @return The clone of the table.
+function tableutil.clone(table)
+	if table == nil then
+		return nil
+	end
+	
+	if type(table) ~= "table" then
+		local clone = table
+		return clone
+	end
+	
+	local clone = {}
+	
+	for key, value in next, table, nil do
+		clone[tableutil.clone(key)] = tableutil.clone(value)
+	end
+	
+	setmetatable(clone, tableutil.clone(getmetatable(table)))
+	
+	return clone
+end
+
 --- Reindexes the given 2d array/table, swapping the two dimensions.
 --
 -- @param data The array/table to reindex.
