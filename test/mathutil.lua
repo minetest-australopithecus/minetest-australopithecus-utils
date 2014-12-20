@@ -1,9 +1,9 @@
 
 -- Load the test file.
-dofile("../utils/test.lua")
+dofile("./utils/test.lua")
 
 -- Load the file for testing.
-dofile("../utils/mathutil.lua")
+dofile("./utils/mathutil.lua")
 
 
 local function test_clamp()

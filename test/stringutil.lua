@@ -1,11 +1,10 @@
 
 -- Load the test file.
-dofile("../utils/test.lua")
+dofile("./utils/test.lua")
 
 -- Load the file for testing.
-dofile("../utils/stringutil.lua")
+dofile("./utils/stringutil.lua")
 
-dofile("../utils/log.lua")
 
 local function test_concat()
 	test.equals("", stringutil.concat(nil))

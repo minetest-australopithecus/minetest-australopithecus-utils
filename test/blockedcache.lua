@@ -1,9 +1,9 @@
 
 -- Load the test file.
-dofile("../utils/test.lua")
+dofile("./utils/test.lua")
 
 -- Load the file for testing.
-dofile("../utils/blockedcache.lua")
+dofile("./utils/blockedcache.lua")
 
 
 local function test_basic()
