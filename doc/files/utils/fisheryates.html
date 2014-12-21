@@ -3,7 +3,7 @@
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
-    <title>Luadocs for utils//mapmanipulator.lua</title>
+    <title>Luadocs for utils//fisheryates.lua</title>
     <link rel="stylesheet" href="../../../luadoc.css" type="text/css" />
     <!--meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/-->
 </head>
@@ -51,10 +51,8 @@
 		<a href="../../../files/utils//constants.html">utils//constants.lua</a>
 	</li>
 
-	<li>
-		<a href="../../../files/utils//fisheryates.html">utils//fisheryates.lua</a>
-	</li>
-
+	<li><strong>utils//fisheryates.lua</strong></li>
+	
 	<li>
 		<a href="../../../files/utils//init.html">utils//init.lua</a>
 	</li>
@@ -71,8 +69,10 @@
 		<a href="../../../files/utils//log.html">utils//log.lua</a>
 	</li>
 
-	<li><strong>utils//mapmanipulator.lua</strong></li>
-	
+	<li>
+		<a href="../../../files/utils//mapmanipulator.html">utils//mapmanipulator.lua</a>
+	</li>
+
 	<li>
 		<a href="../../../files/utils//mathutil.html">utils//mathutil.lua</a>
 	</li>
@@ -116,7 +116,7 @@
 
 <div id="content">
 
-<h1>File <code>utils//mapmanipulator.lua</code></h1>
+<h1>File <code>utils//fisheryates.lua</code></h1>
 
 
 
@@ -128,23 +128,8 @@
 <table class="function_list">
 
     <tr>
-    <td class="name" nowrap><a href="#MapManipulator:get_area">MapManipulator:get_area</a>&nbsp;()</td>
-    <td class="summary">Gets the VoxelArea for the current VoxelManip.</td>
-    </tr>
-
-    <tr>
-    <td class="name" nowrap><a href="#MapManipulator:get_data">MapManipulator:get_data</a>&nbsp;()</td>
-    <td class="summary">Gets the data from the VoxelManip object.</td>
-    </tr>
-
-    <tr>
-    <td class="name" nowrap><a href="#MapManipulator:new">MapManipulator:new</a>&nbsp;()</td>
-    <td class="summary">Creates a new instance of MapManipulator.</td>
-    </tr>
-
-    <tr>
-    <td class="name" nowrap><a href="#MapManipulator:set_data">MapManipulator:set_data</a>&nbsp;(data)</td>
-    <td class="summary">Sets the data into the VoxelManip object.</td>
+    <td class="name" nowrap><a href="#fisheryates.run">fisheryates.run</a>&nbsp;(data, min, max, random_function, action)</td>
+    <td class="summary">Runs the Fisher-Yates algorithm on the given data.</td>
     </tr>
 
 </table>
@@ -165,76 +150,32 @@
 
 
 
-<dt><a name="MapManipulator:get_area"></a><strong>MapManipulator:get_area</strong>&nbsp;()</dt>
+<dt><a name="fisheryates.run"></a><strong>fisheryates.run</strong>&nbsp;(data, min, max, random_function, action)</dt>
 <dd>
-Gets the VoxelArea for the current VoxelManip. 
-
-
-
-
-
-
-
-<h3>Return value:</h3>
-The VoxelArea.
-
-
-
-</dd>
-
-
-
-
-<dt><a name="MapManipulator:get_data"></a><strong>MapManipulator:get_data</strong>&nbsp;()</dt>
-<dd>
-Gets the data from the VoxelManip object. The data is an array that can be accessed by using the VoxelArea object. 
-
-
-
-
-
-
-
-<h3>Return value:</h3>
-The data.
-
-
-
-</dd>
-
-
-
-
-<dt><a name="MapManipulator:new"></a><strong>MapManipulator:new</strong>&nbsp;()</dt>
-<dd>
-Creates a new instance of MapManipulator. 
-
-
-
-
-
-
-
-<h3>Return value:</h3>
-A new instance.
-
-
-
-</dd>
-
-
-
-
-<dt><a name="MapManipulator:set_data"></a><strong>MapManipulator:set_data</strong>&nbsp;(data)</dt>
-<dd>
-Sets the data into the VoxelManip object. Will also correct and update the lighting, the liquids and flush the map. 
+Runs the Fisher-Yates algorithm on the given data.  The given action method is invoked on each item, which means that the action method gets items in random order. 
 
 
 <h3>Parameters</h3>
 <ul>
 	
 	<li>
-	  data: The data to set.
+	  data: The array on which to operate.
+	</li>
+	
+	<li>
+	  min: The minimum index of the array (inclusive).
+	</li>
+	
+	<li>
+	  max: The maximum index of the array (inclusive).
+	</li>
+	
+	<li>
+	  random_function: The method that returns random numbers, assumed to accept two parameters, a minimum and maximum value.
+	</li>
+	
+	<li>
+	  action: The action to perform on each item. Assumed to accept one parameter, the item.
 	</li>
 	
 </ul>
