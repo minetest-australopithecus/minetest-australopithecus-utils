@@ -128,7 +128,7 @@
 <table class="function_list">
 
     <tr>
-    <td class="name" nowrap><a href="#fisheryates.run">fisheryates.run</a>&nbsp;(data, min, max, random_function, action)</td>
+    <td class="name" nowrap><a href="#fisheryates.run">fisheryates.run</a>&nbsp;(data, min, max, random, action)</td>
     <td class="summary">Runs the Fisher-Yates algorithm on the given data.</td>
     </tr>
 
@@ -150,7 +150,7 @@
 
 
 
-<dt><a name="fisheryates.run"></a><strong>fisheryates.run</strong>&nbsp;(data, min, max, random_function, action)</dt>
+<dt><a name="fisheryates.run"></a><strong>fisheryates.run</strong>&nbsp;(data, min, max, random, action)</dt>
 <dd>
 Runs the Fisher-Yates algorithm on the given data.  The given action method is invoked on each item, which means that the action method gets items in random order. 
 
@@ -171,7 +171,7 @@ Runs the Fisher-Yates algorithm on the given data.  The given action method is i
 	</li>
 	
 	<li>
-	  random_function: The method that returns random numbers, assumed to accept two parameters, a minimum and maximum value.
+	  random: The method that returns random numbers, assumed to accept two parameters, a minimum and maximum value. Can also be a table with an instance method like the one descriped above.
 	</li>
 	
 	<li>
