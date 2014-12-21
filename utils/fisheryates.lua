@@ -38,13 +38,23 @@ fisheryates = {}
 -- @param data The array on which to operate.
 -- @param min The minimum index of the array (inclusive).
 -- @param max The maximum index of the array (inclusive).
--- @param random_function The method that returns random numbers, assumed to
---                        accept two parameters, a minimum and maximum value.
+-- @param random The method that returns random numbers, assumed to accept two
+--               parameters, a minimum and maximum value. Can also be a table
+--               with an instance method like the one descriped above.
 -- @param action The action to perform on each item. Assumed to accept one
 --               parameter, the item.
-function fisheryates.run(data, min, max, random_function, action)
+function fisheryates.run(data, min, max, random, action)
+	local random_is_object = type(random) == "userdata"
+	
 	for index = min, max, 1 do
-		local swap_index = random_function(0, 32767)
+		local swap_index = nil
+		
+		if random_is_object then
+			swap_index = random:next(0, 32767)
+		else
+			swap_index = random(0, 32767)
+		end
+		
 		swap_index = transform.linear(swap_index, 0, 32767, index, max)
 		swap_index = mathutil.round(swap_index)
 		
