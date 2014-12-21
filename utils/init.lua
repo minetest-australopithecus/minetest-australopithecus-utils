@@ -31,6 +31,7 @@ local base_path = minetest.get_modpath(minetest.get_current_modname())
 -- Static utils
 dofile(base_path .. "/blockutil.lua")
 dofile(base_path .. "/constants.lua")
+dofile(base_path .. "/fisheryates.lua")
 dofile(base_path .. "/interpolate.lua")
 dofile(base_path .. "/log.lua")
 dofile(base_path .. "/mathutil.lua")
