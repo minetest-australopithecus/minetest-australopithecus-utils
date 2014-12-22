@@ -64,17 +64,30 @@ function NoiseManager:get_noise(octaves, persistence, scale)
 	return minetest.get_perlin(self.next_seed, octaves, persistence, scale)
 end
 
---- Creates a PerlinMap object with the given values.
+-- Creates a PerlinMap object with the given values suitable for 2D noise.
 --
 -- @param octaves The count of octaves.
--- @param persistence The persistence values.
+-- @param persistence The persistence value.
+-- @param scale The scale.
+-- @param spreadx The spread of the x axis.
+-- @param spready Optional. The spread of the y axis, defaults to spreadx.
+-- @param flags Optional. Additional flags for the noise.
+-- return The new PerlinMap object.
+function NoiseManager:get_map2d(octaves, persistence, scale, spreadx, spready, flags)
+	return self:get_map3d(octaves, persistence, scale, spreadx, spready, 1, flags)
+end
+
+-- Creates a PerlinMap object with the given values suitable for 3D noise.
+--
+-- @param octaves The count of octaves.
+-- @param persistence The persistence value.
 -- @param scale The scale.
 -- @param spreadx The spread of the x axis.
 -- @param spready Optional. The spread of the y axis, defaults to spreadx.
 -- @param spreadz Optional. The spread of the z axis, defaults to spreadx.
--- @param eased Optional. If to use eased noise, defaults to false.
--- @return The new PerlinMap object.
-function NoiseManager:get_noise_map(octaves, persistence, scale, spreadx, spready, spreadz, eased)
+-- @param flags Optional. Additional flags for the noise.
+-- return The new PerlinMap object.
+function NoiseManager:get_map3d(octaves, persistence, scale, spreadx, spready, spreadz, flags)
 	self.next_seed = self.next_seed + 1
 	
 	local parameters = {
@@ -88,7 +101,7 @@ function NoiseManager:get_noise_map(octaves, persistence, scale, spreadx, spread
 		seed = self.next_seed,
 		octaves = octaves,
 		persist = persistence,
-		eased = false
+		flags = flags
 	}
 	
 	return minetest.get_perlin_map(parameters, self.map_size)
