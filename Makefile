@@ -9,7 +9,7 @@ clean:
 
 .PHONY: doc
 doc:
-	luadoc -d $(doc) utils/
+	luadoc -d $(doc) utils
 
 .SILENT .PHONY: test
 test: $(test)/*.lua
