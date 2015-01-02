@@ -132,6 +132,11 @@
     <td class="summary">Concats all the given items by invoking tostring on them into one string.</td>
     </tr>
 
+    <tr>
+    <td class="name" nowrap><a href="#stringutil.split">stringutil.split</a>&nbsp;(text, split)</td>
+    <td class="summary">Splits the given text using the given split value.</td>
+    </tr>
+
 </table>
 
 
@@ -171,6 +176,39 @@ Concats all the given items by invoking tostring on them into one string.
 
 <h3>Return value:</h3>
 The concatenated items as string.
+
+
+
+</dd>
+
+
+
+
+<dt><a name="stringutil.split"></a><strong>stringutil.split</strong>&nbsp;(text, split)</dt>
+<dd>
+Splits the given text using the given split value. Returns the splitted text as array indexed beginning with zero. If the string is nil or empty, an empty array will be returned, if it only conists of the split value, the array will contain one empty value. 
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  text: The text to split.
+	</li>
+	
+	<li>
+	  split: The split value.
+	</li>
+	
+</ul>
+
+
+
+
+
+
+<h3>Return value:</h3>
+The array (starting at zero) with the splitted text.
 
 
 

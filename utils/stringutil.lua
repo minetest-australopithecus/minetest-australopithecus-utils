@@ -47,3 +47,35 @@ function stringutil.concat(...)
 	return string
 end
 
+--- Splits the given text using the given split value. Returns the splitted text
+-- as array indexed beginning with zero. If the string is nil or empty, an empty
+-- array will be returned, if it only conists of the split value, the array will
+-- contain one empty value.
+--
+-- @param text The text to split.
+-- @param split The split value.
+-- @return The array (starting at zero) with the splitted text.
+function stringutil.split(text, split)
+	local splitted = List:new()
+	
+	if string ~= nil and #text > 0 then
+		local previous_starts = 0
+		local previous_ends = 0
+		local starts, ends = string.find(text, split, 0, true)
+		
+		while ends ~= nil do
+			splitted:add(string.sub(text, previous_ends + 1, starts - 1))
+			
+			previous_starts = starts
+			previous_ends = ends
+			starts, ends = string.find(text, split, ends, true)
+		end
+		
+		if previous_ends > 0 or splitted:size() == 0 then
+			splitted:add(string.sub(text, previous_ends + 1))
+		end
+	end
+	
+	return splitted:to_table()
+end
+
