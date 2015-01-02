@@ -186,7 +186,7 @@ The concatenated items as string.
 
 <dt><a name="stringutil.split"></a><strong>stringutil.split</strong>&nbsp;(text, split)</dt>
 <dd>
-Splits the given text using the given split value. Returns the splitted text as array indexed beginning with zero. If the string is nil or empty, an empty array will be returned, if it only conists of the split value, the array will contain one empty value. 
+Splits the given text using the given split value. Returns the splitted text as List. If the string is empty or nil, the returned list will not contain any entries. If the string only contains a value without a separator, the list will contain one value, if it contains only the separator, two empty values. 
 
 
 <h3>Parameters</h3>
@@ -208,7 +208,7 @@ Splits the given text using the given split value. Returns the splitted text as 
 
 
 <h3>Return value:</h3>
-The array (starting at zero) with the splitted text.
+The list of splitted values.
 
 
 

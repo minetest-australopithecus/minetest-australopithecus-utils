@@ -48,13 +48,14 @@ function stringutil.concat(...)
 end
 
 --- Splits the given text using the given split value. Returns the splitted text
--- as array indexed beginning with zero. If the string is nil or empty, an empty
--- array will be returned, if it only conists of the split value, the array will
--- contain one empty value.
+-- as List. If the string is empty or nil, the returned list will not contain
+-- any entries. If the string only contains a value without a separator,
+-- the list will contain one value, if it contains only the separator,
+-- two empty values.
 --
 -- @param text The text to split.
 -- @param split The split value.
--- @return The array (starting at zero) with the splitted text.
+-- @return The list of splitted values.
 function stringutil.split(text, split)
 	local splitted = List:new()
 	
@@ -76,6 +77,6 @@ function stringutil.split(text, split)
 		end
 	end
 	
-	return splitted:to_table()
+	return splitted
 end
 
