@@ -37,5 +37,11 @@ test.run("split", function()
 	test.equals("something", splitted:get(1))
 	test.equals("value", splitted:get(2))
 	test.equals("to", splitted:get(3))
+	
+	local params = stringutil.split("-100 100 /some/path/", " ")
+	test.equals(3, params:size())
+	test.equals("-100", params:get(0))
+	test.equals("100", params:get(1))
+	test.equals("/some/path/", params:get(2))
 end)
 

@@ -69,7 +69,7 @@ function stringutil.split(text, split)
 			
 			previous_starts = starts
 			previous_ends = ends
-			starts, ends = string.find(text, split, ends, true)
+			starts, ends = string.find(text, split, ends + 1, true)
 		end
 		
 		if previous_ends > 0 or splitted:size() == 0 then
