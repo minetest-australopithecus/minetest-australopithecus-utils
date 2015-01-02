@@ -53,7 +53,7 @@ end
 -- @param min Optional. The minimum value of the range, defaults to 0.
 -- @param max Optional. The maximum value of the range, defaults to 1.
 -- @return The interpolated value at the given offset.
-function interpolat.linear(offset, min, max)
+function interpolate.linear(offset, min, max)
 	return min * (1 - offset) + max * offset
 end
 
