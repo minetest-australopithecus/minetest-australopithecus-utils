@@ -93,3 +93,18 @@ function List:size()
 	return self.counter
 end
 
+--- Turns this list into a table, the return table will be a zero indexed array,
+-- and can freely be modified as it is not the table used by this instance.
+-- However the items in the returned table are not copies.
+--
+-- @return This list as table.
+function List:to_table()
+	local table = {}
+	
+	self:foreach(function(item, index)
+		table[index] = item
+	end)
+	
+	return table
+end
+

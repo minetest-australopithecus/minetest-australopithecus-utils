@@ -6,7 +6,9 @@ dofile("./utils/test.lua")
 dofile("./utils/list.lua")
 
 
-local function test_clear()
+test.start("list")
+
+test.run("clear", function()
 	local list = List:new()
 	
 	list:add("a")
@@ -18,9 +20,9 @@ local function test_clear()
 	list:clear()
 	
 	test.equals(0, list:size())
-end
+end)
 
-local function test_get()
+test.run("get", function()
 	local list = List:new()
 	
 	list:add("a")
@@ -30,9 +32,9 @@ local function test_get()
 	test.equals("a", list:get(0))
 	test.equals("b", list:get(1))
 	test.equals("c", list:get(2))
-end
+end)
 
-local function test_foreach()
+test.run("foreach", function()
 	local list = List:new()
 	
 	list:add(0)
@@ -47,11 +49,21 @@ local function test_foreach()
 		test.equals(counter, index)
 		counter = counter + 1
 	end)
-end
+end)
 
-
-test.start("list")
-test.run("clear", test_clear)
-test.run("get", test_get)
-test.run("foreach", test_foreach)
+test.run("to_table", function()
+	local list = List:new()
+	
+	list:add(0)
+	list:add(1)
+	list:add(2)
+	list:add(3)
+	
+	local table = list:to_table()
+	
+	test.equals(0, table[0])
+	test.equals(1, table[1])
+	test.equals(2, table[2])
+	test.equals(3, table[3])
+end)
 
