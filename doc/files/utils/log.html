@@ -70,6 +70,10 @@
 	<li><strong>utils/log.lua</strong></li>
 	
 	<li>
+		<a href="../../files/utils/lsystembuilder.html">utils/lsystembuilder.lua</a>
+	</li>
+
+	<li>
 		<a href="../../files/utils/mapmanipulator.html">utils/mapmanipulator.lua</a>
 	</li>
 
@@ -145,6 +149,11 @@
     <tr>
     <td class="name" nowrap><a href="#log.log">log.log</a>&nbsp;(level, ...)</td>
     <td class="summary">Logs a message with the given level.</td>
+    </tr>
+
+    <tr>
+    <td class="name" nowrap><a href="#log.set_print_all">log.set_print_all</a>&nbsp;(print_all)</td>
+    <td class="summary">Allows to activate or deactivate that all messages are printed.</td>
     </tr>
 
     <tr>
@@ -262,6 +271,32 @@ Logs a message with the given level.
 	
 	<li>
 	  ...: The message to log.
+	</li>
+	
+</ul>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="log.set_print_all"></a><strong>log.set_print_all</strong>&nbsp;(print_all)</dt>
+<dd>
+Allows to activate or deactivate that all messages are printed. 
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  print_all: true if all messages should be printed, false if messages should be handed to Minetest (if available).
 	</li>
 	
 </ul>

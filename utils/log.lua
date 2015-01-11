@@ -54,7 +54,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 --
 -- This utility uses the minetest.log() method. If the minetest object is not
 -- available, it will fallback to printing the messages to stdout.
-log = {}
+log = {
+	--- Whether all messages should be printed instead of being handed
+	-- to Minetest (if available).
+	print_all = false
+}
 
 
 --- Logs an action.
@@ -84,11 +88,19 @@ end
 --              stay compatible with minetest.
 -- @param ... The message to log.
 function log.log(level, ...)
-	if minetest ~= nil then
+	if not log.print_all and minetest ~= nil then
 		minetest.log(level, stringutil.concat(...))
 	else
 		print(stringutil.concat("[", string.upper(level), "] ", ...))
 	end
+end
+
+--- Allows to activate or deactivate that all messages are printed.
+--
+-- @param print_all true if all messages should be printed, false if messages
+--                  should be handed to Minetest (if available).
+function log.set_print_all(print_all)
+	log.print_all = print_all
 end
 
 --- Logs a message.
