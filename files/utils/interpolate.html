@@ -70,6 +70,10 @@
 	</li>
 
 	<li>
+		<a href="../../files/utils/lsystembuilder.html">utils/lsystembuilder.lua</a>
+	</li>
+
+	<li>
 		<a href="../../files/utils/mapmanipulator.html">utils/mapmanipulator.lua</a>
 	</li>
 
@@ -132,6 +136,11 @@
     <td class="summary">Performs a cosine interpolation with the given offset between the given min and max values.</td>
     </tr>
 
+    <tr>
+    <td class="name" nowrap><a href="#interpolate.linear">interpolate.linear</a>&nbsp;(offset, min, max)</td>
+    <td class="summary">Performs a linear interpolation with the given offset between the given min and max values.</td>
+    </tr>
+
 </table>
 
 
@@ -153,6 +162,43 @@
 <dt><a name="interpolate.cosine"></a><strong>interpolate.cosine</strong>&nbsp;(offset, min, max)</dt>
 <dd>
 Performs a cosine interpolation with the given offset between the given min and max values. 
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  offset: The offset to get, should be between 0 and 1.
+	</li>
+	
+	<li>
+	  min: Optional. The minimum value of the range, defaults to 0.
+	</li>
+	
+	<li>
+	  max: Optional. The maximum value of the range, defaults to 1.
+	</li>
+	
+</ul>
+
+
+
+
+
+
+<h3>Return value:</h3>
+The interpolated value at the given offset.
+
+
+
+</dd>
+
+
+
+
+<dt><a name="interpolate.linear"></a><strong>interpolate.linear</strong>&nbsp;(offset, min, max)</dt>
+<dd>
+Performs a linear interpolation with the given offset between the given min and max values. 
 
 
 <h3>Parameters</h3>
