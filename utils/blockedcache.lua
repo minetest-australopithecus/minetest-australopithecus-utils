@@ -35,7 +35,7 @@ BlockedCache = {}
 --- Creates a new instance of BlockedCache.
 --
 -- @param max_entries Optional. The maximum entries for the cache which will be
---                    preserved if the cache is compacted, defaults to 9.
+--                    preserved if the cache is compacted, defaults to 12.
 -- @param auto_compact Optional. If the cache performs automatic compaction if
 --                     the maximum numbers of entries is reached, defaults
 --                     to true.
@@ -47,7 +47,7 @@ function BlockedCache:new(max_entries, auto_compact)
 		index = {},
 		index_end = 0,
 		index_start = 0,
-		max_entries = max_entries or 9
+		max_entries = max_entries or 12
 	}
 	
 	setmetatable(instance, self)
