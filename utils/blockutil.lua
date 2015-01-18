@@ -53,3 +53,17 @@ function blockutil.get_begin(x, y, z)
 	return blockutil.get_begin(x), blockutil.get_begin(y), blockutil.get_begin(z)
 end
 
+--- Gets the end coordinates of the block the given coordinates are in.
+--
+-- @param x The x coordinate.
+-- @param y The y coordinate.
+-- @param z The z coordinate.
+-- @return The coordinates (x, y, z) of the block end.
+function blockutil.get_end(x, y, z)
+	if y == nil and z == nil then
+		return blockutil.get_begin(x + constants.block_size) - 1
+	end
+	
+	return blockutil.get_end(x), blockutil.get_end(y), blockutil.get_end(z)
+end
+
