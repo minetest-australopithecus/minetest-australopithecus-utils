@@ -106,3 +106,36 @@ function tableutil.swapped_reindex3d(data, new_x, new_y, new_z)
 	return reindexed_data
 end
 
+--- Returns the string representation of the given table.
+--
+-- @param table The table.
+-- @param indent Optional. The number of spaces of indentation.
+-- @return The string representation of the given table.
+function tableutil.to_string(table, indent)
+	if table == nil then
+		return "nil"
+	end
+	
+	indent = indent or 0
+	
+	if type(table) == "table" then
+		local str = tostring(table) .. " {\n"
+		
+		local indentation = string.rep(" ", indent + 4)
+		
+		for key, value in pairs(table) do
+			str = str .. indentation .. tostring(key) .. " = "
+			str = str .. tableutil.to_string(value, indent + 4) .. ",\n"
+		end
+		
+		str = string.sub(str, 0, string.len(str) - 2)
+		str = str .. "\n" .. string.rep(" ", indent) .. "}"
+		
+		return str
+	elseif type(table) == "string" then
+		return "\"" .. tostring(table) .. "\""
+	else
+		return tostring(table)
+	end
+end
+
