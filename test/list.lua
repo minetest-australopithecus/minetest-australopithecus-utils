@@ -8,6 +8,25 @@ dofile("./utils/list.lua")
 
 test.start("list")
 
+test.run("add", function()
+	local list = List:new()
+	
+	list:add("a")
+	list:add("b")
+	list:add("c")
+	
+	list:add("d", "e", "f")
+	
+	test.equals(6, list:size())
+	
+	test.equals("a", list:get(0))
+	test.equals("b", list:get(1))
+	test.equals("c", list:get(2))
+	test.equals("d", list:get(3))
+	test.equals("e", list:get(4))
+	test.equals("f", list:get(5))
+end)
+
 test.run("clear", function()
 	local list = List:new()
 	
@@ -49,6 +68,26 @@ test.run("foreach", function()
 		test.equals(counter, index)
 		counter = counter + 1
 	end)
+end)
+
+test.run("one_indexed", function()
+	local list = List:new(true)
+	
+	list:add("a")
+	list:add("b")
+	list:add("c")
+	
+	test.equals(nil, list:get(0))
+	test.equals("a", list:get(1))
+	test.equals("b", list:get(2))
+	test.equals("c", list:get(3))
+	
+	local table = list:to_table()
+	
+	test.equals(nil, table[0])
+	test.equals("a", table[1])
+	test.equals("b", table[2])
+	test.equals("c", table[3])
 end)
 
 test.run("to_table", function()

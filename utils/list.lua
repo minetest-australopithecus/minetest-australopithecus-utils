@@ -38,12 +38,20 @@ List = {}
 
 --- Creates a new instance of List.
 --
+-- @param one_indexed Optional. true if the list should be one indexed instead
+--                    of zero indexed.
 -- @return A new instance of List.
-function List:new()
+function List:new(one_indexed)
 	local instance = {
+		base = 0,
 		counter = 0,
 		items = {}
 	}
+	
+	if one_indexed then
+		instance.base = 1
+		instance.counter = 1
+	end
 	
 	setmetatable(instance, self)
 	self.__index = self
@@ -54,15 +62,17 @@ end
 
 --- Adds the given item to the list.
 --
--- @param item The item to add.
-function List:add(item)
-	self.items[self.counter] = item
-	self.counter = self.counter + 1
+-- @param ... The items to add.
+function List:add(...)
+	for idx, value in ipairs({...}) do
+		self.items[self.counter] = value
+		self.counter = self.counter + 1
+	end
 end
 
 --- Clears all entries from the list.
 function List:clear()
-	self.counter = 0
+	self.counter = self.base
 	self.items = {}
 end
 
@@ -71,7 +81,7 @@ end
 -- @param action The function to invoke on the item, the first parameter will be
 --               the item itself, the second (optional) parameter is the index.
 function List:foreach(action)
-	for index = 0, self.counter - 1, 1 do
+	for index = self.base, self.counter - 1, 1 do
 		action(self.items[index], index)
 	end
 end
