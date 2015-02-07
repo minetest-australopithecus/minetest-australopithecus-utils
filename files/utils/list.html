@@ -132,7 +132,7 @@
 <table class="function_list">
 
     <tr>
-    <td class="name" nowrap><a href="#List:add">List:add</a>&nbsp;(item)</td>
+    <td class="name" nowrap><a href="#List:add">List:add</a>&nbsp;(...)</td>
     <td class="summary">Adds the given item to the list.</td>
     </tr>
 
@@ -152,7 +152,7 @@
     </tr>
 
     <tr>
-    <td class="name" nowrap><a href="#List:new">List:new</a>&nbsp;()</td>
+    <td class="name" nowrap><a href="#List:new">List:new</a>&nbsp;(one_indexed)</td>
     <td class="summary">Creates a new instance of List.</td>
     </tr>
 
@@ -184,7 +184,7 @@
 
 
 
-<dt><a name="List:add"></a><strong>List:add</strong>&nbsp;(item)</dt>
+<dt><a name="List:add"></a><strong>List:add</strong>&nbsp;(...)</dt>
 <dd>
 Adds the given item to the list. 
 
@@ -193,7 +193,7 @@ Adds the given item to the list.
 <ul>
 	
 	<li>
-	  item: The item to add.
+	  ...: The items to add.
 	</li>
 	
 </ul>
@@ -282,10 +282,19 @@ The item at the given index. nil if there is no item.
 
 
 
-<dt><a name="List:new"></a><strong>List:new</strong>&nbsp;()</dt>
+<dt><a name="List:new"></a><strong>List:new</strong>&nbsp;(one_indexed)</dt>
 <dd>
 Creates a new instance of List. 
 
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  one_indexed: Optional. true if the list should be one indexed instead of zero indexed.
+	</li>
+	
+</ul>
 
 
 
