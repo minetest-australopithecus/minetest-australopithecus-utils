@@ -3,7 +3,7 @@
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
-    <title>Luadocs for utils/mathutil.lua</title>
+    <title>Luadocs for utils/pathutil.lua</title>
     <link rel="stylesheet" href="../../luadoc.css" type="text/css" />
     <!--meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/-->
 </head>
@@ -75,16 +75,16 @@
 		<a href="../../files/utils/mapmanipulator.html">utils/mapmanipulator.lua</a>
 	</li>
 
-	<li><strong>utils/mathutil.lua</strong></li>
-	
+	<li>
+		<a href="../../files/utils/mathutil.html">utils/mathutil.lua</a>
+	</li>
+
 	<li>
 		<a href="../../files/utils/noisemanager.html">utils/noisemanager.lua</a>
 	</li>
 
-	<li>
-		<a href="../../files/utils/pathutil.html">utils/pathutil.lua</a>
-	</li>
-
+	<li><strong>utils/pathutil.lua</strong></li>
+	
 	<li>
 		<a href="../../files/utils/scatterer.html">utils/scatterer.lua</a>
 	</li>
@@ -120,33 +120,13 @@
 
 <div id="content">
 
-<h1>File <code>utils/mathutil.lua</code></h1>
+<h1>File <code>utils/pathutil.lua</code></h1>
 
 
 
 
 
 
-
-<h2>Functions</h2>
-<table class="function_list">
-
-    <tr>
-    <td class="name" nowrap><a href="#mathutil.clamp">mathutil.clamp</a>&nbsp;(value, min, max)</td>
-    <td class="summary">Clamps one value to the given minimum/maximum values.</td>
-    </tr>
-
-    <tr>
-    <td class="name" nowrap><a href="#mathutil.next_lower_prime">mathutil.next_lower_prime</a>&nbsp;(number)</td>
-    <td class="summary">Gets the next lower prime from the given number.</td>
-    </tr>
-
-    <tr>
-    <td class="name" nowrap><a href="#mathutil.round">mathutil.round</a>&nbsp;(value, decimal_places)</td>
-    <td class="summary">Rounds to the nearest number with the given decimal places.</td>
-    </tr>
-
-</table>
 
 
 
@@ -158,110 +138,6 @@
 
 
 
-
-<h2><a name="functions"></a>Functions</h2>
-<dl class="function">
-
-
-
-<dt><a name="mathutil.clamp"></a><strong>mathutil.clamp</strong>&nbsp;(value, min, max)</dt>
-<dd>
-Clamps one value to the given minimum/maximum values. Defaults to 0 to 1 if min/max are omitted. 
-
-
-<h3>Parameters</h3>
-<ul>
-	
-	<li>
-	  value: The value to clamp.
-	</li>
-	
-	<li>
-	  min: Optional. The minimum value, defaults to 0.
-	</li>
-	
-	<li>
-	  max: Optional. The masximum value, defaults to 1.
-	</li>
-	
-</ul>
-
-
-
-
-
-
-<h3>Return value:</h3>
-The value clamped to the given range.
-
-
-
-</dd>
-
-
-
-
-<dt><a name="mathutil.next_lower_prime"></a><strong>mathutil.next_lower_prime</strong>&nbsp;(number)</dt>
-<dd>
-Gets the next lower prime from the given number. 
-
-
-<h3>Parameters</h3>
-<ul>
-	
-	<li>
-	  number: The number.
-	</li>
-	
-</ul>
-
-
-
-
-
-
-<h3>Return value:</h3>
-The next lower prime.
-
-
-
-</dd>
-
-
-
-
-<dt><a name="mathutil.round"></a><strong>mathutil.round</strong>&nbsp;(value, decimal_places)</dt>
-<dd>
-Rounds to the nearest number with the given decimal places. 
-
-
-<h3>Parameters</h3>
-<ul>
-	
-	<li>
-	  value: The value to round.
-	</li>
-	
-	<li>
-	  decimal_places: Optional. The number of decimal places to round to, defaults to 0.
-	</li>
-	
-</ul>
-
-
-
-
-
-
-<h3>Return value:</h3>
-The rounded value.
-
-
-
-</dd>
-
-
-</dl>
 
 
 
