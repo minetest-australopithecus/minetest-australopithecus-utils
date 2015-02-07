@@ -39,18 +39,24 @@ test = {}
 -- @param actual The actual value.
 -- @param message Optional. The additional message to be printed.
 function test.equals(expected, actual, message)
-	message = message or ""
+	if message ~= nil then
+		message = message .. "\n"
+	else
+		message = ""
+	end
 	
 	if expected == nil and actual ~= nil then
-		error(message .. "\nAssert failed! Expected: <nil> but got <" .. actual .. ">")
+		error(message .. "Assert failed! Expected: <nil> but got <" .. actual .. ">", 2)
 	end
 	
 	if expected ~= nil and actual == nil then
-		error(message .. "\nAssert failed! Expected: <" .. expected .. "> but got <nil>")
+		error(message .. "Assert failed! Expected: <" .. expected .. "> but got <nil>", 2)
 	end
 	
 	if expected ~= nil and actual ~= nil then
-		assert(expected == actual, message .. "\nAssert failed! Expected <" .. tostring(expected) .. "> but got <" .. tostring(actual) .. ">")
+		if expected ~= actual then
+			error(message .. "Assert failed! Expected <" .. tostring(expected) .. "> but got <" .. tostring(actual) .. ">", 2)
+		end
 	end
 end
 
