@@ -47,6 +47,23 @@ function stringutil.concat(...)
 	return string
 end
 
+--- Tests if the given text ends with the given value.
+--
+-- @param text The text to check if it ends with the given value.
+-- @param value The value that text should end with.
+-- @return true if the given text ends with the value.
+function stringutil.endswith(text, value)
+	if text == nil or value == nil then
+		return false
+	end
+	
+	if value == "" then
+		return true
+	end
+	
+	return string.sub(text, -string.len(value)) == value
+end
+
 --- Splits the given text using the given split value. Returns the splitted text
 -- as List. If the string is empty or nil, the returned list will not contain
 -- any entries. If the string only contains a value without a separator,
@@ -78,5 +95,22 @@ function stringutil.split(text, split)
 	end
 	
 	return splitted
+end
+
+--- Tests if the given text starts with the given value.
+--
+-- @param text The text to check if it starts with the given value.
+-- @param value The value that text should start with.
+-- @return true if the given text starts with the value.
+function stringutil.startswith(text, value)
+	if text == nil or value == nil then
+		return false
+	end
+	
+	if value == "" then
+		return true
+	end
+	
+	return string.sub(text, 1, string.len(value)) == value
 end
 

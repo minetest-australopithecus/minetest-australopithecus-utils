@@ -84,6 +84,10 @@
 	</li>
 
 	<li>
+		<a href="../../files/utils/pathutil.html">utils/pathutil.lua</a>
+	</li>
+
+	<li>
 		<a href="../../files/utils/scatterer.html">utils/scatterer.lua</a>
 	</li>
 
@@ -133,8 +137,18 @@
     </tr>
 
     <tr>
+    <td class="name" nowrap><a href="#stringutil.endswith">stringutil.endswith</a>&nbsp;(text, value)</td>
+    <td class="summary">Tests if the given text ends with the given value.</td>
+    </tr>
+
+    <tr>
     <td class="name" nowrap><a href="#stringutil.split">stringutil.split</a>&nbsp;(text, split)</td>
     <td class="summary">Splits the given text using the given split value.</td>
+    </tr>
+
+    <tr>
+    <td class="name" nowrap><a href="#stringutil.startswith">stringutil.startswith</a>&nbsp;(text, value)</td>
+    <td class="summary">Tests if the given text starts with the given value.</td>
     </tr>
 
 </table>
@@ -184,6 +198,39 @@ The concatenated items as string.
 
 
 
+<dt><a name="stringutil.endswith"></a><strong>stringutil.endswith</strong>&nbsp;(text, value)</dt>
+<dd>
+Tests if the given text ends with the given value. 
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  text: The text to check if it ends with the given value.
+	</li>
+	
+	<li>
+	  value: The value that text should end with.
+	</li>
+	
+</ul>
+
+
+
+
+
+
+<h3>Return value:</h3>
+true if the given text ends with the value.
+
+
+
+</dd>
+
+
+
+
 <dt><a name="stringutil.split"></a><strong>stringutil.split</strong>&nbsp;(text, split)</dt>
 <dd>
 Splits the given text using the given split value. Returns the splitted text as List. If the string is empty or nil, the returned list will not contain any entries. If the string only contains a value without a separator, the list will contain one value, if it contains only the separator, two empty values. 
@@ -209,6 +256,39 @@ Splits the given text using the given split value. Returns the splitted text as 
 
 <h3>Return value:</h3>
 The list of splitted values.
+
+
+
+</dd>
+
+
+
+
+<dt><a name="stringutil.startswith"></a><strong>stringutil.startswith</strong>&nbsp;(text, value)</dt>
+<dd>
+Tests if the given text starts with the given value. 
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  text: The text to check if it starts with the given value.
+	</li>
+	
+	<li>
+	  value: The value that text should start with.
+	</li>
+	
+</ul>
+
+
+
+
+
+
+<h3>Return value:</h3>
+true if the given text starts with the value.
 
 
 
