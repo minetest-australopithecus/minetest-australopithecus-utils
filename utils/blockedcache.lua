@@ -41,8 +41,12 @@ BlockedCache = {}
 --                     to true.
 -- @return A new instance of BlockedCache.
 function BlockedCache:new(max_entries, auto_compact)
+	if auto_compact == nil then
+		auto_compact = true
+	end
+	
 	local instance = {
-		auto_compact = auto_compact or true,
+		auto_compact = auto_compact,
 		cache = {},
 		index = {},
 		index_end = 0,
@@ -67,9 +71,15 @@ end
 
 --- Compacts the cache, meaning it removes the oldest entries up to the maximum
 -- number of entries.
-function BlockedCache:compact()
+--
+-- @param max_entries Optional. The maximum number of cache entries to preserve.
+function BlockedCache:compact(max_entries)
+	if max_entries == nil then
+		max_entries = self.max_entries
+	end
+	
 	local new_index = 0
-	local start_index = self.index_end - self.max_entries
+	local start_index = self.index_end - max_entries
 	start_index = math.max(start_index, self.index_start)
 	
 	for old_index = self.index_start, self.index_end - 1, 1 do
