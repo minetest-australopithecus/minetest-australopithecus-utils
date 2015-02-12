@@ -137,7 +137,7 @@
     </tr>
 
     <tr>
-    <td class="name" nowrap><a href="#BlockedCache:compact">BlockedCache:compact</a>&nbsp;()</td>
+    <td class="name" nowrap><a href="#BlockedCache:compact">BlockedCache:compact</a>&nbsp;(max_entries)</td>
     <td class="summary">Compacts the cache, meaning it removes the oldest entries up to the maximum number of entries.</td>
     </tr>
 
@@ -196,10 +196,19 @@ Clears the complete cache.
 
 
 
-<dt><a name="BlockedCache:compact"></a><strong>BlockedCache:compact</strong>&nbsp;()</dt>
+<dt><a name="BlockedCache:compact"></a><strong>BlockedCache:compact</strong>&nbsp;(max_entries)</dt>
 <dd>
-Compacts the cache, meaning it removes the oldest entries up to the maximum number of entries.
+Compacts the cache, meaning it removes the oldest entries up to the maximum number of entries. 
 
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  max_entries: Optional. The maximum number of cache entries to preserve.
+	</li>
+	
+</ul>
 
 
 
