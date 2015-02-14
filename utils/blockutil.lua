@@ -39,12 +39,19 @@ function blockutil.get_begin(x, y, z)
 	if y == nil and z == nil then
 		local begin = x
 		
-		if begin >= 0 then
-			begin = begin - math.fmod(begin, 80)
-			begin = begin - 32
+		if begin >= 48 then
+			local difference = math.fmod(begin + 32, 80)
+			begin = begin - difference
+		elseif begin >= -32 then
+			return -32
 		else
-			begin = begin - math.fmod(begin, 80)
-			begin = begin - 32
+			local difference = math.fmod(math.abs(begin + 32), 80)
+			
+			if difference > 0 then
+				difference = 80 - difference
+			end
+			
+			begin = begin - difference
 		end
 		
 		return begin
