@@ -46,5 +46,3 @@ dofile(base_path .. "/blockedcache.lua")
 dofile(base_path .. "/list.lua")
 dofile(base_path .. "/mapmanipulator.lua")
 dofile(base_path .. "/noisemanager.lua")
-dofile(base_path .. "/scatterer.lua")
-
