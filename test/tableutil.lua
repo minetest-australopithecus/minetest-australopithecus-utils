@@ -4,7 +4,7 @@ dofile("./utils/test.lua")
 
 -- Load the file for testing.
 dofile("./utils/tableutil.lua")
-
+dofile("./utils/mathutil.lua")
 dofile("./utils/list.lua")
 
 test.start("tableutil")

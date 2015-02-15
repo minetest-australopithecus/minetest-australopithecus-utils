@@ -74,7 +74,7 @@ function test.run(name, test_method)
 	local status, err = pcall(test_method)
 	
 	if status then
-		local time = math.floor((os.clock() - start) * 1000)
+		local time = mathutil.round((os.clock() - start) * 1000, 3)
 		print("Passed (" .. tostring(time) .. " ms)")
 	else
 		local indentation = string.rep(" ", 25)

@@ -4,6 +4,7 @@ dofile("./utils/test.lua")
 
 -- Load the file for testing.
 dofile("./utils/transform.lua")
+dofile("./utils/mathutil.lua")
 
 
 local function test_big_linear()

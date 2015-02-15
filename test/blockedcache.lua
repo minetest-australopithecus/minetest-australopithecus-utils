@@ -4,6 +4,7 @@ dofile("./utils/test.lua")
 
 -- Load the file for testing.
 dofile("./utils/blockedcache.lua")
+dofile("./utils/mathutil.lua")
 
 
 test.start("BlockedCache")

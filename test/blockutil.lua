@@ -4,8 +4,8 @@ dofile("./utils/test.lua")
 
 -- Load the file for testing.
 dofile("./utils/blockutil.lua")
-
 dofile("./utils/constants.lua")
+dofile("./utils/mathutil.lua")
 
 
 test.start("blockutil")
