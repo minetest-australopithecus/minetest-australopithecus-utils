@@ -46,7 +46,11 @@ function tableutil.clone(table)
 	local clone = {}
 	
 	for key, value in next, table, nil do
-		clone[tableutil.clone(key)] = tableutil.clone(value)
+		if value ~= table then
+			clone[tableutil.clone(key)] = tableutil.clone(value)
+		else
+			clone[key] = value
+		end
 	end
 	
 	setmetatable(clone, tableutil.clone(getmetatable(table)))
