@@ -49,7 +49,7 @@ function tableutil.clone(table)
 		if value ~= table then
 			clone[tableutil.clone(key)] = tableutil.clone(value)
 		else
-			clone[key] = value
+			clone[tableutil.clone(key)] = clone
 		end
 	end
 	
