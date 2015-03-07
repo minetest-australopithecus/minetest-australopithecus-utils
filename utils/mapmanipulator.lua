@@ -115,6 +115,7 @@ function MapManipulator:set_data(data)
 	
 	self.data = nil
 end
+
 --- Sets the node at the given location.
 --
 -- @param x The x coordinate (width).
