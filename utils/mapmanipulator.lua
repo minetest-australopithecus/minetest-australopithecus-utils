@@ -27,7 +27,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 --- The MapManipulator is a thin wrapper around the VoxelManip object
 -- provided by minetest. It only capsules the VoxelManip and VoxelArea behind
--- a few functions so to minimize code.
+-- a few functions to minimize code.
 MapManipulator = {}
 
 
@@ -37,6 +37,7 @@ MapManipulator = {}
 function MapManipulator:new()
 	local instance = {
 		area = nil,
+		data = nil,
 		emax = nil,
 		emin = nil,
 		voxelmanip = nil
@@ -67,15 +68,41 @@ end
 --
 -- @return The data.
 function MapManipulator:get_data()
-	return self.voxelmanip:get_data()
+	if self.data == nil then
+		self.data = self.voxelmanip:get_data()
+	end
+	
+	return self.data
+end
+
+--- Gets the node at the given location.
+--
+-- @param x The x coordinate (width).
+-- @param z the z coordinate (depth).
+-- @param y The y coordinate (height).
+-- @return The node at the given location.
+function MapManipulator:get_node(x, z, y)
+	if self.data == nil then
+		self.data = self.voxelmanip:get_data()
+	end
+	
+	local index = self.area:index(x, y, z)
+	
+	return self.data[index]
 end
 
 --- Sets the data into the VoxelManip object.
 -- Will also correct and update the lighting, the liquids and flush the map.
 --
--- @param data The data to set.
+-- @param data Optional. The data to set. If nil the cached data will be used.
 function MapManipulator:set_data(data)
-	self.voxelmanip:set_data(data)
+	if data ~= nil then
+		self.voxelmanip:set_data(data)	
+	elseif self.data ~= nil then
+		self.voxelmanip:set_data(self.data)
+	else
+		return
+	end
 
 	self.voxelmanip:set_lighting({
 		day = 1,
@@ -85,5 +112,22 @@ function MapManipulator:set_data(data)
 	self.voxelmanip:update_liquids()
 	self.voxelmanip:write_to_map()
 	self.voxelmanip:update_map()
+	
+	self.data = nil
+end
+--- Sets the node at the given location.
+--
+-- @param x The x coordinate (width).
+-- @param z the z coordinate (depth).
+-- @param y The y coordinate (height).
+-- @param node The node to set.
+function MapManipulator:set_node(x, z, y, node)
+	if self.data == nil then
+		self.data = self.voxelmanip:get_data()
+	end
+	
+	local index = self.area:index(x, y, z)
+	
+	self.data[index] = node
 end
 
