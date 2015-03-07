@@ -138,6 +138,11 @@
     </tr>
 
     <tr>
+    <td class="name" nowrap><a href="#MapManipulator:get_node">MapManipulator:get_node</a>&nbsp;(x, z, y)</td>
+    <td class="summary">Gets the node at the given location.</td>
+    </tr>
+
+    <tr>
     <td class="name" nowrap><a href="#MapManipulator:new">MapManipulator:new</a>&nbsp;()</td>
     <td class="summary">Creates a new instance of MapManipulator.</td>
     </tr>
@@ -145,6 +150,11 @@
     <tr>
     <td class="name" nowrap><a href="#MapManipulator:set_data">MapManipulator:set_data</a>&nbsp;(data)</td>
     <td class="summary">Sets the data into the VoxelManip object.</td>
+    </tr>
+
+    <tr>
+    <td class="name" nowrap><a href="#MapManipulator:set_node">MapManipulator:set_node</a>&nbsp;(x, z, y, node)</td>
+    <td class="summary">Sets the node at the given location.</td>
     </tr>
 
 </table>
@@ -205,6 +215,43 @@ The data.
 
 
 
+<dt><a name="MapManipulator:get_node"></a><strong>MapManipulator:get_node</strong>&nbsp;(x, z, y)</dt>
+<dd>
+Gets the node at the given location. 
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  x: The x coordinate (width).
+	</li>
+	
+	<li>
+	  z: the z coordinate (depth).
+	</li>
+	
+	<li>
+	  y: The y coordinate (height).
+	</li>
+	
+</ul>
+
+
+
+
+
+
+<h3>Return value:</h3>
+The node at the given location.
+
+
+
+</dd>
+
+
+
+
 <dt><a name="MapManipulator:new"></a><strong>MapManipulator:new</strong>&nbsp;()</dt>
 <dd>
 Creates a new instance of MapManipulator. 
@@ -234,7 +281,45 @@ Sets the data into the VoxelManip object. Will also correct and update the light
 <ul>
 	
 	<li>
-	  data: The data to set.
+	  data: Optional. The data to set. If nil the cached data will be used.
+	</li>
+	
+</ul>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="MapManipulator:set_node"></a><strong>MapManipulator:set_node</strong>&nbsp;(x, z, y, node)</dt>
+<dd>
+Sets the node at the given location. 
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  x: The x coordinate (width).
+	</li>
+	
+	<li>
+	  z: the z coordinate (depth).
+	</li>
+	
+	<li>
+	  y: The y coordinate (height).
+	</li>
+	
+	<li>
+	  node: The node to set.
 	</li>
 	
 </ul>
