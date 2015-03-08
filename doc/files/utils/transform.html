@@ -133,6 +133,16 @@
     </tr>
 
     <tr>
+    <td class="name" nowrap><a href="#transform.centered">transform.centered</a>&nbsp;(value, transformation, min, max, new_min, new_max)</td>
+    <td class="summary">Performs the given transformation on the given value with the peak in center of the min and max values.</td>
+    </tr>
+
+    <tr>
+    <td class="name" nowrap><a href="#transform.centered_cosine">transform.centered_cosine</a>&nbsp;(value, min, max, new_min, new_max)</td>
+    <td class="summary">Performs a cosine transformation on the given value with the peak in center of the min and max values.</td>
+    </tr>
+
+    <tr>
     <td class="name" nowrap><a href="#transform.centered_linear">transform.centered_linear</a>&nbsp;(value, min, max, new_min, new_max)</td>
     <td class="summary">Performs a linear transformation on the given value with the peak in center of the min and max values.</td>
     </tr>
@@ -180,6 +190,100 @@ Performs a linear transform on the given value to transform the value from the r
 	
 	<li>
 	  value: The value to transform.
+	</li>
+	
+	<li>
+	  new_min: Optional. The minimum value for the new range, defaults to 0.
+	</li>
+	
+	<li>
+	  new_max: Optional. The maximum value for the new range, defaults to 1.
+	</li>
+	
+</ul>
+
+
+
+
+
+
+<h3>Return value:</h3>
+The transformed value.
+
+
+
+</dd>
+
+
+
+
+<dt><a name="transform.centered"></a><strong>transform.centered</strong>&nbsp;(value, transformation, min, max, new_min, new_max)</dt>
+<dd>
+Performs the given transformation on the given value with the peak in center of the min and max values. 
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  value: The value to transform.
+	</li>
+	
+	<li>
+	  transformation: The transformation function, assumed to accept five values.
+	</li>
+	
+	<li>
+	  min: Optional. The original minimum value, defaults to -1.
+	</li>
+	
+	<li>
+	  max: Optional. The original maximum value, default to 1.
+	</li>
+	
+	<li>
+	  new_min: Optional. The minimum value for the new range, defaults to 0.
+	</li>
+	
+	<li>
+	  new_max: Optional. The maximum value for the new range, defaults to 1.
+	</li>
+	
+</ul>
+
+
+
+
+
+
+<h3>Return value:</h3>
+The transformed value.
+
+
+
+</dd>
+
+
+
+
+<dt><a name="transform.centered_cosine"></a><strong>transform.centered_cosine</strong>&nbsp;(value, min, max, new_min, new_max)</dt>
+<dd>
+Performs a cosine transformation on the given value with the peak in center of the min and max values. 
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  value: The value to transform.
+	</li>
+	
+	<li>
+	  min: Optional. The original minimum value, defaults to -1.
+	</li>
+	
+	<li>
+	  max: Optional. The original maximum value, default to 1.
 	</li>
 	
 	<li>

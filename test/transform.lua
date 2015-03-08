@@ -3,6 +3,7 @@
 dofile("./utils/test.lua")
 
 -- Load the file for testing.
+dofile("./utils/interpolate.lua")
 dofile("./utils/transform.lua")
 dofile("./utils/mathutil.lua")
 

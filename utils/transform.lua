@@ -40,6 +40,43 @@ function transform.big_linear(value, new_min, new_max)
 	return transform.linear(value, -10, 10, new_min, new_max)
 end
 
+--- Performs the given transformation on the given value with the peak in center
+-- of the min and max values.
+--
+-- @param value The value to transform.
+-- @param transformation The transformation function, assumed to accept five
+--                       values.
+-- @param min Optional. The original minimum value, defaults to -1.
+-- @param max Optional. The original maximum value, default to 1.
+-- @param new_min Optional. The minimum value for the new range, defaults to 0.
+-- @param new_max Optional. The maximum value for the new range, defaults to 1.
+-- @return The transformed value.
+function transform.centered(value, transformation, min, max, new_min, new_max)
+	min = min or -1
+	max = max or 1
+	
+	local center = (min + max) / 2
+	
+	if value < center then
+		return transformation(value, min, center, new_min, new_max)
+	else
+		return transformation(value, max, center, new_min, new_max)
+	end
+end
+
+--- Performs a cosine transformation on the given value with the peak in center
+-- of the min and max values.
+--
+-- @param value The value to transform.
+-- @param min Optional. The original minimum value, defaults to -1.
+-- @param max Optional. The original maximum value, default to 1.
+-- @param new_min Optional. The minimum value for the new range, defaults to 0.
+-- @param new_max Optional. The maximum value for the new range, defaults to 1.
+-- @return The transformed value.
+function transform.centered_cosine(value, min, max, new_min, new_max)
+	return transform.centered(value, transform.cosine, min, max, new_min, new_max)
+end
+
 --- Performs a linear transformation on the given value with the peak in center
 -- of the min and max values.
 --
@@ -49,16 +86,7 @@ end
 -- @param new_min Optional. The minimum value for the new range, defaults to 0.
 -- @param new_max Optional. The maximum value for the new range, defaults to 1.
 function transform.centered_linear(value, min, max, new_min, new_max)
-	min = min or -1
-	max = max or 1
-	
-	local center = (min + max) / 2
-	
-	if value < center then
-		return transform.linear(value, min, center, new_min, new_max)
-	else
-		return transform.linear(value, max, center, new_min, new_max)
-	end
+	return transform.centered(value, transform.linear, min, max, new_min, new_max)
 end
 
 --- Performs a cosine transform on the given value to transform the value
