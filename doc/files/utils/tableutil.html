@@ -133,6 +133,11 @@
     </tr>
 
     <tr>
+    <td class="name" nowrap><a href="#tableutil.merge">tableutil.merge</a>&nbsp;(...)</td>
+    <td class="summary">Merges the given tables into one instance.</td>
+    </tr>
+
+    <tr>
     <td class="name" nowrap><a href="#tableutil.swapped_reindex2d">tableutil.swapped_reindex2d</a>&nbsp;(data, new_x, new_y)</td>
     <td class="summary">Reindexes the given 2d array/table, swapping the two dimensions.</td>
     </tr>
@@ -186,6 +191,35 @@ Performs a deep/recursive clone on the given table.
 
 <h3>Return value:</h3>
 The clone of the table.
+
+
+
+</dd>
+
+
+
+
+<dt><a name="tableutil.merge"></a><strong>tableutil.merge</strong>&nbsp;(...)</dt>
+<dd>
+Merges the given tables into one instance. Note that no cloning is performed so fields may refer to the same instances. 
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  ...: The tables to merge.
+	</li>
+	
+</ul>
+
+
+
+
+
+
+<h3>Return value:</h3>
+The merged table.
 
 
 

@@ -74,3 +74,25 @@ test.run("clone_table", function()
 	test.equals("test", clone.table.deep)
 end)
 
+test.run("merge", function()
+	local tablea = {
+		null = nil,
+		int = 5,
+		value = "something"
+	}
+	
+	local tableb = {
+		bool = true,
+		value = "overriden",
+		new_value = "new"
+	}
+	
+	local merged = tableutil.merge(tablea, tableb)
+	
+	test.equals(merged.null, nil)
+	test.equals(merged.int, 5)
+	test.equals(merged.bool, true)
+	test.equals(merged.value, "overriden")
+	test.equals(merged.new_value, "new")
+end)
+

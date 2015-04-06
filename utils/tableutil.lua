@@ -58,6 +58,27 @@ function tableutil.clone(table)
 	return clone
 end
 
+--- Merges the given tables into one instance. Note that no cloning is performed
+-- so fields may refer to the same instances.
+--
+-- @param ... The tables to merge.
+-- @return The merged table.
+function tableutil.merge(...)
+	if ... == nil then
+		return nil
+	end
+	
+	local merged = {}
+	
+	for index, table in ipairs({...}) do
+		for key, value in next, table, nil do
+			merged[key] = value
+		end
+	end
+	
+	return merged
+end
+
 --- Reindexes the given 2d array/table, swapping the two dimensions.
 --
 -- @param data The array/table to reindex.
