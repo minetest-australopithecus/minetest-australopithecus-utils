@@ -3,7 +3,7 @@
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
-    <title>Luadocs for utils/noisemanager.lua</title>
+    <title>Luadocs for utils/tango.lua</title>
     <link rel="stylesheet" href="../../luadoc.css" type="text/css" />
     <!--meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/-->
 </head>
@@ -83,8 +83,10 @@
 		<a href="../../files/utils/mathutil.html">utils/mathutil.lua</a>
 	</li>
 
-	<li><strong>utils/noisemanager.lua</strong></li>
-	
+	<li>
+		<a href="../../files/utils/noisemanager.html">utils/noisemanager.lua</a>
+	</li>
+
 	<li>
 		<a href="../../files/utils/pathutil.html">utils/pathutil.lua</a>
 	</li>
@@ -101,10 +103,8 @@
 		<a href="../../files/utils/tableutil.html">utils/tableutil.lua</a>
 	</li>
 
-	<li>
-		<a href="../../files/utils/tango.html">utils/tango.lua</a>
-	</li>
-
+	<li><strong>utils/tango.lua</strong></li>
+	
 	<li>
 		<a href="../../files/utils/test.html">utils/test.lua</a>
 	</li>
@@ -124,38 +124,13 @@
 
 <div id="content">
 
-<h1>File <code>utils/noisemanager.lua</code></h1>
+<h1>File <code>utils/tango.lua</code></h1>
 
 
 
 
 
 
-
-<h2>Functions</h2>
-<table class="function_list">
-
-    <tr>
-    <td class="name" nowrap><a href="#NoiseManager:get_next_seed">NoiseManager:get_next_seed</a>&nbsp;()</td>
-    <td class="summary">Gets the next seed that will be used.</td>
-    </tr>
-
-    <tr>
-    <td class="name" nowrap><a href="#NoiseManager:get_noise">NoiseManager:get_noise</a>&nbsp;(octaves, persistence, scale)</td>
-    <td class="summary">Creates a Perlin object with the given values.</td>
-    </tr>
-
-    <tr>
-    <td class="name" nowrap><a href="#NoiseManager:get_random">NoiseManager:get_random</a>&nbsp;()</td>
-    <td class="summary">Creates a PseudoRandom object.</td>
-    </tr>
-
-    <tr>
-    <td class="name" nowrap><a href="#NoiseManager:new">NoiseManager:new</a>&nbsp;(start_seed)</td>
-    <td class="summary">Creates a new instance of NoiseManager.</td>
-    </tr>
-
-</table>
 
 
 
@@ -167,117 +142,6 @@
 
 
 
-
-<h2><a name="functions"></a>Functions</h2>
-<dl class="function">
-
-
-
-<dt><a name="NoiseManager:get_next_seed"></a><strong>NoiseManager:get_next_seed</strong>&nbsp;()</dt>
-<dd>
-Gets the next seed that will be used. Does not increment the counter. 
-
-
-
-
-
-
-
-<h3>Return value:</h3>
-The next seed that will be used.
-
-
-
-</dd>
-
-
-
-
-<dt><a name="NoiseManager:get_noise"></a><strong>NoiseManager:get_noise</strong>&nbsp;(octaves, persistence, scale)</dt>
-<dd>
-Creates a Perlin object with the given values. 
-
-
-<h3>Parameters</h3>
-<ul>
-	
-	<li>
-	  octaves: The count of octaves.
-	</li>
-	
-	<li>
-	  persistence: The persistence values.
-	</li>
-	
-	<li>
-	  scale: The scale.
-	</li>
-	
-</ul>
-
-
-
-
-
-
-<h3>Return value:</h3>
-The new Perlin object.
-
-
-
-</dd>
-
-
-
-
-<dt><a name="NoiseManager:get_random"></a><strong>NoiseManager:get_random</strong>&nbsp;()</dt>
-<dd>
-Creates a PseudoRandom object. 
-
-
-
-
-
-
-
-<h3>Return value:</h3>
-The new PseudoRandom object.
-
-
-
-</dd>
-
-
-
-
-<dt><a name="NoiseManager:new"></a><strong>NoiseManager:new</strong>&nbsp;(start_seed)</dt>
-<dd>
-Creates a new instance of NoiseManager. 
-
-
-<h3>Parameters</h3>
-<ul>
-	
-	<li>
-	  start_seed: Optional. The initial seed value, defaults to 0.
-	</li>
-	
-</ul>
-
-
-
-
-
-
-<h3>Return value:</h3>
-A new instance of NoiseManager.
-
-
-
-</dd>
-
-
-</dl>
 
 
 
