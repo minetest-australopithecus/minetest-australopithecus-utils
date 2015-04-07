@@ -1,5 +1,5 @@
 --[[
-Copyright (c) 2014, Robert 'Bobby' Zenz
+Copyright (c) 2015, Robert 'Bobby' Zenz
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -25,28 +25,19 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 --]]
 
 
--- Get the base path.
-local base_path = minetest.get_modpath(minetest.get_current_modname())
+--- Util for various functions regarding textures.
+textureutil = {}
 
--- Instance utils
-dofile(base_path .. "/blockedcache.lua")
-dofile(base_path .. "/color.lua")
-dofile(base_path .. "/list.lua")
-dofile(base_path .. "/mapmanipulator.lua")
-dofile(base_path .. "/noisemanager.lua")
 
--- Static utils
-dofile(base_path .. "/blockutil.lua")
-dofile(base_path .. "/constants.lua")
-dofile(base_path .. "/fisheryates.lua")
-dofile(base_path .. "/interpolate.lua")
-dofile(base_path .. "/log.lua")
-dofile(base_path .. "/mathutil.lua")
-dofile(base_path .. "/pathutil.lua")
-dofile(base_path .. "/stopwatch.lua")
-dofile(base_path .. "/stringutil.lua")
-dofile(base_path .. "/tableutil.lua")
-dofile(base_path .. "/tango.lua")
-dofile(base_path .. "/textureutil.lua")
-dofile(base_path .. "/transform.lua")
+--- Creates a dummy texture with the two given colors.
+--
+-- @param inner_color The color for the inner part.
+-- @param border_color The color for the border.
+-- @return The dummy texture (string).
+function textureutil.dummy(inner_color, border_color)
+	local inner = "(inner.png^[colorize:#" .. inner_color.hex .. ":240)"
+	local border = "(border.png^[colorize:#" .. border_color.hex .. ":255)"
+	
+	return inner .. "^" .. border
+end
 
