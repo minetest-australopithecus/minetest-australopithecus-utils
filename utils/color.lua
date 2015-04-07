@@ -52,7 +52,7 @@ function Color:new(red, green, blue)
 		blue = mathutil.clamp(blue, 0, 255)
 	}
 	
-	instance.hex = string.format("%X%X%X", instance.red, instance.green, instance.blue)
+	instance.hex = string.format("%02X%02X%02X", instance.red, instance.green, instance.blue)
 	
 	setmetatable(instance, self)
 	self.__index = self
