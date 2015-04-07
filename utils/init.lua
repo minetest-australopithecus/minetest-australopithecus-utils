@@ -39,10 +39,12 @@ dofile(base_path .. "/pathutil.lua")
 dofile(base_path .. "/stopwatch.lua")
 dofile(base_path .. "/stringutil.lua")
 dofile(base_path .. "/tableutil.lua")
+dofile(base_path .. "/tango.lua")
 dofile(base_path .. "/transform.lua")
 
 -- Instance utils
 dofile(base_path .. "/blockedcache.lua")
+dofile(base_path .. "/color.lua")
 dofile(base_path .. "/list.lua")
 dofile(base_path .. "/mapmanipulator.lua")
 dofile(base_path .. "/noisemanager.lua")
