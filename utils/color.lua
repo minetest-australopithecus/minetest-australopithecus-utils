@@ -30,13 +30,13 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -- Even though it is not enforced, this container is assumed to be imutable.
 Color = {
 	--- The red component, a number between 0 and 255.
-	red,
+	red = 0,
 	--- The green component, a number between 0 and 255.
-	green,
+	green = 0,
 	--- The blue component, a number between 0 and 255.
-	blue,
+	blue = 0,
 	--- The hex representation, like FFFFFF for white.
-	hex
+	hex = "000000"
 }
 
 
