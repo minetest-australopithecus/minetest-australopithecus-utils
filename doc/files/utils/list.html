@@ -150,6 +150,11 @@
     </tr>
 
     <tr>
+    <td class="name" nowrap><a href="#List:contains">List:contains</a>&nbsp;(item)</td>
+    <td class="summary">Checks if this list contains the given item.</td>
+    </tr>
+
+    <tr>
     <td class="name" nowrap><a href="#List:foreach">List:foreach</a>&nbsp;(action)</td>
     <td class="summary">Iterates over all items in the list and invokes the given action on them.</td>
     </tr>
@@ -157,6 +162,11 @@
     <tr>
     <td class="name" nowrap><a href="#List:get">List:get</a>&nbsp;(index)</td>
     <td class="summary">Gets the item at the given index.</td>
+    </tr>
+
+    <tr>
+    <td class="name" nowrap><a href="#List:index">List:index</a>&nbsp;(item, equals)</td>
+    <td class="summary">Returns the index of the given item.</td>
     </tr>
 
     <tr>
@@ -235,6 +245,35 @@ Clears all entries from the list.
 
 
 
+<dt><a name="List:contains"></a><strong>List:contains</strong>&nbsp;(item)</dt>
+<dd>
+Checks if this list contains the given item. 
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  item: The item to search for.
+	</li>
+	
+</ul>
+
+
+
+
+
+
+<h3>Return value:</h3>
+true if this list contains the given item.
+
+
+
+</dd>
+
+
+
+
 <dt><a name="List:foreach"></a><strong>List:foreach</strong>&nbsp;(action)</dt>
 <dd>
 Iterates over all items in the list and invokes the given action on them. 
@@ -282,6 +321,39 @@ Gets the item at the given index. Returns nil if there is no item. Note that the
 
 <h3>Return value:</h3>
 The item at the given index. nil if there is no item.
+
+
+
+</dd>
+
+
+
+
+<dt><a name="List:index"></a><strong>List:index</strong>&nbsp;(item, equals)</dt>
+<dd>
+Returns the index of the given item. 
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  item: The item for which to get the index.
+	</li>
+	
+	<li>
+	  equals: Optional. The equals function to use.
+	</li>
+	
+</ul>
+
+
+
+
+
+
+<h3>Return value:</h3>
+The index of the given item. -1 if this item is not in this list.
 
 
 

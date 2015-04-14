@@ -71,6 +71,18 @@ test.run("foreach", function()
 	end)
 end)
 
+test.run("index", function()
+	local list = List:new()
+	list:add("a", "b", "c", "d", "e")
+	
+	test.equals(0, list:index("a"))
+	test.equals(2, list:index("c"))
+	test.equals(4, list:index("e"))
+	
+	test.equals(-1, list:index(" "))
+	test.equals(-1, list:index("f"))
+end)
+
 test.run("one_indexed", function()
 	local list = List:new(true)
 	

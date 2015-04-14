@@ -76,6 +76,14 @@ function List:clear()
 	self.items = {}
 end
 
+--- Checks if this list contains the given item.
+--
+-- @param item The item to search for.
+-- @return true if this list contains the given item.
+function List:contains(item)
+	return self:index(item) >= 0
+end
+
 --- Iterates over all items in the list and invokes the given action on them.
 --
 -- @param action The function to invoke on the item, the first parameter will be
@@ -94,6 +102,25 @@ end
 -- @return The item at the given index. nil if there is no item.
 function List:get(index)
 	return self.items[index]
+end
+
+--- Returns the index of the given item.
+--
+-- @param item The item for which to get the index.
+-- @param equals Optional. The equals function to use.
+-- @return The index of the given item. -1 if this item is not in this list.
+function List:index(item, equals)
+	equals = equals or function(a, b)
+		return a == b
+	end
+	
+	for index = self.base, self.counter - 1, 1 do
+		if equals(self.items[index], item) then
+			return index
+		end
+	end
+	
+	return -1
 end
 
 --- Gets the size of the list.
