@@ -74,6 +74,69 @@ test.run("clone_table", function()
 	test.equals("test", clone.table.deep)
 end)
 
+test.run("equals", function()
+	test.equals(true, tableutil.equals(nil, nil))
+	
+	test.equals(false, tableutil.equals(1, nil))
+	test.equals(false, tableutil.equals(nil, 1))
+	
+	test.equals(true, tableutil.equals(1, 1))
+	test.equals(true, tableutil.equals("string", "string"))
+	
+	local a = {
+		int = 5,
+		string = "test",
+		table = {
+			deep = "test2"
+		}
+	}
+	
+	local b = {
+		int = 5,
+		string = "test",
+		table = {
+			deep = "test2"
+		}
+	}
+	
+	test.equals(true, tableutil.equals(a, b))
+	test.equals(true, tableutil.equals(b, a))
+	
+	b.table.deep = "different"
+	
+	test.equals(false, tableutil.equals(a, b))
+	test.equals(false, tableutil.equals(b, a))
+	
+	b.table.deep = "test2"
+	b.table.different = "different"
+	
+	test.equals(false, tableutil.equals(a, b))
+	test.equals(false, tableutil.equals(b, a))
+end)
+
+test.run("keys", function()
+	local a = {
+		int = 5,
+		string = "test",
+		table = {
+			deep = "test"
+		}
+	}
+	
+	local b = {
+		int = 7,
+		newkey = false
+	}
+	
+	local keys = tableutil.keys(a, b)
+	
+	test.equals(4, keys:size())
+	test.equals(true, keys:contains("int"))
+	test.equals(true, keys:contains("string"))
+	test.equals(true, keys:contains("table"))
+	test.equals(true, keys:contains("newkey"))
+end)
+
 test.run("merge", function()
 	local tablea = {
 		null = nil,

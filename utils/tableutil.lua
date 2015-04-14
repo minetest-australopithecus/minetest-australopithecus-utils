@@ -58,6 +58,62 @@ function tableutil.clone(table)
 	return clone
 end
 
+--- Tests the two given tables for equality.
+--
+-- @param a The first table.
+-- @param b The second table.
+-- @retunr true if the tables are equal.
+function tableutil.equals(a, b)
+	if a == b then
+		return true
+	end
+	
+	if type(a) ~= "table" or type(b) ~= "table" then
+		return a == b
+	end
+	
+	local keys = tableutil.keys(a, b):to_table()
+	
+	for index, key in pairs(keys) do
+		local valuea = a[key]
+		local valueb = b[key]
+		
+		if type(valuea) == "table" then
+			if not tableutil.equals(valuea, valueb) then
+				return false
+			end
+		else
+			if valuea ~= valueb then
+				return false
+			end		
+		end
+	end
+	
+	return true
+end
+
+--- Returns a (unique) list with all keys of all tables.
+--
+-- @param ... The list of tables.
+-- @return A list with all keys.
+function tableutil.keys(...)
+	if ... == nil then
+		return {}
+	end
+	
+	local keys = List:new()
+	
+	for index, table in ipairs({...}) do
+		for key, value in pairs(table) do
+			if not keys:contains(key) then
+				keys:add(key)
+			end
+		end
+	end
+	
+	return keys
+end
+
 --- Merges the given tables into one instance. Note that no cloning is performed
 -- so fields may refer to the same instances.
 --
