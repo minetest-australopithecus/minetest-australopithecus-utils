@@ -72,6 +72,10 @@ function tableutil.equals(a, b)
 		return a == b
 	end
 	
+	if #a ~= #b then
+		return false
+	end
+	
 	local keys = tableutil.keys(a, b):to_table()
 	
 	for index, key in pairs(keys) do
