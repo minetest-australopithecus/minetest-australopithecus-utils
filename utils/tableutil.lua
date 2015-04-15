@@ -139,6 +139,90 @@ function tableutil.merge(...)
 	return merged
 end
 
+--- Removes empty rows and columns at the beginning and the end of teh given
+-- 2D table.
+--
+-- @param table The 2D table.
+-- @param is_empty Optional. The function used for determining if the item is
+--                 empty. By default nil and an empty string is considered
+--                 empty. Expected is a function that takes one item and returns
+--                 a boolean.
+function tableutil.reduce2d(table, is_empty)
+	is_empty = is_empty or function(item)
+		return item == nil or item == ""
+	end
+	
+	local first_row = -1
+	local last_row = -1
+	
+	for row_index = 1, #table, 1 do
+		local row = table[row_index]
+		local row_is_empty = true
+		
+		for column_index = 1, #row, 1 do
+			if not is_empty(row[column_index]) then
+				row_is_empty = false
+			end
+		end
+
+		if not row_is_empty then
+			if first_row == -1 then
+				first_row = row_index
+			else
+				last_row = row_index
+			end
+		end
+	end
+	
+	local first_column = -1
+	local last_column = -1
+	
+	for column_index = 1, 5, 1 do
+		local column_is_empty = true
+		
+		for row_index = 1, #table, 1 do
+			local row = table[row_index]
+			
+			if column_index <= #row and not is_empty(row[column_index]) then
+				column_is_empty = false
+			end
+		end
+		
+		if not column_is_empty then
+			if first_column == -1 then
+				first_column = column_index
+			else
+				last_column = column_index
+			end
+		end
+	end
+	
+	if last_row == -1 then
+		last_row = first_row
+	end
+	
+	if last_column == -1 then
+		last_column = first_column
+	end
+	
+	local reduced = {}
+	
+	if first_row ~= -1 and first_column ~= -1 then
+		for row_index = first_row, last_row, 1 do
+			local row = table[row_index]
+			local reduced_row = {}
+		
+			for column_index = first_column, last_column, 1 do
+				reduced_row[column_index - first_column + 1] = row[column_index]
+			end
+		
+			reduced[row_index - first_row + 1] = reduced_row
+		end
+	end
+	
+	return reduced
+end
+
 --- Reindexes the given 2d array/table, swapping the two dimensions.
 --
 -- @param data The array/table to reindex.
