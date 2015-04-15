@@ -164,6 +164,11 @@
     </tr>
 
     <tr>
+    <td class="name" nowrap><a href="#tableutil.reduce2d">tableutil.reduce2d</a>&nbsp;(table, is_empty)</td>
+    <td class="summary">Removes empty rows and columns at the beginning and the end of teh given 2D table.</td>
+    </tr>
+
+    <tr>
     <td class="name" nowrap><a href="#tableutil.swapped_reindex2d">tableutil.swapped_reindex2d</a>&nbsp;(data, new_x, new_y)</td>
     <td class="summary">Reindexes the given 2d array/table, swapping the two dimensions.</td>
     </tr>
@@ -305,6 +310,36 @@ Merges the given tables into one instance. Note that no cloning is performed so 
 
 <h3>Return value:</h3>
 The merged table.
+
+
+
+</dd>
+
+
+
+
+<dt><a name="tableutil.reduce2d"></a><strong>tableutil.reduce2d</strong>&nbsp;(table, is_empty)</dt>
+<dd>
+Removes empty rows and columns at the beginning and the end of teh given 2D table. 
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  table: The 2D table.
+	</li>
+	
+	<li>
+	  is_empty: Optional. The function used for determining if the item is empty. By default nil and an empty string is considered empty. Expected is a function that takes one item and returns a boolean.
+	</li>
+	
+</ul>
+
+
+
+
+
 
 
 
