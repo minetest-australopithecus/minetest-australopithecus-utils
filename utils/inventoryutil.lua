@@ -29,6 +29,46 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 inventoryutil = {}
 
 
+--- Gets the difference between the given inventory and the hash. The difference
+-- is returned in the same format as the hash, with the count being
+-- the amount of difference.
+--
+-- @param inventory The InvRef object.
+-- @param name The inventory name.
+-- @param hash The hash to compare against.
+-- @return The difference between the inventory and the hash.
+function inventoryutil.difference_hash(inventory, name, hash)
+	local difference = {}
+	
+	for index = 1, inventory:get_size(name), 1 do
+		local stack = inventory:get_stack(name, index)
+		local item_hash = hash[index]
+		
+		local item_difference = {
+			id = 0,
+			count = 0
+		}
+		
+		if item_hash.id ~= 0 then
+			item_difference.id = item_hash.id
+			
+			if not stack:is_empty() then
+				if item_hash.id == minetest.get_content_id(stack:get_name()) then
+					item_difference.count = stack:get_count() - item_hash.count
+				else
+					item_difference.count = -item_hash.count
+				end
+			else
+				item_difference.count = -item_hash.count
+			end
+		end
+		
+		difference[index] = item_difference
+	end
+	
+	return difference
+end
+
 --- Test if the given inventory equals the given hash.
 --
 -- @param inventory The InvRef object.
