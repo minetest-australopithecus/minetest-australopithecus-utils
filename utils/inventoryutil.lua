@@ -45,11 +45,11 @@ function inventoryutil.equals_hash(inventory, name, hash)
 		local item_hash = hash[index]
 		
 		if not stack:is_empty()  then
-			if item_hash[1] ~= minetest.get_content_id(stack:get_name()) or item_hash[2] ~= stack:get_count() then
+			if item_hash.id ~= minetest.get_content_id(stack:get_name()) or item_hash.count ~= stack:get_count() then
 				return false
 			end
 		else
-			if item_hash[1] ~= 0 or item_hash[2] ~= 0 then
+			if item_hash.id ~= 0 or item_hash.count ~= 0 then
 				return false
 			end
 		end
@@ -76,7 +76,10 @@ function inventoryutil.hash(inventory, name)
 				stack:get_count()
 			}
 		else
-			hash[index] = { 0, 0 }
+			hash[index] = {
+				id = 0,
+				count = 0
+			}
 		end
 	end
 	
