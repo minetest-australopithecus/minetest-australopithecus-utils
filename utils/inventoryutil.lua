@@ -72,8 +72,8 @@ function inventoryutil.hash(inventory, name)
 		
 		if not stack:is_empty()  then
 			hash[index] = {
-				minetest.get_content_id(stack:get_name()),
-				stack:get_count()
+				id = minetest.get_content_id(stack:get_name()),
+				count = stack:get_count()
 			}
 		else
 			hash[index] = {
