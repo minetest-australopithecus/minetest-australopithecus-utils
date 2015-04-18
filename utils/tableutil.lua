@@ -287,7 +287,7 @@ function tableutil.to_string(table, indent)
 	
 	indent = indent or 0
 	
-	if type(table) == "table" then
+	if type(table) == "table" and #table ~= 0 then
 		local str = tostring(table) .. " {\n"
 		
 		local indentation = string.rep(" ", indent + 4)
