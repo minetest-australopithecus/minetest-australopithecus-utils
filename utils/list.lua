@@ -123,6 +123,25 @@ function List:index(item, equals)
 	return -1
 end
 
+--- Returns a List with all items that match the given condition.
+--
+-- @param condition The condition, a function that accepts one parameter,
+--                  the item, and returns a boolean.
+-- @return The List of matching items.
+function List:matching(condition)
+	local found = List:new(self.base == 1)
+	
+	for index = self.base, self.counter - 1, 1 do
+		local item = self.items[index]
+		
+		if condition(item) then
+			found:add(item)
+		end
+	end
+	
+	return found
+end
+
 --- Gets the size of the list.
 --
 -- @return The size of the list.

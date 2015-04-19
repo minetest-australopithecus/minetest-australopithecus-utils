@@ -83,6 +83,19 @@ test.run("index", function()
 	test.equals(-1, list:index("f"))
 end)
 
+test.run("matching", function()
+	local list = List:new()
+	list:add("a", "b", "c", "d", "e")
+	
+	local found = list:matching(function(item)
+		return item == "a" or item == "d"
+	end)
+	
+	test.equals(2, found:size())
+	test.equals("a", found:get(0))
+	test.equals("d", found:get(1))
+end)
+
 test.run("one_indexed", function()
 	local list = List:new(true)
 	
