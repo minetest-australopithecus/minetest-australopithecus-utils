@@ -139,10 +139,10 @@ function tableutil.merge(...)
 	return merged
 end
 
---- Removes empty rows and columns at the beginning and the end of teh given
--- 2D table.
+--- Removes empty rows and columns at the beginning and the end of the given
+-- 2D table. The 2D table is assumed to be indexed by numbers starting with 1.
 --
--- @param table The 2D table.
+-- @param table The 2D table. Indexed with numbers starting by 1.
 -- @param is_empty Optional. The function used for determining if the item is
 --                 empty. By default nil and an empty string is considered
 --                 empty. Expected is a function that takes one item and returns
