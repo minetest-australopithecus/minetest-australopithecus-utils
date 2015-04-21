@@ -148,6 +148,26 @@
 <table class="function_list">
 
     <tr>
+    <td class="name" nowrap><a href="#arrayutil.next_matching_column">arrayutil.next_matching_column</a>&nbsp;(array, start_index, matcher, reverse)</td>
+    <td class="summary">Finds the next matching column.</td>
+    </tr>
+
+    <tr>
+    <td class="name" nowrap><a href="#arrayutil.next_matching_row">arrayutil.next_matching_row</a>&nbsp;(array, start_index, matcher, reverse)</td>
+    <td class="summary">Finds the next matching row.</td>
+    </tr>
+
+    <tr>
+    <td class="name" nowrap><a href="#arrayutil.previous_matching_column">arrayutil.previous_matching_column</a>&nbsp;(array, start_index, matcher)</td>
+    <td class="summary">Finds the previous matching column.</td>
+    </tr>
+
+    <tr>
+    <td class="name" nowrap><a href="#arrayutil.previous_matching_row">arrayutil.previous_matching_row</a>&nbsp;(array, start_index, matcher)</td>
+    <td class="summary">Finds the previous matching row.</td>
+    </tr>
+
+    <tr>
     <td class="name" nowrap><a href="#arrayutil.reduce2d">arrayutil.reduce2d</a>&nbsp;(array, is_empty)</td>
     <td class="summary">Removes empty rows and columns at the beginning and the end of the given array.</td>
     </tr>
@@ -177,6 +197,162 @@
 
 <h2><a name="functions"></a>Functions</h2>
 <dl class="function">
+
+
+
+<dt><a name="arrayutil.next_matching_column"></a><strong>arrayutil.next_matching_column</strong>&nbsp;(array, start_index, matcher, reverse)</dt>
+<dd>
+Finds the next matching column. 
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  array: The 2D array to search.
+	</li>
+	
+	<li>
+	  start_index: Optional. The index at which to start. Defaults to 1, or if the direction is reversed, the number of columns in the array.
+	</li>
+	
+	<li>
+	  matcher: Optional. The function that is used to determine if the column matches or not. Is expected to take one argument, the item, and return a boolean. The column matches if any of its items matches this condition. Defaults to not nil and not empty string.
+	</li>
+	
+	<li>
+	  reverse: Optional. If the array should be serched backwards. Defaults to false.
+	</li>
+	
+</ul>
+
+
+
+
+
+
+<h3>Return value:</h3>
+The index of the matching column. -1 if none was found.
+
+
+
+</dd>
+
+
+
+
+<dt><a name="arrayutil.next_matching_row"></a><strong>arrayutil.next_matching_row</strong>&nbsp;(array, start_index, matcher, reverse)</dt>
+<dd>
+Finds the next matching row. 
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  array: The 2D array to search.
+	</li>
+	
+	<li>
+	  start_index: Optional. The index at which to start. Defaults to 1, or if the direction is reversed, the number of rows in the array.
+	</li>
+	
+	<li>
+	  matcher: Optional. The function that is used to determine if the row matches or not. Is expected to take one argument, the item, and return a boolean. The row matches if any of its items matches this condition. Defaults to not nil and not empty string.
+	</li>
+	
+	<li>
+	  reverse: Optional. If the array should be serched backwards. Defaults to false.
+	</li>
+	
+</ul>
+
+
+
+
+
+
+<h3>Return value:</h3>
+The index of the matching row. -1 if none was found.
+
+
+
+</dd>
+
+
+
+
+<dt><a name="arrayutil.previous_matching_column"></a><strong>arrayutil.previous_matching_column</strong>&nbsp;(array, start_index, matcher)</dt>
+<dd>
+Finds the previous matching column. 
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  array: The 2D array to search.
+	</li>
+	
+	<li>
+	  start_index: Optional. The index at which to start. Defaults to the number columns in the array.
+	</li>
+	
+	<li>
+	  matcher: Optional. The function that is used to determine if the column matches or not. Is expected to take one argument, the item, and return a boolean. The column matches if any of its items matches this condition. Defaults to not nil and not empty string.
+	</li>
+	
+</ul>
+
+
+
+
+
+
+<h3>Return value:</h3>
+The index of the matching column. -1 if none was found.
+
+
+
+</dd>
+
+
+
+
+<dt><a name="arrayutil.previous_matching_row"></a><strong>arrayutil.previous_matching_row</strong>&nbsp;(array, start_index, matcher)</dt>
+<dd>
+Finds the previous matching row. 
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  array: The 2D array to search.
+	</li>
+	
+	<li>
+	  start_index: Optional. The index at which to start. Defaults to the number rows in the array.
+	</li>
+	
+	<li>
+	  matcher: Optional. The function that is used to determine if the row matches or not. Is expected to take one argument, the item, and return a boolean. The row matches if any of its items matches this condition. Defaults to not nil and not empty string.
+	</li>
+	
+</ul>
+
+
+
+
+
+
+<h3>Return value:</h3>
+The index of the matching row. -1 if none was found.
+
+
+
+</dd>
+
 
 
 
