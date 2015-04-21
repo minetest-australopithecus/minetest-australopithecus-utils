@@ -159,25 +159,3 @@ test.run("merge", function()
 	test.equals(merged.new_value, "new")
 end)
 
-test.run("reduce2d", function()
-	local reduced = tableutil.reduce2d({})
-	local expected = {}
-	
-	test.equals(true, tableutil.equals(reduced, expected))
-	
-	reduced = tableutil.reduce2d({
-		{ "", "", "", "", "" },
-		{ "", "", "something", "", "" },
-		{ "", "", "", "", "" },
-		{ "", "", "", "something", "" },
-		{ "", "", "", "", "" }
-	})
-	expected = tableutil.reduce2d({
-		{ "something", "" },
-		{ "", "" },
-		{ "", "something" },
-	})
-	
-	test.equals(true, tableutil.equals(reduced, expected))
-end)
-

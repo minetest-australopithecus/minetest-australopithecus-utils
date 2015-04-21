@@ -40,6 +40,10 @@
 <ul>
 
 	<li>
+		<a href="../../files/utils/arrayutil.html">utils/arrayutil.lua</a>
+	</li>
+
+	<li>
 		<a href="../../files/utils/blockedcache.html">utils/blockedcache.lua</a>
 	</li>
 
@@ -161,21 +165,6 @@
     <tr>
     <td class="name" nowrap><a href="#tableutil.merge">tableutil.merge</a>&nbsp;(...)</td>
     <td class="summary">Merges the given tables into one instance.</td>
-    </tr>
-
-    <tr>
-    <td class="name" nowrap><a href="#tableutil.reduce2d">tableutil.reduce2d</a>&nbsp;(table, is_empty)</td>
-    <td class="summary">Removes empty rows and columns at the beginning and the end of the given 2D table.</td>
-    </tr>
-
-    <tr>
-    <td class="name" nowrap><a href="#tableutil.swapped_reindex2d">tableutil.swapped_reindex2d</a>&nbsp;(data, new_x, new_y)</td>
-    <td class="summary">Reindexes the given 2d array/table, swapping the two dimensions.</td>
-    </tr>
-
-    <tr>
-    <td class="name" nowrap><a href="#tableutil.swapped_reindex3d">tableutil.swapped_reindex3d</a>&nbsp;(data, new_x, new_y, new_z)</td>
-    <td class="summary">Reindexes the given 3d array/table, swapping the two dimensions.</td>
     </tr>
 
     <tr>
@@ -310,114 +299,6 @@ Merges the given tables into one instance. Note that no cloning is performed so 
 
 <h3>Return value:</h3>
 The merged table.
-
-
-
-</dd>
-
-
-
-
-<dt><a name="tableutil.reduce2d"></a><strong>tableutil.reduce2d</strong>&nbsp;(table, is_empty)</dt>
-<dd>
-Removes empty rows and columns at the beginning and the end of the given 2D table. The 2D table is assumed to be indexed by numbers starting with 1. 
-
-
-<h3>Parameters</h3>
-<ul>
-	
-	<li>
-	  table: The 2D table. Indexed with numbers starting by 1.
-	</li>
-	
-	<li>
-	  is_empty: Optional. The function used for determining if the item is empty. By default nil and an empty string is considered empty. Expected is a function that takes one item and returns a boolean.
-	</li>
-	
-</ul>
-
-
-
-
-
-
-
-
-</dd>
-
-
-
-
-<dt><a name="tableutil.swapped_reindex2d"></a><strong>tableutil.swapped_reindex2d</strong>&nbsp;(data, new_x, new_y)</dt>
-<dd>
-Reindexes the given 2d array/table, swapping the two dimensions. 
-
-
-<h3>Parameters</h3>
-<ul>
-	
-	<li>
-	  data: The array/table to reindex.
-	</li>
-	
-	<li>
-	  new_x: The new startpoint for the first dimension.
-	</li>
-	
-	<li>
-	  new_y: The new startpoint for the second dimension.
-	</li>
-	
-</ul>
-
-
-
-
-
-
-<h3>Return value:</h3>
-The reindexed data.
-
-
-
-</dd>
-
-
-
-
-<dt><a name="tableutil.swapped_reindex3d"></a><strong>tableutil.swapped_reindex3d</strong>&nbsp;(data, new_x, new_y, new_z)</dt>
-<dd>
-Reindexes the given 3d array/table, swapping the two dimensions. 
-
-
-<h3>Parameters</h3>
-<ul>
-	
-	<li>
-	  data: The array/table to reindex.
-	</li>
-	
-	<li>
-	  new_x: The new startpoint for the first dimension.
-	</li>
-	
-	<li>
-	  new_y: The new startpoint for the second dimension.
-	</li>
-	
-	<li>
-	  new_z: The new startpoint for the third dimension.
-	</li>
-	
-</ul>
-
-
-
-
-
-
-<h3>Return value:</h3>
-The reindexed data.
 
 
 

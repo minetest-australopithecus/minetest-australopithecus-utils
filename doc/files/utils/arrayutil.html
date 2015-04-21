@@ -3,7 +3,7 @@
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
-    <title>Luadocs for utils/textureutil.lua</title>
+    <title>Luadocs for utils/arrayutil.lua</title>
     <link rel="stylesheet" href="../../luadoc.css" type="text/css" />
     <!--meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/-->
 </head>
@@ -39,10 +39,8 @@
 <h1>Files</h1>
 <ul>
 
-	<li>
-		<a href="../../files/utils/arrayutil.html">utils/arrayutil.lua</a>
-	</li>
-
+	<li><strong>utils/arrayutil.lua</strong></li>
+	
 	<li>
 		<a href="../../files/utils/blockedcache.html">utils/blockedcache.lua</a>
 	</li>
@@ -119,8 +117,10 @@
 		<a href="../../files/utils/test.html">utils/test.lua</a>
 	</li>
 
-	<li><strong>utils/textureutil.lua</strong></li>
-	
+	<li>
+		<a href="../../files/utils/textureutil.html">utils/textureutil.lua</a>
+	</li>
+
 	<li>
 		<a href="../../files/utils/transform.html">utils/transform.lua</a>
 	</li>
@@ -136,7 +136,7 @@
 
 <div id="content">
 
-<h1>File <code>utils/textureutil.lua</code></h1>
+<h1>File <code>utils/arrayutil.lua</code></h1>
 
 
 
@@ -148,8 +148,18 @@
 <table class="function_list">
 
     <tr>
-    <td class="name" nowrap><a href="#textureutil.dummy">textureutil.dummy</a>&nbsp;(inner_color, border_color)</td>
-    <td class="summary">Creates a dummy texture with the two given colors.</td>
+    <td class="name" nowrap><a href="#arrayutil.reduce2d">arrayutil.reduce2d</a>&nbsp;(array, is_empty)</td>
+    <td class="summary">Removes empty rows and columns at the beginning and the end of the given array.</td>
+    </tr>
+
+    <tr>
+    <td class="name" nowrap><a href="#arrayutil.swapped_reindex2d">arrayutil.swapped_reindex2d</a>&nbsp;(data, new_x, new_y)</td>
+    <td class="summary">Reindexes the given 2D array, swapping the two dimensions.</td>
+    </tr>
+
+    <tr>
+    <td class="name" nowrap><a href="#arrayutil.swapped_reindex3d">arrayutil.swapped_reindex3d</a>&nbsp;(data, new_x, new_y, new_z)</td>
+    <td class="summary">Reindexes the given 3d array, swapping the two dimensions.</td>
     </tr>
 
 </table>
@@ -170,20 +180,54 @@
 
 
 
-<dt><a name="textureutil.dummy"></a><strong>textureutil.dummy</strong>&nbsp;(inner_color, border_color)</dt>
+<dt><a name="arrayutil.reduce2d"></a><strong>arrayutil.reduce2d</strong>&nbsp;(array, is_empty)</dt>
 <dd>
-Creates a dummy texture with the two given colors. 
+Removes empty rows and columns at the beginning and the end of the given array. 
 
 
 <h3>Parameters</h3>
 <ul>
 	
 	<li>
-	  inner_color: The color for the inner part.
+	  array: The array.
 	</li>
 	
 	<li>
-	  border_color: The color for the border.
+	  is_empty: Optional. The function used for determining if the item is empty. By default nil and an empty string is considered empty. Expected is a function that takes one item and returns a boolean.
+	</li>
+	
+</ul>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="arrayutil.swapped_reindex2d"></a><strong>arrayutil.swapped_reindex2d</strong>&nbsp;(data, new_x, new_y)</dt>
+<dd>
+Reindexes the given 2D array, swapping the two dimensions. 
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  data: The array to reindex.
+	</li>
+	
+	<li>
+	  new_x: The new startpoint for the first dimension.
+	</li>
+	
+	<li>
+	  new_y: The new startpoint for the second dimension.
 	</li>
 	
 </ul>
@@ -194,7 +238,48 @@ Creates a dummy texture with the two given colors.
 
 
 <h3>Return value:</h3>
-The dummy texture (string).
+The reindexed array.
+
+
+
+</dd>
+
+
+
+
+<dt><a name="arrayutil.swapped_reindex3d"></a><strong>arrayutil.swapped_reindex3d</strong>&nbsp;(data, new_x, new_y, new_z)</dt>
+<dd>
+Reindexes the given 3d array, swapping the two dimensions. 
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  data: The array to reindex.
+	</li>
+	
+	<li>
+	  new_x: The new startpoint for the first dimension.
+	</li>
+	
+	<li>
+	  new_y: The new startpoint for the second dimension.
+	</li>
+	
+	<li>
+	  new_z: The new startpoint for the third dimension.
+	</li>
+	
+</ul>
+
+
+
+
+
+
+<h3>Return value:</h3>
+The reindexed array.
 
 
 

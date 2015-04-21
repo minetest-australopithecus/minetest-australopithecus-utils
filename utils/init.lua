@@ -36,6 +36,7 @@ dofile(base_path .. "/mapmanipulator.lua")
 dofile(base_path .. "/noisemanager.lua")
 
 -- Static utils
+dofile(base_path .. "/arrayutil.lua")
 dofile(base_path .. "/blockutil.lua")
 dofile(base_path .. "/constants.lua")
 dofile(base_path .. "/fisheryates.lua")
