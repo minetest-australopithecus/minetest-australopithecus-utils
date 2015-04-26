@@ -148,6 +148,11 @@
 <table class="function_list">
 
     <tr>
+    <td class="name" nowrap><a href="#arrayutil.index">arrayutil.index</a>&nbsp;(array, item, equals)</td>
+    <td class="summary">Gets the index of the item in the given array.</td>
+    </tr>
+
+    <tr>
     <td class="name" nowrap><a href="#arrayutil.next_matching_column">arrayutil.next_matching_column</a>&nbsp;(array, start_index, matcher, reverse)</td>
     <td class="summary">Finds the next matching column.</td>
     </tr>
@@ -197,6 +202,43 @@
 
 <h2><a name="functions"></a>Functions</h2>
 <dl class="function">
+
+
+
+<dt><a name="arrayutil.index"></a><strong>arrayutil.index</strong>&nbsp;(array, item, equals)</dt>
+<dd>
+Gets the index of the item in the given array. 
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  array: The array to search in.
+	</li>
+	
+	<li>
+	  item: The item to search for, can either be an item or another array.
+	</li>
+	
+	<li>
+	  equals: Optional. The function to determine if items equal each other, defaults to tableutil.equals.
+	</li>
+	
+</ul>
+
+
+
+
+
+
+<h3>Return value:</h3>
+The index of the given item or array, -1 if it was not found.
+
+
+
+</dd>
+
 
 
 
