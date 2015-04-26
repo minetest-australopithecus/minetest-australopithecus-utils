@@ -50,9 +50,13 @@ end
 -- @param item The item to search for, can either be an item or another array.
 -- @param equals Optional. The function to determine if items equal each other,
 --               defaults to tableutil.equals.
+-- @param offset_step Optional. If the given item is an array, this determines
+--                    how much of the array is skipped before it is tried to
+--                    match.
 -- @return The index of the given item or array, -1 if it was not found.
-function arrayutil.index(array, item, equals)
+function arrayutil.index(array, item, equals, offset_step)
 	equals = equals or tableutil.equals
+	offset_step = offset_step or 1
 	
 	if #array == 0 then
 		return -1
@@ -67,7 +71,7 @@ function arrayutil.index(array, item, equals)
 	end
 	
 	if item_is_array then
-		for offset = 1, #array - 1, 1 do	
+		for offset = 1, #array - 1, offset_step do	
 			local match = true
 			
 			for index = 1, #item, 1 do
