@@ -11,6 +11,22 @@ dofile("./utils/tableutil.lua")
 test.start("arrayutil")
 
 
+test.run("contains", function()
+	test.equals(false, arrayutil.contains({}, nil))
+	
+	test.equals(true, arrayutil.contains({ "test" }, "test"))
+	test.equals(true, arrayutil.contains({ "a", "b", "test" }, "test"))
+	test.equals(true, arrayutil.contains({ "a", "b" , "c", "test", "d", "e" }, "test"))
+	
+	test.equals(true, arrayutil.contains({ "a", "b" , "c", "test", "d", "e" }, { "a", "b", "c" }))
+	test.equals(true, arrayutil.contains({ "a", "b" , "c", "test", "d", "e" }, { "b", "c" }))
+	test.equals(true, arrayutil.contains({ "a", "b" , "c", "test", "d", "e" }, { "d", "e" }))
+	test.equals(true, arrayutil.contains({ "a", "b" , "c", "test", "d", "e" }, { "d", "e", "a", "b" }))
+	
+	test.equals(false, arrayutil.contains({ "a", "b" , "c", "test", "d", "e" }, { "b", "d" }))
+	test.equals(false, arrayutil.contains({ "a", "b" , "c", "test", "d", "e" }, { "d", "e", "a", "c" }))
+end)
+
 test.run("index", function()
 	test.equals(-1, arrayutil.index({}, nil))
 	

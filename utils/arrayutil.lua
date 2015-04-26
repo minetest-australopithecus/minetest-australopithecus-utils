@@ -33,6 +33,17 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 arrayutil = {}
 
 
+--- Gets if the given array contains the given item.
+--
+-- @param array The array to search in.
+-- @param item The item to search for, can either be an item or another array.
+-- @param equals Optional. The function to determine if items equal each other,
+--               defaults to tableutil.equals.
+-- @return true if the array contains the given item.
+function arrayutil.contains(array, item, equals)
+	return arrayutil.index(array, item, equals) >= 0
+end
+
 --- Gets the index of the item in the given array.
 --
 -- @param array The array to search in.
