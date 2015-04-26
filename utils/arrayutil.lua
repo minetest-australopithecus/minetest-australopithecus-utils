@@ -33,6 +33,61 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 arrayutil = {}
 
 
+--- Gets the index of the item in the given array.
+--
+-- @param array The array to search in.
+-- @param item The item to search for, can either be an item or another array.
+-- @param equals Optional. The function to determine if items equal each other,
+--               defaults to tableutil.equals.
+-- @return The index of the given item or array, -1 if it was not found.
+function arrayutil.index(array, item, equals)
+	equals = equals or tableutil.equals
+	
+	if #array == 0 then
+		return -1
+	end
+	
+	local item_is_array = type(item) == "table"
+	
+	if item_is_array then
+		if #array < #item then
+			return -1
+		end
+	end
+	
+	if item_is_array then
+		for offset = 1, #array - 1, 1 do	
+			local match = true
+			
+			for index = 1, #item, 1 do
+				local array_index = index + offset - 1
+				
+				if array_index > #array then
+					array_index = array_index - #array
+				end
+				
+				if not equals(array[array_index], item[index]) then
+					match = false
+					-- Ugly way to break a loop, I know.
+					index = #item + 1
+				end
+			end
+			
+			if match then
+				return offset
+			end
+		end
+	else
+		for index = 1, #array, 1 do
+			if equals(array[index], item) then
+				return index
+			end
+		end
+	end
+	
+	return -1
+end
+
 --- Finds the next matching column.
 --
 -- @param array The 2D array to search.

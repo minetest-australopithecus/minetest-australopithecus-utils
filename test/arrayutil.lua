@@ -11,6 +11,22 @@ dofile("./utils/tableutil.lua")
 test.start("arrayutil")
 
 
+test.run("index", function()
+	test.equals(-1, arrayutil.index({}, nil))
+	
+	test.equals(1, arrayutil.index({ "test" }, "test"))
+	test.equals(3, arrayutil.index({ "a", "b", "test" }, "test"))
+	test.equals(4, arrayutil.index({ "a", "b" , "c", "test", "d", "e" }, "test"))
+	
+	test.equals(1, arrayutil.index({ "a", "b" , "c", "test", "d", "e" }, { "a", "b", "c" }))
+	test.equals(2, arrayutil.index({ "a", "b" , "c", "test", "d", "e" }, { "b", "c" }))
+	test.equals(5, arrayutil.index({ "a", "b" , "c", "test", "d", "e" }, { "d", "e" }))
+	test.equals(5, arrayutil.index({ "a", "b" , "c", "test", "d", "e" }, { "d", "e", "a", "b" }))
+	
+	test.equals(-1, arrayutil.index({ "a", "b" , "c", "test", "d", "e" }, { "b", "d" }))
+	test.equals(-1, arrayutil.index({ "a", "b" , "c", "test", "d", "e" }, { "d", "e", "a", "c" }))
+end)
+
 test.run("next_matching_column", function()
 	local array = {
 		{ "", "", "", "", "" },
