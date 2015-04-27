@@ -148,7 +148,7 @@
 <table class="function_list">
 
     <tr>
-    <td class="name" nowrap><a href="#arrayutil.contains">arrayutil.contains</a>&nbsp;(array, item, equals)</td>
+    <td class="name" nowrap><a href="#arrayutil.contains">arrayutil.contains</a>&nbsp;(array, item, equals, offset_step)</td>
     <td class="summary">Gets if the given array contains the given item.</td>
     </tr>
 
@@ -210,7 +210,7 @@
 
 
 
-<dt><a name="arrayutil.contains"></a><strong>arrayutil.contains</strong>&nbsp;(array, item, equals)</dt>
+<dt><a name="arrayutil.contains"></a><strong>arrayutil.contains</strong>&nbsp;(array, item, equals, offset_step)</dt>
 <dd>
 Gets if the given array contains the given item. 
 
@@ -228,6 +228,10 @@ Gets if the given array contains the given item.
 	
 	<li>
 	  equals: Optional. The function to determine if items equal each other, defaults to tableutil.equals.
+	</li>
+	
+	<li>
+	  offset_step: Optional. If the given item is an array, this determines how much of the array is skipped before it is tried to match.
 	</li>
 	
 </ul>

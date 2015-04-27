@@ -39,9 +39,12 @@ arrayutil = {}
 -- @param item The item to search for, can either be an item or another array.
 -- @param equals Optional. The function to determine if items equal each other,
 --               defaults to tableutil.equals.
+-- @param offset_step Optional. If the given item is an array, this determines
+--                    how much of the array is skipped before it is tried to
+--                    match.
 -- @return true if the array contains the given item.
-function arrayutil.contains(array, item, equals)
-	return arrayutil.index(array, item, equals) >= 0
+function arrayutil.contains(array, item, equals, offset_step)
+	return arrayutil.index(array, item, equals, offset_step) >= 0
 end
 
 --- Gets the index of the item in the given array.
