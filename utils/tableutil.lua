@@ -143,9 +143,11 @@ end
 --- Returns the string representation of the given table.
 --
 -- @param table The table.
+-- @param one_line Optional. If the table should be printed on only one line.
+--                 Defaults to false.
 -- @param indent Optional. The number of spaces of indentation.
 -- @return The string representation of the given table.
-function tableutil.to_string(table, indent)
+function tableutil.to_string(table, one_line, indent)
 	if table == nil then
 		return "nil"
 	end
@@ -153,17 +155,40 @@ function tableutil.to_string(table, indent)
 	indent = indent or 0
 	
 	if type(table) == "table" then
-		local str = tostring(table) .. " {\n"
+		local str = tostring(table) .. " {"
+		
+		if one_line then
+			str = str .. " "
+		else
+			str = str .. "\n"
+		end
 		
 		local indentation = string.rep(" ", indent + 4)
 		
 		for key, value in pairs(table) do
-			str = str .. indentation .. tostring(key) .. " = "
-			str = str .. tableutil.to_string(value, indent + 4) .. ",\n"
+			if not one_line then
+				str = str .. indentation
+			end
+			
+			str = str .. tostring(key) .. " = "
+			str = str .. tableutil.to_string(value, one_line, indent + 4) .. ","
+			
+			if one_line then
+				str = str .. " "
+			else
+				str = str .. "\n"
+			end
 		end
 		
 		str = string.sub(str, 0, string.len(str) - 2)
-		str = str .. "\n" .. string.rep(" ", indent) .. "}"
+		
+		if one_line then
+			str = str .. " "
+		else
+			str = str .. "\n" .. string.rep(" ", indent)
+		end
+		
+		str = str .. "}"
 		
 		return str
 	elseif type(table) == "string" then
