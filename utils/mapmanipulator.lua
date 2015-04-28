@@ -40,6 +40,7 @@ function MapManipulator:new()
 		data = nil,
 		emax = nil,
 		emin = nil,
+		param2_data = nil,
 		voxelmanip = nil
 	}
 	
@@ -66,44 +67,47 @@ end
 --- Gets the data from the VoxelManip object.
 -- The data is an array that can be accessed by using the VoxelArea object.
 --
--- @return The data.
+-- @return Two values, the data and the param2 data.
 function MapManipulator:get_data()
 	if self.data == nil then
 		self.data = self.voxelmanip:get_data()
+		self.param2_data = self.voxelmanip:get_param2_data()
 	end
 	
-	return self.data
+	return self.data, self.param2_data
 end
 
---- Gets the node at the given location.
+--- Gets the node and param2 at the given location.
 --
 -- @param x The x coordinate (width).
 -- @param z the z coordinate (depth).
 -- @param y The y coordinate (height).
--- @return The node at the given location.
+-- @return Two values, the node at the given location and the param2 value.
 function MapManipulator:get_node(x, z, y)
 	if self.data == nil then
 		self.data = self.voxelmanip:get_data()
+		self.param2_data = self.voxelmanip:get_param2_data()
 	end
 	
 	local index = self.area:index(x, y, z)
 	
-	return self.data[index]
+	return self.data[index], self.param2_data[index]
 end
 
 --- Sets the data into the VoxelManip object.
 -- Will also correct and update the lighting, the liquids and flush the map.
 --
 -- @param data Optional. The data to set. If nil the cached data will be used.
-function MapManipulator:set_data(data)
-	if data ~= nil then
-		self.voxelmanip:set_data(data)	
-	elseif self.data ~= nil then
-		self.voxelmanip:set_data(self.data)
-	else
+-- @param param2_data Optional. The param2 data to set. If nil the cached data
+--                    will be used.
+function MapManipulator:set_data(data, param2_data)
+	if data == nil and self.data == nil then
 		return
 	end
-
+	
+	self.voxelmanip:set_data(data or self.data)
+	self.voxelmanip:set_param2_data(param2_data or self.param2_data)
+	
 	self.voxelmanip:set_lighting({
 		day = 1,
 		night = 0
@@ -114,6 +118,7 @@ function MapManipulator:set_data(data)
 	self.voxelmanip:update_map()
 	
 	self.data = nil
+	self.param2_data = nil
 end
 
 --- Sets the node at the given location.
@@ -122,13 +127,16 @@ end
 -- @param z the z coordinate (depth).
 -- @param y The y coordinate (height).
 -- @param node The node to set.
-function MapManipulator:set_node(x, z, y, node)
+-- @param param2 Optional. The param2 data to set for this node.
+function MapManipulator:set_node(x, z, y, node, param2)
 	if self.data == nil then
 		self.data = self.voxelmanip:get_data()
+		self.param2_data = self.voxelmanip:get_param2_data()
 	end
 	
 	local index = self.area:index(x, y, z)
 	
 	self.data[index] = node
+	self.param2_data[index] = param2
 end
 
