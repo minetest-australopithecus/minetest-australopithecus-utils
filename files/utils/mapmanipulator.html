@@ -159,7 +159,7 @@
 
     <tr>
     <td class="name" nowrap><a href="#MapManipulator:get_node">MapManipulator:get_node</a>&nbsp;(x, z, y)</td>
-    <td class="summary">Gets the node at the given location.</td>
+    <td class="summary">Gets the node and param2 at the given location.</td>
     </tr>
 
     <tr>
@@ -168,12 +168,12 @@
     </tr>
 
     <tr>
-    <td class="name" nowrap><a href="#MapManipulator:set_data">MapManipulator:set_data</a>&nbsp;(data)</td>
+    <td class="name" nowrap><a href="#MapManipulator:set_data">MapManipulator:set_data</a>&nbsp;(data, param2_data)</td>
     <td class="summary">Sets the data into the VoxelManip object.</td>
     </tr>
 
     <tr>
-    <td class="name" nowrap><a href="#MapManipulator:set_node">MapManipulator:set_node</a>&nbsp;(x, z, y, node)</td>
+    <td class="name" nowrap><a href="#MapManipulator:set_node">MapManipulator:set_node</a>&nbsp;(x, z, y, node, param2)</td>
     <td class="summary">Sets the node at the given location.</td>
     </tr>
 
@@ -226,7 +226,7 @@ Gets the data from the VoxelManip object. The data is an array that can be acces
 
 
 <h3>Return value:</h3>
-The data.
+Two values, the data and the param2 data.
 
 
 
@@ -237,7 +237,7 @@ The data.
 
 <dt><a name="MapManipulator:get_node"></a><strong>MapManipulator:get_node</strong>&nbsp;(x, z, y)</dt>
 <dd>
-Gets the node at the given location. 
+Gets the node and param2 at the given location. 
 
 
 <h3>Parameters</h3>
@@ -263,7 +263,7 @@ Gets the node at the given location.
 
 
 <h3>Return value:</h3>
-The node at the given location.
+Two values, the node at the given location and the param2 value.
 
 
 
@@ -292,7 +292,7 @@ A new instance.
 
 
 
-<dt><a name="MapManipulator:set_data"></a><strong>MapManipulator:set_data</strong>&nbsp;(data)</dt>
+<dt><a name="MapManipulator:set_data"></a><strong>MapManipulator:set_data</strong>&nbsp;(data, param2_data)</dt>
 <dd>
 Sets the data into the VoxelManip object. Will also correct and update the lighting, the liquids and flush the map. 
 
@@ -302,6 +302,10 @@ Sets the data into the VoxelManip object. Will also correct and update the light
 	
 	<li>
 	  data: Optional. The data to set. If nil the cached data will be used.
+	</li>
+	
+	<li>
+	  param2_data: Optional. The param2 data to set. If nil the cached data will be used.
 	</li>
 	
 </ul>
@@ -318,7 +322,7 @@ Sets the data into the VoxelManip object. Will also correct and update the light
 
 
 
-<dt><a name="MapManipulator:set_node"></a><strong>MapManipulator:set_node</strong>&nbsp;(x, z, y, node)</dt>
+<dt><a name="MapManipulator:set_node"></a><strong>MapManipulator:set_node</strong>&nbsp;(x, z, y, node, param2)</dt>
 <dd>
 Sets the node at the given location. 
 
@@ -340,6 +344,10 @@ Sets the node at the given location.
 	
 	<li>
 	  node: The node to set.
+	</li>
+	
+	<li>
+	  param2: Optional. The param2 data to set for this node.
 	</li>
 	
 </ul>
