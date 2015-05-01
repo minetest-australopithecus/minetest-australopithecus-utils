@@ -3,7 +3,7 @@
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
-    <title>Luadocs for utils/tableutil.lua</title>
+    <title>Luadocs for utils/rotationutil.lua</title>
     <link rel="stylesheet" href="../../luadoc.css" type="text/css" />
     <!--meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/-->
 </head>
@@ -99,10 +99,8 @@
 		<a href="../../files/utils/pathutil.html">utils/pathutil.lua</a>
 	</li>
 
-	<li>
-		<a href="../../files/utils/rotationutil.html">utils/rotationutil.lua</a>
-	</li>
-
+	<li><strong>utils/rotationutil.lua</strong></li>
+	
 	<li>
 		<a href="../../files/utils/stopwatch.html">utils/stopwatch.lua</a>
 	</li>
@@ -111,8 +109,10 @@
 		<a href="../../files/utils/stringutil.html">utils/stringutil.lua</a>
 	</li>
 
-	<li><strong>utils/tableutil.lua</strong></li>
-	
+	<li>
+		<a href="../../files/utils/tableutil.html">utils/tableutil.lua</a>
+	</li>
+
 	<li>
 		<a href="../../files/utils/tango.html">utils/tango.lua</a>
 	</li>
@@ -140,7 +140,7 @@
 
 <div id="content">
 
-<h1>File <code>utils/tableutil.lua</code></h1>
+<h1>File <code>utils/rotationutil.lua</code></h1>
 
 
 
@@ -152,28 +152,23 @@
 <table class="function_list">
 
     <tr>
-    <td class="name" nowrap><a href="#tableutil.clone">tableutil.clone</a>&nbsp;(table)</td>
-    <td class="summary">Performs a deep/recursive clone on the given table.</td>
+    <td class="name" nowrap><a href="#rotationutil.decrement">rotationutil.decrement</a>&nbsp;(rotation)</td>
+    <td class="summary">Returns the decremented rotation, so given rotation - 90 degrees.</td>
     </tr>
 
     <tr>
-    <td class="name" nowrap><a href="#tableutil.equals">tableutil.equals</a>&nbsp;(a, b)</td>
-    <td class="summary">Tests the two given tables for equality.</td>
+    <td class="name" nowrap><a href="#rotationutil.facedir">rotationutil.facedir</a>&nbsp;(axis, rotation)</td>
+    <td class="summary">Creates the facedir value from the given axis and rotation.</td>
     </tr>
 
     <tr>
-    <td class="name" nowrap><a href="#tableutil.keys">tableutil.keys</a>&nbsp;(...)</td>
-    <td class="summary">Returns a (unique) list with all keys of all tables.</td>
+    <td class="name" nowrap><a href="#rotationutil.increment">rotationutil.increment</a>&nbsp;(rotation)</td>
+    <td class="summary">Returns the incremented rotation, so given rotation + 90 degrees.</td>
     </tr>
 
     <tr>
-    <td class="name" nowrap><a href="#tableutil.merge">tableutil.merge</a>&nbsp;(...)</td>
-    <td class="summary">Merges the given tables into one instance.</td>
-    </tr>
-
-    <tr>
-    <td class="name" nowrap><a href="#tableutil.to_string">tableutil.to_string</a>&nbsp;(table, one_line, indent)</td>
-    <td class="summary">Returns the string representation of the given table.</td>
+    <td class="name" nowrap><a href="#rotationutil.invert">rotationutil.invert</a>&nbsp;(axis_or_rotation)</td>
+    <td class="summary">Inverts the given axis or rotation.</td>
     </tr>
 
 </table>
@@ -194,16 +189,16 @@
 
 
 
-<dt><a name="tableutil.clone"></a><strong>tableutil.clone</strong>&nbsp;(table)</dt>
+<dt><a name="rotationutil.decrement"></a><strong>rotationutil.decrement</strong>&nbsp;(rotation)</dt>
 <dd>
-Performs a deep/recursive clone on the given table. 
+Returns the decremented rotation, so given rotation - 90 degrees. 
 
 
 <h3>Parameters</h3>
 <ul>
 	
 	<li>
-	  table: The table to deep clone.
+	  rotation: The rotation to decrement.
 	</li>
 	
 </ul>
@@ -214,7 +209,7 @@ Performs a deep/recursive clone on the given table.
 
 
 <h3>Return value:</h3>
-The clone of the table.
+The decremented rotation, or the given value if it was not valid.
 
 
 
@@ -223,46 +218,20 @@ The clone of the table.
 
 
 
-<dt><a name="tableutil.equals"></a><strong>tableutil.equals</strong>&nbsp;(a, b)</dt>
+<dt><a name="rotationutil.facedir"></a><strong>rotationutil.facedir</strong>&nbsp;(axis, rotation)</dt>
 <dd>
-Tests the two given tables for equality. 
+Creates the facedir value from the given axis and rotation. 
 
 
 <h3>Parameters</h3>
 <ul>
 	
 	<li>
-	  a: The first table.
+	  axis: The axis, one of the POS_* or NEG_* constants.
 	</li>
 	
 	<li>
-	  b: The second table.
-	</li>
-	
-</ul>
-
-
-
-
-
-
-
-
-</dd>
-
-
-
-
-<dt><a name="tableutil.keys"></a><strong>tableutil.keys</strong>&nbsp;(...)</dt>
-<dd>
-Returns a (unique) list with all keys of all tables. 
-
-
-<h3>Parameters</h3>
-<ul>
-	
-	<li>
-	  ...: The list of tables.
+	  rotation: The rotation, one of the ROT_* constants.
 	</li>
 	
 </ul>
@@ -273,7 +242,7 @@ Returns a (unique) list with all keys of all tables.
 
 
 <h3>Return value:</h3>
-A list with all keys.
+The facedir value.
 
 
 
@@ -282,16 +251,16 @@ A list with all keys.
 
 
 
-<dt><a name="tableutil.merge"></a><strong>tableutil.merge</strong>&nbsp;(...)</dt>
+<dt><a name="rotationutil.increment"></a><strong>rotationutil.increment</strong>&nbsp;(rotation)</dt>
 <dd>
-Merges the given tables into one instance. Note that no cloning is performed so fields may refer to the same instances. 
+Returns the incremented rotation, so given rotation + 90 degrees. 
 
 
 <h3>Parameters</h3>
 <ul>
 	
 	<li>
-	  ...: The tables to merge.
+	  rotation: The rotation to increment.
 	</li>
 	
 </ul>
@@ -302,7 +271,7 @@ Merges the given tables into one instance. Note that no cloning is performed so 
 
 
 <h3>Return value:</h3>
-The merged table.
+The incremented rotation, or the given value if it was not valid.
 
 
 
@@ -311,24 +280,16 @@ The merged table.
 
 
 
-<dt><a name="tableutil.to_string"></a><strong>tableutil.to_string</strong>&nbsp;(table, one_line, indent)</dt>
+<dt><a name="rotationutil.invert"></a><strong>rotationutil.invert</strong>&nbsp;(axis_or_rotation)</dt>
 <dd>
-Returns the string representation of the given table. 
+Inverts the given axis or rotation.
 
 
 <h3>Parameters</h3>
 <ul>
 	
 	<li>
-	  table: The table.
-	</li>
-	
-	<li>
-	  one_line: Optional. If the table should be printed on only one line. Defaults to false.
-	</li>
-	
-	<li>
-	  indent: Optional. The number of spaces of indentation.
+	  axis_or_rotation: The axis or rotation, one of the POS_*, NEG_* or ROT_* constants.
 	</li>
 	
 </ul>
@@ -339,7 +300,7 @@ Returns the string representation of the given table.
 
 
 <h3>Return value:</h3>
-The string representation of the given table.
+The inverted value, or the given value if it was not valid.
 
 
 
