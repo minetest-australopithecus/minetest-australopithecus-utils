@@ -31,6 +31,7 @@ local base_path = minetest.get_modpath(minetest.get_current_modname())
 -- Instance utils
 dofile(base_path .. "/blockedcache.lua")
 dofile(base_path .. "/color.lua")
+dofile(base_path .. "/directmapmanipulator.lua")
 dofile(base_path .. "/list.lua")
 dofile(base_path .. "/mapmanipulator.lua")
 dofile(base_path .. "/noisemanager.lua")

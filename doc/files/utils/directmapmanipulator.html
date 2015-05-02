@@ -3,7 +3,7 @@
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
-    <title>Luadocs for utils/constants.lua</title>
+    <title>Luadocs for utils/directmapmanipulator.lua</title>
     <link rel="stylesheet" href="../../luadoc.css" type="text/css" />
     <!--meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/-->
 </head>
@@ -55,12 +55,12 @@
 		<a href="../../files/utils/color.html">utils/color.lua</a>
 	</li>
 
-	<li><strong>utils/constants.lua</strong></li>
-	
 	<li>
-		<a href="../../files/utils/directmapmanipulator.html">utils/directmapmanipulator.lua</a>
+		<a href="../../files/utils/constants.html">utils/constants.lua</a>
 	</li>
 
+	<li><strong>utils/directmapmanipulator.lua</strong></li>
+	
 	<li>
 		<a href="../../files/utils/fisheryates.html">utils/fisheryates.lua</a>
 	</li>
@@ -144,13 +144,38 @@
 
 <div id="content">
 
-<h1>File <code>utils/constants.lua</code></h1>
+<h1>File <code>utils/directmapmanipulator.lua</code></h1>
 
 
 
 
 
 
+
+<h2>Functions</h2>
+<table class="function_list">
+
+    <tr>
+    <td class="name" nowrap><a href="#DirectMapManipulator:get_node">DirectMapManipulator:get_node</a>&nbsp;(x, z, y)</td>
+    <td class="summary">Gets the node and param2 at the given location.</td>
+    </tr>
+
+    <tr>
+    <td class="name" nowrap><a href="#DirectMapManipulator:new">DirectMapManipulator:new</a>&nbsp;()</td>
+    <td class="summary">Creates a new instance of DirectMapManipulator.</td>
+    </tr>
+
+    <tr>
+    <td class="name" nowrap><a href="#DirectMapManipulator:set_data">DirectMapManipulator:set_data</a>&nbsp;()</td>
+    <td class="summary">Does nothing, only for compatibility with MapManipulator.</td>
+    </tr>
+
+    <tr>
+    <td class="name" nowrap><a href="#DirectMapManipulator:set_node">DirectMapManipulator:set_node</a>&nbsp;(x, z, y, node, param2)</td>
+    <td class="summary">Sets the node at the given location.</td>
+    </tr>
+
+</table>
 
 
 
@@ -162,6 +187,127 @@
 
 
 
+
+<h2><a name="functions"></a>Functions</h2>
+<dl class="function">
+
+
+
+<dt><a name="DirectMapManipulator:get_node"></a><strong>DirectMapManipulator:get_node</strong>&nbsp;(x, z, y)</dt>
+<dd>
+Gets the node and param2 at the given location. 
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  x: The x coordinate (width).
+	</li>
+	
+	<li>
+	  z: the z coordinate (depth).
+	</li>
+	
+	<li>
+	  y: The y coordinate (height).
+	</li>
+	
+</ul>
+
+
+
+
+
+
+<h3>Return value:</h3>
+Two values, the node at the given location and the param2 value.
+
+
+
+</dd>
+
+
+
+
+<dt><a name="DirectMapManipulator:new"></a><strong>DirectMapManipulator:new</strong>&nbsp;()</dt>
+<dd>
+Creates a new instance of DirectMapManipulator. 
+
+
+
+
+
+
+
+<h3>Return value:</h3>
+A new instance.
+
+
+
+</dd>
+
+
+
+
+<dt><a name="DirectMapManipulator:set_data"></a><strong>DirectMapManipulator:set_data</strong>&nbsp;()</dt>
+<dd>
+Does nothing, only for compatibility with MapManipulator.
+
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="DirectMapManipulator:set_node"></a><strong>DirectMapManipulator:set_node</strong>&nbsp;(x, z, y, node, param2)</dt>
+<dd>
+Sets the node at the given location. 
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  x: The x coordinate (width).
+	</li>
+	
+	<li>
+	  z: the z coordinate (depth).
+	</li>
+	
+	<li>
+	  y: The y coordinate (height).
+	</li>
+	
+	<li>
+	  node: The node to set.
+	</li>
+	
+	<li>
+	  param2: Optional. The param2 data to set for this node.
+	</li>
+	
+</ul>
+
+
+
+
+
+
+
+
+</dd>
+
+
+</dl>
 
 
 
