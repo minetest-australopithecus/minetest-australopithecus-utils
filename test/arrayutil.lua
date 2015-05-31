@@ -27,6 +27,32 @@ test.run("contains", function()
 	test.equals(false, arrayutil.contains({ "a", "b" , "c", "test", "d", "e" }, { "d", "e", "a", "c" }))
 end)
 
+test.run("create2d", function()
+	local array = arrayutil.create2d(1, 1, 4, 3, "value")
+
+	test.equals("value", array[1][1])
+	test.equals("value", array[1][3])
+	test.equals("value", array[4][1])
+	test.equals("value", array[4][3])
+	test.equals(nil, array[0])
+	test.equals(nil, array[1][0])
+	test.equals(nil, array[5])
+	test.equals(nil, array[4][4])
+end)
+
+test.run("create3d", function()
+	local array = arrayutil.create3d(1, 1, 1, 4, 3, 2, "value")
+
+	test.equals("value", array[1][1][1])
+	test.equals("value", array[1][1][2])
+	test.equals("value", array[4][1][1])
+	test.equals("value", array[4][3][2])
+	test.equals(nil, array[0])
+	test.equals(nil, array[1][0])
+	test.equals(nil, array[5])
+	test.equals(nil, array[4][3][3])
+end)
+
 test.run("index", function()
 	test.equals(-1, arrayutil.index({}, nil))
 	

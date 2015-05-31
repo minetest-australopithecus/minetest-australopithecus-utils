@@ -47,6 +47,56 @@ function arrayutil.contains(array, item, equals, offset_step)
 	return arrayutil.index(array, item, equals, offset_step) >= 0
 end
 
+--- Creates a 2D array with the given bounds and sets it to the given default
+-- value.
+--
+-- @param start_x The start of the first dimension, inclusive.
+-- @param start_y The start of the second dimension, inclusive.
+-- @param end_x The end of the first dimension, inclusive.
+-- @param end_y The end of the second dimension, inclusive.
+-- @return The created 2D array.
+function arrayutil.create2d(start_x, start_y, end_x, end_y, default_value)
+	local array = {}
+	
+	for x = start_x, end_x, 1 do
+		array[x] = {}
+		
+		for y = start_y, end_y, 1 do
+			array[x][y] = default_value
+		end
+	end
+	
+	return array
+end
+
+--- Creates a 3D array with the given bounds and sets it to the given default
+-- value.
+--
+-- @param start_x The start of the first dimension, inclusive.
+-- @param start_y The start of the second dimension, inclusive.
+-- @param start_z The start of the third dimension, inclusive.
+-- @param end_x The end of the first dimension, inclusive.
+-- @param end_y The end of the second dimension, inclusive.
+-- @param end_z The end of the third dimension, inclusive.
+-- @return The created 3D array.
+function arrayutil.create3d(start_x, start_y, start_z, end_x, end_y, end_z, default_value)
+	local array = {}
+	
+	for x = start_x, end_x, 1 do
+		array[x] = {}
+		
+		for y = start_y, end_y, 1 do
+			array[x][y] = {}
+			
+			for z = start_z, end_z, 1 do
+				array[x][y][z] = default_value
+			end
+		end
+	end
+	
+	return array
+end
+
 --- Gets the index of the item in the given array.
 --
 -- @param array The array to search in.
