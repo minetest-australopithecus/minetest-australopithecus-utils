@@ -30,10 +30,17 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -- functions. It is mostly compatible with MapManipulator, which means you can
 -- pass it to functions which expect a MapManipulator.
 DirectMapManipulator = {
-	--- An instance that can be used.
-	instance = DirectMapManipulator:new()
+	instance = nil
 }
 
+
+function DirectMapManipulator.get_instance()
+	if DirectMapManipulator.instance == nil then
+		DirectMapManipulator.instance = DirectMapManipulator:new()
+	end
+	
+	return DirectMapManipulator.instance
+end
 
 --- Creates a new instance of DirectMapManipulator.
 --
