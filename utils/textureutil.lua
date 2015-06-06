@@ -35,8 +35,8 @@ textureutil = {}
 -- @param border_color The color for the border.
 -- @return The dummy texture (string).
 function textureutil.dummy(inner_color, border_color)
-	local inner = "(inner.png^[colorize:#" .. inner_color.hex .. ":240)"
-	local border = "(border.png^[colorize:#" .. border_color.hex .. ":255)"
+	local inner = "(dummy_inner.png^[colorize:#" .. inner_color.hex .. ":240)"
+	local border = "(dummy_border.png^[colorize:#" .. border_color.hex .. ":255)"
 	
 	return inner .. "^" .. border
 end
