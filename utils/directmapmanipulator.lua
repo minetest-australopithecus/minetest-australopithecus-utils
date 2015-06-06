@@ -29,7 +29,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -- does not use the VoxelManip object, but the Minetest get_node/set_node
 -- functions. It is mostly compatible with MapManipulator, which means you can
 -- pass it to functions which expect a MapManipulator.
-DirectMapManipulator = {}
+DirectMapManipulator = {
+	--- An instance that can be used.
+	instance = DirectMapManipulator:new()
+}
 
 
 --- Creates a new instance of DirectMapManipulator.
