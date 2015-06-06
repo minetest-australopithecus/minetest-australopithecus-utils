@@ -33,8 +33,13 @@ MapManipulator = {}
 
 --- Creates a new instance of MapManipulator.
 --
+-- The parameters only need to be used if you want to read from a certain
+-- area of the map. They are not needed if called from on_generated function.
+--
+-- @param minp Optional. The minimum point to read the data from.
+-- @param maxp Optional. The maximum point to read the data from.
 -- @return A new instance.
-function MapManipulator:new()
+function MapManipulator:new(minp, maxp)
 	local instance = {
 		area = nil,
 		data = nil,
@@ -44,7 +49,15 @@ function MapManipulator:new()
 		voxelmanip = nil
 	}
 	
-	instance.voxelmanip, instance.emin, instance.emax = minetest.get_mapgen_object("voxelmanip")
+	if minp == nil and maxp == nil then
+		instance.voxelmanip, instance.emin, instance.emax = minetest.get_mapgen_object("voxelmanip")
+	else
+		instance.voxelmanip = minetest.get_voxel_manip()
+		instance.emin = minp
+		instance.emax = maxp
+		instance.voxelmanip:read_from_map(instance.emin, instance.emax)
+	end
+	
 	instance.area = VoxelArea:new({
 		MinEdge = instance.emin,
 		MaxEdge = instance.emax

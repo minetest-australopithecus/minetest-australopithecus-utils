@@ -171,7 +171,7 @@
     </tr>
 
     <tr>
-    <td class="name" nowrap><a href="#MapManipulator:new">MapManipulator:new</a>&nbsp;()</td>
+    <td class="name" nowrap><a href="#MapManipulator:new">MapManipulator:new</a>&nbsp;(minp, maxp)</td>
     <td class="summary">Creates a new instance of MapManipulator.</td>
     </tr>
 
@@ -280,10 +280,23 @@ Two values, the node at the given location and the param2 value.
 
 
 
-<dt><a name="MapManipulator:new"></a><strong>MapManipulator:new</strong>&nbsp;()</dt>
+<dt><a name="MapManipulator:new"></a><strong>MapManipulator:new</strong>&nbsp;(minp, maxp)</dt>
 <dd>
-Creates a new instance of MapManipulator. 
+Creates a new instance of MapManipulator.  The parameters only need to be used if you want to read from a certain area of the map. They are not needed if called from on_generated function. 
 
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  minp: Optional. The minimum point to read the data from.
+	</li>
+	
+	<li>
+	  maxp: Optional. The maximum point to read the data from.
+	</li>
+	
+</ul>
 
 
 
