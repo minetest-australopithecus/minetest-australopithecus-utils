@@ -121,6 +121,10 @@ function BlockedCache:is_cached(x, z)
 	return self.cache[x] ~= nil and self.cache[x][z] ~= nil
 end
 
+--- Puts the value for the given x and z coordinates
+--
+-- @param x The x coordinate.
+-- @param z The z coordinate.
 function BlockedCache:put(x, z, value)
 	if self.cache[x] == nil then
 		self.cache[x] = {}
