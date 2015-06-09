@@ -34,7 +34,7 @@ blockutil = {}
 -- @param x The x coordinate.
 -- @param y The y coordinate.
 -- @param z The z coordinate.
--- @return The coordinates (x, y, z) of the block begin.
+-- @return The coordinates (x, y, z) of the blocks begin.
 function blockutil.get_begin(x, y, z)
 	if y == nil and z == nil then
 		local begin = x
@@ -60,17 +60,51 @@ function blockutil.get_begin(x, y, z)
 	return blockutil.get_begin(x), blockutil.get_begin(y), blockutil.get_begin(z)
 end
 
+--- Gets the begin coordinates of the block the given coordinates are in
+-- as position (a table with three entries, x, y, and z).
+--
+-- @param x The x coordinate.
+-- @param y The y coordinate.
+-- @param z The z coordinate.
+-- @return The coordinates (x, y, z) of the blocks begin as pos.
+function blockutil.get_begin_pos(x, y, z)
+	local begin_x, begin_y, begin_z = blockutil.get_begin(x, y, z)
+	
+	return {
+		x = begin_x,
+		y = begin_y,
+		z = begin_z
+	}
+end
+
 --- Gets the end coordinates of the block the given coordinates are in.
 --
 -- @param x The x coordinate.
 -- @param y The y coordinate.
 -- @param z The z coordinate.
--- @return The coordinates (x, y, z) of the block end.
+-- @return The coordinates (x, y, z) of the blocks end.
 function blockutil.get_end(x, y, z)
 	if y == nil and z == nil then
 		return blockutil.get_begin(x + constants.block_size) - 1
 	end
 	
 	return blockutil.get_end(x), blockutil.get_end(y), blockutil.get_end(z)
+end
+
+--- Gets the end coordinates of the block the given coordinates are in
+-- as position (a table with three entries, x, y, z).
+--
+-- @param x The x coordinate.
+-- @param y The y coordinate.
+-- @param z The z coordinate.
+-- @return The coordinates (x, y, z) of the blocks end as pos.
+function blockutil.get_end_pos(x, y, z)
+	local end_x, end_y, end_z = blockutil.get_end(x, y, z)
+	
+	return {
+		x = end_x,
+		y = end_y,
+		z = end_z
+	}
 end
 
