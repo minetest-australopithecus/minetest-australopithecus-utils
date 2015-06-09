@@ -145,9 +145,11 @@ end
 -- @param table The table.
 -- @param one_line Optional. If the table should be printed on only one line.
 --                 Defaults to false.
+-- @param table_ids Optional. If the table IDs should be printed.
+--                  Defaults to true.
 -- @param indent Optional. The number of spaces of indentation.
 -- @return The string representation of the given table.
-function tableutil.to_string(table, one_line, indent)
+function tableutil.to_string(table, one_line, table_ids, indent)
 	if table == nil then
 		return "nil"
 	end
@@ -155,7 +157,13 @@ function tableutil.to_string(table, one_line, indent)
 	indent = indent or 0
 	
 	if type(table) == "table" then
-		local str = tostring(table) .. " {"
+		local str = ""
+		
+		if table_ids == nil or table_ids then
+			str = str .. tostring(table)
+		end
+		
+		str = str .. " {"
 		
 		if one_line then
 			str = str .. " "

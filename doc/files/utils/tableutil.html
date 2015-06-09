@@ -176,7 +176,7 @@
     </tr>
 
     <tr>
-    <td class="name" nowrap><a href="#tableutil.to_string">tableutil.to_string</a>&nbsp;(table, one_line, indent)</td>
+    <td class="name" nowrap><a href="#tableutil.to_string">tableutil.to_string</a>&nbsp;(table, one_line, table_ids, indent)</td>
     <td class="summary">Returns the string representation of the given table.</td>
     </tr>
 
@@ -315,7 +315,7 @@ The merged table.
 
 
 
-<dt><a name="tableutil.to_string"></a><strong>tableutil.to_string</strong>&nbsp;(table, one_line, indent)</dt>
+<dt><a name="tableutil.to_string"></a><strong>tableutil.to_string</strong>&nbsp;(table, one_line, table_ids, indent)</dt>
 <dd>
 Returns the string representation of the given table. 
 
@@ -329,6 +329,10 @@ Returns the string representation of the given table.
 	
 	<li>
 	  one_line: Optional. If the table should be printed on only one line. Defaults to false.
+	</li>
+	
+	<li>
+	  table_ids: Optional. If the table IDs should be printed. Defaults to true.
 	</li>
 	
 	<li>
