@@ -54,6 +54,8 @@ end
 -- @param start_y The start of the second dimension, inclusive.
 -- @param end_x The end of the first dimension, inclusive.
 -- @param end_y The end of the second dimension, inclusive.
+-- @param default_value The default value that will be set, it will be cloned
+--                      for every entry.
 -- @return The created 2D array.
 function arrayutil.create2d(start_x, start_y, end_x, end_y, default_value)
 	local array = {}
@@ -62,7 +64,7 @@ function arrayutil.create2d(start_x, start_y, end_x, end_y, default_value)
 		array[x] = {}
 		
 		for y = start_y, end_y, 1 do
-			array[x][y] = default_value
+			array[x][y] = tableutil.clone(default_value)
 		end
 	end
 	
@@ -78,6 +80,8 @@ end
 -- @param end_x The end of the first dimension, inclusive.
 -- @param end_y The end of the second dimension, inclusive.
 -- @param end_z The end of the third dimension, inclusive.
+-- @param default_value The default value that will be set, it will be cloned
+--                      for every entry.
 -- @return The created 3D array.
 function arrayutil.create3d(start_x, start_y, start_z, end_x, end_y, end_z, default_value)
 	local array = {}
@@ -89,7 +93,7 @@ function arrayutil.create3d(start_x, start_y, start_z, end_x, end_y, end_z, defa
 			array[x][y] = {}
 			
 			for z = start_z, end_z, 1 do
-				array[x][y][z] = default_value
+				array[x][y][z] = tableutil.clone(default_value)
 			end
 		end
 	end
