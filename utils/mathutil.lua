@@ -44,6 +44,26 @@ function mathutil.clamp(value, min, max)
 	end
 end
 
+--- Tests if the given value is within the given range.
+--
+-- @param min The minimum value. It can also be a table with either two values,
+--            the first being the minimum and the second being the maximum, or
+--            with two named values, min and max.
+-- @param max The maximum value. Not used if min is a table.
+function mathutil.in_range(value, min, max)
+	if type(min) == "table" then
+		if min.min == nil then
+			max = min[2]
+			min = min[1]
+		else
+			max = min.max
+			min = min.min
+		end
+	end
+	
+	return value >= min and value <= max
+end
+
 --- Gets the next lower prime from the given number.
 --
 -- @param number The number.
