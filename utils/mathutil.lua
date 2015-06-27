@@ -61,6 +61,12 @@ function mathutil.in_range(value, min, max)
 		end
 	end
 	
+	if min > max then
+		local temp = min
+		min = max
+		max = temp
+	end
+	
 	return value >= min and value <= max
 end
 

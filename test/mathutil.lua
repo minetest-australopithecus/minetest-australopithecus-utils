@@ -33,6 +33,8 @@ test.run("in_range", function()
 	test.equals(true, mathutil.in_range(10, { min = 0, max = 10 }))
 	test.equals(false, mathutil.in_range(-1, { min = 0, max = 10 }))
 	test.equals(false, mathutil.in_range(11, { min = 0, max = 10 }))
+	
+	test.equals(true, mathutil.in_range(5, 10, 0))
 end)
 
 test.run("next_lower_prime", function()
