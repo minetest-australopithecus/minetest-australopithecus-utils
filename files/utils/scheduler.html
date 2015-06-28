@@ -3,7 +3,7 @@
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
-    <title>Luadocs for utils/pathutil.lua</title>
+    <title>Luadocs for utils/scheduler.lua</title>
     <link rel="stylesheet" href="../../luadoc.css" type="text/css" />
     <!--meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/-->
 </head>
@@ -99,16 +99,16 @@
 		<a href="../../files/utils/noisemanager.html">utils/noisemanager.lua</a>
 	</li>
 
-	<li><strong>utils/pathutil.lua</strong></li>
-	
+	<li>
+		<a href="../../files/utils/pathutil.html">utils/pathutil.lua</a>
+	</li>
+
 	<li>
 		<a href="../../files/utils/rotationutil.html">utils/rotationutil.lua</a>
 	</li>
 
-	<li>
-		<a href="../../files/utils/scheduler.html">utils/scheduler.lua</a>
-	</li>
-
+	<li><strong>utils/scheduler.lua</strong></li>
+	
 	<li>
 		<a href="../../files/utils/stopwatch.html">utils/stopwatch.lua</a>
 	</li>
@@ -148,7 +148,7 @@
 
 <div id="content">
 
-<h1>File <code>utils/pathutil.lua</code></h1>
+<h1>File <code>utils/scheduler.lua</code></h1>
 
 
 
@@ -160,8 +160,23 @@
 <table class="function_list">
 
     <tr>
-    <td class="name" nowrap><a href="#pathutil.concat">pathutil.concat</a>&nbsp;(...)</td>
-    <td class="summary">Concats all given value into a valid path.</td>
+    <td class="name" nowrap><a href="#scheduler.init">scheduler.init</a>&nbsp;()</td>
+    <td class="summary">Initializes the scheduler.</td>
+    </tr>
+
+    <tr>
+    <td class="name" nowrap><a href="#scheduler.schedule">scheduler.schedule</a>&nbsp;(name, interval, run_function, overshoot_policy)</td>
+    <td class="summary">Schedules the given function.</td>
+    </tr>
+
+    <tr>
+    <td class="name" nowrap><a href="#scheduler.step">scheduler.step</a>&nbsp;(since_last_call)</td>
+    <td class="summary">The step function that is registered with minetest.register_on_globalstep.</td>
+    </tr>
+
+    <tr>
+    <td class="name" nowrap><a href="#scheduler.unschedule">scheduler.unschedule</a>&nbsp;(name)</td>
+    <td class="summary">Unschedules/Removes the function with the given name.</td>
     </tr>
 
 </table>
@@ -182,16 +197,45 @@
 
 
 
-<dt><a name="pathutil.concat"></a><strong>pathutil.concat</strong>&nbsp;(...)</dt>
+<dt><a name="scheduler.init"></a><strong>scheduler.init</strong>&nbsp;()</dt>
 <dd>
-Concats all given value into a valid path. 
+Initializes the scheduler.  Note that the client should never need to call this function.
+
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="scheduler.schedule"></a><strong>scheduler.schedule</strong>&nbsp;(name, interval, run_function, overshoot_policy)</dt>
+<dd>
+Schedules the given function. 
 
 
 <h3>Parameters</h3>
 <ul>
 	
 	<li>
-	  ...: The items to concatenate. Assumed to be strings.
+	  name: The name of the function.
+	</li>
+	
+	<li>
+	  interval: The interval in which to run the function.
+	</li>
+	
+	<li>
+	  run_function: The function to execute.
+	</li>
+	
+	<li>
+	  overshoot_policy: Optional. The overshoot policy. Defaults to scheduler.OVERSHOOT_POLICY_RUN_ONCE.
 	</li>
 	
 </ul>
@@ -201,8 +245,57 @@ Concats all given value into a valid path.
 
 
 
-<h3>Return value:</h3>
-A pthat delimited by the current path delimiter.
+
+
+</dd>
+
+
+
+
+<dt><a name="scheduler.step"></a><strong>scheduler.step</strong>&nbsp;(since_last_call)</dt>
+<dd>
+The step function that is registered with minetest.register_on_globalstep.  Note that the client should never call this function as it might mess up the scheduled functions. 
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  since_last_call: The elapsed time since the last call.
+	</li>
+	
+</ul>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="scheduler.unschedule"></a><strong>scheduler.unschedule</strong>&nbsp;(name)</dt>
+<dd>
+Unschedules/Removes the function with the given name. 
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  name: The name of the function to unschedule.
+	</li>
+	
+</ul>
+
+
+
+
+
 
 
 
