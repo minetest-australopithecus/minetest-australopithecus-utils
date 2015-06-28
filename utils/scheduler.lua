@@ -30,10 +30,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 scheduler = {
 	--- If more time has elapsed than the interval of the scheduled function,
 	-- the function will be run as many times as necessary to catch up.
-	OVERSHOOT_POLICY_CATCH_UP,
+	OVERSHOOT_POLICY_CATCH_UP = 1,
 	--- If more time has elpased than the interval of the scheduled function,
 	-- the function will still only be run once.
-	OVERSHOOT_POLICY_RUN_ONCE,
+	OVERSHOOT_POLICY_RUN_ONCE = 2,
 	
 	initialized = false,
 	scheduled_functions = {}
@@ -45,7 +45,7 @@ scheduler = {
 -- Note that the client should never need to call this function.
 function scheduler.init()
 	if not scheduler.initialized then
-		minetest.register_on_globalstep(scheduler.step)
+		minetest.register_globalstep(scheduler.step)
 	end
 end
 
@@ -57,7 +57,7 @@ end
 -- @param overshoot_policy Optional. The overshoot policy. Defaults to
 --                         scheduler.OVERSHOOT_POLICY_RUN_ONCE.
 function scheduler.schedule(name, interval, run_function, overshoot_policy)
-	sched.scheduled_functions[name] = {
+	scheduler.scheduled_functions[name] = {
 		interval = interval,
 		overshoot_policy = overshoot_policy or scheduler.OVERSHOOT_POLICY_RUN_ONCE,
 		run_function = run_function,
@@ -80,14 +80,14 @@ function scheduler.step(since_last_call)
 		scheduled.timer = scheduled.timer + since_last_call
 		
 		if scheduled.timer >= scheduled.interval then
-			log.debug("Scheduler: " .. name)
+			log.verbose("Scheduler: " .. name)
 			scheduled.run_function()
 			
 			local additional_runs = math.floor(scheduled.timer / scheduled.interval) - 1
 			
 			if scheduled.overshoot_policy == scheduler.OVERSHOOT_POLICY_CATCH_UP then
 				for counter = 1, additional_runs, 1 do
-					log.debug("Scheduler (catch up): " .. name)
+					log.verbose("Scheduler (catch up): " .. name)
 					scheduled.run_function()
 				end
 			end
