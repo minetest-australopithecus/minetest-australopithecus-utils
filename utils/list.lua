@@ -149,6 +149,24 @@ function List:size()
 	return self.counter
 end
 
+--- Gets a sub list starting from the given index and the given number of items.
+--
+-- @param from The starting index.
+-- @param count The count of items to get.
+-- @return A List containing the items starting by the given index. The List
+--         will be empty if the starting index is out of range, if there are not
+--         as many items as specified with count, all items that there are will
+--         be returned.
+function List:sub_list(from, count)
+	local sub = List:new()
+	
+	for index = math.max(from, self.base), math.min(from + count - 1, self.counter - 1), 1 do
+		sub:add(self.items[index])
+	end
+	
+	return sub
+end
+
 --- Turns this list into a table, the return table will be a zero indexed array,
 -- and can freely be modified as it is not the table used by this instance.
 -- However the items in the returned table are not copies.

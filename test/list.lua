@@ -116,6 +116,32 @@ test.run("one_indexed", function()
 	test.equals("c", table[3])
 end)
 
+test.run("sub_list", function()
+	local list = List:new()
+	
+	list:add("a")
+	list:add("b")
+	list:add("c")
+	list:add("d")
+	list:add("e")
+	
+	local sub = list:sub_list(1, 3)
+	test.equals(3, sub:size())
+	test.equals("b", sub:get(0))
+	test.equals("c", sub:get(1))
+	test.equals("d", sub:get(2))
+	
+	sub = list:sub_list(3, 4)
+	test.equals(2, sub:size())
+	test.equals("d", sub:get(0))
+	test.equals("e", sub:get(1))
+	
+	sub = list:sub_list(-4, 6)
+	test.equals(2, sub:size())
+	test.equals("a", sub:get(0))
+	test.equals("b", sub:get(1))
+end)
+
 test.run("to_table", function()
 	local list = List:new()
 	
