@@ -205,6 +205,11 @@
     </tr>
 
     <tr>
+    <td class="name" nowrap><a href="#List:sub_list">List:sub_list</a>&nbsp;(from, count)</td>
+    <td class="summary">Gets a sub list starting from the given index and the given number of items.</td>
+    </tr>
+
+    <tr>
     <td class="name" nowrap><a href="#List:to_table">List:to_table</a>&nbsp;()</td>
     <td class="summary">Turns this list into a table, the return table will be a zero indexed array, and can freely be modified as it is not the table used by this instance.</td>
     </tr>
@@ -457,6 +462,39 @@ Gets the size of the list.
 
 <h3>Return value:</h3>
 The size of the list.
+
+
+
+</dd>
+
+
+
+
+<dt><a name="List:sub_list"></a><strong>List:sub_list</strong>&nbsp;(from, count)</dt>
+<dd>
+Gets a sub list starting from the given index and the given number of items. 
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  from: The starting index.
+	</li>
+	
+	<li>
+	  count: The count of items to get.
+	</li>
+	
+</ul>
+
+
+
+
+
+
+<h3>Return value:</h3>
+A List containing the items starting by the given index. The List will be empty if the starting index is out of range, if there are not as many items as specified with count, all items that there are will be returned.
 
 
 
