@@ -49,7 +49,7 @@ function inventoryutil.difference_hash(inventory, name, hash)
 			count = 0
 		}
 		
-		if item_hash.id ~= 0 then
+		if item_hash.id >= 0 then
 			item_difference.id = item_hash.id
 			
 			if not stack:is_empty() then
@@ -89,7 +89,7 @@ function inventoryutil.equals_hash(inventory, name, hash)
 				return false
 			end
 		else
-			if item_hash.id ~= 0 or item_hash.count ~= 0 then
+			if item_hash.id >= 0 or item_hash.count ~= 0 then
 				return false
 			end
 		end
@@ -117,7 +117,7 @@ function inventoryutil.hash(inventory, name)
 			}
 		else
 			hash[index] = {
-				id = 0,
+				id = -1,
 				count = 0
 			}
 		end
