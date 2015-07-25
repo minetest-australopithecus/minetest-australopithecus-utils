@@ -44,6 +44,32 @@ function mathutil.clamp(value, min, max)
 	end
 end
 
+--- Gets the distance between the two given points or objects.
+--
+-- @param a The first object. Either a position or an ObjectRef.
+-- @param b The second object. Either a position or an ObjectRef.
+-- @return The distance between the two given points or objects.
+function mathutil.distance(a, b)
+	if type(a.getpos) == "function" then
+		a = a:getpos()
+	end
+	
+	if type(b.getpos) == "function" then
+		b = b:getpos()
+	end
+	
+	local distance_point = {
+		x = math.abs(a.x - b.x),
+		y = math.abs(a.y - b.y),
+		z = math.abs(a.z - b.z)
+	}
+	
+	local distance2d = math.sqrt(math.pow(distance_point.x, 2) + math.pow(distance_point.z, 2))
+	local distance3d = math.sqrt(math.pow(distance2d, 2) + math.pow(distance_point.y, 2))
+	
+	return distance3d
+end
+
 --- Tests if the given value is within the given range.
 --
 -- @param min The minimum value. It can also be a table with either two values,

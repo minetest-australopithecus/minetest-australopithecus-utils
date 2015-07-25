@@ -15,6 +15,26 @@ test.run("clamp", function()
 	test.equals(20, mathutil.clamp(30, 0, 20))
 end)
 
+test.run("distance", function()
+	-- Test with positions.
+	test.equals(1.7321, mathutil.round(mathutil.distance({ x = 0, y = 0, z = 0 }, { x = 1, y = 1, z = 1}), 4))
+	test.equals(13.9284, mathutil.round(mathutil.distance({ x = 0, y = 0, z = 0 }, { x = 7, y = 8, z = 9}), 4))
+	test.equals(26.7955, mathutil.round(mathutil.distance({ x = -18, y = 20, z = 51 }, { x = 3, y = 6, z = 60}), 4))
+	
+	-- Test with objects.
+	local testobject = function(x, y, z)
+		return {
+			getpos = function()
+				return { x = x, y = y, z = z }
+			end
+		}
+	end
+	
+	test.equals(1.7321, mathutil.round(mathutil.distance({ x = 0, y = 0, z = 0 }, testobject(1, 1, 1)), 4))
+	test.equals(13.9284, mathutil.round(mathutil.distance(testobject(0, 0, 0), { x = 7, y = 8, z = 9}), 4))
+	test.equals(26.7955, mathutil.round(mathutil.distance(testobject(-18, 20, 51), testobject(3, 6,60)), 4))
+end)
+
 test.run("in_range", function()
 	test.equals(true, mathutil.in_range(0, 0, 10))
 	test.equals(true, mathutil.in_range(5, 0, 10))
