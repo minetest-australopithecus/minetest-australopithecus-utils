@@ -114,6 +114,15 @@ function NoiseManager:get_next_seed()
 	return self.next_seed
 end
 
+--- Creates a PcgRandom object.
+--
+-- @return The new PcgRandom object.
+function NoiseManager:get_pcgrandom()
+	self.next_seed = self.next_seed + 1
+	
+	return PcgRandom(self.next_seed)
+end
+
 --- Creates a PseudoRandom object.
 --
 -- @return The new PseudoRandom object.
