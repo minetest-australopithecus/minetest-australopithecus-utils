@@ -72,6 +72,7 @@ end
 
 --- Tests if the given value is within the given range.
 --
+-- @param value The value to test.
 -- @param min The minimum value. It can also be a table with either two values,
 --            the first being the minimum and the second being the maximum, or
 --            with two named values, min and max.

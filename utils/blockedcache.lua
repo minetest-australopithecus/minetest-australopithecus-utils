@@ -125,6 +125,7 @@ end
 --
 -- @param x The x coordinate.
 -- @param z The z coordinate.
+-- @param value The value to put.
 function BlockedCache:put(x, z, value)
 	if self.cache[x] == nil then
 		self.cache[x] = {}

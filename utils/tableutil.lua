@@ -62,7 +62,7 @@ end
 --
 -- @param a The first table.
 -- @param b The second table.
--- @retunr true if the tables are equal.
+-- @return true if the tables are equal.
 function tableutil.equals(a, b)
 	if a == b then
 		return true

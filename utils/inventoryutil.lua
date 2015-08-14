@@ -74,7 +74,7 @@ end
 -- @param inventory The InvRef object.
 -- @param name The name of the inventory.
 -- @param hash The hash.
--- @param true If the inventory equals the hash.
+-- @return true If the inventory equals the hash.
 function inventoryutil.equals_hash(inventory, name, hash)
 	if hash == nil then
 		return false
