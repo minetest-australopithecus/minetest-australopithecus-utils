@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>ldoc</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+<li><a href="#Fields">Fields</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="$(kind=='Topics' and '' or 'nowrap'">
+  <li><a href="../modules/stringutil.html">stringutil</a></li>
+  <li><a href="../modules/noisemanager.html">noisemanager</a></li>
+  <li><a href="../modules/mapmanipulator.html">mapmanipulator</a></li>
+  <li><a href="../modules/fisheryates.html">fisheryates</a></li>
+  <li><a href="../modules/textureutil.html">textureutil</a></li>
+  <li><a href="../modules/blockutil.html">blockutil</a></li>
+  <li><a href="../modules/tango.html">tango</a></li>
+  <li><a href="../modules/inventoryutil.html">inventoryutil</a></li>
+  <li><strong>scheduler</strong></li>
+  <li><a href="../modules/blockedcache.html">blockedcache</a></li>
+  <li><a href="../modules/mathutil.html">mathutil</a></li>
+  <li><a href="../modules/log.html">log</a></li>
+  <li><a href="../modules/arrayutil.html">arrayutil</a></li>
+  <li><a href="../modules/directmapmanipulator.html">directmapmanipulator</a></li>
+  <li><a href="../modules/rotationutil.html">rotationutil</a></li>
+  <li><a href="../modules/pathutil.html">pathutil</a></li>
+  <li><a href="../modules/interpolate.html">interpolate</a></li>
+  <li><a href="../modules/transform.html">transform</a></li>
+  <li><a href="../modules/test.html">test</a></li>
+  <li><a href="../modules/constants.html">constants</a></li>
+  <li><a href="../modules/list.html">list</a></li>
+  <li><a href="../modules/stopwatch.html">stopwatch</a></li>
+  <li><a href="../modules/color.html">color</a></li>
+  <li><a href="../modules/tableutil.html">tableutil</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>scheduler</code></h1>
+<p>The Scheduler allows you to easily schedule functions for execution.</p>
+<p> Under
+ the hood it used minetest.register_on_globalstep to schedule functions.</p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#init">init ()</a></td>
+	<td class="summary">Initializes the scheduler.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#schedule">schedule (name, interval, run_function, overshoot_policy)</a></td>
+	<td class="summary">Schedules the given function.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#step">step (since_last_call)</a></td>
+	<td class="summary">The step function that is registered with minetest.register_on_globalstep.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#unschedule">unschedule (name)</a></td>
+	<td class="summary">Unschedules/Removes the function with the given name.</td>
+	</tr>
+</table>
+<h2><a href="#Fields">Fields</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#OVERSHOOT_POLICY_CATCH_UP">OVERSHOOT_POLICY_CATCH_UP</a></td>
+	<td class="summary">If more time has elapsed than the interval of the scheduled function,
+ the function will be run as many times as necessary to catch up.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#OVERSHOOT_POLICY_RUN_ONCE">OVERSHOOT_POLICY_RUN_ONCE</a></td>
+	<td class="summary">If more time has elpased than the interval of the scheduled function,
+ the function will still only be run once.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2><a name="Functions"></a>Functions</h2>
+    <dl class="function">
+    <dt>
+    <a name = "init"></a>
+    <strong>init ()</strong>
+    </dt>
+    <dd>
+    Initializes the scheduler.
+<p> Note that the client should never need to call this function.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "schedule"></a>
+    <strong>schedule (name, interval, run_function, overshoot_policy)</strong>
+    </dt>
+    <dd>
+    Schedules the given function.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+         The name of the function.
+        </li>
+        <li><span class="parameter">interval</span>
+         The interval in which to run the function.
+        </li>
+        <li><span class="parameter">run_function</span>
+         The function to execute.
+        </li>
+        <li><span class="parameter">overshoot_policy</span>
+         Optional. The overshoot policy. Defaults to
+                         scheduler.OVERSHOOT_POLICY_RUN_ONCE.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "step"></a>
+    <strong>step (since_last_call)</strong>
+    </dt>
+    <dd>
+    The step function that is registered with minetest.register_on_globalstep.
+<p> Note that the client should never call this function as it might mess up
+ the scheduled functions.
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">since_last_call</span>
+         The elapsed time since the last call.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "unschedule"></a>
+    <strong>unschedule (name)</strong>
+    </dt>
+    <dd>
+    Unschedules/Removes the function with the given name.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+         The name of the function to unschedule.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+    <h2><a name="Fields"></a>Fields</h2>
+    <dl class="function">
+    <dt>
+    <a name = "OVERSHOOT_POLICY_CATCH_UP"></a>
+    <strong>OVERSHOOT_POLICY_CATCH_UP</strong>
+    </dt>
+    <dd>
+    If more time has elapsed than the interval of the scheduled function,
+ the function will be run as many times as necessary to catch up.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "OVERSHOOT_POLICY_RUN_ONCE"></a>
+    <strong>OVERSHOOT_POLICY_RUN_ONCE</strong>
+    </dt>
+    <dd>
+    If more time has elpased than the interval of the scheduled function,
+ the function will still only be run once.
+
+
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.2</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

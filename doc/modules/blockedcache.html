@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>ldoc</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="$(kind=='Topics' and '' or 'nowrap'">
+  <li><a href="../modules/stringutil.html">stringutil</a></li>
+  <li><a href="../modules/noisemanager.html">noisemanager</a></li>
+  <li><a href="../modules/mapmanipulator.html">mapmanipulator</a></li>
+  <li><a href="../modules/fisheryates.html">fisheryates</a></li>
+  <li><a href="../modules/textureutil.html">textureutil</a></li>
+  <li><a href="../modules/blockutil.html">blockutil</a></li>
+  <li><a href="../modules/tango.html">tango</a></li>
+  <li><a href="../modules/inventoryutil.html">inventoryutil</a></li>
+  <li><a href="../modules/scheduler.html">scheduler</a></li>
+  <li><strong>blockedcache</strong></li>
+  <li><a href="../modules/mathutil.html">mathutil</a></li>
+  <li><a href="../modules/log.html">log</a></li>
+  <li><a href="../modules/arrayutil.html">arrayutil</a></li>
+  <li><a href="../modules/directmapmanipulator.html">directmapmanipulator</a></li>
+  <li><a href="../modules/rotationutil.html">rotationutil</a></li>
+  <li><a href="../modules/pathutil.html">pathutil</a></li>
+  <li><a href="../modules/interpolate.html">interpolate</a></li>
+  <li><a href="../modules/transform.html">transform</a></li>
+  <li><a href="../modules/test.html">test</a></li>
+  <li><a href="../modules/constants.html">constants</a></li>
+  <li><a href="../modules/list.html">list</a></li>
+  <li><a href="../modules/stopwatch.html">stopwatch</a></li>
+  <li><a href="../modules/color.html">color</a></li>
+  <li><a href="../modules/tableutil.html">tableutil</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>blockedcache</code></h1>
+<p>A simple cache for caching values based on x and z coordinates.</p>
+<p>
+<p> Also manages the amount of cached entries and can automatically compact
+ the cache to remove the oldest values. `test some code` really</p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#BlockedCache:new">BlockedCache:new (max_entries, auto_compact)</a></td>
+	<td class="summary">Creates a new instance of BlockedCache.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#BlockedCache:clear">BlockedCache:clear ()</a></td>
+	<td class="summary">Clears the complete cache.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#BlockedCache:compact">BlockedCache:compact (max_entries)</a></td>
+	<td class="summary">Compacts the cache, meaning it removes the oldest entries up to the maximum
+ number of entries.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#BlockedCache:get">BlockedCache:get (x, z)</a></td>
+	<td class="summary">Gets the value associated with the given x and z coordinates.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#BlockedCache:is_cached">BlockedCache:is_cached (x, z)</a></td>
+	<td class="summary">Gets if there is a cache entry associated with the given x and z
+ coordinates.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#BlockedCache:put">BlockedCache:put (x, z)</a></td>
+	<td class="summary">Puts the value for the given x and z coordinates</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#BlockedCache:to_string">BlockedCache:to_string ()</a></td>
+	<td class="summary">Gets a string representation of this cache.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2><a name="Functions"></a>Functions</h2>
+    <dl class="function">
+    <dt>
+    <a name = "BlockedCache:new"></a>
+    <strong>BlockedCache:new (max_entries, auto_compact)</strong>
+    </dt>
+    <dd>
+    Creates a new instance of BlockedCache.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">max_entries</span>
+         Optional. The maximum entries for the cache which will be
+                    preserved if the cache is compacted, defaults to 12.
+        </li>
+        <li><span class="parameter">auto_compact</span>
+         Optional. If the cache performs automatic compaction if
+                     the maximum numbers of entries is reached, defaults
+                     to true.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        A new instance of BlockedCache.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "BlockedCache:clear"></a>
+    <strong>BlockedCache:clear ()</strong>
+    </dt>
+    <dd>
+    Clears the complete cache.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "BlockedCache:compact"></a>
+    <strong>BlockedCache:compact (max_entries)</strong>
+    </dt>
+    <dd>
+    Compacts the cache, meaning it removes the oldest entries up to the maximum
+ number of entries.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">max_entries</span>
+         Optional. The maximum number of cache entries to preserve.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "BlockedCache:get"></a>
+    <strong>BlockedCache:get (x, z)</strong>
+    </dt>
+    <dd>
+    Gets the value associated with the given x and z coordinates.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+         The x coordinate.
+        </li>
+        <li><span class="parameter">z</span>
+         The z coordinate.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The value associated with the given x and z coordinates. Returns nil
+         if there is no entry.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "BlockedCache:is_cached"></a>
+    <strong>BlockedCache:is_cached (x, z)</strong>
+    </dt>
+    <dd>
+    Gets if there is a cache entry associated with the given x and z
+ coordinates.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+         The x coordinate.
+        </li>
+        <li><span class="parameter">z</span>
+         The z coordinate.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        true if there is an entry for the given coordinates.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "BlockedCache:put"></a>
+    <strong>BlockedCache:put (x, z)</strong>
+    </dt>
+    <dd>
+    Puts the value for the given x and z coordinates
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+         The x coordinate.
+        </li>
+        <li><span class="parameter">z</span>
+         The z coordinate.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "BlockedCache:to_string"></a>
+    <strong>BlockedCache:to_string ()</strong>
+    </dt>
+    <dd>
+    Gets a string representation of this cache.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The string representation.
+    </ol>
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.2</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

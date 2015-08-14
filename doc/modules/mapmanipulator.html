@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>ldoc</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="$(kind=='Topics' and '' or 'nowrap'">
+  <li><a href="../modules/stringutil.html">stringutil</a></li>
+  <li><a href="../modules/noisemanager.html">noisemanager</a></li>
+  <li><strong>mapmanipulator</strong></li>
+  <li><a href="../modules/fisheryates.html">fisheryates</a></li>
+  <li><a href="../modules/textureutil.html">textureutil</a></li>
+  <li><a href="../modules/blockutil.html">blockutil</a></li>
+  <li><a href="../modules/tango.html">tango</a></li>
+  <li><a href="../modules/inventoryutil.html">inventoryutil</a></li>
+  <li><a href="../modules/scheduler.html">scheduler</a></li>
+  <li><a href="../modules/blockedcache.html">blockedcache</a></li>
+  <li><a href="../modules/mathutil.html">mathutil</a></li>
+  <li><a href="../modules/log.html">log</a></li>
+  <li><a href="../modules/arrayutil.html">arrayutil</a></li>
+  <li><a href="../modules/directmapmanipulator.html">directmapmanipulator</a></li>
+  <li><a href="../modules/rotationutil.html">rotationutil</a></li>
+  <li><a href="../modules/pathutil.html">pathutil</a></li>
+  <li><a href="../modules/interpolate.html">interpolate</a></li>
+  <li><a href="../modules/transform.html">transform</a></li>
+  <li><a href="../modules/test.html">test</a></li>
+  <li><a href="../modules/constants.html">constants</a></li>
+  <li><a href="../modules/list.html">list</a></li>
+  <li><a href="../modules/stopwatch.html">stopwatch</a></li>
+  <li><a href="../modules/color.html">color</a></li>
+  <li><a href="../modules/tableutil.html">tableutil</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>mapmanipulator</code></h1>
+<p>The MapManipulator is a thin wrapper around the VoxelManip object
+ provided by minetest.</p>
+<p> It only capsules the VoxelManip and VoxelArea behind
+ a few functions to minimize code.</p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#MapManipulator:new">MapManipulator:new (minp, maxp)</a></td>
+	<td class="summary">Creates a new instance of MapManipulator.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MapManipulator:get_area">MapManipulator:get_area ()</a></td>
+	<td class="summary">Gets the VoxelArea for the current VoxelManip.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MapManipulator:get_data">MapManipulator:get_data ()</a></td>
+	<td class="summary">Gets the data from the VoxelManip object.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MapManipulator:get_node">MapManipulator:get_node (x, z, y)</a></td>
+	<td class="summary">Gets the node and param2 at the given location.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MapManipulator:set_data">MapManipulator:set_data (data, param2_data)</a></td>
+	<td class="summary">Sets the data into the VoxelManip object.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MapManipulator:set_node">MapManipulator:set_node (x, z, y, node, param2)</a></td>
+	<td class="summary">Sets the node at the given location.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2><a name="Functions"></a>Functions</h2>
+    <dl class="function">
+    <dt>
+    <a name = "MapManipulator:new"></a>
+    <strong>MapManipulator:new (minp, maxp)</strong>
+    </dt>
+    <dd>
+    Creates a new instance of MapManipulator.
+<p> The parameters only need to be used if you want to read from a certain
+ area of the map. They are not needed if called from on_generated function.
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">minp</span>
+         Optional. The minimum point to read the data from.
+        </li>
+        <li><span class="parameter">maxp</span>
+         Optional. The maximum point to read the data from.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        A new instance.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MapManipulator:get_area"></a>
+    <strong>MapManipulator:get_area ()</strong>
+    </dt>
+    <dd>
+    Gets the VoxelArea for the current VoxelManip.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The VoxelArea.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MapManipulator:get_data"></a>
+    <strong>MapManipulator:get_data ()</strong>
+    </dt>
+    <dd>
+    Gets the data from the VoxelManip object.
+ The data is an array that can be accessed by using the VoxelArea object.
+
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Two values, the data and the param2 data.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MapManipulator:get_node"></a>
+    <strong>MapManipulator:get_node (x, z, y)</strong>
+    </dt>
+    <dd>
+    Gets the node and param2 at the given location.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+         The x coordinate (width).
+        </li>
+        <li><span class="parameter">z</span>
+         the z coordinate (depth).
+        </li>
+        <li><span class="parameter">y</span>
+         The y coordinate (height).
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Two values, the node at the given location and the param2 value.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MapManipulator:set_data"></a>
+    <strong>MapManipulator:set_data (data, param2_data)</strong>
+    </dt>
+    <dd>
+    Sets the data into the VoxelManip object.
+ Will also correct and update the lighting, the liquids and flush the map.
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">data</span>
+         Optional. The data to set. If nil the cached data will be used.
+        </li>
+        <li><span class="parameter">param2_data</span>
+         Optional. The param2 data to set. If nil the cached data
+                    will be used.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MapManipulator:set_node"></a>
+    <strong>MapManipulator:set_node (x, z, y, node, param2)</strong>
+    </dt>
+    <dd>
+    Sets the node at the given location.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+         The x coordinate (width).
+        </li>
+        <li><span class="parameter">z</span>
+         the z coordinate (depth).
+        </li>
+        <li><span class="parameter">y</span>
+         The y coordinate (height).
+        </li>
+        <li><span class="parameter">node</span>
+         The node to set.
+        </li>
+        <li><span class="parameter">param2</span>
+         Optional. The param2 data to set for this node.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.2</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

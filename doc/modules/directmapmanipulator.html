@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>ldoc</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="$(kind=='Topics' and '' or 'nowrap'">
+  <li><a href="../modules/stringutil.html">stringutil</a></li>
+  <li><a href="../modules/noisemanager.html">noisemanager</a></li>
+  <li><a href="../modules/mapmanipulator.html">mapmanipulator</a></li>
+  <li><a href="../modules/fisheryates.html">fisheryates</a></li>
+  <li><a href="../modules/textureutil.html">textureutil</a></li>
+  <li><a href="../modules/blockutil.html">blockutil</a></li>
+  <li><a href="../modules/tango.html">tango</a></li>
+  <li><a href="../modules/inventoryutil.html">inventoryutil</a></li>
+  <li><a href="../modules/scheduler.html">scheduler</a></li>
+  <li><a href="../modules/blockedcache.html">blockedcache</a></li>
+  <li><a href="../modules/mathutil.html">mathutil</a></li>
+  <li><a href="../modules/log.html">log</a></li>
+  <li><a href="../modules/arrayutil.html">arrayutil</a></li>
+  <li><strong>directmapmanipulator</strong></li>
+  <li><a href="../modules/rotationutil.html">rotationutil</a></li>
+  <li><a href="../modules/pathutil.html">pathutil</a></li>
+  <li><a href="../modules/interpolate.html">interpolate</a></li>
+  <li><a href="../modules/transform.html">transform</a></li>
+  <li><a href="../modules/test.html">test</a></li>
+  <li><a href="../modules/constants.html">constants</a></li>
+  <li><a href="../modules/list.html">list</a></li>
+  <li><a href="../modules/stopwatch.html">stopwatch</a></li>
+  <li><a href="../modules/color.html">color</a></li>
+  <li><a href="../modules/tableutil.html">tableutil</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>directmapmanipulator</code></h1>
+<p>The DirectMapManipulator is similiar to the MapManipulator, except that it
+ does not use the VoxelManip object, but the Minetest get_node/set_node
+ functions.</p>
+<p> It is mostly compatible with MapManipulator, which means you can
+ pass it to functions which expect a MapManipulator.</p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#DirectMapManipulator:new">DirectMapManipulator:new ()</a></td>
+	<td class="summary">Creates a new instance of DirectMapManipulator.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#DirectMapManipulator:get_node">DirectMapManipulator:get_node (x, z, y)</a></td>
+	<td class="summary">Gets the node and param2 at the given location.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#DirectMapManipulator:set_data">DirectMapManipulator:set_data ()</a></td>
+	<td class="summary">Does nothing, only for compatibility with MapManipulator.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#DirectMapManipulator:set_node">DirectMapManipulator:set_node (x, z, y, node, param2)</a></td>
+	<td class="summary">Sets the node at the given location.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2><a name="Functions"></a>Functions</h2>
+    <dl class="function">
+    <dt>
+    <a name = "DirectMapManipulator:new"></a>
+    <strong>DirectMapManipulator:new ()</strong>
+    </dt>
+    <dd>
+    Creates a new instance of DirectMapManipulator.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        A new instance.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "DirectMapManipulator:get_node"></a>
+    <strong>DirectMapManipulator:get_node (x, z, y)</strong>
+    </dt>
+    <dd>
+    Gets the node and param2 at the given location.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+         The x coordinate (width).
+        </li>
+        <li><span class="parameter">z</span>
+         the z coordinate (depth).
+        </li>
+        <li><span class="parameter">y</span>
+         The y coordinate (height).
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Two values, the node at the given location and the param2 value.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "DirectMapManipulator:set_data"></a>
+    <strong>DirectMapManipulator:set_data ()</strong>
+    </dt>
+    <dd>
+    Does nothing, only for compatibility with MapManipulator.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "DirectMapManipulator:set_node"></a>
+    <strong>DirectMapManipulator:set_node (x, z, y, node, param2)</strong>
+    </dt>
+    <dd>
+    Sets the node at the given location.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+         The x coordinate (width).
+        </li>
+        <li><span class="parameter">z</span>
+         the z coordinate (depth).
+        </li>
+        <li><span class="parameter">y</span>
+         The y coordinate (height).
+        </li>
+        <li><span class="parameter">node</span>
+         The node to set.
+        </li>
+        <li><span class="parameter">param2</span>
+         Optional. The param2 data to set for this node.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.2</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>ldoc</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="$(kind=='Topics' and '' or 'nowrap'">
+  <li><a href="../modules/stringutil.html">stringutil</a></li>
+  <li><a href="../modules/noisemanager.html">noisemanager</a></li>
+  <li><a href="../modules/mapmanipulator.html">mapmanipulator</a></li>
+  <li><a href="../modules/fisheryates.html">fisheryates</a></li>
+  <li><a href="../modules/textureutil.html">textureutil</a></li>
+  <li><a href="../modules/blockutil.html">blockutil</a></li>
+  <li><a href="../modules/tango.html">tango</a></li>
+  <li><strong>inventoryutil</strong></li>
+  <li><a href="../modules/scheduler.html">scheduler</a></li>
+  <li><a href="../modules/blockedcache.html">blockedcache</a></li>
+  <li><a href="../modules/mathutil.html">mathutil</a></li>
+  <li><a href="../modules/log.html">log</a></li>
+  <li><a href="../modules/arrayutil.html">arrayutil</a></li>
+  <li><a href="../modules/directmapmanipulator.html">directmapmanipulator</a></li>
+  <li><a href="../modules/rotationutil.html">rotationutil</a></li>
+  <li><a href="../modules/pathutil.html">pathutil</a></li>
+  <li><a href="../modules/interpolate.html">interpolate</a></li>
+  <li><a href="../modules/transform.html">transform</a></li>
+  <li><a href="../modules/test.html">test</a></li>
+  <li><a href="../modules/constants.html">constants</a></li>
+  <li><a href="../modules/list.html">list</a></li>
+  <li><a href="../modules/stopwatch.html">stopwatch</a></li>
+  <li><a href="../modules/color.html">color</a></li>
+  <li><a href="../modules/tableutil.html">tableutil</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>inventoryutil</code></h1>
+<p>A util for working with inventories.</p>
+<p></p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#difference_hash">difference_hash (inventory, name, hash)</a></td>
+	<td class="summary">Gets the difference between the given inventory and the hash.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#equals_hash">equals_hash (inventory, name, hash, true)</a></td>
+	<td class="summary">Test if the given inventory equals the given hash.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#hash">hash (inventory, name)</a></td>
+	<td class="summary">Creates a hash for the given inventory.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2><a name="Functions"></a>Functions</h2>
+    <dl class="function">
+    <dt>
+    <a name = "difference_hash"></a>
+    <strong>difference_hash (inventory, name, hash)</strong>
+    </dt>
+    <dd>
+    Gets the difference between the given inventory and the hash.  The difference
+ is returned in the same format as the hash, with the count being
+ the amount of difference.
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">inventory</span>
+         The InvRef object.
+        </li>
+        <li><span class="parameter">name</span>
+         The inventory name.
+        </li>
+        <li><span class="parameter">hash</span>
+         The hash to compare against.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The difference between the inventory and the hash.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "equals_hash"></a>
+    <strong>equals_hash (inventory, name, hash, true)</strong>
+    </dt>
+    <dd>
+    Test if the given inventory equals the given hash.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">inventory</span>
+         The InvRef object.
+        </li>
+        <li><span class="parameter">name</span>
+         The name of the inventory.
+        </li>
+        <li><span class="parameter">hash</span>
+         The hash.
+        </li>
+        <li><span class="parameter">true</span>
+         If the inventory equals the hash.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "hash"></a>
+    <strong>hash (inventory, name)</strong>
+    </dt>
+    <dd>
+    Creates a hash for the given inventory.
+ The hash is a 2D table containing the ID and the stack count of all items.
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">inventory</span>
+         The InvRef object.
+        </li>
+        <li><span class="parameter">name</span>
+         The name of the inventory.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The hash.
+    </ol>
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.2</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

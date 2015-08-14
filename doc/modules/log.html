@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>ldoc</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+<li><a href="#Fields">Fields</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="$(kind=='Topics' and '' or 'nowrap'">
+  <li><a href="../modules/stringutil.html">stringutil</a></li>
+  <li><a href="../modules/noisemanager.html">noisemanager</a></li>
+  <li><a href="../modules/mapmanipulator.html">mapmanipulator</a></li>
+  <li><a href="../modules/fisheryates.html">fisheryates</a></li>
+  <li><a href="../modules/textureutil.html">textureutil</a></li>
+  <li><a href="../modules/blockutil.html">blockutil</a></li>
+  <li><a href="../modules/tango.html">tango</a></li>
+  <li><a href="../modules/inventoryutil.html">inventoryutil</a></li>
+  <li><a href="../modules/scheduler.html">scheduler</a></li>
+  <li><a href="../modules/blockedcache.html">blockedcache</a></li>
+  <li><a href="../modules/mathutil.html">mathutil</a></li>
+  <li><strong>log</strong></li>
+  <li><a href="../modules/arrayutil.html">arrayutil</a></li>
+  <li><a href="../modules/directmapmanipulator.html">directmapmanipulator</a></li>
+  <li><a href="../modules/rotationutil.html">rotationutil</a></li>
+  <li><a href="../modules/pathutil.html">pathutil</a></li>
+  <li><a href="../modules/interpolate.html">interpolate</a></li>
+  <li><a href="../modules/transform.html">transform</a></li>
+  <li><a href="../modules/test.html">test</a></li>
+  <li><a href="../modules/constants.html">constants</a></li>
+  <li><a href="../modules/list.html">list</a></li>
+  <li><a href="../modules/stopwatch.html">stopwatch</a></li>
+  <li><a href="../modules/color.html">color</a></li>
+  <li><a href="../modules/tableutil.html">tableutil</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>log</code></h1>
+<p>A simple utility for logging purposes.</p>
+<p>
+<p> This utility uses the minetest.log() method. If the minetest object is not
+ available, it will fallback to printing the messages to stdout.</p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#action">action (...)</a></td>
+	<td class="summary">Logs an action.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#error">error (...)</a></td>
+	<td class="summary">Logs an error.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#info">info (...)</a></td>
+	<td class="summary">Logs an info.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#log">log (level, ...)</a></td>
+	<td class="summary">Logs a message with the given level.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#set_print_all">set_print_all (print_all)</a></td>
+	<td class="summary">Allows to activate or deactivate that all messages are printed.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#verbose">verbose (...)</a></td>
+	<td class="summary">Logs a message.</td>
+	</tr>
+</table>
+<h2><a href="#Fields">Fields</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#print_all">print_all</a></td>
+	<td class="summary">Whether all messages should be printed instead of being handed
+ to Minetest (if available).</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2><a name="Functions"></a>Functions</h2>
+    <dl class="function">
+    <dt>
+    <a name = "action"></a>
+    <strong>action (...)</strong>
+    </dt>
+    <dd>
+    Logs an action.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">...</span>
+         The message to log.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "error"></a>
+    <strong>error (...)</strong>
+    </dt>
+    <dd>
+    Logs an error.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">...</span>
+         The message to log.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "info"></a>
+    <strong>info (...)</strong>
+    </dt>
+    <dd>
+    Logs an info.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">...</span>
+         The message to log.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "log"></a>
+    <strong>log (level, ...)</strong>
+    </dt>
+    <dd>
+    Logs a message with the given level.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">level</span>
+         The log level, should be action, error, info or verbose to
+              stay compatible with minetest.
+        </li>
+        <li><span class="parameter">...</span>
+         The message to log.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "set_print_all"></a>
+    <strong>set_print_all (print_all)</strong>
+    </dt>
+    <dd>
+    Allows to activate or deactivate that all messages are printed.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">print_all</span>
+         true if all messages should be printed, false if messages
+                  should be handed to Minetest (if available).
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "verbose"></a>
+    <strong>verbose (...)</strong>
+    </dt>
+    <dd>
+    Logs a message.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">...</span>
+         The message to log.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+    <h2><a name="Fields"></a>Fields</h2>
+    <dl class="function">
+    <dt>
+    <a name = "print_all"></a>
+    <strong>print_all</strong>
+    </dt>
+    <dd>
+    Whether all messages should be printed instead of being handed
+ to Minetest (if available).
+
+
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.2</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
