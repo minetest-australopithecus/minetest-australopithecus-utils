@@ -72,7 +72,7 @@
 <p>A simple cache for caching values based on x and z coordinates.</p>
 <p>
 <p> Also manages the amount of cached entries and can automatically compact
- the cache to remove the oldest values. `test some code` really</p>
+ the cache to remove the oldest values.</p>
 
 
 <h2><a href="#Functions">Functions</a></h2>
@@ -100,7 +100,7 @@
  coordinates.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#BlockedCache:put">BlockedCache:put (x, z)</a></td>
+	<td class="name" nowrap><a href="#BlockedCache:put">BlockedCache:put (x, z, value)</a></td>
 	<td class="summary">Puts the value for the given x and z coordinates</td>
 	</tr>
 	<tr>
@@ -241,7 +241,7 @@
 </dd>
     <dt>
     <a name = "BlockedCache:put"></a>
-    <strong>BlockedCache:put (x, z)</strong>
+    <strong>BlockedCache:put (x, z, value)</strong>
     </dt>
     <dd>
     Puts the value for the given x and z coordinates
@@ -254,6 +254,9 @@
         </li>
         <li><span class="parameter">z</span>
          The z coordinate.
+        </li>
+        <li><span class="parameter">value</span>
+         The value to put.
         </li>
     </ul>
 
