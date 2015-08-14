@@ -1,0 +1,550 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>ldoc</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="$(kind=='Topics' and '' or 'nowrap'">
+  <li><a href="../modules/stringutil.html">stringutil</a></li>
+  <li><a href="../modules/noisemanager.html">noisemanager</a></li>
+  <li><a href="../modules/mapmanipulator.html">mapmanipulator</a></li>
+  <li><a href="../modules/fisheryates.html">fisheryates</a></li>
+  <li><a href="../modules/textureutil.html">textureutil</a></li>
+  <li><a href="../modules/blockutil.html">blockutil</a></li>
+  <li><a href="../modules/tango.html">tango</a></li>
+  <li><a href="../modules/inventoryutil.html">inventoryutil</a></li>
+  <li><a href="../modules/scheduler.html">scheduler</a></li>
+  <li><a href="../modules/blockedcache.html">blockedcache</a></li>
+  <li><a href="../modules/mathutil.html">mathutil</a></li>
+  <li><a href="../modules/log.html">log</a></li>
+  <li><strong>arrayutil</strong></li>
+  <li><a href="../modules/directmapmanipulator.html">directmapmanipulator</a></li>
+  <li><a href="../modules/rotationutil.html">rotationutil</a></li>
+  <li><a href="../modules/pathutil.html">pathutil</a></li>
+  <li><a href="../modules/interpolate.html">interpolate</a></li>
+  <li><a href="../modules/transform.html">transform</a></li>
+  <li><a href="../modules/test.html">test</a></li>
+  <li><a href="../modules/constants.html">constants</a></li>
+  <li><a href="../modules/list.html">list</a></li>
+  <li><a href="../modules/stopwatch.html">stopwatch</a></li>
+  <li><a href="../modules/color.html">color</a></li>
+  <li><a href="../modules/tableutil.html">tableutil</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>arrayutil</code></h1>
+<p>Various utility functions for working with arrays.</p>
+<p> An array is sub-form of
+ a array, the array is simply indexed with numbers like this:
+<p> local array = { 1 = "a", 2 = "b", 3 = "c" }
+ local array = { "a", "b", "c" }</p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#contains">contains (array, item, equals, offset_step)</a></td>
+	<td class="summary">Gets if the given array contains the given item.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#create2d">create2d (start_x, start_y, end_x, end_y, default_value)</a></td>
+	<td class="summary">Creates a 2D array with the given bounds and sets it to the given default
+ value.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#create3d">create3d (start_x, start_y, start_z, end_x, end_y, end_z, default_value)</a></td>
+	<td class="summary">Creates a 3D array with the given bounds and sets it to the given default
+ value.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#index">index (array, item, equals, offset_step)</a></td>
+	<td class="summary">Gets the index of the item in the given array.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#next_matching_column">next_matching_column (array, start_index, matcher, reverse)</a></td>
+	<td class="summary">Finds the next matching column.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#next_matching_row">next_matching_row (array, start_index, matcher, reverse)</a></td>
+	<td class="summary">Finds the next matching row.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#previous_matching_column">previous_matching_column (array, start_index, matcher)</a></td>
+	<td class="summary">Finds the previous matching column.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#previous_matching_row">previous_matching_row (array, start_index, matcher)</a></td>
+	<td class="summary">Finds the previous matching row.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#reduce2d">reduce2d (array, is_empty)</a></td>
+	<td class="summary">Removes empty rows and columns at the beginning and the end of the given
+ array.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#swapped_reindex2d">swapped_reindex2d (data, new_x, new_y)</a></td>
+	<td class="summary">Reindexes the given 2D array, swapping the two dimensions.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#swapped_reindex3d">swapped_reindex3d (data, new_x, new_y, new_z)</a></td>
+	<td class="summary">Reindexes the given 3d array, swapping the two dimensions.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2><a name="Functions"></a>Functions</h2>
+    <dl class="function">
+    <dt>
+    <a name = "contains"></a>
+    <strong>contains (array, item, equals, offset_step)</strong>
+    </dt>
+    <dd>
+    Gets if the given array contains the given item.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">array</span>
+         The array to search in.
+        </li>
+        <li><span class="parameter">item</span>
+         The item to search for, can either be an item or another array.
+        </li>
+        <li><span class="parameter">equals</span>
+         Optional. The function to determine if items equal each other,
+               defaults to tableutil.equals.
+        </li>
+        <li><span class="parameter">offset_step</span>
+         Optional. If the given item is an array, this determines
+                    how much of the array is skipped before it is tried to
+                    match.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        true if the array contains the given item.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "create2d"></a>
+    <strong>create2d (start_x, start_y, end_x, end_y, default_value)</strong>
+    </dt>
+    <dd>
+    Creates a 2D array with the given bounds and sets it to the given default
+ value.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">start_x</span>
+         The start of the first dimension, inclusive.
+        </li>
+        <li><span class="parameter">start_y</span>
+         The start of the second dimension, inclusive.
+        </li>
+        <li><span class="parameter">end_x</span>
+         The end of the first dimension, inclusive.
+        </li>
+        <li><span class="parameter">end_y</span>
+         The end of the second dimension, inclusive.
+        </li>
+        <li><span class="parameter">default_value</span>
+         The default value that will be set, it will be cloned
+                      for every entry.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The created 2D array.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "create3d"></a>
+    <strong>create3d (start_x, start_y, start_z, end_x, end_y, end_z, default_value)</strong>
+    </dt>
+    <dd>
+    Creates a 3D array with the given bounds and sets it to the given default
+ value.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">start_x</span>
+         The start of the first dimension, inclusive.
+        </li>
+        <li><span class="parameter">start_y</span>
+         The start of the second dimension, inclusive.
+        </li>
+        <li><span class="parameter">start_z</span>
+         The start of the third dimension, inclusive.
+        </li>
+        <li><span class="parameter">end_x</span>
+         The end of the first dimension, inclusive.
+        </li>
+        <li><span class="parameter">end_y</span>
+         The end of the second dimension, inclusive.
+        </li>
+        <li><span class="parameter">end_z</span>
+         The end of the third dimension, inclusive.
+        </li>
+        <li><span class="parameter">default_value</span>
+         The default value that will be set, it will be cloned
+                      for every entry.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The created 3D array.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "index"></a>
+    <strong>index (array, item, equals, offset_step)</strong>
+    </dt>
+    <dd>
+    Gets the index of the item in the given array.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">array</span>
+         The array to search in.
+        </li>
+        <li><span class="parameter">item</span>
+         The item to search for, can either be an item or another array.
+        </li>
+        <li><span class="parameter">equals</span>
+         Optional. The function to determine if items equal each other,
+               defaults to tableutil.equals.
+        </li>
+        <li><span class="parameter">offset_step</span>
+         Optional. If the given item is an array, this determines
+                    how much of the array is skipped before it is tried to
+                    match.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The index of the given item or array, -1 if it was not found.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "next_matching_column"></a>
+    <strong>next_matching_column (array, start_index, matcher, reverse)</strong>
+    </dt>
+    <dd>
+    Finds the next matching column.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">array</span>
+         The 2D array to search.
+        </li>
+        <li><span class="parameter">start_index</span>
+         Optional. The index at which to start. Defaults to 1, or
+                    if the direction is reversed, the number of columns in
+                    the array.
+        </li>
+        <li><span class="parameter">matcher</span>
+         Optional. The function that is used to determine if the column
+                matches or not. Is expected to take one argument, the item,
+                and return a boolean. The column matches if any of its items
+                matches this condition. Defaults to not nil and not empty
+                string.
+        </li>
+        <li><span class="parameter">reverse</span>
+         Optional. If the array should be serched backwards. Defaults
+                to false.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The index of the matching column. -1 if none was found.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "next_matching_row"></a>
+    <strong>next_matching_row (array, start_index, matcher, reverse)</strong>
+    </dt>
+    <dd>
+    Finds the next matching row.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">array</span>
+         The 2D array to search.
+        </li>
+        <li><span class="parameter">start_index</span>
+         Optional. The index at which to start. Defaults to 1, or
+                    if the direction is reversed, the number of rows in
+                    the array.
+        </li>
+        <li><span class="parameter">matcher</span>
+         Optional. The function that is used to determine if the row
+                matches or not. Is expected to take one argument, the item,
+                and return a boolean. The row matches if any of its items
+                matches this condition. Defaults to not nil and not empty
+                string.
+        </li>
+        <li><span class="parameter">reverse</span>
+         Optional. If the array should be serched backwards. Defaults
+                to false.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The index of the matching row. -1 if none was found.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "previous_matching_column"></a>
+    <strong>previous_matching_column (array, start_index, matcher)</strong>
+    </dt>
+    <dd>
+    Finds the previous matching column.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">array</span>
+         The 2D array to search.
+        </li>
+        <li><span class="parameter">start_index</span>
+         Optional. The index at which to start. Defaults to
+                    the number columns in the array.
+        </li>
+        <li><span class="parameter">matcher</span>
+         Optional. The function that is used to determine if the column
+                matches or not. Is expected to take one argument, the item,
+                and return a boolean. The column matches if any of its items
+                matches this condition. Defaults to not nil and not empty
+                string.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The index of the matching column. -1 if none was found.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "previous_matching_row"></a>
+    <strong>previous_matching_row (array, start_index, matcher)</strong>
+    </dt>
+    <dd>
+    Finds the previous matching row.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">array</span>
+         The 2D array to search.
+        </li>
+        <li><span class="parameter">start_index</span>
+         Optional. The index at which to start. Defaults to
+                    the number rows in the array.
+        </li>
+        <li><span class="parameter">matcher</span>
+         Optional. The function that is used to determine if the row
+                matches or not. Is expected to take one argument, the item,
+                and return a boolean. The row matches if any of its items
+                matches this condition. Defaults to not nil and not empty
+                string.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The index of the matching row. -1 if none was found.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "reduce2d"></a>
+    <strong>reduce2d (array, is_empty)</strong>
+    </dt>
+    <dd>
+    Removes empty rows and columns at the beginning and the end of the given
+ array.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">array</span>
+         The array.
+        </li>
+        <li><span class="parameter">is_empty</span>
+         Optional. The function used for determining if the item is
+                 empty. By default nil and an empty string is considered
+                 empty. Expected is a function that takes one item and returns
+                 a boolean.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "swapped_reindex2d"></a>
+    <strong>swapped_reindex2d (data, new_x, new_y)</strong>
+    </dt>
+    <dd>
+    Reindexes the given 2D array, swapping the two dimensions.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">data</span>
+         The array to reindex.
+        </li>
+        <li><span class="parameter">new_x</span>
+         The new startpoint for the first dimension.
+        </li>
+        <li><span class="parameter">new_y</span>
+         The new startpoint for the second dimension.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The reindexed array.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "swapped_reindex3d"></a>
+    <strong>swapped_reindex3d (data, new_x, new_y, new_z)</strong>
+    </dt>
+    <dd>
+    Reindexes the given 3d array, swapping the two dimensions.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">data</span>
+         The array to reindex.
+        </li>
+        <li><span class="parameter">new_x</span>
+         The new startpoint for the first dimension.
+        </li>
+        <li><span class="parameter">new_y</span>
+         The new startpoint for the second dimension.
+        </li>
+        <li><span class="parameter">new_z</span>
+         The new startpoint for the third dimension.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The reindexed array.
+    </ol>
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.2</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

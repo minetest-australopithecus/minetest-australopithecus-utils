@@ -1,0 +1,442 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>ldoc</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+<li><a href="#Fields">Fields</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="$(kind=='Topics' and '' or 'nowrap'">
+  <li><a href="../modules/stringutil.html">stringutil</a></li>
+  <li><a href="../modules/noisemanager.html">noisemanager</a></li>
+  <li><a href="../modules/mapmanipulator.html">mapmanipulator</a></li>
+  <li><a href="../modules/fisheryates.html">fisheryates</a></li>
+  <li><a href="../modules/textureutil.html">textureutil</a></li>
+  <li><a href="../modules/blockutil.html">blockutil</a></li>
+  <li><a href="../modules/tango.html">tango</a></li>
+  <li><a href="../modules/inventoryutil.html">inventoryutil</a></li>
+  <li><a href="../modules/scheduler.html">scheduler</a></li>
+  <li><a href="../modules/blockedcache.html">blockedcache</a></li>
+  <li><a href="../modules/mathutil.html">mathutil</a></li>
+  <li><a href="../modules/log.html">log</a></li>
+  <li><a href="../modules/arrayutil.html">arrayutil</a></li>
+  <li><a href="../modules/directmapmanipulator.html">directmapmanipulator</a></li>
+  <li><strong>rotationutil</strong></li>
+  <li><a href="../modules/pathutil.html">pathutil</a></li>
+  <li><a href="../modules/interpolate.html">interpolate</a></li>
+  <li><a href="../modules/transform.html">transform</a></li>
+  <li><a href="../modules/test.html">test</a></li>
+  <li><a href="../modules/constants.html">constants</a></li>
+  <li><a href="../modules/list.html">list</a></li>
+  <li><a href="../modules/stopwatch.html">stopwatch</a></li>
+  <li><a href="../modules/color.html">color</a></li>
+  <li><a href="../modules/tableutil.html">tableutil</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>rotationutil</code></h1>
+<p>Various functions for rotating nodes.</p>
+<p>
+
+ The internal mechanics of Minetest are as follows: It uses the facedir value
+ to apply an rotation. It is value with the minimum of 0 (no rotation) to
+ the maximum of 23 (1 0 1 1 1). It consists of two parts, the lower two bits
+ are the amount of rotation applied:
+<p>    Bits	Value	Description
+    0 0	0		No rotation
+    0 1	1		90 degrees (sign depending on axis, + for z+ x- y-)
+    1 0	2		180 degrees
+    1 1	3		-90 degrees (sign depending on axis, + for z- x+ y+)
+
+ These values correspond to the ROT_* constants.
+
+ The upper three bits are the axis that is used:
+<p>    Bits	Value	Shifted	Description
+    0 0 0	0		0		y+, no rotation
+    0 0 1	1		4		z+, 90 degrees clockwise around x
+    0 1 0	2		8		z-, 90 degrees counter-clockwise around x
+    0 1 1	3		12		x+, 90 degrees counter-clockwise around z
+    1 0 0	4		16		x-, 90 degrees clockwise around z
+    1 0 1	5		20		y-, 180 degrees counter-clockwise around x
+<p> These values correspond to the POS_* and NEG_* constants.
+
+ The rotation is a two step process, first the rotation of the axis/upper
+ three bits are applied, after that the rotation/lower two bits.
+<p> See the mapnode.cpp/transformNodeBox function for even more details.</p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#decrement">decrement (rotation)</a></td>
+	<td class="summary">Returns the decremented rotation, so given rotation - 90 degrees.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#facedir">facedir (axis, rotation)</a></td>
+	<td class="summary">Creates the facedir value from the given axis and rotation.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#increment">increment (rotation)</a></td>
+	<td class="summary">Returns the incremented rotation, so given rotation + 90 degrees.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#invert">invert (axis_or_rotation)</a></td>
+	<td class="summary">Inverts the given axis or rotation.</td>
+	</tr>
+</table>
+<h2><a href="#Fields">Fields</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#NEG_X">NEG_X</a></td>
+	<td class="summary">The negative X Axis.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#NEG_Z">NEG_Z</a></td>
+	<td class="summary">The negative Z Axis.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#NEG_Y">NEG_Y</a></td>
+	<td class="summary">The negative Y Axis.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#POS_X">POS_X</a></td>
+	<td class="summary">The positive X Axis.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#POS_Y">POS_Y</a></td>
+	<td class="summary">The positive Y Axis.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#POS_Z">POS_Z</a></td>
+	<td class="summary">The positive Z Axis.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ROT_0">ROT_0</a></td>
+	<td class="summary">No rotation.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ROT_90">ROT_90</a></td>
+	<td class="summary">Rotation 90 degrees, sign depends on the axis.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ROT_180">ROT_180</a></td>
+	<td class="summary">Rotation 180 degrees.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ROT_270">ROT_270</a></td>
+	<td class="summary">Rotation 270/-90 degrees, sign depends on the axis.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2><a name="Functions"></a>Functions</h2>
+    <dl class="function">
+    <dt>
+    <a name = "decrement"></a>
+    <strong>decrement (rotation)</strong>
+    </dt>
+    <dd>
+    Returns the decremented rotation, so given rotation - 90 degrees.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">rotation</span>
+         The rotation to decrement.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The decremented rotation, or the given value if it was not valid.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "facedir"></a>
+    <strong>facedir (axis, rotation)</strong>
+    </dt>
+    <dd>
+    Creates the facedir value from the given axis and rotation.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">axis</span>
+         The axis, one of the POS_* or NEG_* constants.
+        </li>
+        <li><span class="parameter">rotation</span>
+         The rotation, one of the ROT_* constants.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The facedir value.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "increment"></a>
+    <strong>increment (rotation)</strong>
+    </dt>
+    <dd>
+    Returns the incremented rotation, so given rotation + 90 degrees.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">rotation</span>
+         The rotation to increment.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The incremented rotation, or the given value if it was not valid.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "invert"></a>
+    <strong>invert (axis_or_rotation)</strong>
+    </dt>
+    <dd>
+    Inverts the given axis or rotation.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">axis_or_rotation</span>
+         The axis or rotation, one of the POS_*, NEG_* or
+                         ROT_* constants.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The inverted value, or the given value if it was not valid.
+    </ol>
+
+
+
+
+</dd>
+</dl>
+    <h2><a name="Fields"></a>Fields</h2>
+    <dl class="function">
+    <dt>
+    <a name = "NEG_X"></a>
+    <strong>NEG_X</strong>
+    </dt>
+    <dd>
+    The negative X Axis.  Will rotate the node around the Z axis by
+ 90 degrees clockwise before the additional rotation is applied.
+<p> Minetest internal it has the value 4, within facedir it is 16 (1 0 0 R R).
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "NEG_Z"></a>
+    <strong>NEG_Z</strong>
+    </dt>
+    <dd>
+    The negative Z Axis.  Will rotate the node around the X axis by
+ 90 degrees counter-clockwise before the additional rotation is applied.
+<p> Minetest internal it has the value 2, within facedir it is 8 (0 1 0 R R).
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "NEG_Y"></a>
+    <strong>NEG_Y</strong>
+    </dt>
+    <dd>
+    The negative Y Axis.  Will rotate the node around the Z axis by
+ 180 degrees counter-clockwise before the additional rotation is applied.
+<p> Minetest internal it has the value 5, within the bitmask of facedir it
+ is 20 (1 0 1 R R).
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "POS_X"></a>
+    <strong>POS_X</strong>
+    </dt>
+    <dd>
+    The positive X Axis.  Will rotate the node around the Z axis by
+ 90 degrees counter-clockwise before the additional rotation is applied.
+<p> Minetest internal it has the value 3, within facedir it is 12 (0 1 1 R R).
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "POS_Y"></a>
+    <strong>POS_Y</strong>
+    </dt>
+    <dd>
+    The positive Y Axis.  Will not rotate the node before the additional
+ rotation is applied.
+<p> Minetest internal it has the value 0, within of facedir it is 0 (0 0 0 R R).
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "POS_Z"></a>
+    <strong>POS_Z</strong>
+    </dt>
+    <dd>
+    The positive Z Axis.  Will rotate the node around the X axis by
+ 90 degrees clockwise before the additional rotation is applied.
+<p> Minetest internal it has the value 1, within facedir it is 4 (0 0 1 R R).
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "ROT_0"></a>
+    <strong>ROT_0</strong>
+    </dt>
+    <dd>
+    No rotation.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "ROT_90"></a>
+    <strong>ROT_90</strong>
+    </dt>
+    <dd>
+    Rotation 90 degrees, sign depends on the axis.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "ROT_180"></a>
+    <strong>ROT_180</strong>
+    </dt>
+    <dd>
+    Rotation 180 degrees.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "ROT_270"></a>
+    <strong>ROT_270</strong>
+    </dt>
+    <dd>
+    Rotation 270/-90 degrees, sign depends on the axis.
+
+
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.2</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

@@ -1,0 +1,406 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>ldoc</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="$(kind=='Topics' and '' or 'nowrap'">
+  <li><a href="../modules/stringutil.html">stringutil</a></li>
+  <li><a href="../modules/noisemanager.html">noisemanager</a></li>
+  <li><a href="../modules/mapmanipulator.html">mapmanipulator</a></li>
+  <li><a href="../modules/fisheryates.html">fisheryates</a></li>
+  <li><a href="../modules/textureutil.html">textureutil</a></li>
+  <li><a href="../modules/blockutil.html">blockutil</a></li>
+  <li><a href="../modules/tango.html">tango</a></li>
+  <li><a href="../modules/inventoryutil.html">inventoryutil</a></li>
+  <li><a href="../modules/scheduler.html">scheduler</a></li>
+  <li><a href="../modules/blockedcache.html">blockedcache</a></li>
+  <li><a href="../modules/mathutil.html">mathutil</a></li>
+  <li><a href="../modules/log.html">log</a></li>
+  <li><a href="../modules/arrayutil.html">arrayutil</a></li>
+  <li><a href="../modules/directmapmanipulator.html">directmapmanipulator</a></li>
+  <li><a href="../modules/rotationutil.html">rotationutil</a></li>
+  <li><a href="../modules/pathutil.html">pathutil</a></li>
+  <li><a href="../modules/interpolate.html">interpolate</a></li>
+  <li><a href="../modules/transform.html">transform</a></li>
+  <li><a href="../modules/test.html">test</a></li>
+  <li><a href="../modules/constants.html">constants</a></li>
+  <li><strong>list</strong></li>
+  <li><a href="../modules/stopwatch.html">stopwatch</a></li>
+  <li><a href="../modules/color.html">color</a></li>
+  <li><a href="../modules/tableutil.html">tableutil</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>list</code></h1>
+<p>A simple list that keeps the order in which the items are added to it.</p>
+<p>
+<p> Provides the method foreach(action) to allow to easily iterate over all items
+ in the list:
+<p> list:foreach(function(item)
+     print(item)
+ end)</p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#List:new">List:new (one_indexed)</a></td>
+	<td class="summary">Creates a new instance of List.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#List:add">List:add (...)</a></td>
+	<td class="summary">Adds the given item to the list.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#List:clear">List:clear ()</a></td>
+	<td class="summary">Clears all entries from the list.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#List:contains">List:contains (item)</a></td>
+	<td class="summary">Checks if this list contains the given item.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#List:foreach">List:foreach (action)</a></td>
+	<td class="summary">Iterates over all items in the list and invokes the given action on them.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#List:get">List:get (index)</a></td>
+	<td class="summary">Gets the item at the given index.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#List:index">List:index (item, equals)</a></td>
+	<td class="summary">Returns the index of the given item.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#List:matching">List:matching (condition)</a></td>
+	<td class="summary">Returns a List with all items that match the given condition.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#List:size">List:size ()</a></td>
+	<td class="summary">Gets the size of the list.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#List:sub_list">List:sub_list (from, count)</a></td>
+	<td class="summary">Gets a sub list starting from the given index and the given number of items.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#List:to_table">List:to_table ()</a></td>
+	<td class="summary">Turns this list into a table, the return table will be a zero indexed array,
+ and can freely be modified as it is not the table used by this instance.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2><a name="Functions"></a>Functions</h2>
+    <dl class="function">
+    <dt>
+    <a name = "List:new"></a>
+    <strong>List:new (one_indexed)</strong>
+    </dt>
+    <dd>
+    Creates a new instance of List.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">one_indexed</span>
+         Optional. true if the list should be one indexed instead
+                    of zero indexed.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        A new instance of List.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "List:add"></a>
+    <strong>List:add (...)</strong>
+    </dt>
+    <dd>
+    Adds the given item to the list.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">...</span>
+         The items to add.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "List:clear"></a>
+    <strong>List:clear ()</strong>
+    </dt>
+    <dd>
+    Clears all entries from the list.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "List:contains"></a>
+    <strong>List:contains (item)</strong>
+    </dt>
+    <dd>
+    Checks if this list contains the given item.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">item</span>
+         The item to search for.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        true if this list contains the given item.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "List:foreach"></a>
+    <strong>List:foreach (action)</strong>
+    </dt>
+    <dd>
+    Iterates over all items in the list and invokes the given action on them.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">action</span>
+         The function to invoke on the item, the first parameter will be
+               the item itself, the second (optional) parameter is the index.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "List:get"></a>
+    <strong>List:get (index)</strong>
+    </dt>
+    <dd>
+    Gets the item at the given index.  Returns nil if there is no item.
+ Note that there is no different between "no item" and "nil is the item",
+ in both cases nil is returned.
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">index</span>
+         The index of the item to get.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The item at the given index. nil if there is no item.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "List:index"></a>
+    <strong>List:index (item, equals)</strong>
+    </dt>
+    <dd>
+    Returns the index of the given item.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">item</span>
+         The item for which to get the index.
+        </li>
+        <li><span class="parameter">equals</span>
+         Optional. The equals function to use.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The index of the given item. -1 if this item is not in this list.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "List:matching"></a>
+    <strong>List:matching (condition)</strong>
+    </dt>
+    <dd>
+    Returns a List with all items that match the given condition.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">condition</span>
+         The condition, a function that accepts one parameter,
+                  the item, and returns a boolean.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The List of matching items.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "List:size"></a>
+    <strong>List:size ()</strong>
+    </dt>
+    <dd>
+    Gets the size of the list.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The size of the list.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "List:sub_list"></a>
+    <strong>List:sub_list (from, count)</strong>
+    </dt>
+    <dd>
+    Gets a sub list starting from the given index and the given number of items.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">from</span>
+         The starting index.
+        </li>
+        <li><span class="parameter">count</span>
+         The count of items to get.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+         A List containing the items starting by the given index. The List
+         will be empty if the starting index is out of range, if there are not
+         as many items as specified with count, all items that there are will
+         be returned.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "List:to_table"></a>
+    <strong>List:to_table ()</strong>
+    </dt>
+    <dd>
+    Turns this list into a table, the return table will be a zero indexed array,
+ and can freely be modified as it is not the table used by this instance.
+ However the items in the returned table are not copies.
+
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        This list as table.
+    </ol>
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.2</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

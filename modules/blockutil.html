@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>ldoc</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="$(kind=='Topics' and '' or 'nowrap'">
+  <li><a href="../modules/stringutil.html">stringutil</a></li>
+  <li><a href="../modules/noisemanager.html">noisemanager</a></li>
+  <li><a href="../modules/mapmanipulator.html">mapmanipulator</a></li>
+  <li><a href="../modules/fisheryates.html">fisheryates</a></li>
+  <li><a href="../modules/textureutil.html">textureutil</a></li>
+  <li><strong>blockutil</strong></li>
+  <li><a href="../modules/tango.html">tango</a></li>
+  <li><a href="../modules/inventoryutil.html">inventoryutil</a></li>
+  <li><a href="../modules/scheduler.html">scheduler</a></li>
+  <li><a href="../modules/blockedcache.html">blockedcache</a></li>
+  <li><a href="../modules/mathutil.html">mathutil</a></li>
+  <li><a href="../modules/log.html">log</a></li>
+  <li><a href="../modules/arrayutil.html">arrayutil</a></li>
+  <li><a href="../modules/directmapmanipulator.html">directmapmanipulator</a></li>
+  <li><a href="../modules/rotationutil.html">rotationutil</a></li>
+  <li><a href="../modules/pathutil.html">pathutil</a></li>
+  <li><a href="../modules/interpolate.html">interpolate</a></li>
+  <li><a href="../modules/transform.html">transform</a></li>
+  <li><a href="../modules/test.html">test</a></li>
+  <li><a href="../modules/constants.html">constants</a></li>
+  <li><a href="../modules/list.html">list</a></li>
+  <li><a href="../modules/stopwatch.html">stopwatch</a></li>
+  <li><a href="../modules/color.html">color</a></li>
+  <li><a href="../modules/tableutil.html">tableutil</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>blockutil</code></h1>
+<p>Various functions related to blocks/chunks.</p>
+<p></p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#get_begin">get_begin (x, y, z)</a></td>
+	<td class="summary">Gets the begin coordinates of the block the given coordinates are in.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#get_begin_pos">get_begin_pos (x, y, z)</a></td>
+	<td class="summary">Gets the begin coordinates of the block the given coordinates are in
+ as position (a table with three entries, x, y, and z).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#get_end">get_end (x, y, z)</a></td>
+	<td class="summary">Gets the end coordinates of the block the given coordinates are in.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#get_end_pos">get_end_pos (x, y, z)</a></td>
+	<td class="summary">Gets the end coordinates of the block the given coordinates are in
+ as position (a table with three entries, x, y, z).</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2><a name="Functions"></a>Functions</h2>
+    <dl class="function">
+    <dt>
+    <a name = "get_begin"></a>
+    <strong>get_begin (x, y, z)</strong>
+    </dt>
+    <dd>
+    Gets the begin coordinates of the block the given coordinates are in.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+         The x coordinate.
+        </li>
+        <li><span class="parameter">y</span>
+         The y coordinate.
+        </li>
+        <li><span class="parameter">z</span>
+         The z coordinate.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The coordinates (x, y, z) of the blocks begin.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "get_begin_pos"></a>
+    <strong>get_begin_pos (x, y, z)</strong>
+    </dt>
+    <dd>
+    Gets the begin coordinates of the block the given coordinates are in
+ as position (a table with three entries, x, y, and z).
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+         The x coordinate.
+        </li>
+        <li><span class="parameter">y</span>
+         The y coordinate.
+        </li>
+        <li><span class="parameter">z</span>
+         The z coordinate.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The coordinates (x, y, z) of the blocks begin as pos.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "get_end"></a>
+    <strong>get_end (x, y, z)</strong>
+    </dt>
+    <dd>
+    Gets the end coordinates of the block the given coordinates are in.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+         The x coordinate.
+        </li>
+        <li><span class="parameter">y</span>
+         The y coordinate.
+        </li>
+        <li><span class="parameter">z</span>
+         The z coordinate.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The coordinates (x, y, z) of the blocks end.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "get_end_pos"></a>
+    <strong>get_end_pos (x, y, z)</strong>
+    </dt>
+    <dd>
+    Gets the end coordinates of the block the given coordinates are in
+ as position (a table with three entries, x, y, z).
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+         The x coordinate.
+        </li>
+        <li><span class="parameter">y</span>
+         The y coordinate.
+        </li>
+        <li><span class="parameter">z</span>
+         The z coordinate.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The coordinates (x, y, z) of the blocks end as pos.
+    </ol>
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.2</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

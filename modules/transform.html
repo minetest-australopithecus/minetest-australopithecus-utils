@@ -1,0 +1,384 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>ldoc</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="$(kind=='Topics' and '' or 'nowrap'">
+  <li><a href="../modules/stringutil.html">stringutil</a></li>
+  <li><a href="../modules/noisemanager.html">noisemanager</a></li>
+  <li><a href="../modules/mapmanipulator.html">mapmanipulator</a></li>
+  <li><a href="../modules/fisheryates.html">fisheryates</a></li>
+  <li><a href="../modules/textureutil.html">textureutil</a></li>
+  <li><a href="../modules/blockutil.html">blockutil</a></li>
+  <li><a href="../modules/tango.html">tango</a></li>
+  <li><a href="../modules/inventoryutil.html">inventoryutil</a></li>
+  <li><a href="../modules/scheduler.html">scheduler</a></li>
+  <li><a href="../modules/blockedcache.html">blockedcache</a></li>
+  <li><a href="../modules/mathutil.html">mathutil</a></li>
+  <li><a href="../modules/log.html">log</a></li>
+  <li><a href="../modules/arrayutil.html">arrayutil</a></li>
+  <li><a href="../modules/directmapmanipulator.html">directmapmanipulator</a></li>
+  <li><a href="../modules/rotationutil.html">rotationutil</a></li>
+  <li><a href="../modules/pathutil.html">pathutil</a></li>
+  <li><a href="../modules/interpolate.html">interpolate</a></li>
+  <li><strong>transform</strong></li>
+  <li><a href="../modules/test.html">test</a></li>
+  <li><a href="../modules/constants.html">constants</a></li>
+  <li><a href="../modules/list.html">list</a></li>
+  <li><a href="../modules/stopwatch.html">stopwatch</a></li>
+  <li><a href="../modules/color.html">color</a></li>
+  <li><a href="../modules/tableutil.html">tableutil</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>transform</code></h1>
+<p>Various mathematical functions for transforming values.</p>
+<p></p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#big_linear">big_linear (value, new_min, new_max)</a></td>
+	<td class="summary">Performs a linear transform on the given value to transform the value
+ from the range -10/10 to 0/1.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#centered">centered (value, transformation, min, max, new_min, new_max)</a></td>
+	<td class="summary">Performs the given transformation on the given value with the peak in center
+ of the min and max values.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#centered_cosine">centered_cosine (value, min, max, new_min, new_max)</a></td>
+	<td class="summary">Performs a cosine transformation on the given value with the peak in center
+ of the min and max values.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#centered_linear">centered_linear (value, min, max, new_min, new_max)</a></td>
+	<td class="summary">Performs a linear transformation on the given value with the peak in center
+ of the min and max values.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cosine">cosine (value, min, max, new_min, new_max)</a></td>
+	<td class="summary">Performs a cosine transform on the given value to transform the value
+ from one range to another.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#linear">linear (value, min, max, new_min, new_max)</a></td>
+	<td class="summary">Performs a linear transform on the given value to transform the value
+ from one range to another.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#small_linear">small_linear (value, new_min, new_max)</a></td>
+	<td class="summary">Performs a linear transform on the given value to transform the value
+ from the range -1/1 to 0/1.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2><a name="Functions"></a>Functions</h2>
+    <dl class="function">
+    <dt>
+    <a name = "big_linear"></a>
+    <strong>big_linear (value, new_min, new_max)</strong>
+    </dt>
+    <dd>
+    Performs a linear transform on the given value to transform the value
+ from the range -10/10 to 0/1.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">value</span>
+         The value to transform.
+        </li>
+        <li><span class="parameter">new_min</span>
+         Optional. The minimum value for the new range, defaults to 0.
+        </li>
+        <li><span class="parameter">new_max</span>
+         Optional. The maximum value for the new range, defaults to 1.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The transformed value.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "centered"></a>
+    <strong>centered (value, transformation, min, max, new_min, new_max)</strong>
+    </dt>
+    <dd>
+    Performs the given transformation on the given value with the peak in center
+ of the min and max values.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">value</span>
+         The value to transform.
+        </li>
+        <li><span class="parameter">transformation</span>
+         The transformation function, assumed to accept five
+                       values.
+        </li>
+        <li><span class="parameter">min</span>
+         Optional. The original minimum value, defaults to -1.
+        </li>
+        <li><span class="parameter">max</span>
+         Optional. The original maximum value, default to 1.
+        </li>
+        <li><span class="parameter">new_min</span>
+         Optional. The minimum value for the new range, defaults to 0.
+        </li>
+        <li><span class="parameter">new_max</span>
+         Optional. The maximum value for the new range, defaults to 1.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The transformed value.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "centered_cosine"></a>
+    <strong>centered_cosine (value, min, max, new_min, new_max)</strong>
+    </dt>
+    <dd>
+    Performs a cosine transformation on the given value with the peak in center
+ of the min and max values.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">value</span>
+         The value to transform.
+        </li>
+        <li><span class="parameter">min</span>
+         Optional. The original minimum value, defaults to -1.
+        </li>
+        <li><span class="parameter">max</span>
+         Optional. The original maximum value, default to 1.
+        </li>
+        <li><span class="parameter">new_min</span>
+         Optional. The minimum value for the new range, defaults to 0.
+        </li>
+        <li><span class="parameter">new_max</span>
+         Optional. The maximum value for the new range, defaults to 1.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The transformed value.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "centered_linear"></a>
+    <strong>centered_linear (value, min, max, new_min, new_max)</strong>
+    </dt>
+    <dd>
+    Performs a linear transformation on the given value with the peak in center
+ of the min and max values.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">value</span>
+         The value to transform.
+        </li>
+        <li><span class="parameter">min</span>
+         Optional. The original minimum value, defaults to -1.
+        </li>
+        <li><span class="parameter">max</span>
+         Optional. The original maximum value, default to 1.
+        </li>
+        <li><span class="parameter">new_min</span>
+         Optional. The minimum value for the new range, defaults to 0.
+        </li>
+        <li><span class="parameter">new_max</span>
+         Optional. The maximum value for the new range, defaults to 1.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cosine"></a>
+    <strong>cosine (value, min, max, new_min, new_max)</strong>
+    </dt>
+    <dd>
+    Performs a cosine transform on the given value to transform the value
+ from one range to another.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">value</span>
+         The value to transform.
+        </li>
+        <li><span class="parameter">min</span>
+         Optional. The original minimum value of the range, defaults to -1.
+        </li>
+        <li><span class="parameter">max</span>
+         Optional. The original maximum value of the range, defaults to 1.
+        </li>
+        <li><span class="parameter">new_min</span>
+         Optional. The minimum value for the new range, defaults to 0.
+        </li>
+        <li><span class="parameter">new_max</span>
+         Optional. The maximum value for the new range, defaults to 1.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The transformed value.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "linear"></a>
+    <strong>linear (value, min, max, new_min, new_max)</strong>
+    </dt>
+    <dd>
+    Performs a linear transform on the given value to transform the value
+ from one range to another.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">value</span>
+         The value to transform.
+        </li>
+        <li><span class="parameter">min</span>
+         Optional. The original minimum value of the range, defaults to -1.
+        </li>
+        <li><span class="parameter">max</span>
+         Optional. The original maximum value of the range, defaults to 1.
+        </li>
+        <li><span class="parameter">new_min</span>
+         Optional. The minimum value for the new range, defaults to 0.
+        </li>
+        <li><span class="parameter">new_max</span>
+         Optional. The maximum value for the new range, defaults to 1.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The transformed value.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "small_linear"></a>
+    <strong>small_linear (value, new_min, new_max)</strong>
+    </dt>
+    <dd>
+    Performs a linear transform on the given value to transform the value
+ from the range -1/1 to 0/1.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">value</span>
+         The value to transform.
+        </li>
+        <li><span class="parameter">new_min</span>
+         Optional. The minimum value for the new range, defaults to 0.
+        </li>
+        <li><span class="parameter">new_max</span>
+         Optional. The maximum value for the new range, defaults to 1.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The transformed value.
+    </ol>
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.2</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
