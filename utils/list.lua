@@ -123,6 +123,17 @@ function List:index(item, equals)
 	return -1
 end
 
+--- If the List contains functions, this invokes all items with the given
+-- parameters.
+--
+-- @param ... The parameters to invoke the functions.
+function List:invoke(...)
+	for index = self.base, self.counter - 1, 1 do
+		local item = self.items[index]
+		item(...)
+	end
+end
+
 --- Returns a List with all items that match the given condition.
 --
 -- @param condition The condition, a function that accepts one parameter,

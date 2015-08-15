@@ -83,6 +83,36 @@ test.run("index", function()
 	test.equals(-1, list:index("f"))
 end)
 
+test.run("invoke", function()
+	local list = List:new()
+	
+	local a_invoked = nil
+	local b_invoked = nil
+	local c_invoked = nil
+	
+	list:add(function(parama, paramb, paramc)
+		a_invoked = (parama ~= nil)
+			and (paramb ~= nil)
+			and (paramc ~= nil)
+	end)
+	list:add(function(parama, paramb, paramc)
+		b_invoked = (parama ~= nil)
+			and (paramb ~= nil)
+			and (paramc ~= nil)
+	end)
+	list:add(function(parama, paramb, paramc)
+		c_invoked = (parama ~= nil)
+			and (paramb ~= nil)
+			and (paramc ~= nil)
+	end)
+	
+	list:invoke(5, 6, 7)
+	
+	test.equals(true, a_invoked)
+	test.equals(true, b_invoked)
+	test.equals(true, c_invoked)
+end)
+
 test.run("matching", function()
 	local list = List:new()
 	list:add("a", "b", "c", "d", "e")
