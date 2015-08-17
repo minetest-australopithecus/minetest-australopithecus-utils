@@ -30,6 +30,16 @@ test.run("get_begin", function()
 	test.equals(-32, x)
 	test.equals(-192, y)
 	test.equals(128, z)
+	
+	x, y, z = blockutil.get_begin({
+		x = 0,
+		y = -188,
+		z = 188
+	})
+	
+	test.equals(-32, x)
+	test.equals(-192, y)
+	test.equals(128, z)
 end)
 
 test.run("get_end", function()
@@ -47,6 +57,16 @@ test.run("get_end", function()
 	test.equals(207, blockutil.get_end(128))
 	
 	local x, y, z = blockutil.get_end(0, -188, 188)
+	
+	test.equals(47, x)
+	test.equals(-113, y)
+	test.equals(207, z)
+	
+	x, y, z = blockutil.get_end({
+		x = 0,
+		y = -188,
+		z = 188
+	})
 	
 	test.equals(47, x)
 	test.equals(-113, y)

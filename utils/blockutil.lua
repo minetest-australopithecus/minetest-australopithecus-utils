@@ -31,11 +31,19 @@ blockutil = {}
 
 --- Gets the begin coordinates of the block the given coordinates are in.
 --
--- @param x The x coordinate.
+-- @param x The x coordinate. Can also be a table with the x, y and z values.
 -- @param y The y coordinate.
 -- @param z The z coordinate.
 -- @return The coordinates (x, y, z) of the blocks begin.
 function blockutil.get_begin(x, y, z)
+	if type(x) == "table" then
+		local pos = x
+		
+		x = pos.x
+		y = pos.y
+		z = pos.z
+	end
+	
 	if y == nil and z == nil then
 		local begin = x
 		
@@ -63,7 +71,7 @@ end
 --- Gets the begin coordinates of the block the given coordinates are in
 -- as position (a table with three entries, x, y, and z).
 --
--- @param x The x coordinate.
+-- @param x The x coordinate. Can also be a table with the x, y and z values.
 -- @param y The y coordinate.
 -- @param z The z coordinate.
 -- @return The coordinates (x, y, z) of the blocks begin as pos.
@@ -79,11 +87,19 @@ end
 
 --- Gets the end coordinates of the block the given coordinates are in.
 --
--- @param x The x coordinate.
+-- @param x The x coordinate. Can also be a table with the x, y and z values.
 -- @param y The y coordinate.
 -- @param z The z coordinate.
 -- @return The coordinates (x, y, z) of the blocks end.
 function blockutil.get_end(x, y, z)
+	if type(x) == "table" then
+		local pos = x
+		
+		x = pos.x
+		y = pos.y
+		z = pos.z
+	end
+	
 	if y == nil and z == nil then
 		return blockutil.get_begin(x + constants.block_size) - 1
 	end
@@ -94,7 +110,7 @@ end
 --- Gets the end coordinates of the block the given coordinates are in
 -- as position (a table with three entries, x, y, z).
 --
--- @param x The x coordinate.
+-- @param x The x coordinate. Can also be a table with the x, y and z values.
 -- @param y The y coordinate.
 -- @param z The z coordinate.
 -- @return The coordinates (x, y, z) of the blocks end as pos.
