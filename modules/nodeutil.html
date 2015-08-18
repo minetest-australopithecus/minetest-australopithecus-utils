@@ -33,7 +33,6 @@
 <h2>Contents</h2>
 <ul>
 <li><a href="#Functions">Functions</a></li>
-<li><a href="#Fields">Fields</a></li>
 </ul>
 
 
@@ -54,9 +53,9 @@
   <li><a href="../modules/transform.html">transform</a></li>
   <li><a href="../modules/scheduler.html">scheduler</a></li>
   <li><a href="../modules/mathutil.html">mathutil</a></li>
-  <li><strong>color</strong></li>
+  <li><a href="../modules/color.html">color</a></li>
   <li><a href="../modules/blockutil.html">blockutil</a></li>
-  <li><a href="../modules/nodeutil.html">nodeutil</a></li>
+  <li><strong>nodeutil</strong></li>
   <li><a href="../modules/arrayutil.html">arrayutil</a></li>
   <li><a href="../modules/noisemanager.html">noisemanager</a></li>
   <li><a href="../modules/constants.html">constants</a></li>
@@ -70,36 +69,16 @@
 
 <div id="content">
 
-<h1>Module <code>color</code></h1>
-<p>A simple container for a color and its hex string representation.</p>
-<p>
-<p> Even though it is not enforced, this container is assumed to be imutable.</p>
+<h1>Module <code>nodeutil</code></h1>
+<p>Various functions related to nodes.</p>
+<p></p>
 
 
 <h2><a href="#Functions">Functions</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#Color:new">Color:new (red, green, blue)</a></td>
-	<td class="summary">Creates a new instance of Color.</td>
-	</tr>
-</table>
-<h2><a href="#Fields">Fields</a></h2>
-<table class="function_list">
-	<tr>
-	<td class="name" nowrap><a href="#red">red</a></td>
-	<td class="summary">The red component, a number between 0 and 255.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#green">green</a></td>
-	<td class="summary">The green component, a number between 0 and 255.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#blue">blue</a></td>
-	<td class="summary">The blue component, a number between 0 and 255.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#hex">hex</a></td>
-	<td class="summary">The hex representation, like FFFFFF for white.</td>
+	<td class="name" nowrap><a href="#get_id">get_id (node)</a></td>
+	<td class="summary">Gets the content id of the given node.</td>
 	</tr>
 </table>
 
@@ -110,85 +89,25 @@
     <h2><a name="Functions"></a>Functions</h2>
     <dl class="function">
     <dt>
-    <a name = "Color:new"></a>
-    <strong>Color:new (red, green, blue)</strong>
+    <a name = "get_id"></a>
+    <strong>get_id (node)</strong>
     </dt>
     <dd>
-    Creates a new instance of Color.
+    Gets the content id of the given node.
 
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">red</span>
-         The red component, a number between 0 and 255.
-        </li>
-        <li><span class="parameter">green</span>
-         The green component, a number between 0 and 255.
-        </li>
-        <li><span class="parameter">blue</span>
-         The blue component, a number between 0 and 255.
+        <li><span class="parameter">node</span>
+         The node, can either be an id, a name or a table with the name.
         </li>
     </ul>
 
+    <h3>Returns:</h3>
+    <ol>
 
-
-
-
-</dd>
-</dl>
-    <h2><a name="Fields"></a>Fields</h2>
-    <dl class="function">
-    <dt>
-    <a name = "red"></a>
-    <strong>red</strong>
-    </dt>
-    <dd>
-    The red component, a number between 0 and 255.
-
-
-
-
-
-
-
-</dd>
-    <dt>
-    <a name = "green"></a>
-    <strong>green</strong>
-    </dt>
-    <dd>
-    The green component, a number between 0 and 255.
-
-
-
-
-
-
-
-</dd>
-    <dt>
-    <a name = "blue"></a>
-    <strong>blue</strong>
-    </dt>
-    <dd>
-    The blue component, a number between 0 and 255.
-
-
-
-
-
-
-
-</dd>
-    <dt>
-    <a name = "hex"></a>
-    <strong>hex</strong>
-    </dt>
-    <dd>
-    The hex representation, like FFFFFF for white.
-
-
-
+        The content id of the given node.
+    </ol>
 
 
 
