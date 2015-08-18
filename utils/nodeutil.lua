@@ -25,34 +25,21 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 --]]
 
 
--- Get the base path.
-local base_path = minetest.get_modpath(minetest.get_current_modname())
+--- Various functions related to nodes.
+nodeutil = {}
 
--- Instance utils
-dofile(base_path .. "/blockedcache.lua")
-dofile(base_path .. "/color.lua")
-dofile(base_path .. "/directmapmanipulator.lua")
-dofile(base_path .. "/list.lua")
-dofile(base_path .. "/mapmanipulator.lua")
-dofile(base_path .. "/noisemanager.lua")
 
--- Static utils
-dofile(base_path .. "/arrayutil.lua")
-dofile(base_path .. "/blockutil.lua")
-dofile(base_path .. "/constants.lua")
-dofile(base_path .. "/fisheryates.lua")
-dofile(base_path .. "/interpolate.lua")
-dofile(base_path .. "/inventoryutil.lua")
-dofile(base_path .. "/log.lua")
-dofile(base_path .. "/mathutil.lua")
-dofile(base_path .. "/nodeutil.lua")
-dofile(base_path .. "/pathutil.lua")
-dofile(base_path .. "/rotationutil.lua")
-dofile(base_path .. "/scheduler.lua")
-dofile(base_path .. "/stopwatch.lua")
-dofile(base_path .. "/stringutil.lua")
-dofile(base_path .. "/tableutil.lua")
-dofile(base_path .. "/tango.lua")
-dofile(base_path .. "/textureutil.lua")
-dofile(base_path .. "/transform.lua")
+--- Gets the content id of the given node.
+--
+-- @param node The node, can either be an id, a name or a table with the name.
+-- @return The content id of the given node.
+function nodeutil.get_id(node)
+	if type(node) == "string" then
+		return minetest.get_content_id(node)
+	elseif type(node) == "table" then
+		return minetest.get_content_id(node.name)
+	end
+	
+	return node
+end
 
