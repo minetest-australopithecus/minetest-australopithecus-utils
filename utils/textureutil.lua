@@ -41,3 +41,17 @@ function textureutil.dummy(inner_color, border_color)
 	return inner .. "^" .. border
 end
 
+--- Creates a tile with the given tileable parameters.
+--
+-- @param tile The name of the tile.
+-- @param horizontal If the tile is horizontally tileable.
+-- @param vertical If the tile is vertically tileable.
+-- @return A tile with tileable information.
+function tileable(tile, horizontal, vertical)
+	return {
+		name = tile,
+		tileable_horizontal = horizontal,
+		tileable_vertical = vertical
+	}
+end
+
