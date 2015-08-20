@@ -43,3 +43,27 @@ function nodeutil.get_id(node)
 	return node
 end
 
+--- Converts the given wallmounted value to a facedir value.
+--
+-- @param wallmounted The wallmounted value.
+-- @return The facedir value.
+function nodeutil.wallmounted_to_facedir(wallmounted)
+	if wallmounted == 0 then
+		-- Ceiling
+		return 0
+	elseif wallmounted == 1 then
+		-- Floor
+		return 0
+	elseif wallmounted == 2 then
+		return 1
+	elseif wallmounted == 3 then
+		return 3
+	elseif wallmounted == 4 then
+		return 0
+	elseif wallmounted == 5 then
+		return 2
+	end
+	
+	return 0
+end
+
