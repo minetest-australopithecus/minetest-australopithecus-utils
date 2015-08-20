@@ -47,7 +47,7 @@ end
 -- @param horizontal If the tile is horizontally tileable.
 -- @param vertical If the tile is vertically tileable.
 -- @return A tile with tileable information.
-function tileable(tile, horizontal, vertical)
+function textureutil.tileable(tile, horizontal, vertical)
 	return {
 		name = tile,
 		tileable_horizontal = horizontal,
