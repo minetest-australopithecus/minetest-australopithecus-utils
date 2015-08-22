@@ -43,6 +43,64 @@ function nodeutil.get_id(node)
 	return node
 end
 
+--- Gets the name of given node.
+--
+-- @param node The node, can either be an id, a name or a table with the name.
+-- @return The name of the given node.
+function nodeutil.get_name(node)
+	if type(node) == "number" then
+		return minetest.get_name_from_content_id(node)
+	elseif type(node) == "table" then
+		return node.name
+	end
+	
+	return node
+end
+
+--- Checks if the given node has the given group.
+--
+-- @param node The node to check.
+-- @param group_name The name of the group.
+-- @return true if the node has the given group.
+function nodeutil.has_group(node, group_name)
+	local node_name = nodeutil.get_name(node)
+	
+	return minetest.get_item_group(node_name, grou_name) > 0
+end
+
+--- Iterates over the surroundings of the given position and invokes
+-- the callback for every node in the surroundings.
+--
+-- For example if you want to iterate over the direct neighbourse in all
+-- dimensions, you'd do the following:
+--
+--    nodeutil.surroundings(pos, -1, 1, -1, 1, -1, 1, callback)
+--
+-- @param pos The position that is the center.
+-- @param x_begin The modifier for the beginning in the x dimension.
+-- @param x_end The modifier for the end in the x dimension.
+-- @param z_begin The modifier for the beginning in the z dimension.
+-- @param z_end The modifier for the end in the z dimension.
+-- @param y_begin The modifier for the beginning in the y dimension.
+-- @param y_end The modifier for the end in the y dimension.
+-- @param callback The callback to invoke for every surrounding node.
+function nodeutil.surroundings(pos, x_begin, x_end, z_begin, z_end, y_begin, y_end, callback)
+	for x = pos.x + x_begin, pos.x + x_end, 1 do
+		for z = pos.z + z_begin, pos.z + z_end, 1 do
+			for y = pos.y + y_begin, pos.y + y_end, 1 do
+				if x ~= pos.x and z ~= pos.z and y ~= pos.y then
+					pos = {
+						x = x,
+						y = y,
+						z = z }
+					
+					callback(pos, minetest.get_node(pos))
+				end
+			end
+		end
+	end
+end
+
 --- Converts the given wallmounted value to a facedir value.
 --
 -- @param wallmounted The wallmounted value.
