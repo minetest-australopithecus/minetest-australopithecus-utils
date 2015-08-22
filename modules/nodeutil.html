@@ -38,31 +38,31 @@
 
 <h2>Modules</h2>
 <ul class="$(kind=='Topics' and '' or 'nowrap'">
-  <li><a href="../modules/interpolate.html">interpolate</a></li>
-  <li><a href="../modules/tableutil.html">tableutil</a></li>
-  <li><a href="../modules/stopwatch.html">stopwatch</a></li>
-  <li><a href="../modules/pathutil.html">pathutil</a></li>
-  <li><a href="../modules/inventoryutil.html">inventoryutil</a></li>
-  <li><a href="../modules/tango.html">tango</a></li>
-  <li><a href="../modules/directmapmanipulator.html">directmapmanipulator</a></li>
-  <li><a href="../modules/log.html">log</a></li>
-  <li><a href="../modules/rotationutil.html">rotationutil</a></li>
-  <li><a href="../modules/textureutil.html">textureutil</a></li>
-  <li><a href="../modules/mapmanipulator.html">mapmanipulator</a></li>
   <li><a href="../modules/stringutil.html">stringutil</a></li>
-  <li><a href="../modules/transform.html">transform</a></li>
-  <li><a href="../modules/scheduler.html">scheduler</a></li>
-  <li><a href="../modules/mathutil.html">mathutil</a></li>
-  <li><a href="../modules/color.html">color</a></li>
-  <li><a href="../modules/blockutil.html">blockutil</a></li>
-  <li><strong>nodeutil</strong></li>
-  <li><a href="../modules/arrayutil.html">arrayutil</a></li>
   <li><a href="../modules/noisemanager.html">noisemanager</a></li>
+  <li><strong>nodeutil</strong></li>
+  <li><a href="../modules/mapmanipulator.html">mapmanipulator</a></li>
+  <li><a href="../modules/fisheryates.html">fisheryates</a></li>
+  <li><a href="../modules/textureutil.html">textureutil</a></li>
+  <li><a href="../modules/blockutil.html">blockutil</a></li>
+  <li><a href="../modules/tango.html">tango</a></li>
+  <li><a href="../modules/inventoryutil.html">inventoryutil</a></li>
+  <li><a href="../modules/scheduler.html">scheduler</a></li>
+  <li><a href="../modules/blockedcache.html">blockedcache</a></li>
+  <li><a href="../modules/mathutil.html">mathutil</a></li>
+  <li><a href="../modules/log.html">log</a></li>
+  <li><a href="../modules/arrayutil.html">arrayutil</a></li>
+  <li><a href="../modules/directmapmanipulator.html">directmapmanipulator</a></li>
+  <li><a href="../modules/rotationutil.html">rotationutil</a></li>
+  <li><a href="../modules/pathutil.html">pathutil</a></li>
+  <li><a href="../modules/interpolate.html">interpolate</a></li>
+  <li><a href="../modules/transform.html">transform</a></li>
+  <li><a href="../modules/test.html">test</a></li>
   <li><a href="../modules/constants.html">constants</a></li>
   <li><a href="../modules/list.html">list</a></li>
-  <li><a href="../modules/blockedcache.html">blockedcache</a></li>
-  <li><a href="../modules/fisheryates.html">fisheryates</a></li>
-  <li><a href="../modules/test.html">test</a></li>
+  <li><a href="../modules/stopwatch.html">stopwatch</a></li>
+  <li><a href="../modules/color.html">color</a></li>
+  <li><a href="../modules/tableutil.html">tableutil</a></li>
 </ul>
 
 </div>
@@ -79,6 +79,19 @@
 	<tr>
 	<td class="name" nowrap><a href="#get_id">get_id (node)</a></td>
 	<td class="summary">Gets the content id of the given node.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#get_name">get_name (node)</a></td>
+	<td class="summary">Gets the name of given node.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#has_group">has_group (node, group_name)</a></td>
+	<td class="summary">Checks if the given node has the given group.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#surroundings">surroundings (pos, x_begin, x_end, z_begin, z_end, y_begin, y_end, callback)</a></td>
+	<td class="summary">Iterates over the surroundings of the given position and invokes
+ the callback for every node in the surroundings.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#wallmounted_to_facedir">wallmounted_to_facedir (wallmounted)</a></td>
@@ -112,6 +125,105 @@
 
         The content id of the given node.
     </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "get_name"></a>
+    <strong>get_name (node)</strong>
+    </dt>
+    <dd>
+    Gets the name of given node.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">node</span>
+         The node, can either be an id, a name or a table with the name.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The name of the given node.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "has_group"></a>
+    <strong>has_group (node, group_name)</strong>
+    </dt>
+    <dd>
+    Checks if the given node has the given group.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">node</span>
+         The node to check.
+        </li>
+        <li><span class="parameter">group_name</span>
+         The name of the group.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        true if the node has the given group.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "surroundings"></a>
+    <strong>surroundings (pos, x_begin, x_end, z_begin, z_end, y_begin, y_end, callback)</strong>
+    </dt>
+    <dd>
+    Iterates over the surroundings of the given position and invokes
+ the callback for every node in the surroundings.
+<p> For example if you want to iterate over the direct neighbourse in all
+ dimensions, you'd do the following:
+<p>    nodeutil.surroundings(pos, -1, 1, -1, 1, -1, 1, callback)
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">pos</span>
+         The position that is the center.
+        </li>
+        <li><span class="parameter">x_begin</span>
+         The modifier for the beginning in the x dimension.
+        </li>
+        <li><span class="parameter">x_end</span>
+         The modifier for the end in the x dimension.
+        </li>
+        <li><span class="parameter">z_begin</span>
+         The modifier for the beginning in the z dimension.
+        </li>
+        <li><span class="parameter">z_end</span>
+         The modifier for the end in the z dimension.
+        </li>
+        <li><span class="parameter">y_begin</span>
+         The modifier for the beginning in the y dimension.
+        </li>
+        <li><span class="parameter">y_end</span>
+         The modifier for the end in the y dimension.
+        </li>
+        <li><span class="parameter">callback</span>
+         The callback to invoke for every surrounding node.
+        </li>
+    </ul>
+
 
 
 
