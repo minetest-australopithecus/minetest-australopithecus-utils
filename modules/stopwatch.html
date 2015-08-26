@@ -84,6 +84,11 @@
 	<td class="name" nowrap><a href="#stop">stop (watch_name, message, decimal_places)</a></td>
 	<td class="summary">Stops the watch with the given name, logging the duration.</td>
 	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#stop_only">stop_only (watch_name)</a></td>
+	<td class="summary">Stops the watch with the given name and returns the duration for which
+ the watch has been running.</td>
+	</tr>
 </table>
 
 <br/>
@@ -136,6 +141,32 @@
         </li>
     </ul>
 
+
+
+
+
+</dd>
+    <dt>
+    <a name = "stop_only"></a>
+    <strong>stop_only (watch_name)</strong>
+    </dt>
+    <dd>
+    Stops the watch with the given name and returns the duration for which
+ the watch has been running.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">watch_name</span>
+         The name of the watch to stop.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The duration of the watch. -1 if it never was started.
+    </ol>
 
 
 
