@@ -50,16 +50,27 @@ end
 function stopwatch.stop(watch_name, message, decimal_places)
 	decimal_places = decimal_places or 3
 	
+	local duration = stopwatch.stop_only(watch_name)
+	duration = mathutil.round(duration, decimal_places)
+
+	log.info(message or watch_name, ": ", duration, " ms")
+end
+
+--- Stops the watch with the given name and returns the duration for which
+-- the watch has been running.
+--
+-- @param watch_name The name of the watch to stop.
+-- @return The duration of the watch. -1 if it never was started.
+function stopwatch.stop_only(watch_name)
 	local start = stopwatch.active_watches[watch_name]
 	
 	if start ~= nil then
 		local duration = os.clock() - start
 		duration = duration * 1000
-		duration = mathutil.round(duration, decimal_places)
 		
-		log.info(message or watch_name, ": ", duration, " ms")
+		return duration
 	else
-		log.info(message or watch_name, ": ", "not started")
+		return -1
 	end
 end
 
