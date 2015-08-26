@@ -64,6 +64,8 @@ end
 function stopwatch.stop_only(watch_name)
 	local start = stopwatch.active_watches[watch_name]
 	
+	stopwatch.active_watches[watch_name] = nil
+	
 	if start ~= nil then
 		local duration = os.clock() - start
 		duration = duration * 1000
