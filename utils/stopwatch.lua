@@ -45,13 +45,17 @@ end
 -- if the message is provided "message: duration ms"
 -- @param watch_name The name of the watch to stop.
 -- @param message Optional. The message to use for the log instead of the name.
-function stopwatch.stop(watch_name, message)
+-- @param decimal_places Optional. To how many decimal places the time should
+--                       be rounded. Defaults to 3.
+function stopwatch.stop(watch_name, message, decimal_places)
+	decimal_places = decimal_places or 3
+	
 	local start = stopwatch.active_watches[watch_name]
 	
 	if start ~= nil then
 		local duration = os.clock() - start
 		duration = duration * 1000
-		duration = mathutil.round(duration)
+		duration = mathutil.round(duration, decimal_places)
 		
 		log.info(message or watch_name, ": ", duration, " ms")
 	else
