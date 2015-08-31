@@ -65,7 +65,7 @@ end
 function nodeutil.has_group(node, group_name)
 	local node_name = nodeutil.get_name(node)
 	
-	return minetest.get_item_group(node_name, grou_name) > 0
+	return minetest.get_item_group(node_name, group_name) > 0
 end
 
 --- Iterates over the surroundings of the given position and invokes
