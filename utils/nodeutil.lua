@@ -86,12 +86,9 @@ end
 -- @param callback The callback to invoke for every surrounding node.
 function nodeutil.surroundings(pos, x_begin, x_end, z_begin, z_end, y_begin, y_end, callback)
 	for x = pos.x + x_begin, pos.x + x_end, 1 do
-		print("x")
 		for z = pos.z + z_begin, pos.z + z_end, 1 do
-				print("z")
 			for y = pos.y + y_begin, pos.y + y_end, 1 do
-					print("y")
-				if x ~= pos.x and z ~= pos.z and y ~= pos.y then
+				if x ~= pos.x or z ~= pos.z or y ~= pos.y then
 					pos = {
 						x = x,
 						y = y,
