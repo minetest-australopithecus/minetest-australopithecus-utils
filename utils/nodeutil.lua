@@ -89,13 +89,13 @@ function nodeutil.surroundings(pos, x_begin, x_end, z_begin, z_end, y_begin, y_e
 		for z = pos.z + z_begin, pos.z + z_end, 1 do
 			for y = pos.y + y_begin, pos.y + y_end, 1 do
 				if x ~= pos.x or z ~= pos.z or y ~= pos.y then
-					pos = {
+					local current_pos = {
 						x = x,
 						y = y,
 						z = z
 					}
 					
-					callback(pos, minetest.get_node(pos))
+					callback(current_pos, minetest.get_node(current_pos))
 				end
 			end
 		end
