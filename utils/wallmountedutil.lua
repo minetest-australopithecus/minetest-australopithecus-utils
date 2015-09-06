@@ -32,7 +32,7 @@ wallmountedutil = {
 	NEGATIVE_X = 3,
 	
 	--- Attached to the node in the negative y direction.
-	NEGATIVE_Y = 0,
+	NEGATIVE_Y = 1,
 	
 	--- Attached to the node in the negative z direction.
 	NEGATIVE_Z = 5,
@@ -62,7 +62,7 @@ wallmountedutil = {
 	POSITIVE_X = 2,
 	
 	--- Attached to the node in the positive y direction.
-	POSITIVE_Y = 1,
+	POSITIVE_Y = 0,
 	
 	--- Attached to the node in the positive y direction.
 	POSITIVE_Z = 4,
