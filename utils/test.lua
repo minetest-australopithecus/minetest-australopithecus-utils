@@ -46,11 +46,11 @@ function test.equals(expected, actual, message)
 	end
 	
 	if expected == nil and actual ~= nil then
-		error(message .. "Assert failed! Expected: <nil> but got <" .. actual .. ">", 2)
+		error(message .. "Assert failed! Expected: <nil> but got <" .. tostring(actual) .. ">", 2)
 	end
 	
 	if expected ~= nil and actual == nil then
-		error(message .. "Assert failed! Expected: <" .. expected .. "> but got <nil>", 2)
+		error(message .. "Assert failed! Expected: <" .. tostring(expected) .. "> but got <nil>", 2)
 	end
 	
 	if expected ~= nil and actual ~= nil then
