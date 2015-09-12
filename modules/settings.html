@@ -1,0 +1,322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>ldoc</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="$(kind=='Topics' and '' or 'nowrap'">
+  <li><a href="../modules/stringutil.html">stringutil</a></li>
+  <li><a href="../modules/noisemanager.html">noisemanager</a></li>
+  <li><a href="../modules/nodeutil.html">nodeutil</a></li>
+  <li><a href="../modules/mapmanipulator.html">mapmanipulator</a></li>
+  <li><a href="../modules/fisheryates.html">fisheryates</a></li>
+  <li><a href="../modules/textureutil.html">textureutil</a></li>
+  <li><a href="../modules/blockutil.html">blockutil</a></li>
+  <li><a href="../modules/tango.html">tango</a></li>
+  <li><a href="../modules/inventoryutil.html">inventoryutil</a></li>
+  <li><a href="../modules/scheduler.html">scheduler</a></li>
+  <li><a href="../modules/blockedcache.html">blockedcache</a></li>
+  <li><a href="../modules/mathutil.html">mathutil</a></li>
+  <li><a href="../modules/log.html">log</a></li>
+  <li><a href="../modules/arrayutil.html">arrayutil</a></li>
+  <li><a href="../modules/directmapmanipulator.html">directmapmanipulator</a></li>
+  <li><a href="../modules/rotationutil.html">rotationutil</a></li>
+  <li><strong>settings</strong></li>
+  <li><a href="../modules/pathutil.html">pathutil</a></li>
+  <li><a href="../modules/wallmountedutil.html">wallmountedutil</a></li>
+  <li><a href="../modules/interpolate.html">interpolate</a></li>
+  <li><a href="../modules/transform.html">transform</a></li>
+  <li><a href="../modules/test.html">test</a></li>
+  <li><a href="../modules/facedirutil.html">facedirutil</a></li>
+  <li><a href="../modules/constants.html">constants</a></li>
+  <li><a href="../modules/list.html">list</a></li>
+  <li><a href="../modules/stopwatch.html">stopwatch</a></li>
+  <li><a href="../modules/color.html">color</a></li>
+  <li><a href="../modules/tableutil.html">tableutil</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>settings</code></h1>
+<p>Encapsulates the settings API of minetest and extends it with further
+ functions.</p>
+<p></p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#get">get (name, default_value, cast_function)</a></td>
+	<td class="summary">Gets a value from the configuration as is.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#get_bool">get_bool (name, default_value)</a></td>
+	<td class="summary">Gets a boolean from the configuration.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#get_number">get_number (name, default_value)</a></td>
+	<td class="summary">Gets a number from the configuration.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#get_pos">get_pos (name, default_value)</a></td>
+	<td class="summary">Gets a pos from the configuration.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#get_string">get_string (name, default_value)</a></td>
+	<td class="summary">Gets a string from the configuration.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#save">save ()</a></td>
+	<td class="summary">Saves all settings to configuration file.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#set">set (name, value)</a></td>
+	<td class="summary">Set a value with the given name into the configuration.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2><a name="Functions"></a>Functions</h2>
+    <dl class="function">
+    <dt>
+    <a name = "get"></a>
+    <strong>get (name, default_value, cast_function)</strong>
+    </dt>
+    <dd>
+    Gets a value from the configuration as is.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+         The name of the value to get.
+        </li>
+        <li><span class="parameter">default_value</span>
+         Optional. The default_value to return if the value is
+                      not set in the configuration. Can be nil.
+        </li>
+        <li><span class="parameter">cast_function</span>
+         Optional. The function to apply to the value that is
+                      read, for example to convert it into a different type.
+                      If this function returns nil, the default value IS
+                      returned. Can be nil.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The value from the configuration with the given name. If the read
+         value is nil, the default value is returned or nil.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "get_bool"></a>
+    <strong>get_bool (name, default_value)</strong>
+    </dt>
+    <dd>
+    Gets a boolean from the configuration.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+         The name of the value to get.
+        </li>
+        <li><span class="parameter">default_value</span>
+         Optional. The default value to return if the value is nil.
+                      Can be nil.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The boolean with the given name, or the default value if it is nil,
+         or nil.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "get_number"></a>
+    <strong>get_number (name, default_value)</strong>
+    </dt>
+    <dd>
+    Gets a number from the configuration.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+         The name of the value to get.
+        </li>
+        <li><span class="parameter">default_value</span>
+         Optional. The default value to return if the value is nil.
+                      Can be nil.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The number with the given name, or the default value if it is nil,
+         or nil.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "get_pos"></a>
+    <strong>get_pos (name, default_value)</strong>
+    </dt>
+    <dd>
+    Gets a pos from the configuration.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+         The name of the value to get.
+        </li>
+        <li><span class="parameter">default_value</span>
+         Optional. The default value to return if the value is nil.
+                      Can be nil.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The pos with the given name, or the default value if it is nil,
+         or nil.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "get_string"></a>
+    <strong>get_string (name, default_value)</strong>
+    </dt>
+    <dd>
+    Gets a string from the configuration.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+         The name of the value to get.
+        </li>
+        <li><span class="parameter">default_value</span>
+         Optional. The default value to return if the value is nil.
+                      Can be nil.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The string with the given name, or the default value if it is nil,
+         or nil.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "save"></a>
+    <strong>save ()</strong>
+    </dt>
+    <dd>
+    Saves all settings to configuration file.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "set"></a>
+    <strong>set (name, value)</strong>
+    </dt>
+    <dd>
+    Set a value with the given name into the configuration.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+         The name of the value to set. Is not allowed to contain '="#{}'.
+        </li>
+        <li><span class="parameter">value</span>
+         The value.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.2</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
