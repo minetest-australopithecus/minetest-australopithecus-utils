@@ -83,22 +83,30 @@ end
 -- @param z_end The modifier for the end in the z dimension.
 -- @param y_begin The modifier for the beginning in the y dimension.
 -- @param y_end The modifier for the end in the y dimension.
--- @param callback The callback to invoke for every surrounding node.
+-- @param callback The callback to invoke for every surrounding node. can
+--                 return true if iterating over the surroundings should be
+--                 stopped.
+-- @return true if the iterating over the surroundings has been stopped by
+--         a callback.
 function nodeutil.surroundings(pos, x_begin, x_end, z_begin, z_end, y_begin, y_end, callback)
 	for x = pos.x + x_begin, pos.x + x_end, 1 do
 		for z = pos.z + z_begin, pos.z + z_end, 1 do
 			for y = pos.y + y_begin, pos.y + y_end, 1 do
 				if x ~= pos.x or z ~= pos.z or y ~= pos.y then
-					pos = {
+					local current_pos = {
 						x = x,
 						y = y,
 						z = z
 					}
 					
-					callback(pos, minetest.get_node(pos))
+					if callback(current_pos, minetest.get_node(current_pos)) then
+						return true
+					end
 				end
 			end
 		end
 	end
+	
+	return false
 end
 
