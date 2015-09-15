@@ -69,6 +69,22 @@ test.run("foreach", function()
 		test.equals(counter, index)
 		counter = counter + 1
 	end)
+	
+	test.equals(4, counter)
+	
+	counter = 0
+	
+	list:foreach(function(item, index)
+		test.equals(counter, item)
+		test.equals(counter, index)
+		counter = counter + 1
+		
+		if counter == 2 then
+			return true
+		end
+	end)
+	
+	test.equals(2, counter)
 end)
 
 test.run("index", function()

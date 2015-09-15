@@ -88,9 +88,12 @@ end
 --
 -- @param action The function to invoke on the item, the first parameter will be
 --               the item itself, the second (optional) parameter is the index.
+--               The function can return true to stop iterating over the items.
 function List:foreach(action)
 	for index = self.base, self.counter - 1, 1 do
-		action(self.items[index], index)
+		if action(self.items[index], index) == true then
+			return
+		end
 	end
 end
 
