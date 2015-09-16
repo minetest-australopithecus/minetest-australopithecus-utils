@@ -6,6 +6,7 @@ dofile("./utils/test.lua")
 dofile("./utils/list.lua")
 dofile("./utils/mathutil.lua")
 dofile("./utils/settings.lua")
+dofile("./utils/stringutil.lua")
 dofile("./utils/tableutil.lua")
 
 
@@ -27,6 +28,8 @@ function minetest.setting_get(name)
 		return "7.69"
 	elseif name == "string" then
 		return "Some String"
+	elseif name == "pos2d" then
+		return "43.23, 29.89"
 	end
 	
 	return nil
@@ -69,6 +72,17 @@ test.run("get_number", function()
 	
 	test.equals(4.38, settings.get_number("float"))
 	test.equals(7.69, settings.get_number("float-string"))
+end)
+
+test.run("get_pos2d", function()
+	test.equals(nil, settings.get_pos2d("nonexistent"))
+	test.equals({ x = 5, y = 6 }, settings.get_pos2d("nonexistent", { x = 5, y = 6 }))
+	
+	test.equals({ x = 43.23, y = 29.89 }, settings.get_pos2d("pos2d"))
+end)
+
+test.run("get_pos3d", function()
+	test.equals(settings.get_pos, settings.get_pos3d)
 end)
 
 test.run("get_string", function()
