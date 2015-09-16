@@ -4,6 +4,7 @@ dofile("./utils/test.lua")
 
 -- Load the file for testing.
 dofile("./utils/fisheryates.lua")
+dofile("./utils/list.lua")
 dofile("./utils/mathutil.lua")
 dofile("./utils/transform.lua")
 dofile("./utils/tableutil.lua")
