@@ -100,6 +100,44 @@ function settings.get_pos(name, default_value)
 	end
 end
 
+--- Gets a pos from the configuration.
+--
+-- @param name The name of the value to get.
+-- @param default_value Optional. The default value to return if the value is nil.
+--                      Can be nil.
+-- @return The pos with the given name, or the default value if it is nil,
+--         or nil.
+function settings.get_pos2d(name, default_value)
+	local value = minetest.setting_get(name)
+	
+	if value ~= nil then
+		local splitted_value = stringutil.split(value, ",")
+		
+		if splitted_value:size() == 2 then
+			local x = tonumber(splitted_value:get(0))
+			local y = tonumber(splitted_value:get(1))
+			
+			if x ~= nil and y ~= nil then
+				return {
+					x = x,
+					y = y
+				}
+			end
+		end
+	end
+	
+	return default_value
+end
+
+--- Gets a pos from the configuration.
+--
+-- @param name The name of the value to get.
+-- @param default_value Optional. The default value to return if the value is nil.
+--                      Can be nil.
+-- @return The pos with the given name, or the default value if it is nil,
+--         or nil.
+settings.get_pos3d = settings.get_pos
+
 --- Gets a string from the configuration.
 --
 -- @param name The name of the value to get.
