@@ -6,6 +6,7 @@ dofile("./utils/test.lua")
 dofile("./utils/pathutil.lua")
 dofile("./utils/mathutil.lua")
 dofile("./utils/stringutil.lua")
+dofile("./utils/tableutil.lua")
 
 
 test.start("pathutil")

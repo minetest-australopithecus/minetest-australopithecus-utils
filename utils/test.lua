@@ -54,7 +54,7 @@ function test.equals(expected, actual, message)
 	end
 	
 	if expected ~= nil and actual ~= nil then
-		if expected ~= actual then
+		if not tableutil.equals(expected, actual) then
 			error(message .. "Assert failed! Expected <" .. tostring(expected) .. "> but got <" .. tostring(actual) .. ">", 2)
 		end
 	end

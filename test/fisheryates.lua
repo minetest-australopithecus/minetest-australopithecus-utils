@@ -6,6 +6,7 @@ dofile("./utils/test.lua")
 dofile("./utils/fisheryates.lua")
 dofile("./utils/mathutil.lua")
 dofile("./utils/transform.lua")
+dofile("./utils/tableutil.lua")
 
 
 test.start("fisheryates")

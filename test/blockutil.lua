@@ -6,6 +6,7 @@ dofile("./utils/test.lua")
 dofile("./utils/blockutil.lua")
 dofile("./utils/constants.lua")
 dofile("./utils/mathutil.lua")
+dofile("./utils/tableutil.lua")
 
 
 test.start("blockutil")

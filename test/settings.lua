@@ -5,6 +5,7 @@ dofile("./utils/test.lua")
 -- Load the file for testing.
 dofile("./utils/mathutil.lua")
 dofile("./utils/settings.lua")
+dofile("./utils/tableutil.lua")
 
 
 minetest = {}

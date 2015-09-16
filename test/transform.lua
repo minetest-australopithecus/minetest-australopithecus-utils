@@ -6,6 +6,7 @@ dofile("./utils/test.lua")
 dofile("./utils/interpolate.lua")
 dofile("./utils/transform.lua")
 dofile("./utils/mathutil.lua")
+dofile("./utils/tableutil.lua")
 
 
 local function test_big_linear()
