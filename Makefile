@@ -20,6 +20,10 @@ doc:
 		--title="$(release_name) Reference" \
 		mods/$(mod_name)
 
+.PHONY: gh-pages
+gh-pages:
+	git subtree push --prefix doc/ github gh-pages
+
 .PHONY: release
 release:
 	# Prepare the directory structure.
