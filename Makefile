@@ -14,7 +14,11 @@ clean:
 
 .PHONY: doc
 doc:
-	ldoc --dir=$(doc) mods/$(mod_name)
+	ldoc \
+		--dir=$(doc) \
+		--project=$(release_name) \
+		--title="$(release_name) Reference" \
+		mods/$(mod_name)
 
 .PHONY: release
 release:
