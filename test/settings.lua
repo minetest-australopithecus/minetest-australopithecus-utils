@@ -1,13 +1,13 @@
 
 -- Load the test file.
-dofile("./utils/test.lua")
+dofile("./mods/utils/test.lua")
 
 -- Load the file for testing.
-dofile("./utils/list.lua")
-dofile("./utils/mathutil.lua")
-dofile("./utils/settings.lua")
-dofile("./utils/stringutil.lua")
-dofile("./utils/tableutil.lua")
+dofile("./mods/utils/list.lua")
+dofile("./mods/utils/mathutil.lua")
+dofile("./mods/utils/settings.lua")
+dofile("./mods/utils/stringutil.lua")
+dofile("./mods/utils/tableutil.lua")
 
 
 minetest = {}
