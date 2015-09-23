@@ -34,8 +34,7 @@ List = {}
 
 --- Creates a new instance of List.
 --
--- @param one_indexed Optional. true if the list should be one indexed instead
---                    of zero indexed.
+-- @param ... Optional. A list of values to add.
 -- @return A new instance of List.
 function List:new(...)
 	local instance = {
@@ -45,8 +44,10 @@ function List:new(...)
 	setmetatable(instance, self)
 	self.__index = self
 	
-	for index, value in ipairs({...}) do
-		self:add(value)
+	if ... ~= nil then
+		for index, value in ipairs({...}) do
+			instance:add(value)
+		end
 	end
 	
 	return instance
