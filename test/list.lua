@@ -11,10 +11,8 @@ dofile("./mods/utils/tableutil.lua")
 test.start("list")
 
 test.run("add", function()
-	local list = List:new()
+	local list = List:new("a", "b")
 	
-	list:add("a")
-	list:add("b")
 	list:add("c")
 	
 	list:add("d", "e", "f")
@@ -30,11 +28,7 @@ test.run("add", function()
 end)
 
 test.run("clear", function()
-	local list = List:new()
-	
-	list:add("a")
-	list:add("b")
-	list:add("c")
+	local list = List:new("a", "b", "c")
 	
 	test.equals(3, list:size())
 	
@@ -44,24 +38,15 @@ test.run("clear", function()
 end)
 
 test.run("get", function()
-	local list = List:new()
+	local list = List:new("a", "b", "c")
 	
-	list:add("a")
-	list:add("b")
-	list:add("c")
-
 	test.equals("a", list:get(1))
 	test.equals("b", list:get(2))
 	test.equals("c", list:get(3))
 end)
 
 test.run("foreach", function()
-	local list = List:new()
-	
-	list:add(1)
-	list:add(2)
-	list:add(3)
-	list:add(4)
+	local list = List:new(1, 2, 3, 4)
 	
 	local counter = 1
 	
@@ -89,8 +74,7 @@ test.run("foreach", function()
 end)
 
 test.run("index", function()
-	local list = List:new()
-	list:add("a", "b", "c", "d", "e")
+	local list = List:new("a", "b", "c", "d", "e")
 	
 	test.equals(1, list:index("a"))
 	test.equals(3, list:index("c"))
@@ -131,8 +115,7 @@ test.run("invoke", function()
 end)
 
 test.run("matching", function()
-	local list = List:new()
-	list:add("a", "b", "c", "d", "e")
+	local list = List:new("a", "b", "c", "d", "e")
 	
 	local found = list:matching(function(item)
 		return item == "a" or item == "d"
@@ -144,13 +127,7 @@ test.run("matching", function()
 end)
 
 test.run("sub_list", function()
-	local list = List:new()
-	
-	list:add("a")
-	list:add("b")
-	list:add("c")
-	list:add("d")
-	list:add("e")
+	local list = List:new("a", "b", "c", "d", "e")
 	
 	local sub = list:sub_list(2, 3)
 	test.equals(3, sub:size())
@@ -170,12 +147,7 @@ test.run("sub_list", function()
 end)
 
 test.run("to_table", function()
-	local list = List:new()
-	
-	list:add(1)
-	list:add(2)
-	list:add(3)
-	list:add(4)
+	local list = List:new(1, 2, 3, 4)
 	
 	local table = list:to_table()
 	
