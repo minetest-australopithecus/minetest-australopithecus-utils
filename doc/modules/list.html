@@ -38,34 +38,34 @@
 
 <h2>Modules</h2>
 <ul class="$(kind=='Topics' and '' or 'nowrap'">
-  <li><a href="../modules/stringutil.html">stringutil</a></li>
-  <li><a href="../modules/noisemanager.html">noisemanager</a></li>
-  <li><a href="../modules/nodeutil.html">nodeutil</a></li>
-  <li><a href="../modules/mapmanipulator.html">mapmanipulator</a></li>
-  <li><a href="../modules/fisheryates.html">fisheryates</a></li>
-  <li><a href="../modules/textureutil.html">textureutil</a></li>
-  <li><a href="../modules/blockutil.html">blockutil</a></li>
-  <li><a href="../modules/tango.html">tango</a></li>
-  <li><a href="../modules/inventoryutil.html">inventoryutil</a></li>
-  <li><a href="../modules/scheduler.html">scheduler</a></li>
-  <li><a href="../modules/blockedcache.html">blockedcache</a></li>
-  <li><a href="../modules/mathutil.html">mathutil</a></li>
-  <li><a href="../modules/log.html">log</a></li>
-  <li><a href="../modules/arrayutil.html">arrayutil</a></li>
-  <li><a href="../modules/directmapmanipulator.html">directmapmanipulator</a></li>
-  <li><a href="../modules/rotationutil.html">rotationutil</a></li>
-  <li><a href="../modules/settings.html">settings</a></li>
-  <li><a href="../modules/pathutil.html">pathutil</a></li>
-  <li><a href="../modules/wallmountedutil.html">wallmountedutil</a></li>
   <li><a href="../modules/interpolate.html">interpolate</a></li>
-  <li><a href="../modules/transform.html">transform</a></li>
-  <li><a href="../modules/test.html">test</a></li>
+  <li><a href="../modules/tableutil.html">tableutil</a></li>
+  <li><a href="../modules/stopwatch.html">stopwatch</a></li>
   <li><a href="../modules/facedirutil.html">facedirutil</a></li>
+  <li><a href="../modules/pathutil.html">pathutil</a></li>
+  <li><a href="../modules/inventoryutil.html">inventoryutil</a></li>
+  <li><a href="../modules/wallmountedutil.html">wallmountedutil</a></li>
+  <li><a href="../modules/tango.html">tango</a></li>
+  <li><a href="../modules/directmapmanipulator.html">directmapmanipulator</a></li>
+  <li><a href="../modules/log.html">log</a></li>
+  <li><a href="../modules/rotationutil.html">rotationutil</a></li>
+  <li><a href="../modules/textureutil.html">textureutil</a></li>
+  <li><a href="../modules/mapmanipulator.html">mapmanipulator</a></li>
+  <li><a href="../modules/stringutil.html">stringutil</a></li>
+  <li><a href="../modules/settings.html">settings</a></li>
+  <li><a href="../modules/transform.html">transform</a></li>
+  <li><a href="../modules/scheduler.html">scheduler</a></li>
+  <li><a href="../modules/mathutil.html">mathutil</a></li>
+  <li><a href="../modules/color.html">color</a></li>
+  <li><a href="../modules/blockutil.html">blockutil</a></li>
+  <li><a href="../modules/nodeutil.html">nodeutil</a></li>
+  <li><a href="../modules/arrayutil.html">arrayutil</a></li>
+  <li><a href="../modules/noisemanager.html">noisemanager</a></li>
   <li><a href="../modules/constants.html">constants</a></li>
   <li><strong>list</strong></li>
-  <li><a href="../modules/stopwatch.html">stopwatch</a></li>
-  <li><a href="../modules/color.html">color</a></li>
-  <li><a href="../modules/tableutil.html">tableutil</a></li>
+  <li><a href="../modules/blockedcache.html">blockedcache</a></li>
+  <li><a href="../modules/fisheryates.html">fisheryates</a></li>
+  <li><a href="../modules/test.html">test</a></li>
 </ul>
 
 </div>
@@ -82,7 +82,15 @@
 <h2><a href="#Functions">Functions</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#List:new">List:new (one_indexed)</a></td>
+	<td class="name" nowrap><a href="#ACCEPT_NON_NIL">ACCEPT_NON_NIL (value)</a></td>
+	<td class="summary">An accept function that only accepts non nil values.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ACCEPT_NON_EMPTY_STRING">ACCEPT_NON_EMPTY_STRING (value)</a></td>
+	<td class="summary">An accept function that only accepts non empty string values.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#List:new">List:new (...)</a></td>
 	<td class="summary">Creates a new instance of List.</td>
 	</tr>
 	<tr>
@@ -106,6 +114,14 @@
 	<td class="summary">Gets the item at the given index.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#List:get_first">List:get_first (accept)</a></td>
+	<td class="summary">Gets the first value in this List that is accepted by the given function.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#List:get_last">List:get_last (accept)</a></td>
+	<td class="summary">Gets the last value in this List that is accepted by the given function.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#List:index">List:index (item, equals)</a></td>
 	<td class="summary">Returns the index of the given item.</td>
 	</tr>
@@ -117,6 +133,16 @@
 	<tr>
 	<td class="name" nowrap><a href="#List:matching">List:matching (condition)</a></td>
 	<td class="summary">Returns a List with all items that match the given condition.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#List:return_first">List:return_first (accept, ...)</a></td>
+	<td class="summary">Invokes the contained functions and returns the first value that is accepted
+ by the given function.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#List:return_last">List:return_last (accept, ...)</a></td>
+	<td class="summary">Invokes the contained functions and returns the last value that is accepted
+ by the given function.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#List:size">List:size ()</a></td>
@@ -140,8 +166,58 @@
     <h2><a name="Functions"></a>Functions</h2>
     <dl class="function">
     <dt>
+    <a name = "ACCEPT_NON_NIL"></a>
+    <strong>ACCEPT_NON_NIL (value)</strong>
+    </dt>
+    <dd>
+    An accept function that only accepts non nil values.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">value</span>
+         The value that is checked.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        true if the given value is not nil.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "ACCEPT_NON_EMPTY_STRING"></a>
+    <strong>ACCEPT_NON_EMPTY_STRING (value)</strong>
+    </dt>
+    <dd>
+    An accept function that only accepts non empty string values.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">value</span>
+         The value that is checked.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        true if the given value is a not empty string value.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "List:new"></a>
-    <strong>List:new (one_indexed)</strong>
+    <strong>List:new (...)</strong>
     </dt>
     <dd>
     Creates a new instance of List.
@@ -149,9 +225,8 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">one_indexed</span>
-         Optional. true if the list should be one indexed instead
-                    of zero indexed.
+        <li><span class="parameter">...</span>
+         Optional. A list of values to add.
         </li>
     </ul>
 
@@ -275,6 +350,58 @@
 
 </dd>
     <dt>
+    <a name = "List:get_first"></a>
+    <strong>List:get_first (accept)</strong>
+    </dt>
+    <dd>
+    Gets the first value in this List that is accepted by the given function.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">accept</span>
+         The function to accept values. Accepts the value and returns
+               a boolean, true if the value is accepted.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The first accepted value, or if none was accepted, nil.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "List:get_last"></a>
+    <strong>List:get_last (accept)</strong>
+    </dt>
+    <dd>
+    Gets the last value in this List that is accepted by the given function.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">accept</span>
+         The function to accept values. Accepts the value and returns
+               a boolean, true if the value is accepted.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The last accepted value, or if none was accepted, nil.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "List:index"></a>
     <strong>List:index (item, equals)</strong>
     </dt>
@@ -343,6 +470,66 @@
     <ol>
 
         The List of matching items.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "List:return_first"></a>
+    <strong>List:return_first (accept, ...)</strong>
+    </dt>
+    <dd>
+    Invokes the contained functions and returns the first value that is accepted
+ by the given function.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">accept</span>
+         The function to accept values, takes the value and returns
+               a boolean, true if the value is accepted.
+        </li>
+        <li><span class="parameter">...</span>
+         Optional. The parameters to invoke the functions with.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The first accepted return value, nil if none was accepted.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "List:return_last"></a>
+    <strong>List:return_last (accept, ...)</strong>
+    </dt>
+    <dd>
+    Invokes the contained functions and returns the last value that is accepted
+ by the given function.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">accept</span>
+         The function to accept values, takes the value and returns
+               a boolean, true if the value is accepted.
+        </li>
+        <li><span class="parameter">...</span>
+         Optional. The parameters to invoke the functions with.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The last accepted return value, nil if none was accepted.
     </ol>
 
 

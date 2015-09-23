@@ -73,6 +73,34 @@ test.run("foreach", function()
 	test.equals(2, counter)
 end)
 
+test.run("get_first", function()
+	local list = List:new(1, 2, 3, 4, 5, 6, 7, 8, 9)
+	
+	test.equals(2, list:get_first(function(value)
+		return math.fmod(value, 2) == 0
+	end))
+	test.equals(5, list:get_first(function(value)
+		return value == 5
+	end))
+	test.equals(nil, list:get_first(function(value)
+		return value == 37
+	end))
+end)
+
+test.run("get_last", function()
+	local list = List:new(1, 2, 3, 4, 5, 6, 7, 8, 9)
+	
+	test.equals(8, list:get_last(function(value)
+		return math.fmod(value, 2) == 0
+	end))
+	test.equals(5, list:get_last(function(value)
+		return value == 5
+	end))
+	test.equals(nil, list:get_last(function(value)
+		return value == 37
+	end))
+end)
+
 test.run("index", function()
 	local list = List:new("a", "b", "c", "d", "e")
 	
@@ -124,6 +152,50 @@ test.run("matching", function()
 	test.equals(2, found:size())
 	test.equals("a", found:get(1))
 	test.equals("d", found:get(2))
+end)
+
+test.run("return_first", function()
+	local list = List:new()
+	
+	list:add(function()
+		return nil
+	end)
+	list:add(function()
+		return nil
+	end)
+	list:add(function(value)
+		return "a" .. value
+	end)
+	list:add(function(value)
+		return "b" .. value
+	end)
+	list:add(function()
+		return nil
+	end)
+	
+	test.equals("ac", list:return_first(List.ACCEPT_NON_NIL, "c"))
+end)
+
+test.run("return_last", function()
+	local list = List:new()
+	
+	list:add(function()
+		return nil
+	end)
+	list:add(function()
+		return nil
+	end)
+	list:add(function(value)
+		return "a" .. value
+	end)
+	list:add(function(value)
+		return "b" .. value
+	end)
+	list:add(function()
+		return nil
+	end)
+	
+	test.equals("bc", list:return_last(List.ACCEPT_NON_NIL, "c"))
 end)
 
 test.run("sub_list", function()

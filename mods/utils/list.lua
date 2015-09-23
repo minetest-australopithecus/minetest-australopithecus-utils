@@ -29,7 +29,23 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 --
 -- It is a thin wrapper around a simple, number indexed table providing
 -- various convenience methods.
-List = {}
+List = {
+	--- An accept function that only accepts non nil values.
+	--
+	-- @param value The value that is checked.
+	-- @return true if the given value is not nil.
+	ACCEPT_NON_NIL = function(value)
+		return value ~= nil
+	end,
+	
+	--- An accept function that only accepts non empty string values.
+	--
+	-- @param value The value that is checked.
+	-- @return true if the given value is a not empty string value.
+	ACCEPT_NON_EMPTY_STRING = function(value)
+		return type(value) == "string" and #value > 0
+	end
+}
 
 
 --- Creates a new instance of List.
@@ -100,6 +116,38 @@ function List:get(index)
 	return self[index]
 end
 
+--- Gets the first value in this List that is accepted by the given function.
+--
+-- @param accept The function to accept values. Accepts the value and returns
+--               a boolean, true if the value is accepted.
+-- @return The first accepted value, or if none was accepted, nil.
+function List:get_first(accept)
+	for index = 1, self.counter - 1, 1 do
+		if accept(self[index]) then
+			return self[index]
+		end
+	end
+	
+	return nil
+end
+
+--- Gets the last value in this List that is accepted by the given function.
+--
+-- @param accept The function to accept values. Accepts the value and returns
+--               a boolean, true if the value is accepted.
+-- @return The last accepted value, or if none was accepted, nil.
+function List:get_last(accept)
+	local value = nil
+	
+	for index = 1, self.counter - 1, 1 do
+		if accept(self[index]) then
+			value = self[index]
+		end
+	end
+	
+	return value
+end
+
 --- Returns the index of the given item.
 --
 -- @param item The item for which to get the index.
@@ -146,6 +194,46 @@ function List:matching(condition)
 	end
 	
 	return found
+end
+
+--- Invokes the contained functions and returns the first value that is accepted
+-- by the given function.
+--
+-- @param accept The function to accept values, takes the value and returns
+--               a boolean, true if the value is accepted.
+-- @param ... Optional. The parameters to invoke the functions with.
+-- @return The first accepted return value, nil if none was accepted.
+function List:return_first(accept, ...)
+	for index = 1, self.counter - 1, 1 do
+		local value = self[index](...)
+		
+		if accept(value) then
+			return value
+		end
+	end
+	
+	return nil
+end
+
+--- Invokes the contained functions and returns the last value that is accepted
+-- by the given function.
+--
+-- @param accept The function to accept values, takes the value and returns
+--               a boolean, true if the value is accepted.
+-- @param ... Optional. The parameters to invoke the functions with.
+-- @return The last accepted return value, nil if none was accepted.
+function List:return_last(accept, ...)
+	local value = nil
+	
+	for index = 1, self.counter - 1, 1 do
+		local returned_value = self[index](...)
+		
+		if accept(returned_value) then
+			value = returned_value
+		end
+	end
+	
+	return value
 end
 
 --- Gets the size of the list.
