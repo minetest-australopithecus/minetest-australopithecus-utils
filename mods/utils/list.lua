@@ -44,11 +44,7 @@ function List:new(...)
 	setmetatable(instance, self)
 	self.__index = self
 	
-	if ... ~= nil then
-		for index, value in ipairs({...}) do
-			instance:add(value)
-		end
-	end
+	instance:add(...)
 	
 	return instance
 end
