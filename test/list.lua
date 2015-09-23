@@ -21,12 +21,12 @@ test.run("add", function()
 	
 	test.equals(6, list:size())
 	
-	test.equals("a", list:get(0))
-	test.equals("b", list:get(1))
-	test.equals("c", list:get(2))
-	test.equals("d", list:get(3))
-	test.equals("e", list:get(4))
-	test.equals("f", list:get(5))
+	test.equals("a", list:get(1))
+	test.equals("b", list:get(2))
+	test.equals("c", list:get(3))
+	test.equals("d", list:get(4))
+	test.equals("e", list:get(5))
+	test.equals("f", list:get(6))
 end)
 
 test.run("clear", function()
@@ -50,20 +50,20 @@ test.run("get", function()
 	list:add("b")
 	list:add("c")
 
-	test.equals("a", list:get(0))
-	test.equals("b", list:get(1))
-	test.equals("c", list:get(2))
+	test.equals("a", list:get(1))
+	test.equals("b", list:get(2))
+	test.equals("c", list:get(3))
 end)
 
 test.run("foreach", function()
 	local list = List:new()
 	
-	list:add(0)
 	list:add(1)
 	list:add(2)
 	list:add(3)
+	list:add(4)
 	
-	local counter = 0
+	local counter = 1
 	
 	list:foreach(function(item, index)
 		test.equals(counter, item)
@@ -71,9 +71,9 @@ test.run("foreach", function()
 		counter = counter + 1
 	end)
 	
-	test.equals(4, counter)
+	test.equals(5, counter)
 	
-	counter = 0
+	counter = 1
 	
 	list:foreach(function(item, index)
 		test.equals(counter, item)
@@ -92,9 +92,9 @@ test.run("index", function()
 	local list = List:new()
 	list:add("a", "b", "c", "d", "e")
 	
-	test.equals(0, list:index("a"))
-	test.equals(2, list:index("c"))
-	test.equals(4, list:index("e"))
+	test.equals(1, list:index("a"))
+	test.equals(3, list:index("c"))
+	test.equals(5, list:index("e"))
 	
 	test.equals(-1, list:index(" "))
 	test.equals(-1, list:index("f"))
@@ -139,28 +139,8 @@ test.run("matching", function()
 	end)
 	
 	test.equals(2, found:size())
-	test.equals("a", found:get(0))
-	test.equals("d", found:get(1))
-end)
-
-test.run("one_indexed", function()
-	local list = List:new(true)
-	
-	list:add("a")
-	list:add("b")
-	list:add("c")
-	
-	test.equals(nil, list:get(0))
-	test.equals("a", list:get(1))
-	test.equals("b", list:get(2))
-	test.equals("c", list:get(3))
-	
-	local table = list:to_table()
-	
-	test.equals(nil, table[0])
-	test.equals("a", table[1])
-	test.equals("b", table[2])
-	test.equals("c", table[3])
+	test.equals("a", found:get(1))
+	test.equals("d", found:get(2))
 end)
 
 test.run("sub_list", function()
@@ -172,36 +152,36 @@ test.run("sub_list", function()
 	list:add("d")
 	list:add("e")
 	
-	local sub = list:sub_list(1, 3)
+	local sub = list:sub_list(2, 3)
 	test.equals(3, sub:size())
-	test.equals("b", sub:get(0))
-	test.equals("c", sub:get(1))
-	test.equals("d", sub:get(2))
-	
-	sub = list:sub_list(3, 4)
-	test.equals(2, sub:size())
-	test.equals("d", sub:get(0))
-	test.equals("e", sub:get(1))
-	
-	sub = list:sub_list(-4, 6)
-	test.equals(2, sub:size())
-	test.equals("a", sub:get(0))
 	test.equals("b", sub:get(1))
+	test.equals("c", sub:get(2))
+	test.equals("d", sub:get(3))
+	
+	sub = list:sub_list(4, 4)
+	test.equals(2, sub:size())
+	test.equals("d", sub:get(1))
+	test.equals("e", sub:get(2))
+	
+	sub = list:sub_list(-3, 6)
+	test.equals(2, sub:size())
+	test.equals("a", sub:get(1))
+	test.equals("b", sub:get(2))
 end)
 
 test.run("to_table", function()
 	local list = List:new()
 	
-	list:add(0)
 	list:add(1)
 	list:add(2)
 	list:add(3)
+	list:add(4)
 	
 	local table = list:to_table()
 	
-	test.equals(0, table[0])
 	test.equals(1, table[1])
 	test.equals(2, table[2])
 	test.equals(3, table[3])
+	test.equals(4, table[4])
 end)
 

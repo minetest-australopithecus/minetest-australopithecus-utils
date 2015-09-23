@@ -114,8 +114,8 @@ function settings.get_pos2d(name, default_value)
 		local splitted_value = stringutil.split(value, ",")
 		
 		if splitted_value:size() == 2 then
-			local x = tonumber(splitted_value:get(0))
-			local y = tonumber(splitted_value:get(1))
+			local x = tonumber(splitted_value:get(1))
+			local y = tonumber(splitted_value:get(2))
 			
 			if x ~= nil and y ~= nil then
 				return {

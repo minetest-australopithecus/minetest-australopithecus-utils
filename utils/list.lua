@@ -27,12 +27,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 --- A simple list that keeps the order in which the items are added to it.
 --
--- Provides the method foreach(action) to allow to easily iterate over all items
--- in the list:
---
--- list:foreach(function(item)
---     print(item)
--- end)
+-- It is a thin wrapper around a simple, number indexed table providing
+-- various convenience methods.
 List = {}
 
 
@@ -41,39 +37,39 @@ List = {}
 -- @param one_indexed Optional. true if the list should be one indexed instead
 --                    of zero indexed.
 -- @return A new instance of List.
-function List:new(one_indexed)
+function List:new(...)
 	local instance = {
-		base = 0,
-		counter = 0,
-		items = {}
+		counter = 1
 	}
-	
-	if one_indexed then
-		instance.base = 1
-		instance.counter = 1
-	end
 	
 	setmetatable(instance, self)
 	self.__index = self
+	
+	for index, value in ipairs({...}) do
+		self:add(value)
+	end
 	
 	return instance
 end
 
 
---- Adds the given item to the list.
+--- Adds the given items to the list.
 --
 -- @param ... The items to add.
 function List:add(...)
 	for idx, value in ipairs({...}) do
-		self.items[self.counter] = value
+		self[self.counter] = value
 		self.counter = self.counter + 1
 	end
 end
 
 --- Clears all entries from the list.
 function List:clear()
-	self.counter = self.base
-	self.items = {}
+	for index = 1, self.counter - 1, 1 do
+		self[index] = nil
+	end
+	
+	self.counter = 1
 end
 
 --- Checks if this list contains the given item.
@@ -90,8 +86,8 @@ end
 --               the item itself, the second (optional) parameter is the index.
 --               The function can return true to stop iterating over the items.
 function List:foreach(action)
-	for index = self.base, self.counter - 1, 1 do
-		if action(self.items[index], index) == true then
+	for index = 1, self.counter - 1, 1 do
+		if action(self[index], index) == true then
 			return
 		end
 	end
@@ -104,7 +100,7 @@ end
 -- @param index The index of the item to get.
 -- @return The item at the given index. nil if there is no item.
 function List:get(index)
-	return self.items[index]
+	return self[index]
 end
 
 --- Returns the index of the given item.
@@ -117,8 +113,8 @@ function List:index(item, equals)
 		return a == b
 	end
 	
-	for index = self.base, self.counter - 1, 1 do
-		if equals(self.items[index], item) then
+	for index = 1, self.counter - 1, 1 do
+		if equals(self[index], item) then
 			return index
 		end
 	end
@@ -131,9 +127,8 @@ end
 --
 -- @param ... The parameters to invoke the functions.
 function List:invoke(...)
-	for index = self.base, self.counter - 1, 1 do
-		local item = self.items[index]
-		item(...)
+	for index = 1, self.counter - 1, 1 do
+		self[index](...)
 	end
 end
 
@@ -143,10 +138,10 @@ end
 --                  the item, and returns a boolean.
 -- @return The List of matching items.
 function List:matching(condition)
-	local found = List:new(self.base == 1)
+	local found = List:new()
 	
-	for index = self.base, self.counter - 1, 1 do
-		local item = self.items[index]
+	for index = 1, self.counter - 1, 1 do
+		local item = self[index]
 		
 		if condition(item) then
 			found:add(item)
@@ -160,7 +155,7 @@ end
 --
 -- @return The size of the list.
 function List:size()
-	return self.counter
+	return self.counter - 1
 end
 
 --- Gets a sub list starting from the given index and the given number of items.
@@ -174,14 +169,14 @@ end
 function List:sub_list(from, count)
 	local sub = List:new()
 	
-	for index = math.max(from, self.base), math.min(from + count - 1, self.counter - 1), 1 do
-		sub:add(self.items[index])
+	for index = math.max(from, 1), math.min(from + count - 1, self.counter - 1), 1 do
+		sub:add(self[index])
 	end
 	
 	return sub
 end
 
---- Turns this list into a table, the return table will be a zero indexed array,
+--- Turns this list into a table, the return table will be a one indexed array,
 -- and can freely be modified as it is not the table used by this instance.
 -- However the items in the returned table are not copies.
 --
