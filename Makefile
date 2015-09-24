@@ -1,4 +1,3 @@
-deps := deps
 doc := doc
 mod_name := utils
 mods := mods
@@ -31,9 +30,6 @@ release:
 	mkdir -p $(release)/$(release_name)/
 	mkdir -p $(release)/$(release_name)/mods/
 	
-	# Copy the dependencies.
-	cp -R $(deps)/utils/utils $(release)/$(release_name)/mods/
-	
 	# Copy the mods.
 	cp -R $(mods)/$(mod_name) $(release)/$(release_name)/mods/
 	
@@ -48,10 +44,4 @@ release:
 .SILENT .PHONY: test
 test: $(test)/*.lua
 	$(foreach file,$^,lua $(file);)
-
-.PHONY: update-deps
-update-deps:
-	git submodule foreach git pull origin master
-	git add $(deps)/
-	git commit -m "Updated dependencies."
 
