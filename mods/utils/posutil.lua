@@ -25,38 +25,34 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 --]]
 
 
--- Get the base path.
-local base_path = minetest.get_modpath(minetest.get_current_modname())
+--- Various functions for working with positions.
+posutil = {}
 
--- Instance utils
-dofile(base_path .. "/blockedcache.lua")
-dofile(base_path .. "/color.lua")
-dofile(base_path .. "/directmapmanipulator.lua")
-dofile(base_path .. "/list.lua")
-dofile(base_path .. "/mapmanipulator.lua")
-dofile(base_path .. "/noisemanager.lua")
 
--- Static utils
-dofile(base_path .. "/arrayutil.lua")
-dofile(base_path .. "/blockutil.lua")
-dofile(base_path .. "/constants.lua")
-dofile(base_path .. "/facedirutil.lua")
-dofile(base_path .. "/fisheryates.lua")
-dofile(base_path .. "/interpolate.lua")
-dofile(base_path .. "/inventoryutil.lua")
-dofile(base_path .. "/log.lua")
-dofile(base_path .. "/mathutil.lua")
-dofile(base_path .. "/nodeutil.lua")
-dofile(base_path .. "/pathutil.lua")
-dofile(base_path .. "/posutil.lua")
-dofile(base_path .. "/rotationutil.lua")
-dofile(base_path .. "/scheduler.lua")
-dofile(base_path .. "/settings.lua")
-dofile(base_path .. "/stopwatch.lua")
-dofile(base_path .. "/stringutil.lua")
-dofile(base_path .. "/tableutil.lua")
-dofile(base_path .. "/tango.lua")
-dofile(base_path .. "/textureutil.lua")
-dofile(base_path .. "/transform.lua")
-dofile(base_path .. "/wallmountedutil.lua")
+--- Returns the position above the given position.
+--
+-- @param pos The position.
+-- @param add Optional. The value to add to the y value. Defaults to 1.
+-- @return The position above the given one.
+function posutil.above(pos, add)
+	return {
+		x = pos.x,
+		y = pos.y + (add or 1),
+		z = pos.z
+	}
+end
+
+--- Returns the position below the given position.
+--
+-- @param pos The position.
+-- @param subtract Optional. The value to subtract from the y value. Defaults
+--                 to 1.
+-- @return The position below the given one.
+function posutil.above(pos, subtract)
+	return {
+		x = pos.x,
+		y = pos.y - (subtract or 1),
+		z = pos.z
+	}
+end
 
