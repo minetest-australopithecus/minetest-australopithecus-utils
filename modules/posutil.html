@@ -41,7 +41,7 @@
   <li><a href="../modules/stringutil.html">stringutil</a></li>
   <li><a href="../modules/noisemanager.html">noisemanager</a></li>
   <li><a href="../modules/nodeutil.html">nodeutil</a></li>
-  <li><a href="../modules/posutil.html">posutil</a></li>
+  <li><strong>posutil</strong></li>
   <li><a href="../modules/mapmanipulator.html">mapmanipulator</a></li>
   <li><a href="../modules/fisheryates.html">fisheryates</a></li>
   <li><a href="../modules/textureutil.html">textureutil</a></li>
@@ -64,7 +64,7 @@
   <li><a href="../modules/facedirutil.html">facedirutil</a></li>
   <li><a href="../modules/constants.html">constants</a></li>
   <li><a href="../modules/list.html">list</a></li>
-  <li><strong>stopwatch</strong></li>
+  <li><a href="../modules/stopwatch.html">stopwatch</a></li>
   <li><a href="../modules/color.html">color</a></li>
   <li><a href="../modules/tableutil.html">tableutil</a></li>
 </ul>
@@ -73,25 +73,20 @@
 
 <div id="content">
 
-<h1>Module <code>stopwatch</code></h1>
-<p>Allows to easily time blocks of code.</p>
-<p> The result will be logged.</p>
+<h1>Module <code>posutil</code></h1>
+<p>Various functions for working with positions.</p>
+<p></p>
 
 
 <h2><a href="#Functions">Functions</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#start">start (watch_name)</a></td>
-	<td class="summary">Start a watch with the given name.</td>
+	<td class="name" nowrap><a href="#above">above (pos, add)</a></td>
+	<td class="summary">Returns the position above the given position.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#stop">stop (watch_name, message, decimal_places)</a></td>
-	<td class="summary">Stops the watch with the given name, logging the duration.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#stop_only">stop_only (watch_name)</a></td>
-	<td class="summary">Stops the watch with the given name and returns the duration for which
- the watch has been running.</td>
+	<td class="name" nowrap><a href="#above">above (pos, subtract)</a></td>
+	<td class="summary">Returns the position below the given position.</td>
 	</tr>
 </table>
 
@@ -102,74 +97,56 @@
     <h2><a name="Functions"></a>Functions</h2>
     <dl class="function">
     <dt>
-    <a name = "start"></a>
-    <strong>start (watch_name)</strong>
+    <a name = "above"></a>
+    <strong>above (pos, add)</strong>
     </dt>
     <dd>
-    Start a watch with the given name.
+    Returns the position above the given position.
 
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">watch_name</span>
-         The name of the watch to start.
+        <li><span class="parameter">pos</span>
+         The position.
         </li>
-    </ul>
-
-
-
-
-
-</dd>
-    <dt>
-    <a name = "stop"></a>
-    <strong>stop (watch_name, message, decimal_places)</strong>
-    </dt>
-    <dd>
-    Stops the watch with the given name, logging the duration.
-<p> It will be logged as info in the format "watch_name: duration ms" or
- if the message is provided "message: duration ms"
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">watch_name</span>
-         The name of the watch to stop.
-        </li>
-        <li><span class="parameter">message</span>
-         Optional. The message to use for the log instead of the name.
-        </li>
-        <li><span class="parameter">decimal_places</span>
-         Optional. To how many decimal places the time should
-                       be rounded. Defaults to 3.
-        </li>
-    </ul>
-
-
-
-
-
-</dd>
-    <dt>
-    <a name = "stop_only"></a>
-    <strong>stop_only (watch_name)</strong>
-    </dt>
-    <dd>
-    Stops the watch with the given name and returns the duration for which
- the watch has been running.
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">watch_name</span>
-         The name of the watch to stop.
+        <li><span class="parameter">add</span>
+         Optional. The value to add to the y value. Defaults to 1.
         </li>
     </ul>
 
     <h3>Returns:</h3>
     <ol>
 
-        The duration of the watch. -1 if it never was started.
+        The position above the given one.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "above"></a>
+    <strong>above (pos, subtract)</strong>
+    </dt>
+    <dd>
+    Returns the position below the given position.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">pos</span>
+         The position.
+        </li>
+        <li><span class="parameter">subtract</span>
+         Optional. The value to subtract from the y value. Defaults
+                 to 1.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The position below the given one.
     </ol>
 
 
