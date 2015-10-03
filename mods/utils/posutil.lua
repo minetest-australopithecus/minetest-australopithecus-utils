@@ -48,7 +48,7 @@ end
 -- @param subtract Optional. The value to subtract from the y value. Defaults
 --                 to 1.
 -- @return The position below the given one.
-function posutil.above(pos, subtract)
+function posutil.below(pos, subtract)
 	return {
 		x = pos.x,
 		y = pos.y - (subtract or 1),
