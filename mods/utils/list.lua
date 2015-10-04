@@ -243,6 +243,15 @@ function List:size()
 	return self.counter - 1
 end
 
+--- Sorts this List.
+--
+-- @param comparator Optional. The comparator to be used. Accepts two values
+--                   and returns a boolean, true if the first is parameter is
+--                   less than the second.
+function List:sort(comparator)
+	table.sort(self, comparator)
+end
+
 --- Gets a sub list starting from the given index and the given number of items.
 --
 -- @param from The starting index.

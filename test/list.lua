@@ -198,6 +198,19 @@ test.run("return_last", function()
 	test.equals("bc", list:return_last(List.ACCEPT_NON_NIL, "c"))
 end)
 
+test.run("sort", function()
+	local list = List:new("y", "n", "m", "b", "e", "a")
+	
+	list:sort()
+	
+	test.equals("a", list:get(1))
+	test.equals("b", list:get(2))
+	test.equals("e", list:get(3))
+	test.equals("m", list:get(4))
+	test.equals("n", list:get(5))
+	test.equals("y", list:get(6))
+end)
+
 test.run("sub_list", function()
 	local list = List:new("a", "b", "c", "d", "e")
 	
