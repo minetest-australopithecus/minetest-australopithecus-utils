@@ -37,6 +37,20 @@ test.run("clear", function()
 	test.equals(0, list:size())
 end)
 
+test.run("cull_duplicates", function()
+	local list = List:new("a", "a", "b", "a", "c", "a", "b", "c", "d", "a", "c", "a", "a", "a")
+	
+	test.equals(14, list:size())
+	
+	list:cull_duplicates()
+	
+	test.equals(4, list:size())
+	test.equals("a", list:get(1))
+	test.equals("b", list:get(2))
+	test.equals("c", list:get(3))
+	test.equals("d", list:get(4))
+end)
+
 test.run("foreach", function()
 	local list = List:new(1, 2, 3, 4)
 	

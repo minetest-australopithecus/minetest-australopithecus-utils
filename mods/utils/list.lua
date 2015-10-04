@@ -93,6 +93,48 @@ function List:contains(item)
 	return self:index(item) >= 0
 end
 
+--- Culls/removes all duplicates from this list.
+--
+-- @param comparator Optional. The comparator to be used. Accepts two values
+--                   and returns true if they can be considered equal. Defaults
+--                   to testing the identity.
+function List:cull_duplicates(comparator)
+	comparator = comparator or function(a, b)
+		return a == b
+	end
+	
+	-- Find duplicates.
+	for index = 1, self.counter - 1, 1 do
+		local value = self[index]
+		
+		if value ~= nil then
+			for sec_index = index + 1, self.counter - 1, 1 do
+				if comparator(self[sec_index], value) then
+					self[sec_index] = nil
+				end
+			end
+		end
+	end
+	
+	-- Compact the list.
+	local last_index = 1
+	for index = 1, self.counter - 1, 1 do
+		local value = self[index]
+		
+		if value ~= nil then
+			self[last_index] = value
+			last_index = last_index + 1
+		end
+	end
+	
+	-- Remove trailing elements.
+	for index = last_index, self.counter - 1, 1 do
+		self[index] = nil
+	end
+	
+	self.counter = last_index
+end
+
 --- Iterates over all items in the list and invokes the given action on them.
 --
 -- @param action The function to invoke on the item, the first parameter will be

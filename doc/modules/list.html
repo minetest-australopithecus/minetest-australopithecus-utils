@@ -107,6 +107,10 @@
 	<td class="summary">Checks if this list contains the given item.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#List:cull_duplicates">List:cull_duplicates (comparator)</a></td>
+	<td class="summary">Culls/removes all duplicates from this list.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#List:foreach">List:foreach (action)</a></td>
 	<td class="summary">Iterates over all items in the list and invokes the given action on them.</td>
 	</tr>
@@ -299,6 +303,28 @@
 
         true if this list contains the given item.
     </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "List:cull_duplicates"></a>
+    <strong>List:cull_duplicates (comparator)</strong>
+    </dt>
+    <dd>
+    Culls/removes all duplicates from this list.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">comparator</span>
+         Optional. The comparator to be used. Accepts two values
+                   and returns true if they can be considered equal. Defaults
+                   to testing the identity.
+        </li>
+    </ul>
+
 
 
 
