@@ -37,14 +37,6 @@ test.run("clear", function()
 	test.equals(0, list:size())
 end)
 
-test.run("get", function()
-	local list = List:new("a", "b", "c")
-	
-	test.equals("a", list:get(1))
-	test.equals("b", list:get(2))
-	test.equals("c", list:get(3))
-end)
-
 test.run("foreach", function()
 	local list = List:new(1, 2, 3, 4)
 	
@@ -71,6 +63,14 @@ test.run("foreach", function()
 	end)
 	
 	test.equals(2, counter)
+end)
+
+test.run("get", function()
+	local list = List:new("a", "b", "c")
+	
+	test.equals("a", list:get(1))
+	test.equals("b", list:get(2))
+	test.equals("c", list:get(3))
 end)
 
 test.run("get_first", function()
