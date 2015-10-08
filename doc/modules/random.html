@@ -33,6 +33,7 @@
 <h2>Contents</h2>
 <ul>
 <li><a href="#Functions">Functions</a></li>
+<li><a href="#Fields">Fields</a></li>
 </ul>
 
 
@@ -48,7 +49,7 @@
   <li><a href="../modules/wallmountedutil.html">wallmountedutil</a></li>
   <li><a href="../modules/tango.html">tango</a></li>
   <li><a href="../modules/directmapmanipulator.html">directmapmanipulator</a></li>
-  <li><a href="../modules/random.html">random</a></li>
+  <li><strong>random</strong></li>
   <li><a href="../modules/log.html">log</a></li>
   <li><a href="../modules/rotationutil.html">rotationutil</a></li>
   <li><a href="../modules/textureutil.html">textureutil</a></li>
@@ -57,7 +58,7 @@
   <li><a href="../modules/settings.html">settings</a></li>
   <li><a href="../modules/transform.html">transform</a></li>
   <li><a href="../modules/scheduler.html">scheduler</a></li>
-  <li><strong>mathutil</strong></li>
+  <li><a href="../modules/mathutil.html">mathutil</a></li>
   <li><a href="../modules/color.html">color</a></li>
   <li><a href="../modules/blockutil.html">blockutil</a></li>
   <li><a href="../modules/nodeutil.html">nodeutil</a></li>
@@ -74,32 +75,44 @@
 
 <div id="content">
 
-<h1>Module <code>mathutil</code></h1>
-<p>Various mathematical functions.</p>
+<h1>Module <code>random</code></h1>
+<p>Random is a static utility that provides fast and easy access to
+ random numbers.</p>
 <p></p>
 
 
 <h2><a href="#Functions">Functions</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#clamp">clamp (value, min, max)</a></td>
-	<td class="summary">Clamps one value to the given minimum/maximum values.</td>
+	<td class="name" nowrap><a href="#init">init ()</a></td>
+	<td class="summary">Initializes random.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#distance">distance (a, b)</a></td>
-	<td class="summary">Gets the distance between the two given points or objects.</td>
+	<td class="name" nowrap><a href="#next_bool">next_bool (chance)</a></td>
+	<td class="summary">Returns true or false based on the given chance.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#in_range">in_range (value, min, max)</a></td>
-	<td class="summary">Tests if the given value is within the given range.</td>
+	<td class="name" nowrap><a href="#next_float">next_float (lower_bound, upper_bound, decimal_places)</a></td>
+	<td class="summary">Returns a float between the given bounds.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#next_lower_prime">next_lower_prime (number)</a></td>
-	<td class="summary">Gets the next lower prime from the given number.</td>
+	<td class="name" nowrap><a href="#next_int">next_int (lower_bound, upper_bound)</a></td>
+	<td class="summary">Returns an int between the given bounds.</td>
+	</tr>
+</table>
+<h2><a href="#Fields">Fields</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#max">max</a></td>
+	<td class="summary">The internal maximum value.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#round">round (value, decimal_places)</a></td>
-	<td class="summary">Rounds to the nearest number with the given decimal places.</td>
+	<td class="name" nowrap><a href="#min">min</a></td>
+	<td class="summary">The internal minimum value.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#random_provider">random_provider</a></td>
+	<td class="summary">The provider for random numbers.</td>
 	</tr>
 </table>
 
@@ -110,32 +123,39 @@
     <h2><a name="Functions"></a>Functions</h2>
     <dl class="function">
     <dt>
-    <a name = "clamp"></a>
-    <strong>clamp (value, min, max)</strong>
+    <a name = "init"></a>
+    <strong>init ()</strong>
     </dt>
     <dd>
-    Clamps one value to the given minimum/maximum values.  Defaults to
- 0 to 1 if min/max are omitted.
+    Initializes random.  Should not be called from the client.
 
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "next_bool"></a>
+    <strong>next_bool (chance)</strong>
+    </dt>
+    <dd>
+    Returns true or false based on the given chance.
 
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">value</span>
-         The value to clamp.
-        </li>
-        <li><span class="parameter">min</span>
-         Optional. The minimum value, defaults to 0.
-        </li>
-        <li><span class="parameter">max</span>
-         Optional. The masximum value, defaults to 1.
+        <li><span class="parameter">chance</span>
+         Optional. The "one in chance" chance to get true, defaults
+               to 2 (ans in "one in two").
         </li>
     </ul>
 
     <h3>Returns:</h3>
     <ol>
 
-        The value clamped to the given range.
+        true or false based in the given chance.
     </ol>
 
 
@@ -143,110 +163,107 @@
 
 </dd>
     <dt>
-    <a name = "distance"></a>
-    <strong>distance (a, b)</strong>
+    <a name = "next_float"></a>
+    <strong>next_float (lower_bound, upper_bound, decimal_places)</strong>
     </dt>
     <dd>
-    Gets the distance between the two given points or objects.
+    Returns a float between the given bounds.
 
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">a</span>
-         The first object. Either a position or an ObjectRef.
+        <li><span class="parameter">lower_bound</span>
+         Optional. The lower bound (inclusive), defaults to 0.
         </li>
-        <li><span class="parameter">b</span>
-         The second object. Either a position or an ObjectRef.
-        </li>
-    </ul>
-
-    <h3>Returns:</h3>
-    <ol>
-
-        The distance between the two given points or objects.
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "in_range"></a>
-    <strong>in_range (value, min, max)</strong>
-    </dt>
-    <dd>
-    Tests if the given value is within the given range.
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">value</span>
-         The value to test.
-        </li>
-        <li><span class="parameter">min</span>
-         The minimum value. It can also be a table with either two values,
-            the first being the minimum and the second being the maximum, or
-            with two named values, min and max.
-        </li>
-        <li><span class="parameter">max</span>
-         The maximum value. Not used if min is a table.
-        </li>
-    </ul>
-
-
-
-
-
-</dd>
-    <dt>
-    <a name = "next_lower_prime"></a>
-    <strong>next_lower_prime (number)</strong>
-    </dt>
-    <dd>
-    Gets the next lower prime from the given number.
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">number</span>
-         The number.
-        </li>
-    </ul>
-
-    <h3>Returns:</h3>
-    <ol>
-
-        The next lower prime.
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "round"></a>
-    <strong>round (value, decimal_places)</strong>
-    </dt>
-    <dd>
-    Rounds to the nearest number with the given decimal places.
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">value</span>
-         The value to round.
+        <li><span class="parameter">upper_bound</span>
+         Optional. The upper bound (exclusive), defaults to 1.
         </li>
         <li><span class="parameter">decimal_places</span>
-         Optional. The number of decimal places to round to,
-                       defaults to 0.
+         Optional. To how many decimal places the resulting
+                       float should be rounded.
         </li>
     </ul>
 
     <h3>Returns:</h3>
     <ol>
 
-        The rounded value.
+        a float between the given bounds.
     </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "next_int"></a>
+    <strong>next_int (lower_bound, upper_bound)</strong>
+    </dt>
+    <dd>
+    Returns an int between the given bounds.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">lower_bound</span>
+         Optional. The lower bound (inclusive), defaults to
+                    random.min.
+        </li>
+        <li><span class="parameter">upper_bound</span>
+         Optional. The upper bound (exclusive), defaults to
+                    random.max.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        a integer between the given bounds.
+    </ol>
+
+
+
+
+</dd>
+</dl>
+    <h2><a name="Fields"></a>Fields</h2>
+    <dl class="function">
+    <dt>
+    <a name = "max"></a>
+    <strong>max</strong>
+    </dt>
+    <dd>
+    The internal maximum value.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "min"></a>
+    <strong>min</strong>
+    </dt>
+    <dd>
+    The internal minimum value.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "random_provider"></a>
+    <strong>random_provider</strong>
+    </dt>
+    <dd>
+    The provider for random numbers.
+
+
+
 
 
 
