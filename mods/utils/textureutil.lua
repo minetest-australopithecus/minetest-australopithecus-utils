@@ -31,12 +31,21 @@ textureutil = {}
 
 --- Creates a dummy texture with the two given colors.
 --
--- @param inner_color The color for the inner part.
--- @param border_color The color for the border.
+-- @param inner_color The color for the inner part, either a string with
+--                    leading "#" or a Color.
+-- @param border_color The color for the border, either a string with
+--                    leading "#" or a Color.
 -- @return The dummy texture (string).
 function textureutil.dummy(inner_color, border_color)
-	local inner = "(dummy_inner.png^[colorize:#" .. inner_color.hex .. ":240)"
-	local border = "(dummy_border.png^[colorize:#" .. border_color.hex .. ":255)"
+	if type(inner_color) == "table" then
+		inner_color = "#" .. inner_color.hex
+	end
+	if type(outer_color) == "table" then
+		outer_color = "#" .. outer_color.hex
+	end
+	
+	local inner = "(dummy_inner.png^[colorize:" .. inner_color .. ":240)"
+	local border = "(dummy_border.png^[colorize:" .. border_color .. ":255)"
 	
 	return inner .. "^" .. border
 end
