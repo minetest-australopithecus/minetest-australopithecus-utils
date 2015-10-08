@@ -83,7 +83,7 @@ function settings.get_number(name, default_value)
 	return settings.get(name, default_value, tonumber)
 end
 
---- Gets a pos from the configuration.
+--- Gets a pos (with x and y values) from the configuration.
 --
 -- @param name The name of the value to get.
 -- @param default_value Optional. The default value to return if the value is nil.
@@ -112,7 +112,7 @@ function settings.get_pos2d(name, default_value)
 	return default_value
 end
 
---- Gets a pos from the configuration.
+--- Gets a pos with (x, y and z values) from the configuration.
 --
 -- @param name The name of the value to get.
 -- @param default_value Optional. The default value to return if the value is nil.
