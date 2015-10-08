@@ -24,7 +24,7 @@ test.run("basic", function()
 	local counter = 0
 	local hits = 0
 	
-	fisheryates.run(data, 0, 10, math.random, function(item)
+	fisheryates.run(data, 0, 10, math.random, function(item, index)
 		if item == counter then
 			hits = hits + 1
 		end

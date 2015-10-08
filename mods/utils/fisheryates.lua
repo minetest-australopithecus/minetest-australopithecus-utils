@@ -41,8 +41,8 @@ fisheryates = {}
 -- @param random The method that returns random numbers, assumed to accept two
 --               parameters, a minimum and maximum value. Can also be a table
 --               with an instance method like the one descriped above.
--- @param action The action to perform on each item. Assumed to accept one
---               parameter, the item.
+-- @param action The action to perform on each item. Assumed to accept two
+--               parameters, the item and the current index.
 function fisheryates.run(data, min, max, random, action)
 	local random_is_object = type(random) == "userdata"
 	
@@ -63,7 +63,7 @@ function fisheryates.run(data, min, max, random, action)
 		data[swap_index] = data[index]
 		data[index] = swap_value
 		
-		action(data[index])
+		action(data[index], index)
 	end
 end
 
