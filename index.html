@@ -31,35 +31,35 @@
 
 <h2>Modules</h2>
 <ul class="$(kind=='Topics' and '' or 'nowrap'">
-  <li><a href="modules/stringutil.html">stringutil</a></li>
-  <li><a href="modules/noisemanager.html">noisemanager</a></li>
-  <li><a href="modules/nodeutil.html">nodeutil</a></li>
-  <li><a href="modules/posutil.html">posutil</a></li>
-  <li><a href="modules/mapmanipulator.html">mapmanipulator</a></li>
-  <li><a href="modules/fisheryates.html">fisheryates</a></li>
-  <li><a href="modules/textureutil.html">textureutil</a></li>
-  <li><a href="modules/blockutil.html">blockutil</a></li>
-  <li><a href="modules/tango.html">tango</a></li>
-  <li><a href="modules/inventoryutil.html">inventoryutil</a></li>
-  <li><a href="modules/scheduler.html">scheduler</a></li>
-  <li><a href="modules/blockedcache.html">blockedcache</a></li>
-  <li><a href="modules/mathutil.html">mathutil</a></li>
-  <li><a href="modules/log.html">log</a></li>
-  <li><a href="modules/arrayutil.html">arrayutil</a></li>
-  <li><a href="modules/directmapmanipulator.html">directmapmanipulator</a></li>
-  <li><a href="modules/rotationutil.html">rotationutil</a></li>
-  <li><a href="modules/settings.html">settings</a></li>
-  <li><a href="modules/pathutil.html">pathutil</a></li>
-  <li><a href="modules/wallmountedutil.html">wallmountedutil</a></li>
   <li><a href="modules/interpolate.html">interpolate</a></li>
-  <li><a href="modules/transform.html">transform</a></li>
-  <li><a href="modules/test.html">test</a></li>
+  <li><a href="modules/tableutil.html">tableutil</a></li>
+  <li><a href="modules/stopwatch.html">stopwatch</a></li>
   <li><a href="modules/facedirutil.html">facedirutil</a></li>
+  <li><a href="modules/posutil.html">posutil</a></li>
+  <li><a href="modules/pathutil.html">pathutil</a></li>
+  <li><a href="modules/inventoryutil.html">inventoryutil</a></li>
+  <li><a href="modules/wallmountedutil.html">wallmountedutil</a></li>
+  <li><a href="modules/tango.html">tango</a></li>
+  <li><a href="modules/directmapmanipulator.html">directmapmanipulator</a></li>
+  <li><a href="modules/log.html">log</a></li>
+  <li><a href="modules/rotationutil.html">rotationutil</a></li>
+  <li><a href="modules/textureutil.html">textureutil</a></li>
+  <li><a href="modules/mapmanipulator.html">mapmanipulator</a></li>
+  <li><a href="modules/stringutil.html">stringutil</a></li>
+  <li><a href="modules/settings.html">settings</a></li>
+  <li><a href="modules/transform.html">transform</a></li>
+  <li><a href="modules/scheduler.html">scheduler</a></li>
+  <li><a href="modules/mathutil.html">mathutil</a></li>
+  <li><a href="modules/color.html">color</a></li>
+  <li><a href="modules/blockutil.html">blockutil</a></li>
+  <li><a href="modules/nodeutil.html">nodeutil</a></li>
+  <li><a href="modules/arrayutil.html">arrayutil</a></li>
+  <li><a href="modules/noisemanager.html">noisemanager</a></li>
   <li><a href="modules/constants.html">constants</a></li>
   <li><a href="modules/list.html">list</a></li>
-  <li><a href="modules/stopwatch.html">stopwatch</a></li>
-  <li><a href="modules/color.html">color</a></li>
-  <li><a href="modules/tableutil.html">tableutil</a></li>
+  <li><a href="modules/blockedcache.html">blockedcache</a></li>
+  <li><a href="modules/fisheryates.html">fisheryates</a></li>
+  <li><a href="modules/test.html">test</a></li>
 </ul>
 
 </div>
@@ -71,67 +71,41 @@
 <h2>Modules</h2>
 <table class="module_list">
 	<tr>
-		<td class="name"  nowrap><a href="modules/stringutil.html">stringutil</a></td>
-		<td class="summary">Various utility functions for working with strings.</td>
+		<td class="name"  nowrap><a href="modules/interpolate.html">interpolate</a></td>
+		<td class="summary">Various mathematical functions for interpolating values.</td>
 	</tr>
 	<tr>
-		<td class="name"  nowrap><a href="modules/noisemanager.html">noisemanager</a></td>
-		<td class="summary">The NoiseManager manages seeds and creates PRNG of various kinds, always
- with a new, unique seed.</td>
+		<td class="name"  nowrap><a href="modules/tableutil.html">tableutil</a></td>
+		<td class="summary">Various utility functions for working with tables.</td>
 	</tr>
 	<tr>
-		<td class="name"  nowrap><a href="modules/nodeutil.html">nodeutil</a></td>
-		<td class="summary">Various functions related to nodes.</td>
+		<td class="name"  nowrap><a href="modules/stopwatch.html">stopwatch</a></td>
+		<td class="summary">Allows to easily time blocks of code.</td>
+	</tr>
+	<tr>
+		<td class="name"  nowrap><a href="modules/facedirutil.html">facedirutil</a></td>
+		<td class="summary">Various functions and constants for working with the facedir value.</td>
 	</tr>
 	<tr>
 		<td class="name"  nowrap><a href="modules/posutil.html">posutil</a></td>
 		<td class="summary">Various functions for working with positions.</td>
 	</tr>
 	<tr>
-		<td class="name"  nowrap><a href="modules/mapmanipulator.html">mapmanipulator</a></td>
-		<td class="summary">The MapManipulator is a thin wrapper around the VoxelManip object
- provided by minetest.</td>
-	</tr>
-	<tr>
-		<td class="name"  nowrap><a href="modules/fisheryates.html">fisheryates</a></td>
-		<td class="summary">An implementation of the Fisher-Yates algorithm, which allows to access
- an array in a random or pseudo-random order.</td>
-	</tr>
-	<tr>
-		<td class="name"  nowrap><a href="modules/textureutil.html">textureutil</a></td>
-		<td class="summary">Util for various functions regarding textures.</td>
-	</tr>
-	<tr>
-		<td class="name"  nowrap><a href="modules/blockutil.html">blockutil</a></td>
-		<td class="summary">Various functions related to blocks/chunks.</td>
-	</tr>
-	<tr>
-		<td class="name"  nowrap><a href="modules/tango.html">tango</a></td>
-		<td class="summary">The tango color scheme.</td>
+		<td class="name"  nowrap><a href="modules/pathutil.html">pathutil</a></td>
+		<td class="summary">Various utility functions for working with paths.</td>
 	</tr>
 	<tr>
 		<td class="name"  nowrap><a href="modules/inventoryutil.html">inventoryutil</a></td>
 		<td class="summary">A util for working with inventories.</td>
 	</tr>
 	<tr>
-		<td class="name"  nowrap><a href="modules/scheduler.html">scheduler</a></td>
-		<td class="summary">The Scheduler allows you to easily schedule functions for execution.</td>
+		<td class="name"  nowrap><a href="modules/wallmountedutil.html">wallmountedutil</a></td>
+		<td class="summary">Various functions and constants for working with the wallmounted
+ value.</td>
 	</tr>
 	<tr>
-		<td class="name"  nowrap><a href="modules/blockedcache.html">blockedcache</a></td>
-		<td class="summary">A simple cache for caching values based on x and z coordinates.</td>
-	</tr>
-	<tr>
-		<td class="name"  nowrap><a href="modules/mathutil.html">mathutil</a></td>
-		<td class="summary">Various mathematical functions.</td>
-	</tr>
-	<tr>
-		<td class="name"  nowrap><a href="modules/log.html">log</a></td>
-		<td class="summary">A simple utility for logging purposes.</td>
-	</tr>
-	<tr>
-		<td class="name"  nowrap><a href="modules/arrayutil.html">arrayutil</a></td>
-		<td class="summary">Various utility functions for working with arrays.</td>
+		<td class="name"  nowrap><a href="modules/tango.html">tango</a></td>
+		<td class="summary">The tango color scheme.</td>
 	</tr>
 	<tr>
 		<td class="name"  nowrap><a href="modules/directmapmanipulator.html">directmapmanipulator</a></td>
@@ -140,8 +114,25 @@
  functions.</td>
 	</tr>
 	<tr>
+		<td class="name"  nowrap><a href="modules/log.html">log</a></td>
+		<td class="summary">A simple utility for logging purposes.</td>
+	</tr>
+	<tr>
 		<td class="name"  nowrap><a href="modules/rotationutil.html">rotationutil</a></td>
 		<td class="summary">Various functions for rotating nodes.</td>
+	</tr>
+	<tr>
+		<td class="name"  nowrap><a href="modules/textureutil.html">textureutil</a></td>
+		<td class="summary">Util for various functions regarding textures.</td>
+	</tr>
+	<tr>
+		<td class="name"  nowrap><a href="modules/mapmanipulator.html">mapmanipulator</a></td>
+		<td class="summary">The MapManipulator is a thin wrapper around the VoxelManip object
+ provided by minetest.</td>
+	</tr>
+	<tr>
+		<td class="name"  nowrap><a href="modules/stringutil.html">stringutil</a></td>
+		<td class="summary">Various utility functions for working with strings.</td>
 	</tr>
 	<tr>
 		<td class="name"  nowrap><a href="modules/settings.html">settings</a></td>
@@ -149,29 +140,37 @@
  functions.</td>
 	</tr>
 	<tr>
-		<td class="name"  nowrap><a href="modules/pathutil.html">pathutil</a></td>
-		<td class="summary">Various utility functions for working with paths.</td>
-	</tr>
-	<tr>
-		<td class="name"  nowrap><a href="modules/wallmountedutil.html">wallmountedutil</a></td>
-		<td class="summary">Various functions and constants for working with the wallmounted
- value.</td>
-	</tr>
-	<tr>
-		<td class="name"  nowrap><a href="modules/interpolate.html">interpolate</a></td>
-		<td class="summary">Various mathematical functions for interpolating values.</td>
-	</tr>
-	<tr>
 		<td class="name"  nowrap><a href="modules/transform.html">transform</a></td>
 		<td class="summary">Various mathematical functions for transforming values.</td>
 	</tr>
 	<tr>
-		<td class="name"  nowrap><a href="modules/test.html">test</a></td>
-		<td class="summary">A simple utility for testing values and running unit tests.</td>
+		<td class="name"  nowrap><a href="modules/scheduler.html">scheduler</a></td>
+		<td class="summary">The Scheduler allows you to easily schedule functions for execution.</td>
 	</tr>
 	<tr>
-		<td class="name"  nowrap><a href="modules/facedirutil.html">facedirutil</a></td>
-		<td class="summary">Various functions and constants for working with the facedir value.</td>
+		<td class="name"  nowrap><a href="modules/mathutil.html">mathutil</a></td>
+		<td class="summary">Various mathematical functions.</td>
+	</tr>
+	<tr>
+		<td class="name"  nowrap><a href="modules/color.html">color</a></td>
+		<td class="summary">A simple container for a color and its hex string representation.</td>
+	</tr>
+	<tr>
+		<td class="name"  nowrap><a href="modules/blockutil.html">blockutil</a></td>
+		<td class="summary">Various functions related to blocks/chunks.</td>
+	</tr>
+	<tr>
+		<td class="name"  nowrap><a href="modules/nodeutil.html">nodeutil</a></td>
+		<td class="summary">Various functions related to nodes.</td>
+	</tr>
+	<tr>
+		<td class="name"  nowrap><a href="modules/arrayutil.html">arrayutil</a></td>
+		<td class="summary">Various utility functions for working with arrays.</td>
+	</tr>
+	<tr>
+		<td class="name"  nowrap><a href="modules/noisemanager.html">noisemanager</a></td>
+		<td class="summary">The NoiseManager manages seeds and creates PRNG of various kinds, always
+ with a new, unique seed.</td>
 	</tr>
 	<tr>
 		<td class="name"  nowrap><a href="modules/constants.html">constants</a></td>
@@ -182,16 +181,17 @@
 		<td class="summary">A simple list that keeps the order in which the items are added to it.</td>
 	</tr>
 	<tr>
-		<td class="name"  nowrap><a href="modules/stopwatch.html">stopwatch</a></td>
-		<td class="summary">Allows to easily time blocks of code.</td>
+		<td class="name"  nowrap><a href="modules/blockedcache.html">blockedcache</a></td>
+		<td class="summary">A simple cache for caching values based on x and z coordinates.</td>
 	</tr>
 	<tr>
-		<td class="name"  nowrap><a href="modules/color.html">color</a></td>
-		<td class="summary">A simple container for a color and its hex string representation.</td>
+		<td class="name"  nowrap><a href="modules/fisheryates.html">fisheryates</a></td>
+		<td class="summary">An implementation of the Fisher-Yates algorithm, which allows to access
+ an array in a random or pseudo-random order.</td>
 	</tr>
 	<tr>
-		<td class="name"  nowrap><a href="modules/tableutil.html">tableutil</a></td>
-		<td class="summary">Various utility functions for working with tables.</td>
+		<td class="name"  nowrap><a href="modules/test.html">test</a></td>
+		<td class="summary">A simple utility for testing values and running unit tests.</td>
 	</tr>
 </table>
 
