@@ -90,23 +90,6 @@ end
 --                      Can be nil.
 -- @return The pos with the given name, or the default value if it is nil,
 --         or nil.
-function settings.get_pos(name, default_value)
-	local value = minetest.setting_get_pos(name)
-	
-	if value ~= nil then
-		return value
-	else
-		return default_value
-	end
-end
-
---- Gets a pos from the configuration.
---
--- @param name The name of the value to get.
--- @param default_value Optional. The default value to return if the value is nil.
---                      Can be nil.
--- @return The pos with the given name, or the default value if it is nil,
---         or nil.
 function settings.get_pos2d(name, default_value)
 	local value = minetest.setting_get(name)
 	
@@ -136,7 +119,15 @@ end
 --                      Can be nil.
 -- @return The pos with the given name, or the default value if it is nil,
 --         or nil.
-settings.get_pos3d = settings.get_pos
+function settings.get_pos3d(name, default_value)
+	local value = minetest.setting_get_pos(name)
+	
+	if value ~= nil then
+		return value
+	else
+		return default_value
+	end
+end
 
 --- Gets a string from the configuration.
 --
@@ -161,4 +152,13 @@ end
 function settings.set(name, value)
 	minetest.setting_set(name, value)
 end
+
+--- Gets a pos from the configuration, this is an alias for get_pos3d.
+--
+-- @param name The name of the value to get.
+-- @param default_value Optional. The default value to return if the value is nil.
+--                      Can be nil.
+-- @return The pos with the given name, or the default value if it is nil,
+--         or nil.
+settings.get_pos = settings.get_pos3d
 
