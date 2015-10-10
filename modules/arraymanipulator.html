@@ -41,14 +41,14 @@
   <li><a href="../modules/stringutil.html">stringutil</a></li>
   <li><a href="../modules/random.html">random</a></li>
   <li><a href="../modules/noisemanager.html">noisemanager</a></li>
-  <li><strong>nodeutil</strong></li>
+  <li><a href="../modules/nodeutil.html">nodeutil</a></li>
   <li><a href="../modules/posutil.html">posutil</a></li>
   <li><a href="../modules/mapmanipulator.html">mapmanipulator</a></li>
   <li><a href="../modules/fisheryates.html">fisheryates</a></li>
   <li><a href="../modules/textureutil.html">textureutil</a></li>
   <li><a href="../modules/blockutil.html">blockutil</a></li>
   <li><a href="../modules/tango.html">tango</a></li>
-  <li><a href="../modules/arraymanipulator.html">arraymanipulator</a></li>
+  <li><strong>arraymanipulator</strong></li>
   <li><a href="../modules/inventoryutil.html">inventoryutil</a></li>
   <li><a href="../modules/scheduler.html">scheduler</a></li>
   <li><a href="../modules/blockedcache.html">blockedcache</a></li>
@@ -75,29 +75,35 @@
 
 <div id="content">
 
-<h1>Module <code>nodeutil</code></h1>
-<p>Various functions related to nodes.</p>
-<p></p>
+<h1>Module <code>arraymanipulator</code></h1>
+<p>The ArrayManipulator is similiar to the MapManipulator, except that it
+ does not use the VoxelManip object, but has an internal array which contains
+ all set values.</p>
+<p> It is mostly compatible with MapManipulator, which means you
+ can pass it to functions which expect a MapManipulator.</p>
 
 
 <h2><a href="#Functions">Functions</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#get_id">get_id (node)</a></td>
-	<td class="summary">Gets the content id of the given node.</td>
+	<td class="name" nowrap><a href="#ArrayManipulator:new">ArrayManipulator:new (node_data, param2_data)</a></td>
+	<td class="summary">Creates a new instance of ArrayManipulator.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#get_name">get_name (node)</a></td>
-	<td class="summary">Gets the name of given node.</td>
+	<td class="name" nowrap><a href="#ArrayManipulator:get_data">ArrayManipulator:get_data ()</a></td>
+	<td class="summary">Does nothing, only for compatibility with MapManipulator.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#has_group">has_group (node, group_name)</a></td>
-	<td class="summary">Checks if the given node has the given group.</td>
+	<td class="name" nowrap><a href="#ArrayManipulator:get_node">ArrayManipulator:get_node (x, z, y)</a></td>
+	<td class="summary">Gets the node and param2 at the given location.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#surroundings">surroundings (pos, x_begin, x_end, z_begin, z_end, y_begin, y_end, callback)</a></td>
-	<td class="summary">Iterates over the surroundings of the given position and invokes
- the callback for every node in the surroundings.</td>
+	<td class="name" nowrap><a href="#ArrayManipulator:set_data">ArrayManipulator:set_data ()</a></td>
+	<td class="summary">Does nothing, only for compatibility with MapManipulator.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ArrayManipulator:set_node">ArrayManipulator:set_node (x, z, y, node, param2)</a></td>
+	<td class="summary">Sets the node at the given location.</td>
 	</tr>
 </table>
 
@@ -108,24 +114,31 @@
     <h2><a name="Functions"></a>Functions</h2>
     <dl class="function">
     <dt>
-    <a name = "get_id"></a>
-    <strong>get_id (node)</strong>
+    <a name = "ArrayManipulator:new"></a>
+    <strong>ArrayManipulator:new (node_data, param2_data)</strong>
     </dt>
     <dd>
-    Gets the content id of the given node.
+    Creates a new instance of ArrayManipulator.
 
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">node</span>
-         The node, can either be an id, a name or a table with the name.
+        <li><span class="parameter">node_data</span>
+         The array that contains the values for the nodes part. This
+                  is assumed to be a 3d array with x, z, and y values
+                  as dimensions.
+        </li>
+        <li><span class="parameter">param2_data</span>
+         The array that contains the values for the param2 part.
+                    This is assumed to be a 3d array with x, z, and y values
+                    as dimensions.
         </li>
     </ul>
 
     <h3>Returns:</h3>
     <ol>
 
-        The content id of the given node.
+        A new instance.
     </ol>
 
 
@@ -133,24 +146,44 @@
 
 </dd>
     <dt>
-    <a name = "get_name"></a>
-    <strong>get_name (node)</strong>
+    <a name = "ArrayManipulator:get_data"></a>
+    <strong>ArrayManipulator:get_data ()</strong>
     </dt>
     <dd>
-    Gets the name of given node.
+    Does nothing, only for compatibility with MapManipulator.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "ArrayManipulator:get_node"></a>
+    <strong>ArrayManipulator:get_node (x, z, y)</strong>
+    </dt>
+    <dd>
+    Gets the node and param2 at the given location.
 
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">node</span>
-         The node, can either be an id, a name or a table with the name.
+        <li><span class="parameter">x</span>
+         The x coordinate (width).
+        </li>
+        <li><span class="parameter">z</span>
+         the z coordinate (depth).
+        </li>
+        <li><span class="parameter">y</span>
+         The y coordinate (height).
         </li>
     </ul>
 
     <h3>Returns:</h3>
     <ol>
 
-        The name of the given node.
+        Two values, the node at the given location and the param2 value.
     </ol>
 
 
@@ -158,82 +191,46 @@
 
 </dd>
     <dt>
-    <a name = "has_group"></a>
-    <strong>has_group (node, group_name)</strong>
+    <a name = "ArrayManipulator:set_data"></a>
+    <strong>ArrayManipulator:set_data ()</strong>
     </dt>
     <dd>
-    Checks if the given node has the given group.
+    Does nothing, only for compatibility with MapManipulator.
 
 
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">node</span>
-         The node to check.
-        </li>
-        <li><span class="parameter">group_name</span>
-         The name of the group.
-        </li>
-    </ul>
 
-    <h3>Returns:</h3>
-    <ol>
-
-        true if the node has the given group.
-    </ol>
 
 
 
 
 </dd>
     <dt>
-    <a name = "surroundings"></a>
-    <strong>surroundings (pos, x_begin, x_end, z_begin, z_end, y_begin, y_end, callback)</strong>
+    <a name = "ArrayManipulator:set_node"></a>
+    <strong>ArrayManipulator:set_node (x, z, y, node, param2)</strong>
     </dt>
     <dd>
-    Iterates over the surroundings of the given position and invokes
- the callback for every node in the surroundings.
-<p> For example if you want to iterate over the direct neighbourse in all
- dimensions, you'd do the following:
-<p>    nodeutil.surroundings(pos, -1, 1, -1, 1, -1, 1, callback)
-
+    Sets the node at the given location.
 
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">pos</span>
-         The position that is the center.
+        <li><span class="parameter">x</span>
+         The x coordinate (width).
         </li>
-        <li><span class="parameter">x_begin</span>
-         The modifier for the beginning in the x dimension.
+        <li><span class="parameter">z</span>
+         the z coordinate (depth).
         </li>
-        <li><span class="parameter">x_end</span>
-         The modifier for the end in the x dimension.
+        <li><span class="parameter">y</span>
+         The y coordinate (height).
         </li>
-        <li><span class="parameter">z_begin</span>
-         The modifier for the beginning in the z dimension.
+        <li><span class="parameter">node</span>
+         The node to set.
         </li>
-        <li><span class="parameter">z_end</span>
-         The modifier for the end in the z dimension.
-        </li>
-        <li><span class="parameter">y_begin</span>
-         The modifier for the beginning in the y dimension.
-        </li>
-        <li><span class="parameter">y_end</span>
-         The modifier for the end in the y dimension.
-        </li>
-        <li><span class="parameter">callback</span>
-         The callback to invoke for every surrounding node. can
-                 return true if iterating over the surroundings should be
-                 stopped.
+        <li><span class="parameter">param2</span>
+         Optional. The param2 data to set for this node.
         </li>
     </ul>
 
-    <h3>Returns:</h3>
-    <ol>
-
-        true if the iterating over the surroundings has been stopped by
-         a callback.
-    </ol>
 
 
 
