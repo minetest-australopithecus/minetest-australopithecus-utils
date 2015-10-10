@@ -38,7 +38,7 @@
 
 <h2>Modules</h2>
 <ul class="$(kind=='Topics' and '' or 'nowrap'">
-  <li><strong>stringutil</strong></li>
+  <li><a href="../modules/stringutil.html">stringutil</a></li>
   <li><a href="../modules/random.html">random</a></li>
   <li><a href="../modules/noisemanager.html">noisemanager</a></li>
   <li><a href="../modules/nodeutil.html">nodeutil</a></li>
@@ -62,7 +62,7 @@
   <li><a href="../modules/wallmountedutil.html">wallmountedutil</a></li>
   <li><a href="../modules/interpolate.html">interpolate</a></li>
   <li><a href="../modules/transform.html">transform</a></li>
-  <li><a href="../modules/numberutil.html">numberutil</a></li>
+  <li><strong>numberutil</strong></li>
   <li><a href="../modules/test.html">test</a></li>
   <li><a href="../modules/facedirutil.html">facedirutil</a></li>
   <li><a href="../modules/constants.html">constants</a></li>
@@ -76,28 +76,16 @@
 
 <div id="content">
 
-<h1>Module <code>stringutil</code></h1>
-<p>Various utility functions for working with strings.</p>
+<h1>Module <code>numberutil</code></h1>
+<p>Various functions for working with numbers.</p>
 <p></p>
 
 
 <h2><a href="#Functions">Functions</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#concat">concat (...)</a></td>
-	<td class="summary">Concats all the given items by invoking tostring on them into one string.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#endswith">endswith (text, value)</a></td>
-	<td class="summary">Tests if the given text ends with the given value.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#split">split (text, split)</a></td>
-	<td class="summary">Splits the given text using the given split value.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#startswith">startswith (text, value)</a></td>
-	<td class="summary">Tests if the given text starts with the given value.</td>
+	<td class="name" nowrap><a href="#format">format (number, decimal_places, decimal_separator, thousand_separator)</a></td>
+	<td class="summary">Formats the given number into a nice, readable string.</td>
 	</tr>
 </table>
 
@@ -108,113 +96,37 @@
     <h2><a name="Functions"></a>Functions</h2>
     <dl class="function">
     <dt>
-    <a name = "concat"></a>
-    <strong>concat (...)</strong>
+    <a name = "format"></a>
+    <strong>format (number, decimal_places, decimal_separator, thousand_separator)</strong>
     </dt>
     <dd>
-    Concats all the given items by invoking tostring on them into one string.
+    Formats the given number into a nice, readable string.
 
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">...</span>
-         The items to concat.
+        <li><span class="parameter">number</span>
+         The number to format.
+        </li>
+        <li><span class="parameter">decimal_places</span>
+         Optional. How many decimal places to show. The number
+                       will be rounded to this amount of decimal places,
+                       if omitted, as many as there are are printed.
+        </li>
+        <li><span class="parameter">decimal_separator</span>
+         Optional. The decimal separator to use, defaults
+                          to a comma.
+        </li>
+        <li><span class="parameter">thousand_separator</span>
+         Optional. The thousand separator to use, defaults
+                           to a dot.
         </li>
     </ul>
 
     <h3>Returns:</h3>
     <ol>
 
-        The concatenated items as string.
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "endswith"></a>
-    <strong>endswith (text, value)</strong>
-    </dt>
-    <dd>
-    Tests if the given text ends with the given value.
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">text</span>
-         The text to check if it ends with the given value.
-        </li>
-        <li><span class="parameter">value</span>
-         The value that text should end with.
-        </li>
-    </ul>
-
-    <h3>Returns:</h3>
-    <ol>
-
-        true if the given text ends with the value.
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "split"></a>
-    <strong>split (text, split)</strong>
-    </dt>
-    <dd>
-    Splits the given text using the given split value.  Returns the splitted text
- as List. If the string is empty or nil, the returned list will not contain
- any entries. If the string only contains a value without a separator,
- the list will contain one value, if it contains only the separator,
- two empty values.
-
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">text</span>
-         The text to split.
-        </li>
-        <li><span class="parameter">split</span>
-         The split value.
-        </li>
-    </ul>
-
-    <h3>Returns:</h3>
-    <ol>
-
-        The list of splitted values.
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "startswith"></a>
-    <strong>startswith (text, value)</strong>
-    </dt>
-    <dd>
-    Tests if the given text starts with the given value.
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">text</span>
-         The text to check if it starts with the given value.
-        </li>
-        <li><span class="parameter">value</span>
-         The value that text should start with.
-        </li>
-    </ul>
-
-    <h3>Returns:</h3>
-    <ol>
-
-        true if the given text starts with the value.
+        The formatted number.
     </ol>
 
 
