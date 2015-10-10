@@ -40,8 +40,8 @@ function textureutil.dummy(inner_color, border_color)
 	if type(inner_color) == "table" then
 		inner_color = "#" .. inner_color.hex
 	end
-	if type(outer_color) == "table" then
-		outer_color = "#" .. outer_color.hex
+	if type(border_color) == "table" then
+		border_color = "#" .. border_color.hex
 	end
 	
 	local inner = "(dummy_inner.png^[colorize:" .. inner_color .. ":240)"
