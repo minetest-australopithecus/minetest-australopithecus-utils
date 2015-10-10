@@ -25,28 +25,27 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 --]]
 
 
---- The DirectMapManipulator is similiar to the MapManipulator, except that it
--- does not use the VoxelManip object, but the Minetest get_node/set_node
--- functions. It is mostly compatible with MapManipulator, which means you can
--- pass it to functions which expect a MapManipulator.
-DirectMapManipulator = {
-	instance = nil
-}
+--- The ArrayManipulator is similiar to the MapManipulator, except that it
+-- does not use the VoxelManip object, but has an internal array which contains
+-- all set values. It is mostly compatible with MapManipulator, which means you
+-- can pass it to functions which expect a MapManipulator.
+ArrayManipulator = {}
 
 
-function DirectMapManipulator.get_instance()
-	if DirectMapManipulator.instance == nil then
-		DirectMapManipulator.instance = DirectMapManipulator:new()
-	end
-	
-	return DirectMapManipulator.instance
-end
-
---- Creates a new instance of DirectMapManipulator.
+--- Creates a new instance of ArrayManipulator.
 --
+-- @param node_data The array that contains the values for the nodes part. This
+--                  is assumed to be a 3d array with x, z, and y values
+--                  as dimensions.
+-- @param param2_data The array that contains the values for the param2 part.
+--                    This is assumed to be a 3d array with x, z, and y values
+--                    as dimensions.
 -- @return A new instance.
-function DirectMapManipulator:new()
-	local instance = {}
+function ArrayManipulator:new(node_data, param2_data)
+	local instance = {
+		node_data = node_data,
+		param2_data = param2_data
+	}
 	
 	setmetatable(instance, self)
 	self.__index = self
@@ -55,7 +54,7 @@ function DirectMapManipulator:new()
 end
 
 --- Does nothing, only for compatibility with MapManipulator.
-function DirectMapManipulator:get_data()
+function ArrayManipulator:get_data()
 	-- Nothing.
 end
 
@@ -65,20 +64,12 @@ end
 -- @param z the z coordinate (depth).
 -- @param y The y coordinate (height).
 -- @return Two values, the node at the given location and the param2 value.
-function DirectMapManipulator:get_node(x, z, y)
-	local node = minetest.get_node({
-		x = x,
-		y = y,
-		z = z
-	})
-	
-	local id = minetest.get_content_id(node.name)
-	
-	return id, node.param2
+function ArrayManipulator:get_node(x, z, y)
+	return self.node_data[x][z][y], self.param2_data[x][z][y]
 end
 
 --- Does nothing, only for compatibility with MapManipulator.
-function DirectMapManipulator:set_data()
+function ArrayManipulator:set_data()
 	-- Nothing.
 end
 
@@ -89,14 +80,8 @@ end
 -- @param y The y coordinate (height).
 -- @param node The node to set.
 -- @param param2 Optional. The param2 data to set for this node.
-function DirectMapManipulator:set_node(x, z, y, node, param2)
-	minetest.set_node({
-		x = x,
-		y = y,
-		z = z
-	}, {
-		name = minetest.get_name_from_content_id(node),
-		param2 = param2
-	})
+function ArrayManipulator:set_node(x, z, y, node, param2)
+	self.node_data[x][z][y] = node
+	self.param2_data[x][z][y] = param2
 end
 
