@@ -29,6 +29,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 local base_path = minetest.get_modpath(minetest.get_current_modname())
 
 -- Instance utils
+dofile(base_path .. "/arraymanipulator.lua")
 dofile(base_path .. "/blockedcache.lua")
 dofile(base_path .. "/color.lua")
 dofile(base_path .. "/directmapmanipulator.lua")
