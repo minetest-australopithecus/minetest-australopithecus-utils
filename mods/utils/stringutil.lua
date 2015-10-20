@@ -64,6 +64,33 @@ function stringutil.endswith(text, value)
 	return string.sub(text, -string.len(value)) == value
 end
 
+--- Creates a simple hash in the range of mathutil.SIGNED_32BIT_MIN and
+-- mathutil.SIGNED_32BIT_MAX (which is roughly -2 billion to 2 billion).
+-- Note that this is not the best string hash function there could be, but is
+-- more than sufficient if all you want is to test a string if it is different
+-- or if you want to create a number from a string of unknown length.
+--
+-- @param value The string value to hash.
+-- @return The hash. Always 0 if the given string is nil or empty.
+function stringutil.hash(value)
+	-- Early bailout.
+	if value == nil or #value == 0 then
+		return 0
+	end
+	
+	local hash = 0
+	
+	for index = 1, #value, 1 do
+		hash = hash * 31 + string.byte(string.sub(value, index, index))
+		
+		while hash > mathutil.SIGNED_32BIT_MAX do
+			hash = hash - mathutil.SIGNED_32BIT_MAX
+		end
+	end
+	
+	return hash
+end
+
 --- Splits the given text using the given split value. Returns the splitted text
 -- as List. If the string is empty or nil, the returned list will not contain
 -- any entries. If the string only contains a value without a separator,
