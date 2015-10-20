@@ -26,7 +26,43 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 --- Various mathematical functions.
-mathutil = {}
+mathutil = {
+	--- The maximum value a signed 8bit integer can have.
+	SIGNED_8BIT_MAX = 2^7 - 1,
+	
+	--- The minimum value a signed 8bit integer can have.
+	SIGNED_8BIT_MIN = -2^7,
+	
+	--- The maximum value a signed 16bit integer can have.
+	SIGNED_16BIT_MAX = 2^15 - 1,
+	
+	--- The minimum value a signed 16bit integer can have.
+	SIGNED_16BIT_MIN = -2^15,
+	
+	--- The maximum value a signed 32bit integer can have.
+	SIGNED_32BIT_MAX = 2^31 - 1,
+	
+	--- The minimum value a signed 32bit integer can have.
+	SIGNED_32BIT_MIN = -2^31,
+	
+	--- The maximum value an unsigned 8bit integer can have.
+	UNSIGNED_8BIT_MAX = 2^8 - 1,
+	
+	--- The minimum value an unsigned 8bit integer can have.
+	UNSIGNED_8BIT_MIN = 0,
+	
+	--- The maximum value an unsigned 16bit integer can have.
+	UNSIGNED_16BIT_MAX = 2^16 - 1,
+	
+	--- The minimum value an unsigned 16bit integer can have.
+	UNSIGNED_16BIT_MIN = 0,
+	
+	--- The maximum value an unsigned 32bit integer can have.
+	UNSIGNED_32BIT_MAX = 2^32 - 1,
+	
+	--- The minimum value an unsigned 32bit integer can have.
+	UNSIGNED_32BIT_MIN = 0
+}
 
 
 --- Clamps one value to the given minimum/maximum values. Defaults to
