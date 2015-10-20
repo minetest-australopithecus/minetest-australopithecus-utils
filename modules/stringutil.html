@@ -92,6 +92,11 @@
 	<td class="summary">Tests if the given text ends with the given value.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#hash">hash (value)</a></td>
+	<td class="summary">Creates a simple hash in the range of mathutil.SIGNED_32BIT_MIN and
+ mathutil.SIGNED_32BIT_MAX (which is roughly -2 billion to 2 billion).</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#split">split (text, split)</a></td>
 	<td class="summary">Splits the given text using the given split value.</td>
 	</tr>
@@ -154,6 +159,36 @@
     <ol>
 
         true if the given text ends with the value.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "hash"></a>
+    <strong>hash (value)</strong>
+    </dt>
+    <dd>
+    Creates a simple hash in the range of mathutil.SIGNED_32BIT_MIN and
+ mathutil.SIGNED_32BIT_MAX (which is roughly -2 billion to 2 billion).
+ Note that this is not the best string hash function there could be, but is
+ more than sufficient if all you want is to test a string if it is different
+ or if you want to create a number from a string of unknown length.
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">value</span>
+         The string value to hash.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The hash. Always 0 if the given string is nil or empty.
     </ol>
 
 
