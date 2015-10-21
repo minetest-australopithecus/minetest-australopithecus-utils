@@ -42,11 +42,11 @@ random = {
 --- Initializes random. Should not be called from the client.
 function random.init()
 	if PcgRandom ~= nil then
-		random_provider = PcgRandom(os.time())
+		random.random_provider = PcgRandom(os.time())
 	else
 		math.randomseed(os.time())
 		
-		random_provider = {
+		random.random_provider = {
 			next = function(self, lower_bound, upper_bound)
 				return math.abs(math.random(lower_bound, upper_bound - 1))
 			end
@@ -104,7 +104,7 @@ function random.next_int(lower_bound, upper_bound)
 	lower_bound = lower_bound or random.min
 	upper_bound = upper_bound or random.max
 	
-	return random_provider:next(lower_bound, upper_bound)
+	return random.random_provider:next(lower_bound, upper_bound)
 end
 
 
