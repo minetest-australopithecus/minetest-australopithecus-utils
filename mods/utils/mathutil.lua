@@ -65,6 +65,16 @@ mathutil = {
 }
 
 
+--- Uses the Cantor Pairing function on the two given values and returns
+-- a unique integer for the given numbers.
+--
+-- @param a The first value.
+-- @param b The second value.
+-- @return A unique value for the two given values.
+function mathutil.cantor_pairing(a, b)
+	return ((a + b) * (a + b + 1)) / 2 + b
+end
+
 --- Clamps one value to the given minimum/maximum values. Defaults to
 -- 0 to 1 if min/max are omitted.
 --

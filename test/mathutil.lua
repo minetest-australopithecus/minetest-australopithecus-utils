@@ -12,6 +12,10 @@ dofile("./mods/utils/tableutil.lua")
 test.start("numberutil")
 
 
+test.run("cantor_pairing", function()
+	test.equals(3192, mathutil.cantor_pairing(47, 32))
+end)
+
 test.run("format", function()
 	test.equals("12", numberutil.format(12))
 	test.equals("12.74632", numberutil.format(12.74632))
