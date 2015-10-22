@@ -34,6 +34,18 @@ test.run("endswith", function()
 	test.equals(false, stringutil.endswith("abcde", "abcd"))
 end)
 
+test.run("hash", function()
+	test.equals(0, stringutil.hash(nil))
+	test.equals(0, stringutil.hash(""))
+	
+	test.equals(97, stringutil.hash("a"))
+	test.equals(98, stringutil.hash("b"))
+	
+	test.equals(303616488, stringutil.hash("Something something something test."))
+	
+	test.equals(1313428347, stringutil.hash(string.rep("a", 6700)))
+end)
+
 test.run("split", function()
 	local single = stringutil.split("value", ",")
 	test.equals(1, single:size())
