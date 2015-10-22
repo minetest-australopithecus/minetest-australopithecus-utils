@@ -82,7 +82,7 @@ function random.next_float(lower_bound, upper_bound, decimal_places)
 	lower_bound = lower_bound or 0
 	upper_bound = upper_bound or 1.0
 	
-	local value = random_provider:next(random.min, random.max + 1)
+	local value = random.random_provider:next(random.min, random.max + 1)
 	value = (value - random.min) / (random.max - random.min)
 	value = value * (upper_bound - lower_bound) + lower_bound
 	
