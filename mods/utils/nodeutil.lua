@@ -68,6 +68,25 @@ function nodeutil.has_group(node, group_name)
 	return minetest.get_item_group(node_name, group_name) > 0
 end
 
+--- Checks if the given node is walkable.
+--
+-- @param node The node to check, can either be an id, a name or a table with
+--             the name.
+-- @return true if the given node is walkable.
+function nodeutil.is_walkable(node)
+	local node_name = nodeutil.get_name(node)
+	local node_definition = minetest.registered_nodes[node_name]
+	
+	if node_definition ~= nil then
+		-- Test against false needed in case that walkable is not set,
+		-- as it defaults to true.
+		return node_definition.walkable ~= false
+	end
+	
+	-- The node does not exist, sad.
+	return false
+end
+
 --- Iterates over the surroundings of the given position and invokes
 -- the callback for every node in the surroundings.
 --
