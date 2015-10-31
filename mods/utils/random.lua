@@ -29,7 +29,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -- random numbers.
 random = {
 	--- The internal maximum value.
-	max = 2147483647,
+	max = 2147483646,
 	
 	--- The internal minimum value.
 	min = 0,
