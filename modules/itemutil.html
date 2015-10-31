@@ -86,7 +86,7 @@
 <h2><a href="#Functions">Functions</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#blop">blop (position_or_object, itemstring_or_stack)</a></td>
+	<td class="name" nowrap><a href="#blop">blop (position_or_object, itemstring_or_stack, x_strength, y_strength, z_strength)</a></td>
 	<td class="summary">"Blops" the item into existence at the given position and assigns it
  a random velocity/acceleration.</td>
 	</tr>
@@ -100,7 +100,7 @@
     <dl class="function">
     <dt>
     <a name = "blop"></a>
-    <strong>blop (position_or_object, itemstring_or_stack)</strong>
+    <strong>blop (position_or_object, itemstring_or_stack, x_strength, y_strength, z_strength)</strong>
     </dt>
     <dd>
     "Blops" the item into existence at the given position and assigns it
@@ -114,6 +114,18 @@
         </li>
         <li><span class="parameter">itemstring_or_stack</span>
          The item string or an ItemStack.
+        </li>
+        <li><span class="parameter">x_strength</span>
+         Optional. The strength of the random movement in
+                   the x direction, defaults to 5.
+        </li>
+        <li><span class="parameter">y_strength</span>
+         Optional. The strength o the random movement in
+                   the y direction, defaults to 5, minimum is 1.
+        </li>
+        <li><span class="parameter">z_strength</span>
+         Optional. The strength of the random movement in
+                   the z direction, defaults to 5.
         </li>
     </ul>
 
