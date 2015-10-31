@@ -40,7 +40,7 @@
 <ul class="$(kind=='Topics' and '' or 'nowrap'">
   <li><a href="../modules/stringutil.html">stringutil</a></li>
   <li><a href="../modules/random.html">random</a></li>
-  <li><strong>noisemanager</strong></li>
+  <li><a href="../modules/noisemanager.html">noisemanager</a></li>
   <li><a href="../modules/nodeutil.html">nodeutil</a></li>
   <li><a href="../modules/posutil.html">posutil</a></li>
   <li><a href="../modules/mapmanipulator.html">mapmanipulator</a></li>
@@ -66,7 +66,7 @@
   <li><a href="../modules/test.html">test</a></li>
   <li><a href="../modules/facedirutil.html">facedirutil</a></li>
   <li><a href="../modules/constants.html">constants</a></li>
-  <li><a href="../modules/minetestex.html">minetestex</a></li>
+  <li><strong>minetestex</strong></li>
   <li><a href="../modules/list.html">list</a></li>
   <li><a href="../modules/stopwatch.html">stopwatch</a></li>
   <li><a href="../modules/itemutil.html">itemutil</a></li>
@@ -78,34 +78,24 @@
 
 <div id="content">
 
-<h1>Module <code>noisemanager</code></h1>
-<p>The NoiseManager manages seeds and creates PRNG of various kinds, always
- with a new, unique seed.</p>
-<p> The seed is incremented with each creation, so
- it is guaranteed that the results are reproducable.</p>
+<h1>Module <code>minetestex</code></h1>
+<p>Provides various extensions to the builtin functions.</p>
+<p></p>
 
 
 <h2><a href="#Functions">Functions</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#NoiseManager:new">NoiseManager:new (start_seed)</a></td>
-	<td class="summary">Creates a new instance of NoiseManager.</td>
+	<td class="name" nowrap><a href="#handle_node_drops">handle_node_drops (position, drops, player)</a></td>
+	<td class="summary">The handler that is used for invoking the registered node drop functions.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#NoiseManager:get_noise">NoiseManager:get_noise (octaves, persistence, scale)</a></td>
-	<td class="summary">Creates a Perlin object with the given values.</td>
+	<td class="name" nowrap><a href="#init">init ()</a></td>
+	<td class="summary">Initializes the node drops system.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#NoiseManager:get_next_seed">NoiseManager:get_next_seed ()</a></td>
-	<td class="summary">Gets the next seed that will be used.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#NoiseManager:get_pcgrandom">NoiseManager:get_pcgrandom ()</a></td>
-	<td class="summary">Creates a PcgRandom object.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#NoiseManager:get_random">NoiseManager:get_random ()</a></td>
-	<td class="summary">Creates a PseudoRandom object.</td>
+	<td class="name" nowrap><a href="#register_on_nodedrops">register_on_nodedrops (handler)</a></td>
+	<td class="summary">Registers the given handler for node drops.</td>
 	</tr>
 </table>
 
@@ -116,114 +106,71 @@
     <h2><a name="Functions"></a>Functions</h2>
     <dl class="function">
     <dt>
-    <a name = "NoiseManager:new"></a>
-    <strong>NoiseManager:new (start_seed)</strong>
+    <a name = "handle_node_drops"></a>
+    <strong>handle_node_drops (position, drops, player)</strong>
     </dt>
     <dd>
-    Creates a new instance of NoiseManager.
+    The handler that is used for invoking the registered node drop functions.
 
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">start_seed</span>
-         Optional. The initial seed value, defaults to 0.
+        <li><span class="parameter">position</span>
+         The position at which the drop occurred.
+        </li>
+        <li><span class="parameter">drops</span>
+         The drops that are being dropped, a list of ItemStacks.
+        </li>
+        <li><span class="parameter">player</span>
+         The player which the event originated at.
         </li>
     </ul>
 
-    <h3>Returns:</h3>
-    <ol>
-
-        A new instance of NoiseManager.
-    </ol>
 
 
 
 
 </dd>
     <dt>
-    <a name = "NoiseManager:get_noise"></a>
-    <strong>NoiseManager:get_noise (octaves, persistence, scale)</strong>
+    <a name = "init"></a>
+    <strong>init ()</strong>
     </dt>
     <dd>
-    Creates a Perlin object with the given values.
+    Initializes the node drops system.  This is an internal function and should
+ not be called from clients.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "register_on_nodedrops"></a>
+    <strong>register_on_nodedrops (handler)</strong>
+    </dt>
+    <dd>
+    Registers the given handler for node drops.
 
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">octaves</span>
-         The count of octaves.
-        </li>
-        <li><span class="parameter">persistence</span>
-         The persistence values.
-        </li>
-        <li><span class="parameter">scale</span>
-         The scale.
+        <li><span class="parameter">handler</span>
+         The handler function. The function is assumed to take four
+                parameters, the position at which the drops occurred,
+                the drops which are dropped as list if ItemStacks, the player
+                with which the even originated and if the event has been
+                handled so far or not. Can return a boolean if the event
+                has been handled. The handled flag is used to indicate
+                wether the builtin functionality should be invoked or not.
+                That means that if the last handler returns true, the items
+                will not be added to the players inventory by default. By
+                default the handler should return the given handled parameter
+                to not change the state or return the desired state.
         </li>
     </ul>
 
-    <h3>Returns:</h3>
-    <ol>
-
-        The new Perlin object.
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "NoiseManager:get_next_seed"></a>
-    <strong>NoiseManager:get_next_seed ()</strong>
-    </dt>
-    <dd>
-    Gets the next seed that will be used.  Does not increment the counter.
-
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-        The next seed that will be used.
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "NoiseManager:get_pcgrandom"></a>
-    <strong>NoiseManager:get_pcgrandom ()</strong>
-    </dt>
-    <dd>
-    Creates a PcgRandom object.
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-        The new PcgRandom object.
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "NoiseManager:get_random"></a>
-    <strong>NoiseManager:get_random ()</strong>
-    </dt>
-    <dd>
-    Creates a PseudoRandom object.
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-        The new PseudoRandom object.
-    </ol>
 
 
 
