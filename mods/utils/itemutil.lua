@@ -55,7 +55,7 @@ function itemutil.blop(position_or_object, itemstring_or_stack)
 	})
 	spawned_item:setvelocity({
 		x = 0,
-		y = random.next_float(3, 6),
+		y = random.next_float(1, 5),
 		z = 0,
 	})
 	
