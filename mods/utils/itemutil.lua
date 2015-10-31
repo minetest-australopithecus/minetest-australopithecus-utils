@@ -34,8 +34,18 @@ itemutil = {}
 --
 -- @param position_or_object The position, a pos value or an ObjectRef.
 -- @param itemstring_or_stack The item string or an ItemStack.
+-- @param x_strength Optional. The strength of the random movement in
+--                   the x direction, defaults to 5.
+-- @param y_strength Optional. The strength o the random movement in
+--                   the y direction, defaults to 5, minimum is 1.
+-- @param z_strength Optional. The strength of the random movement in
+--                   the z direction, defaults to 5.
 -- @return The spawned item.
-function itemutil.blop(position_or_object, itemstring_or_stack)
+function itemutil.blop(position_or_object, itemstring_or_stack, x_strength, y_strength, z_strength)
+	x_strength = x_strength or 5
+	y_strength = math.max(y_strength or 5, 1)
+	z_strength = z_strength or 5
+	
 	local position = position_or_object
 	if type(position.getpos) == "function" then
 		position = position:getpos()
@@ -49,13 +59,13 @@ function itemutil.blop(position_or_object, itemstring_or_stack)
 	local spawned_item = minetest.add_item(position, item)
 	
 	spawned_item:setacceleration({
-		x = random.next_float(-5, 5),
+		x = random.next_float(-x_strength, x_strength),
 		y = -constants.GRAVITY,
-		z = random.next_float(-5, 5)
+		z = random.next_float(-z_strength, z_strength)
 	})
 	spawned_item:setvelocity({
 		x = 0,
-		y = random.next_float(1, 5),
+		y = random.next_float(1, y_strength),
 		z = 0,
 	})
 	
