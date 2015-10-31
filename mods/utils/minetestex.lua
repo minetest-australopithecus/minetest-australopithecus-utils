@@ -74,7 +74,6 @@ function minetestex.register_on_nodedrops(handler)
 end
 
 
-
 -- Initialize everything.
 minetestex.init()
 
