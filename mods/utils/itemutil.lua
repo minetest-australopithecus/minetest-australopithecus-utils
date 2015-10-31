@@ -29,16 +29,16 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 itemutil = {}
 
 
---- "Blops" the item into existence at the given location and assigns it
+--- "Blops" the item into existence at the given position and assigns it
 -- a random velocity/acceleration.
 --
--- @param location_or_object The location, a pos value or an ObjectRef.
+-- @param position_or_object The position, a pos value or an ObjectRef.
 -- @param itemstring_or_stack The item string or an ItemStack.
 -- @return The spawned item.
-function itemutil.blop(location_or_object, itemstring_or_stack)
-	local location = location_or_object
-	if type(location.getpos) == "function" then
-		location = location:getpos()
+function itemutil.blop(position_or_object, itemstring_or_stack)
+	local position = position_or_object
+	if type(position.getpos) == "function" then
+		position = position:getpos()
 	end
 	
 	local item = itemstring_or_stack
@@ -46,7 +46,7 @@ function itemutil.blop(location_or_object, itemstring_or_stack)
 		item = item:to_string()
 	end
 	
-	local spawned_item = minetest.add_item(location, item)
+	local spawned_item = minetest.add_item(position, item)
 	
 	spawned_item:setacceleration({
 		x = random.next_float(-5, 5),
