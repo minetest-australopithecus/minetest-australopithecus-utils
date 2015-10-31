@@ -38,10 +38,16 @@ minetestex = {
 -- @param drops The drops that are being dropped, a list of ItemStacks.
 -- @param player The player which the event originated at.
 function minetestex.handle_node_drops(position, drops, player)
+	local dropped_items = List:new()
+	
+	for index, drop in ipairs(drops) do
+		dropped_items:add(ItemStack(drop))
+	end
+	
 	local handled = false
 	
 	minetestex.node_drops_handlers:foreach(function(handler, index)
-		handled = (handler(position, drops, player, handled) == true)
+		handled = (handler(position, dropped_items, player, handled) == true)
 	end)
 	
 	if not handled then
