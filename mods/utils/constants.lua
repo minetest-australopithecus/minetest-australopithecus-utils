@@ -30,16 +30,23 @@ constants = {
 	--- The size of one map block. Sometimes also called a chunk. By default
 	-- this constant has the value of 80.
 	block_size = 80,
+	
+	--- The default gravity value.
+	GRAVITY = 9.81,
+	
 	--- The maximum coordinate of any axis.
 	max_coordinate = 31000,
+	
 	--- The maximum position possible.
 	max_position = {
 		x = 31000,
 		y = 31000,
 		z = 31000
 	},
+	
 	--- The minimum coordinate of any axis.
 	min_coordinate = -31000,
+	
 	--- The minimum position possible.
 	min_position = {
 		x = -31000,
