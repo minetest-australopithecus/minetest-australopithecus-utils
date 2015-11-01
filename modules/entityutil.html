@@ -42,7 +42,7 @@
   <li><a href="../modules/random.html">random</a></li>
   <li><a href="../modules/noisemanager.html">noisemanager</a></li>
   <li><a href="../modules/nodeutil.html">nodeutil</a></li>
-  <li><strong>posutil</strong></li>
+  <li><a href="../modules/posutil.html">posutil</a></li>
   <li><a href="../modules/mapmanipulator.html">mapmanipulator</a></li>
   <li><a href="../modules/fisheryates.html">fisheryates</a></li>
   <li><a href="../modules/textureutil.html">textureutil</a></li>
@@ -50,7 +50,7 @@
   <li><a href="../modules/tango.html">tango</a></li>
   <li><a href="../modules/arraymanipulator.html">arraymanipulator</a></li>
   <li><a href="../modules/inventoryutil.html">inventoryutil</a></li>
-  <li><a href="../modules/entityutil.html">entityutil</a></li>
+  <li><strong>entityutil</strong></li>
   <li><a href="../modules/scheduler.html">scheduler</a></li>
   <li><a href="../modules/blockedcache.html">blockedcache</a></li>
   <li><a href="../modules/mathutil.html">mathutil</a></li>
@@ -79,20 +79,17 @@
 
 <div id="content">
 
-<h1>Module <code>posutil</code></h1>
-<p>Various functions for working with positions.</p>
+<h1>Module <code>entityutil</code></h1>
+<p>Provides various utility methods for manipulating entities.</p>
 <p></p>
 
 
 <h2><a href="#Functions">Functions</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#above">above (pos, add)</a></td>
-	<td class="summary">Returns the position above the given position.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#below">below (pos, subtract)</a></td>
-	<td class="summary">Returns the position below the given position.</td>
+	<td class="name" nowrap><a href="#move_to">move_to (entity, position, acceleration_x, acceleration_y, acceleration_z)</a></td>
+	<td class="summary">Moves the given entity towards the given point by setting its velocity into
+ the correct direction.</td>
 	</tr>
 </table>
 
@@ -103,57 +100,36 @@
     <h2><a name="Functions"></a>Functions</h2>
     <dl class="function">
     <dt>
-    <a name = "above"></a>
-    <strong>above (pos, add)</strong>
+    <a name = "move_to"></a>
+    <strong>move_to (entity, position, acceleration_x, acceleration_y, acceleration_z)</strong>
     </dt>
     <dd>
-    Returns the position above the given position.
+    Moves the given entity towards the given point by setting its velocity into
+ the correct direction.
 
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">pos</span>
-         The position.
+        <li><span class="parameter">entity</span>
+         The entity to move, a LuaEntitySAO.
         </li>
-        <li><span class="parameter">add</span>
-         Optional. The value to add to the y value. Defaults to 1.
+        <li><span class="parameter">position</span>
+         The position to move the entity towards.
         </li>
-    </ul>
-
-    <h3>Returns:</h3>
-    <ol>
-
-        The position above the given one.
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "below"></a>
-    <strong>below (pos, subtract)</strong>
-    </dt>
-    <dd>
-    Returns the position below the given position.
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">pos</span>
-         The position.
+        <li><span class="parameter">acceleration_x</span>
+         Optional. The acceleration to use in the x direction,
+                       defaults to 1.
         </li>
-        <li><span class="parameter">subtract</span>
-         Optional. The value to subtract from the y value. Defaults
-                 to 1.
+        <li><span class="parameter">acceleration_y</span>
+         Optional. The acceleration to use in the y direction,
+                       defaults to acceleration_x.
+        </li>
+        <li><span class="parameter">acceleration_z</span>
+         Optional. The acceleration to use in the x direction,
+                       defaults to acceleration_x.
         </li>
     </ul>
 
-    <h3>Returns:</h3>
-    <ol>
-
-        The position below the given one.
-    </ol>
 
 
 
