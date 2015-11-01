@@ -33,6 +33,7 @@
 <h2>Contents</h2>
 <ul>
 <li><a href="#Functions">Functions</a></li>
+<li><a href="#Fields">Fields</a></li>
 </ul>
 
 
@@ -87,9 +88,21 @@
 <h2><a href="#Functions">Functions</a></h2>
 <table class="function_list">
 	<tr>
+	<td class="name" nowrap><a href="#is_builtin_item">is_builtin_item (entity)</a></td>
+	<td class="summary">Tests if the given entity is a builtin item, meaning something that was
+ dropped.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#move_to">move_to (entity, position, acceleration_x, acceleration_y, acceleration_z)</a></td>
 	<td class="summary">Moves the given entity towards the given point by setting its velocity into
  the correct direction.</td>
+	</tr>
+</table>
+<h2><a href="#Fields">Fields</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#BUILTIN_ITEM_NAME">BUILTIN_ITEM_NAME</a></td>
+	<td class="summary">The name of builtin items.</td>
 	</tr>
 </table>
 
@@ -99,6 +112,32 @@
 
     <h2><a name="Functions"></a>Functions</h2>
     <dl class="function">
+    <dt>
+    <a name = "is_builtin_item"></a>
+    <strong>is_builtin_item (entity)</strong>
+    </dt>
+    <dd>
+    Tests if the given entity is a builtin item, meaning something that was
+ dropped.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">entity</span>
+         The entity to test.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        true if the given entity is a builtin item.
+    </ol>
+
+
+
+
+</dd>
     <dt>
     <a name = "move_to"></a>
     <strong>move_to (entity, position, acceleration_x, acceleration_y, acceleration_z)</strong>
@@ -129,6 +168,23 @@
                        defaults to acceleration_x.
         </li>
     </ul>
+
+
+
+
+
+</dd>
+</dl>
+    <h2><a name="Fields"></a>Fields</h2>
+    <dl class="function">
+    <dt>
+    <a name = "BUILTIN_ITEM_NAME"></a>
+    <strong>BUILTIN_ITEM_NAME</strong>
+    </dt>
+    <dd>
+    The name of builtin items.
+
+
 
 
 
