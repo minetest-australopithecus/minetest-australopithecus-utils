@@ -116,6 +116,29 @@ function mathutil.distance(a, b)
 	return distance3d
 end
 
+--- Gets the distance between two given points in the x/z plane.
+--
+-- @param a The first object. Either a position or an ObjectRef.
+-- @param b The first object. Either a position or an ObjectRef.
+-- @return The distance between the two given points or objects in
+--         the x/z plane.
+function mathutil.distance2d(a, b)
+	if type(a.getpos) == "function" then
+		a = a:getpos()
+	end
+	
+	if type(b.getpos) == "function" then
+		b = b:getpos()
+	end
+	
+	local distance_point = {
+		x = math.abs(a.x - b.x),
+		z = math.abs(a.z - b.z)
+	}
+	
+	return math.sqrt(math.pow(distance_point.x, 2) + math.pow(distance_point.z, 2))
+end
+
 --- Tests if the given value is within the given range.
 --
 -- @param value The value to test.
