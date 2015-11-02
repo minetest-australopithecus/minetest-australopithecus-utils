@@ -116,6 +116,10 @@
 	<td class="name" nowrap><a href="#round">round (value, decimal_places)</a></td>
 	<td class="summary">Rounds to the nearest number with the given decimal places.</td>
 	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#sign">sign (number)</a></td>
+	<td class="summary">Gets the sign of the given number.</td>
+	</tr>
 </table>
 <h2><a href="#Fields">Fields</a></h2>
 <table class="function_list">
@@ -370,6 +374,32 @@
     <ol>
 
         The rounded value.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "sign"></a>
+    <strong>sign (number)</strong>
+    </dt>
+    <dd>
+    Gets the sign of the given number.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">number</span>
+         The number of which to get the sign.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        1 for a positive number, -1 for a negative one. Zero is considered
+         a positive number for this function, there for returns 1.
     </ol>
 
 
