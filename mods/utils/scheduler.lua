@@ -35,7 +35,10 @@ scheduler = {
 	-- the function will still only be run once.
 	OVERSHOOT_POLICY_RUN_ONCE = 2,
 	
+	--- If the scheduler has been initialized.
 	initialized = false,
+	
+	-- The table of scheduled functions.
 	scheduled_functions = {}
 }
 
@@ -80,14 +83,12 @@ function scheduler.step(since_last_call)
 		scheduled.timer = scheduled.timer + since_last_call
 		
 		if scheduled.timer >= scheduled.interval then
-			log.verbose("Scheduler: " .. name)
 			scheduled.run_function()
 			
 			local additional_runs = math.floor(scheduled.timer / scheduled.interval) - 1
 			
 			if scheduled.overshoot_policy == scheduler.OVERSHOOT_POLICY_CATCH_UP then
 				for counter = 1, additional_runs, 1 do
-					log.verbose("Scheduler (catch up): " .. name)
 					scheduled.run_function()
 				end
 			end
