@@ -26,8 +26,23 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 --- Provides various utility methods for manipulating entities.
-entityutil = {}
+entityutil = {
+	--- The name of builtin items.
+	BUILTIN_ITEM_NAME = "__builtin:item"
+}
 
+
+--- Checks the given entity if it is a builtin item.
+--
+-- @param entity The entity to test.
+-- @return true if the given entity is a builtin item.
+function entityutil.is_builtin_item(entity)
+	local lua_entity = entity:get_luaentity();
+	
+	return entity.name == entityutil.BUILTIN_ITEM_NAME
+		or (lua_entity ~= nil
+			and lua_entity.name == entityutil.BUILTIN_ITEM_NAME)
+end
 
 --- Moves the given entity towards the given point by setting its velocity into
 -- the correct direction.
