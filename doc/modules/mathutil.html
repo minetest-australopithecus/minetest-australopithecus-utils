@@ -101,6 +101,10 @@
 	<td class="summary">Gets the distance between the two given points or objects.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#direction">direction (source_pos, target_pos)</a></td>
+	<td class="summary">Returns a vector indicating the general direction from a to b.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#distance2d">distance2d (a, b)</a></td>
 	<td class="summary">Gets the distance between two given points in the x/z plane.</td>
 	</tr>
@@ -263,6 +267,35 @@
     <ol>
 
         The distance between the two given points or objects.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "direction"></a>
+    <strong>direction (source_pos, target_pos)</strong>
+    </dt>
+    <dd>
+    Returns a vector indicating the general direction from a to b.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">source_pos</span>
+         The source point, a vector.
+        </li>
+        <li><span class="parameter">target_pos</span>
+         The target point, a vector.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The vector containing the direction, either 1 for the positive
+         direction or -1 for the negative one.
     </ol>
 
 

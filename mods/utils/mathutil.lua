@@ -116,6 +116,20 @@ function mathutil.distance(a, b)
 	return distance3d
 end
 
+--- Returns a vector indicating the general direction from a to b.
+--
+-- @param source_pos The source point, a vector.
+-- @param target_pos The target point, a vector.
+-- @return The vector containing the direction, either 1 for the positive
+--         direction or -1 for the negative one.
+function mathutil.direction(source_pos, target_pos)
+	return {
+		x = mathutil.sign(target_pos.x - source_pos.x),
+		y = mathutil.sign(target_pos.y - source_pos.y),
+		z = mathutil.sign(target_pos.z - source_pos.z)
+	}
+end
+
 --- Gets the distance between two given points in the x/z plane.
 --
 -- @param a The first object. Either a position or an ObjectRef.
@@ -178,7 +192,7 @@ function mathutil.next_lower_prime(number)
 			and (lower <= 7 or math.fmod(lower, 7) ~= 0) then
 			
 			return lower
-		end	
+		end
 	end
 	
 	return 0
