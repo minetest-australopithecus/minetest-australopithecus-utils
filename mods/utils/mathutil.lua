@@ -197,3 +197,16 @@ function mathutil.round(value, decimal_places)
 	return math.floor(value * multiplicator + 0.5) / multiplicator
 end
 
+--- Gets the sign of the given number.
+--
+-- @param number The number of which to get the sign.
+-- @return 1 for a positive number, -1 for a negative one. Zero is considered
+--         a positive number for this function, there for returns 1.
+function mathutil.sign(number)
+	if number >= 0 then
+		return 1
+	else
+		return -1
+	end
+end
+
