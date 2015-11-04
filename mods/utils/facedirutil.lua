@@ -87,6 +87,37 @@ function facedirutil.get_vector(id)
 	return facedirutil.NEGATIVE_X_VECTOR
 end
 
+--- Turns the placed node upside down if the placer was looking at
+-- the underside of another node. This function is supposed to be attached
+-- to the after_node_place callback of a node definition.
+--
+-- @param pos The position of the placed node.
+-- @param placer The placed, a Player object.
+-- @param itemstack The user ItemStack.
+-- @param pointed_thing The nodes that the placed pointed at.
+function facedirutil.make_upsidedown(pos, placer, itemstack, pointed_thing)
+	-- Check if the placed did lock at the underside of a node.
+	if pos.y == pointed_thing.above.y
+		and pos.x == pointed_thing.under.x
+		and pos.z == pointed_thing.under.z then
+		
+		local placed_node = minetest.get_node(pos)
+		
+		-- We need to rotate the node by 180 degrees for these values,
+		-- this is becaus if how the rotation works.
+		if placed_node.param2 == facedirutil.POSITIVE_X
+			or placed_node.param2 == facedirutil.NEGATIVE_X then
+			
+			placed_node.param2 = rotationutil.increment(placed_node.param2)
+			placed_node.param2 = rotationutil.increment(placed_node.param2)
+		end
+		
+		placed_node.param2 = placed_node.param2 + rotationutil.NEG_Y
+		
+		minetest.set_node(pos, placed_node)
+	end
+end
+
 --- Gets the corresponding wallmounted value for the given facedir value.
 --
 -- @param facedir_id The facedir value/ID.
