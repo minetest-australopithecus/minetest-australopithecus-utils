@@ -36,9 +36,9 @@ numberutil = {}
 --                       will be rounded to this amount of decimal places,
 --                       if omitted, as many as there are are printed.
 -- @param decimal_separator Optional. The decimal separator to use, defaults
---                          to a comma.
+--                          to a dot.
 -- @param thousand_separator Optional. The thousand separator to use, defaults
---                           to a dot.
+--                           to a comma.
 -- @return The formatted number.
 function numberutil.format(number, decimal_places, decimal_separator, thousand_separator)
 	decimal_separator = decimal_separator or "."
