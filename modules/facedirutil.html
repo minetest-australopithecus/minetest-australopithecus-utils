@@ -93,6 +93,11 @@
 	<td class="summary">Gets the vector for the given ID.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#make_upsidedown">make_upsidedown (pos, placer, itemstack, pointed_thing)</a></td>
+	<td class="summary">Turns the placed node upside down if the placer was looking at
+ the underside of another node.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#to_wallmounted">to_wallmounted (facedir_id)</a></td>
 	<td class="summary">Gets the corresponding wallmounted value for the given facedir value.</td>
 	</tr>
@@ -162,6 +167,38 @@
 
         The vector for the given ID.
     </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "make_upsidedown"></a>
+    <strong>make_upsidedown (pos, placer, itemstack, pointed_thing)</strong>
+    </dt>
+    <dd>
+    Turns the placed node upside down if the placer was looking at
+ the underside of another node.  This function is supposed to be attached
+ to the after_node_place callback of a node definition.
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">pos</span>
+         The position of the placed node.
+        </li>
+        <li><span class="parameter">placer</span>
+         The placed, a Player object.
+        </li>
+        <li><span class="parameter">itemstack</span>
+         The user ItemStack.
+        </li>
+        <li><span class="parameter">pointed_thing</span>
+         The nodes that the placed pointed at.
+        </li>
+    </ul>
+
 
 
 
