@@ -55,7 +55,8 @@ end
 --- Schedules the given function.
 --
 -- @param name The name of the function.
--- @param interval The interval in which to run the function.
+-- @param interval The interval in which to run the function. A value of zero
+--                 will basically make the function run on every global step.
 -- @param run_function The function to execute.
 -- @param overshoot_policy Optional. The overshoot policy. Defaults to
 --                         scheduler.OVERSHOOT_POLICY_RUN_ONCE.
