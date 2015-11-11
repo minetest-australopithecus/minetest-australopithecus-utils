@@ -97,7 +97,7 @@ end
 -- @param pointed_thing The nodes that the placed pointed at.
 function facedirutil.make_upsidedown(pos, placer, itemstack, pointed_thing)
 	-- Check if the placed did lock at the underside of a node.
-	if pos.y == pointed_thing.above.y
+	if pos.y == pointed_thing.under.y - 1
 		and pos.x == pointed_thing.under.x
 		and pos.z == pointed_thing.under.z then
 		
