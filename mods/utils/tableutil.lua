@@ -179,7 +179,7 @@ function tableutil.to_string(table, one_line, table_ids, indent)
 			end
 			
 			str = str .. tostring(key) .. " = "
-			str = str .. tableutil.to_string(value, one_line, indent + 4) .. ","
+			str = str .. tableutil.to_string(value, one_line, table_ids, indent + 4) .. ","
 			
 			if one_line then
 				str = str .. " "
