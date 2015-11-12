@@ -95,7 +95,7 @@
 	<tr>
 	<td class="name" nowrap><a href="#make_upsidedown">make_upsidedown (pos, placer, itemstack, pointed_thing)</a></td>
 	<td class="summary">Turns the placed node upside down if the placer was looking at
- the underside of another node.</td>
+ the underside of another node or did look steep upwards.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#to_wallmounted">to_wallmounted (facedir_id)</a></td>
@@ -178,8 +178,9 @@
     </dt>
     <dd>
     Turns the placed node upside down if the placer was looking at
- the underside of another node.  This function is supposed to be attached
- to the after_node_place callback of a node definition.
+ the underside of another node or did look steep upwards.  This function is
+ supposed to be attached to the after_node_place callback of a node
+ definition.
 
 
 

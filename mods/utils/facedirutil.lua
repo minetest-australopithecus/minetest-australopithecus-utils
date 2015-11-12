@@ -88,18 +88,21 @@ function facedirutil.get_vector(id)
 end
 
 --- Turns the placed node upside down if the placer was looking at
--- the underside of another node. This function is supposed to be attached
--- to the after_node_place callback of a node definition.
+-- the underside of another node or did look steep upwards. This function is
+-- supposed to be attached to the after_node_place callback of a node
+-- definition.
 --
 -- @param pos The position of the placed node.
 -- @param placer The placed, a Player object.
 -- @param itemstack The user ItemStack.
 -- @param pointed_thing The nodes that the placed pointed at.
 function facedirutil.make_upsidedown(pos, placer, itemstack, pointed_thing)
-	-- Check if the placed did lock at the underside of a node.
-	if pos.y == pointed_thing.under.y - 1
+	-- Check if the placer did look at the underside of a node
+	-- or looked quite steep up.
+	if (pos.y == pointed_thing.under.y - 1
 		and pos.x == pointed_thing.under.x
-		and pos.z == pointed_thing.under.z then
+		and pos.z == pointed_thing.under.z)
+		or placer:get_look_pitch() > 0.45 then
 		
 		local placed_node = minetest.get_node(pos)
 		
