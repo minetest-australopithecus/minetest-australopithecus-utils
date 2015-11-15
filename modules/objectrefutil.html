@@ -43,7 +43,7 @@
   <li><a href="../modules/noisemanager.html">noisemanager</a></li>
   <li><a href="../modules/nodeutil.html">nodeutil</a></li>
   <li><a href="../modules/posutil.html">posutil</a></li>
-  <li><a href="../modules/objectrefutil.html">objectrefutil</a></li>
+  <li><strong>objectrefutil</strong></li>
   <li><a href="../modules/mapmanipulator.html">mapmanipulator</a></li>
   <li><a href="../modules/fisheryates.html">fisheryates</a></li>
   <li><a href="../modules/textureutil.html">textureutil</a></li>
@@ -73,39 +73,24 @@
   <li><a href="../modules/stopwatch.html">stopwatch</a></li>
   <li><a href="../modules/itemutil.html">itemutil</a></li>
   <li><a href="../modules/color.html">color</a></li>
-  <li><strong>tableutil</strong></li>
+  <li><a href="../modules/tableutil.html">tableutil</a></li>
 </ul>
 
 </div>
 
 <div id="content">
 
-<h1>Module <code>tableutil</code></h1>
-<p>Various utility functions for working with tables.</p>
+<h1>Module <code>objectrefutil</code></h1>
+<p>Provides various utility methods for manipulating ObjectRefs.</p>
 <p></p>
 
 
 <h2><a href="#Functions">Functions</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#clone">clone (table)</a></td>
-	<td class="summary">Performs a deep/recursive clone on the given table.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#equals">equals (a, b)</a></td>
-	<td class="summary">Tests the two given tables for equality.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#keys">keys (...)</a></td>
-	<td class="summary">Returns a (unique) list with all keys of all tables.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#merge">merge (...)</a></td>
-	<td class="summary">Merges the given tables into one instance.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#to_string">to_string (table, one_line, table_ids, indent)</a></td>
-	<td class="summary">Returns the string representation of the given table.</td>
+	<td class="name" nowrap><a href="#is_alive">is_alive (objectref)</a></td>
+	<td class="summary">Checks if the given ObjectRef is still alive, meaning it has a HP value
+ greater than zero or damage has been deactivated.</td>
 	</tr>
 </table>
 
@@ -116,140 +101,25 @@
     <h2><a name="Functions"></a>Functions</h2>
     <dl class="function">
     <dt>
-    <a name = "clone"></a>
-    <strong>clone (table)</strong>
+    <a name = "is_alive"></a>
+    <strong>is_alive (objectref)</strong>
     </dt>
     <dd>
-    Performs a deep/recursive clone on the given table.
+    Checks if the given ObjectRef is still alive, meaning it has a HP value
+ greater than zero or damage has been deactivated.
 
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">table</span>
-         The table to deep clone.
+        <li><span class="parameter">objectref</span>
+         The objectref to check.
         </li>
     </ul>
 
     <h3>Returns:</h3>
     <ol>
 
-        The clone of the table.
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "equals"></a>
-    <strong>equals (a, b)</strong>
-    </dt>
-    <dd>
-    Tests the two given tables for equality.
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">a</span>
-         The first table.
-        </li>
-        <li><span class="parameter">b</span>
-         The second table.
-        </li>
-    </ul>
-
-    <h3>Returns:</h3>
-    <ol>
-
-        true if the tables are equal.
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "keys"></a>
-    <strong>keys (...)</strong>
-    </dt>
-    <dd>
-    Returns a (unique) list with all keys of all tables.
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">...</span>
-         The list of tables.
-        </li>
-    </ul>
-
-    <h3>Returns:</h3>
-    <ol>
-
-        A list with all keys.
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "merge"></a>
-    <strong>merge (...)</strong>
-    </dt>
-    <dd>
-    Merges the given tables into one instance.  Note that no cloning is performed
- so fields may refer to the same instances.
-
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">...</span>
-         The tables to merge.
-        </li>
-    </ul>
-
-    <h3>Returns:</h3>
-    <ol>
-
-        The merged table.
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "to_string"></a>
-    <strong>to_string (table, one_line, table_ids, indent)</strong>
-    </dt>
-    <dd>
-    Returns the string representation of the given table.
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">table</span>
-         The table.
-        </li>
-        <li><span class="parameter">one_line</span>
-         Optional. If the table should be printed on only one line.
-                 Defaults to false.
-        </li>
-        <li><span class="parameter">table_ids</span>
-         Optional. If the table IDs should be printed.
-                  Defaults to true.
-        </li>
-        <li><span class="parameter">indent</span>
-         Optional. The number of spaces of indentation.
-        </li>
-    </ul>
-
-    <h3>Returns:</h3>
-    <ol>
-
-        The string representation of the given table.
+        true if the ObjectRef is still alive.
     </ol>
 
 
