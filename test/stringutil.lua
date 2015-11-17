@@ -87,3 +87,12 @@ test.run("startswith", function()
 	test.equals(false, stringutil.startswith("abcde", "bcde"))
 end)
 
+test.run("trim", function()
+	test.equals(nil, stringutil.trim(nil))
+	test.equals("", stringutil.trim(""))
+	test.equals("", stringutil.trim(" 	 	"))
+	
+	test.equals("Something", stringutil.trim("  Something	"))
+	test.equals("A whole sentence this is.", stringutil.trim("  A whole sentence this is.   "))
+end)
+

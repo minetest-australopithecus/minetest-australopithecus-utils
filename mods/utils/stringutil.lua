@@ -141,3 +141,18 @@ function stringutil.startswith(text, value)
 	return string.sub(text, 1, string.len(value)) == value
 end
 
+--- Trims the given text from any leading and trailing whitespace.
+--
+-- @param text The text to trim.
+-- @return The trimmed text.
+function stringutil.trim(text)
+	if text ~= nil and #text > 0 then
+		local trimmed = string.gsub(text, "^%s+", "")
+		trimmed = string.gsub(trimmed, "%s+$", "")
+		
+		return trimmed
+	end
+	
+	return text
+end
+
