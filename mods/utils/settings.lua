@@ -72,6 +72,25 @@ function settings.get_bool(name, default_value)
 	end
 end
 
+--- Gets a list from the configuration.
+--
+-- @param name The name of the value to get.
+-- @param default_value Optional. The default value to return if the value is
+--                      nil. Can be nil.
+-- @param The list with the given name, or the default value if it is nil,
+--        or nil.
+function settings.get_list(name, default_value)
+	local value = settings.get(name, nil, tostring)
+	
+	if value ~= nil then
+		return stringutil.split(value, ",")
+	elseif type(default_value) == "string" then
+		return stringutil.split(default_value, ",")
+	else
+		return default_value
+	end
+end
+
 --- Gets a number from the configuration.
 --
 -- @param name The name of the value to get.

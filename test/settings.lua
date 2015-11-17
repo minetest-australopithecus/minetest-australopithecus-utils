@@ -30,6 +30,8 @@ function minetest.setting_get(name)
 		return "Some String"
 	elseif name == "pos2d" then
 		return "43.23, 29.89"
+	elseif name == "list" then
+		return "a, b, c, d, e"
 	end
 	
 	return nil
@@ -64,6 +66,13 @@ test.run("get_bool", function()
 	test.equals(nil, settings.get_bool("nonexistent"))
 	test.equals(true, settings.get_bool("nonexistent", true))
 	test.equals(true, settings.get_bool("bool-true"))
+end)
+
+test.run("get_list", function()
+	test.equals(nil, settings.get_list("nonexistent"))
+	test.equals({ "a", "b", "c", "d" }, settings.get_list("nonexistent", { "a", "b", "c", "d" }))
+	test.equals({ "a", "b", "c", "d", counter = 5 }, settings.get_list("nonexistent", "a, b, c, d"))
+	test.equals({ "a", "b", "c", "d", "e", counter = 6 }, settings.get_list("list", "a, b, c, d"))
 end)
 
 test.run("get_number", function()
