@@ -159,6 +159,38 @@ function settings.get_string(name, default_value)
 	return settings.get(name, default_value, tostring)
 end
 
+--- Gets a table with the given keys form the configuration.
+--
+-- @param name The name of the value to get.
+-- @param default_value The default value to return if the value is nil, can be
+--                      nil.
+-- @param ... The name of the keys.
+-- @return The table with the given name and the given keys, or the default
+--         value it is nil.
+function settings.get_table(name, default_value, ...)
+	local value = settings.get_list(name, nil)
+	
+	if value ~= nil then
+		local table = {}
+		
+		if ... ~= nil then
+			for index, key in ipairs({...}) do
+				table[key] = value:get(index)
+			end
+		end
+		
+		if ... == nil or  #{...} < value:size() then
+			for index = #{...} + 1, value:size(), 1 do
+				table[index] = value:get(index)
+			end
+		end
+		
+		return table
+	else
+		return default_value
+	end
+end
+
 --- Saves all settings to configuration file.
 function settings.save()
 	minetest.setting_save()

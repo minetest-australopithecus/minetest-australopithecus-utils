@@ -103,3 +103,12 @@ test.run("get_string", function()
 	test.equals("Some String", settings.get_string("string"))
 end)
 
+test.run("get_table", function()
+	test.equals(nil, settings.get_table("nonexistent"))
+	test.equals({ a = "b", c = "d" }, settings.get_table("nonexistent", { a = "b", c = "d" }))
+	
+	test.equals({ a = "a", b = "b", c = "c", d = "d", e = "e" }, settings.get_table("list", nil, "a", "b", "c", "d", "e"))
+	test.equals({ a = "a", b = "b", [3] = "c", [4] = "d", [5] = "e" }, settings.get_table("list", nil, "a", "b"))
+	test.equals({ a = "a", b = "b", c = "c", d = "d", e = "e" }, settings.get_table("list", nil, "a", "b", "c", "d", "e", "f", "g", "h"))
+end)
+

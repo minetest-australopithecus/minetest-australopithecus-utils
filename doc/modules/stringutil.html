@@ -38,42 +38,42 @@
 
 <h2>Modules</h2>
 <ul class="$(kind=='Topics' and '' or 'nowrap'">
-  <li><strong>stringutil</strong></li>
-  <li><a href="../modules/random.html">random</a></li>
-  <li><a href="../modules/noisemanager.html">noisemanager</a></li>
-  <li><a href="../modules/nodeutil.html">nodeutil</a></li>
-  <li><a href="../modules/posutil.html">posutil</a></li>
-  <li><a href="../modules/objectrefutil.html">objectrefutil</a></li>
-  <li><a href="../modules/mapmanipulator.html">mapmanipulator</a></li>
-  <li><a href="../modules/fisheryates.html">fisheryates</a></li>
-  <li><a href="../modules/textureutil.html">textureutil</a></li>
-  <li><a href="../modules/blockutil.html">blockutil</a></li>
-  <li><a href="../modules/tango.html">tango</a></li>
-  <li><a href="../modules/arraymanipulator.html">arraymanipulator</a></li>
-  <li><a href="../modules/inventoryutil.html">inventoryutil</a></li>
-  <li><a href="../modules/entityutil.html">entityutil</a></li>
-  <li><a href="../modules/scheduler.html">scheduler</a></li>
-  <li><a href="../modules/blockedcache.html">blockedcache</a></li>
-  <li><a href="../modules/mathutil.html">mathutil</a></li>
-  <li><a href="../modules/log.html">log</a></li>
-  <li><a href="../modules/arrayutil.html">arrayutil</a></li>
-  <li><a href="../modules/directmapmanipulator.html">directmapmanipulator</a></li>
-  <li><a href="../modules/rotationutil.html">rotationutil</a></li>
-  <li><a href="../modules/settings.html">settings</a></li>
-  <li><a href="../modules/pathutil.html">pathutil</a></li>
-  <li><a href="../modules/wallmountedutil.html">wallmountedutil</a></li>
   <li><a href="../modules/interpolate.html">interpolate</a></li>
+  <li><a href="../modules/tableutil.html">tableutil</a></li>
+  <li><a href="../modules/stopwatch.html">stopwatch</a></li>
+  <li><a href="../modules/facedirutil.html">facedirutil</a></li>
+  <li><a href="../modules/posutil.html">posutil</a></li>
+  <li><a href="../modules/pathutil.html">pathutil</a></li>
+  <li><a href="../modules/objectrefutil.html">objectrefutil</a></li>
+  <li><a href="../modules/inventoryutil.html">inventoryutil</a></li>
+  <li><a href="../modules/wallmountedutil.html">wallmountedutil</a></li>
+  <li><a href="../modules/tango.html">tango</a></li>
+  <li><a href="../modules/directmapmanipulator.html">directmapmanipulator</a></li>
+  <li><a href="../modules/random.html">random</a></li>
+  <li><a href="../modules/log.html">log</a></li>
+  <li><a href="../modules/rotationutil.html">rotationutil</a></li>
+  <li><a href="../modules/textureutil.html">textureutil</a></li>
+  <li><a href="../modules/mapmanipulator.html">mapmanipulator</a></li>
+  <li><strong>stringutil</strong></li>
+  <li><a href="../modules/settings.html">settings</a></li>
   <li><a href="../modules/transform.html">transform</a></li>
   <li><a href="../modules/numberutil.html">numberutil</a></li>
-  <li><a href="../modules/test.html">test</a></li>
-  <li><a href="../modules/facedirutil.html">facedirutil</a></li>
-  <li><a href="../modules/constants.html">constants</a></li>
-  <li><a href="../modules/minetestex.html">minetestex</a></li>
-  <li><a href="../modules/list.html">list</a></li>
-  <li><a href="../modules/stopwatch.html">stopwatch</a></li>
-  <li><a href="../modules/itemutil.html">itemutil</a></li>
+  <li><a href="../modules/scheduler.html">scheduler</a></li>
+  <li><a href="../modules/mathutil.html">mathutil</a></li>
   <li><a href="../modules/color.html">color</a></li>
-  <li><a href="../modules/tableutil.html">tableutil</a></li>
+  <li><a href="../modules/blockutil.html">blockutil</a></li>
+  <li><a href="../modules/nodeutil.html">nodeutil</a></li>
+  <li><a href="../modules/arrayutil.html">arrayutil</a></li>
+  <li><a href="../modules/itemutil.html">itemutil</a></li>
+  <li><a href="../modules/noisemanager.html">noisemanager</a></li>
+  <li><a href="../modules/arraymanipulator.html">arraymanipulator</a></li>
+  <li><a href="../modules/constants.html">constants</a></li>
+  <li><a href="../modules/list.html">list</a></li>
+  <li><a href="../modules/blockedcache.html">blockedcache</a></li>
+  <li><a href="../modules/entityutil.html">entityutil</a></li>
+  <li><a href="../modules/fisheryates.html">fisheryates</a></li>
+  <li><a href="../modules/test.html">test</a></li>
+  <li><a href="../modules/minetestex.html">minetestex</a></li>
 </ul>
 
 </div>
@@ -101,12 +101,16 @@
  mathutil.SIGNED_32BIT_MAX (which is roughly -2 billion to 2 billion).</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#split">split (text, split)</a></td>
+	<td class="name" nowrap><a href="#split">split (text, split, trim_values)</a></td>
 	<td class="summary">Splits the given text using the given split value.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#startswith">startswith (text, value)</a></td>
 	<td class="summary">Tests if the given text starts with the given value.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#trim">trim (text)</a></td>
+	<td class="summary">Trims the given text from any leading and trailing whitespace.</td>
 	</tr>
 </table>
 
@@ -201,7 +205,7 @@
 </dd>
     <dt>
     <a name = "split"></a>
-    <strong>split (text, split)</strong>
+    <strong>split (text, split, trim_values)</strong>
     </dt>
     <dd>
     Splits the given text using the given split value.  Returns the splitted text
@@ -219,6 +223,10 @@
         </li>
         <li><span class="parameter">split</span>
          The split value.
+        </li>
+        <li><span class="parameter">trim_values</span>
+         Optional. If the values should be trimmed, defaults to
+                    true.
         </li>
     </ul>
 
@@ -254,6 +262,31 @@
     <ol>
 
         true if the given text starts with the value.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "trim"></a>
+    <strong>trim (text)</strong>
+    </dt>
+    <dd>
+    Trims the given text from any leading and trailing whitespace.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">text</span>
+         The text to trim.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The trimmed text.
     </ol>
 
 
