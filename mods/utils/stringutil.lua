@@ -99,8 +99,14 @@ end
 --
 -- @param text The text to split.
 -- @param split The split value.
+-- @param trim_values Optional. If the values should be trimmed, defaults to
+--                    true.
 -- @return The list of splitted values.
-function stringutil.split(text, split)
+function stringutil.split(text, split, trim_values)
+	if trim_values == nil then
+		trim_values = true
+	end
+	
 	local splitted = List:new()
 	
 	if string ~= nil and #text > 0 then
@@ -109,7 +115,13 @@ function stringutil.split(text, split)
 		local starts, ends = string.find(text, split, 0, true)
 		
 		while ends ~= nil do
-			splitted:add(string.sub(text, previous_ends + 1, starts - 1))
+			local value = string.sub(text, previous_ends + 1, starts - 1)
+			
+			if trim_values then
+				value = stringutil.trim(value)
+			end
+			
+			splitted:add(value)
 			
 			previous_starts = starts
 			previous_ends = ends
@@ -117,7 +129,13 @@ function stringutil.split(text, split)
 		end
 		
 		if previous_ends > 0 or splitted:size() == 0 then
-			splitted:add(string.sub(text, previous_ends + 1))
+			local value = string.sub(text, previous_ends + 1)
+			
+			if trim_values then
+				value = stringutil.trim(value)
+			end
+			
+			splitted:add(value)
 		end
 	end
 	
