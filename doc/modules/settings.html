@@ -98,7 +98,7 @@
 	<td class="summary">Gets a boolean from the configuration.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#get_list">get_list (name, default_value, The)</a></td>
+	<td class="name" nowrap><a href="#get_list">get_list (name, default_value)</a></td>
 	<td class="summary">Gets a list from the configuration.</td>
 	</tr>
 	<tr>
@@ -212,7 +212,7 @@
 </dd>
     <dt>
     <a name = "get_list"></a>
-    <strong>get_list (name, default_value, The)</strong>
+    <strong>get_list (name, default_value)</strong>
     </dt>
     <dd>
     Gets a list from the configuration.
@@ -227,12 +227,14 @@
          Optional. The default value to return if the value is
                       nil. Can be nil.
         </li>
-        <li><span class="parameter">The</span>
-         list with the given name, or the default value if it is nil,
-        or nil.
-        </li>
     </ul>
 
+    <h3>Returns:</h3>
+    <ol>
+
+        The list with the given name, or the default value if it is nil,
+        or nil.
+    </ol>
 
 
 
