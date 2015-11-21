@@ -102,7 +102,7 @@ end
 -- @return A list with all keys.
 function tableutil.keys(...)
 	if ... == nil then
-		return {}
+		return List:new()
 	end
 	
 	local keys = List:new()
