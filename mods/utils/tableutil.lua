@@ -173,20 +173,23 @@ function tableutil.to_string(table, one_line, table_ids, indent)
 		
 		local indentation = string.rep(" ", indent + 4)
 		
-		for key, value in pairs(table) do
+		local keys = tableutil.keys(table)
+		keys:sort()
+		
+		keys:foreach(function(key, index)
 			if not one_line then
 				str = str .. indentation
 			end
 			
 			str = str .. tostring(key) .. " = "
-			str = str .. tableutil.to_string(value, one_line, table_ids, indent + 4) .. ","
+			str = str .. tableutil.to_string(table[key], one_line, table_ids, indent + 4) .. ","
 			
 			if one_line then
 				str = str .. " "
 			else
 				str = str .. "\n"
 			end
-		end
+		end)
 		
 		str = string.sub(str, 0, string.len(str) - 2)
 		
