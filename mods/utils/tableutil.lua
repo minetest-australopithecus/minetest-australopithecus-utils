@@ -89,7 +89,7 @@ function tableutil.equals(a, b)
 		else
 			if valuea ~= valueb then
 				return false
-			end		
+			end
 		end
 	end
 	
