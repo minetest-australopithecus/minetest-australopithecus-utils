@@ -105,17 +105,7 @@ function facedirutil.make_upsidedown(pos, placer, itemstack, pointed_thing)
 		or placer:get_look_pitch() > 0.45 then
 		
 		local placed_node = minetest.get_node(pos)
-		
-		-- We need to rotate the node by 180 degrees for these values,
-		-- this is becaus if how the rotation works.
-		if placed_node.param2 == facedirutil.POSITIVE_X
-			or placed_node.param2 == facedirutil.NEGATIVE_X then
-			
-			placed_node.param2 = rotationutil.increment(placed_node.param2)
-			placed_node.param2 = rotationutil.increment(placed_node.param2)
-		end
-		
-		placed_node.param2 = placed_node.param2 + rotationutil.NEG_Y
+		placed_node.param2 = facedirutil.upsidedown(placed_node.param2)
 		
 		minetest.set_node(pos, placed_node)
 	end
@@ -137,5 +127,24 @@ function facedirutil.to_wallmounted(facedir_id)
 	end
 	
 	return wallmountedutil.NEGATIVE_Y
+end
+
+--- Gets the facedir for the given rotation as upside down.
+--
+-- @param facedir The facedir value.
+-- @return The facedir value upside down.
+function facedirutil.upsidedown(facedir)
+	local upsidedown_facedir = facedir
+	
+	-- We need to rotate the node by 180 degrees for these values,
+	-- this is becaus if how the rotation works.
+	if upsidedown_facedir == facedirutil.POSITIVE_X
+		or upsidedown_facedir == facedirutil.NEGATIVE_X then
+		
+		upsidedown_facedir = rotationutil.increment(upsidedown_facedir)
+		upsidedown_facedir = rotationutil.increment(upsidedown_facedir)
+	end
+	
+	return upsidedown_facedir + rotationutil.NEG_Y
 end
 
