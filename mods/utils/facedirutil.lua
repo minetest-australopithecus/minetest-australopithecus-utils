@@ -137,7 +137,7 @@ function facedirutil.upsidedown(facedir)
 	local upsidedown_facedir = facedir
 	
 	-- We need to rotate the node by 180 degrees for these values,
-	-- this is becaus if how the rotation works.
+	-- this is because of how the rotation works.
 	if upsidedown_facedir == facedirutil.POSITIVE_X
 		or upsidedown_facedir == facedirutil.NEGATIVE_X then
 		
