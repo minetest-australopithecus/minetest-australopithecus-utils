@@ -77,7 +77,7 @@ end
 -- @param name The name of the value to get.
 -- @param default_value Optional. The default value to return if the value is
 --                      nil. Can be nil.
--- @param The list with the given name, or the default value if it is nil,
+-- @return The list with the given name, or the default value if it is nil,
 --        or nil.
 function settings.get_list(name, default_value)
 	local value = settings.get(name, nil, tostring)
