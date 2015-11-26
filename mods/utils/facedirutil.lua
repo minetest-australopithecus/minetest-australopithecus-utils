@@ -132,17 +132,33 @@ end
 --- Gets the facedir for the given rotation as upside down.
 --
 -- @param facedir The facedir value.
+-- @param pseudo_mirroring Optional. Performs rotations to imitate mirroring
+--                         of the node, defaults to false.
 -- @return The facedir value upside down.
-function facedirutil.upsidedown(facedir)
+function facedirutil.upsidedown(facedir, pseudo_mirroring)
+	if pseudo_mirroring == nil then
+		pseudo_mirroring = false
+	end
+	
 	local upsidedown_facedir = facedir
 	
-	-- We need to rotate the node by 180 degrees for these values,
-	-- this is because of how the rotation works.
-	if upsidedown_facedir == facedirutil.POSITIVE_X
-		or upsidedown_facedir == facedirutil.NEGATIVE_X then
-		
-		upsidedown_facedir = rotationutil.increment(upsidedown_facedir)
-		upsidedown_facedir = rotationutil.increment(upsidedown_facedir)
+	if pseudo_mirroring then
+		if upsidedown_facedir == facedirutil.POSITIVE_X
+			or upsidedown_facedir == facedirutil.NEGATIVE_X then
+			
+			upsidedown_facedir = rotationutil.increment(upsidedown_facedir)
+		elseif upsidedown_facedir == facedirutil.POSITIVE_Z
+			or upsidedown_facedir == facedirutil.NEGATIVE_Z then
+			
+			upsidedown_facedir = rotationutil.decrement(upsidedown_facedir)
+		end
+	else
+		if upsidedown_facedir == facedirutil.POSITIVE_X
+			or upsidedown_facedir == facedirutil.NEGATIVE_X then
+			
+			upsidedown_facedir = rotationutil.increment(upsidedown_facedir)
+			upsidedown_facedir = rotationutil.increment(upsidedown_facedir)
+		end
 	end
 	
 	return upsidedown_facedir + rotationutil.NEG_Y
