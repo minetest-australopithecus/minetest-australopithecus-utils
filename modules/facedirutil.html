@@ -103,7 +103,7 @@
 	<td class="summary">Gets the corresponding wallmounted value for the given facedir value.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#upsidedown">upsidedown (facedir)</a></td>
+	<td class="name" nowrap><a href="#upsidedown">upsidedown (facedir, pseudo_mirroring)</a></td>
 	<td class="summary">Gets the facedir for the given rotation as upside down.</td>
 	</tr>
 </table>
@@ -237,7 +237,7 @@
 </dd>
     <dt>
     <a name = "upsidedown"></a>
-    <strong>upsidedown (facedir)</strong>
+    <strong>upsidedown (facedir, pseudo_mirroring)</strong>
     </dt>
     <dd>
     Gets the facedir for the given rotation as upside down.
@@ -247,6 +247,10 @@
     <ul>
         <li><span class="parameter">facedir</span>
          The facedir value.
+        </li>
+        <li><span class="parameter">pseudo_mirroring</span>
+         Optional. Performs rotations to imitate mirroring
+                         of the node, defaults to false.
         </li>
     </ul>
 
