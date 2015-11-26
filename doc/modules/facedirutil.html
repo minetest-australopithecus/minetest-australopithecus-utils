@@ -90,13 +90,14 @@
 <h2><a href="#Functions">Functions</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#get_vector">get_vector (id)</a></td>
-	<td class="summary">Gets the vector for the given ID.</td>
+	<td class="name" nowrap><a href="#create_after_node_placed_upsidedown_handler">create_after_node_placed_upsidedown_handler (pseudo_mirroring, needed_pitch)</a></td>
+	<td class="summary">Creates a handler for the after_node_place callback which turns the placed
+ node upside down if the placer was looking at underside of another node or
+ if the placer looks upwards.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#make_upsidedown">make_upsidedown (pos, placer, itemstack, pointed_thing)</a></td>
-	<td class="summary">Turns the placed node upside down if the placer was looking at
- the underside of another node or did look steep upwards.</td>
+	<td class="name" nowrap><a href="#get_vector">get_vector (id)</a></td>
+	<td class="summary">Gets the vector for the given ID.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#to_wallmounted">to_wallmounted (facedir_id)</a></td>
@@ -153,6 +154,38 @@
     <h2><a name="Functions"></a>Functions</h2>
     <dl class="function">
     <dt>
+    <a name = "create_after_node_placed_upsidedown_handler"></a>
+    <strong>create_after_node_placed_upsidedown_handler (pseudo_mirroring, needed_pitch)</strong>
+    </dt>
+    <dd>
+    Creates a handler for the after_node_place callback which turns the placed
+ node upside down if the placer was looking at underside of another node or
+ if the placer looks upwards.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">pseudo_mirroring</span>
+         Optional. If pseudo mirroring should be performed,
+                         defaults to false.
+        </li>
+        <li><span class="parameter">needed_pitch</span>
+         Optional. The needed pitch to turn the node upside down,
+                     defaults to 0.45.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The handler for the after_node_place callback.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "get_vector"></a>
     <strong>get_vector (id)</strong>
     </dt>
@@ -172,39 +205,6 @@
 
         The vector for the given ID.
     </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "make_upsidedown"></a>
-    <strong>make_upsidedown (pos, placer, itemstack, pointed_thing)</strong>
-    </dt>
-    <dd>
-    Turns the placed node upside down if the placer was looking at
- the underside of another node or did look steep upwards.  This function is
- supposed to be attached to the after_node_place callback of a node
- definition.
-
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">pos</span>
-         The position of the placed node.
-        </li>
-        <li><span class="parameter">placer</span>
-         The placed, a Player object.
-        </li>
-        <li><span class="parameter">itemstack</span>
-         The user ItemStack.
-        </li>
-        <li><span class="parameter">pointed_thing</span>
-         The nodes that the placed pointed at.
-        </li>
-    </ul>
-
 
 
 

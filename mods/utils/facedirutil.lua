@@ -69,6 +69,37 @@ facedirutil = {
 }
 
 
+--- Creates a handler for the after_node_place callback which turns the placed
+-- node upside down if the placer was looking at underside of another node or
+-- if the placer looks upwards.
+--
+-- @param pseudo_mirroring Optional. If pseudo mirroring should be performed,
+--                         defaults to false.
+-- @param needed_pitch Optional. The needed pitch to turn the node upside down,
+--                     defaults to 0.45.
+-- @return The handler for the after_node_place callback.
+function facedirutil.create_after_node_placed_upsidedown_handler(pseudo_mirroring, needed_pitch)
+	if pseudo_mirroring == nil then
+		pseudo_mirroring = false
+	end
+	needed_pitch = needed_pitch or 0.45
+	
+	return function(pos, placer, itemstack, pointed_thing)
+		-- Check if the placer did look at the underside of a node
+		-- or looked quite steep up.
+		if (pos.y == pointed_thing.under.y - 1
+			and pos.x == pointed_thing.under.x
+			and pos.z == pointed_thing.under.z)
+			or placer:get_look_pitch() > needed_pitch then
+			
+			local placed_node = minetest.get_node(pos)
+			placed_node.param2 = facedirutil.upsidedown(placed_node.param2, pseudo_mirroring)
+			
+			minetest.set_node(pos, placed_node)
+		end
+	end
+end
+
 --- Gets the vector for the given ID.
 --
 -- @param id The ID for which to get the vector.
@@ -85,30 +116,6 @@ function facedirutil.get_vector(id)
 	end
 	
 	return facedirutil.NEGATIVE_X_VECTOR
-end
-
---- Turns the placed node upside down if the placer was looking at
--- the underside of another node or did look steep upwards. This function is
--- supposed to be attached to the after_node_place callback of a node
--- definition.
---
--- @param pos The position of the placed node.
--- @param placer The placed, a Player object.
--- @param itemstack The user ItemStack.
--- @param pointed_thing The nodes that the placed pointed at.
-function facedirutil.make_upsidedown(pos, placer, itemstack, pointed_thing)
-	-- Check if the placer did look at the underside of a node
-	-- or looked quite steep up.
-	if (pos.y == pointed_thing.under.y - 1
-		and pos.x == pointed_thing.under.x
-		and pos.z == pointed_thing.under.z)
-		or placer:get_look_pitch() > 0.45 then
-		
-		local placed_node = minetest.get_node(pos)
-		placed_node.param2 = facedirutil.upsidedown(placed_node.param2)
-		
-		minetest.set_node(pos, placed_node)
-	end
 end
 
 --- Gets the corresponding wallmounted value for the given facedir value.
