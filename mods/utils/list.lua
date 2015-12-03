@@ -291,7 +291,7 @@ end
 --                   and returns a boolean, true if the first is parameter is
 --                   less than the second.
 function List:sort(comparator)
-	table.sort(self, comparator)
+	table.sort(self, comparator or tableutil.comparator)
 end
 
 --- Gets a sub list starting from the given index and the given number of items.
