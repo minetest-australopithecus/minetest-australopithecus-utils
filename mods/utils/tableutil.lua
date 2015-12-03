@@ -58,6 +58,42 @@ function tableutil.clone(table)
 	return clone
 end
 
+--- A comparator function that can be used for sorting a table with different
+-- value types. It sorts numbers first, after that strings, tables and nil.
+--
+-- @param a The first value.
+-- @param b The second value.
+-- @return true if the first value is less than (should come before) the second.
+function tableutil.comparator(a, b)
+	if a == b then
+		return false
+	end
+	
+	if a ~= nil and b == nil then
+		return false
+	elseif b ~= nil and a == nil then
+		return true
+	end
+	
+	local type_a = type(a)
+	local type_b = type(b)
+	
+	if type_a == "number" and type_b == "number" then
+		return a < b
+	elseif type_a == "string" and type_b == "string" then
+		return a < b
+	elseif type_a == "number" and type_b == "string" then
+		return true
+	elseif type_a == "string" and type_b == "number" then
+		return false
+	elseif type_a ~= "table" and type_b == "table" then
+		return true
+	else
+		-- We can't sort objects.
+		return false
+	end
+end
+
 --- Tests the two given tables for equality.
 --
 -- @param a The first table.

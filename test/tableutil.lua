@@ -76,6 +76,48 @@ test.run("clone_table", function()
 	test.equals("test", clone.table.deep)
 end)
 
+test.run("comparator", function()
+	test.equals(false, tableutil.comparator(nil, nil))
+	test.equals(false, tableutil.comparator(5, nil))
+	test.equals(true, tableutil.comparator(nil, 6))
+	test.equals(false, tableutil.comparator("a", nil))
+	test.equals(true, tableutil.comparator(nil, "b"))
+	test.equals(false, tableutil.comparator({}, nil))
+	test.equals(true, tableutil.comparator(nil, {}))
+	
+	test.equals(true, tableutil.comparator(1, 2))
+	test.equals(false, tableutil.comparator(2, 1))
+	
+	test.equals(true, tableutil.comparator("a", "b"))
+	test.equals(false, tableutil.comparator("b", "a"))
+	
+	local unsorted = {
+		"Something",
+		5,
+		"a",
+		567,
+		{ a = "a" },
+		23,
+		"Value",
+		{ b = "b" }
+	}
+	
+	local sorted = {
+		5,
+		23,
+		567,
+		"Something",
+		"Value",
+		"a",
+		{ a = "a" },
+		{ b = "b" }
+	}
+	
+	table.sort(unsorted, tableutil.comparator)
+	
+	test.equals(sorted, unsorted)
+end)
+
 test.run("equals", function()
 	test.equals(true, tableutil.equals(nil, nil))
 	
