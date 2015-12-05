@@ -114,8 +114,13 @@
 	<td class="summary">Tests if the given value is within the given range.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#intersects">intersects (value, min, max)</a></td>
-	<td class="summary">Checks if the given value intersects with the min and max values.</td>
+	<td class="name" nowrap><a href="#intersects">intersects (min_a, max_a, min_b, max_b)</a></td>
+	<td class="summary">Checks if the given first two values intersect with the other given values.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#intersects3d">intersects3d (min_a, max_a, min_b, max_b)</a></td>
+	<td class="summary">Checks if the given first two positions intersect with the other given
+ positions.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#next_lower_prime">next_lower_prime (number)</a></td>
@@ -366,32 +371,67 @@
 </dd>
     <dt>
     <a name = "intersects"></a>
-    <strong>intersects (value, min, max)</strong>
+    <strong>intersects (min_a, max_a, min_b, max_b)</strong>
     </dt>
     <dd>
-    Checks if the given value intersects with the min and max values.  All three
- values can either by numbers, positions with two dimensions or positions with
- three dimensions.
-
+    Checks if the given first two values intersect with the other given values.
 
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">value</span>
-         The value to check.
+        <li><span class="parameter">min_a</span>
+         The first minimum value.
         </li>
-        <li><span class="parameter">min</span>
-         The min value of the range.
+        <li><span class="parameter">max_a</span>
+         The first maximum value.
         </li>
-        <li><span class="parameter">max</span>
-         The max value of the range.
+        <li><span class="parameter">min_b</span>
+         The second minimum value.
+        </li>
+        <li><span class="parameter">max_b</span>
+         The second maximum value.
         </li>
     </ul>
 
     <h3>Returns:</h3>
     <ol>
 
-        true if the value intersects with the given min/max range.
+        true if the first values intersect with the second.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "intersects3d"></a>
+    <strong>intersects3d (min_a, max_a, min_b, max_b)</strong>
+    </dt>
+    <dd>
+    Checks if the given first two positions intersect with the other given
+ positions.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">min_a</span>
+         The first minimum value.
+        </li>
+        <li><span class="parameter">max_a</span>
+         The first maximum value.
+        </li>
+        <li><span class="parameter">min_b</span>
+         The second minimum value.
+        </li>
+        <li><span class="parameter">max_b</span>
+         The second maximum value.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        true if the first positions intersect with the second.
     </ol>
 
 

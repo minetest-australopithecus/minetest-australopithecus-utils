@@ -180,30 +180,32 @@ function mathutil.in_range(value, min, max)
 	return value >= min and value <= max
 end
 
---- Checks if the given value intersects with the min and max values. All three
--- values can either by numbers, positions with two dimensions or positions with
--- three dimensions.
+--- Checks if the given first two values intersect with the other given values.
 --
--- @param value The value to check.
--- @param min The min value of the range.
--- @param max The max value of the range.
--- @return true if the value intersects with the given min/max range.
-function mathutil.intersects(value, min, max)
-	if type(value) == "table" then
-		if value.z == nil then
-			return mathutil.in_range(value.x, min.x, max.x)
-				and mathutil.in_range(value.y, min.y, max.y)
-		elseif value.y == nil then
-			return mathutil.in_range(value.x, min.x, max.x)
-				and mathutil.in_range(value.z, min.z, max.z)
-		else
-			return mathutil.in_range(value.x, min.x, max.x)
-				and mathutil.in_range(value.z, min.z, max.z)
-				and mathutil.in_range(value.y, min.y, max.y)
-		end
-	else
-		return mathutil.in_range(value, min, max)
-	end
+-- @param min_a The first minimum value.
+-- @param max_a The first maximum value.
+-- @param min_b The second minimum value.
+-- @param max_b The second maximum value.
+-- @return true if the first values intersect with the second.
+function mathutil.intersects(min_a, max_a, min_b, max_b)
+	return mathutil.in_range(min_a, min_b, max_b)
+		or mathutil.in_range(max_a, min_b, max_b)
+		or (min_a < min_b
+			and max_a > max_b)
+end
+
+--- Checks if the given first two positions intersect with the other given
+-- positions.
+--
+-- @param min_a The first minimum value.
+-- @param max_a The first maximum value.
+-- @param min_b The second minimum value.
+-- @param max_b The second maximum value.
+-- @return true if the first positions intersect with the second.
+function mathutil.intersects3d(min_a, max_a, min_b, max_b)
+	return mathutil.intersects(min_a.x, min_b.x)
+		and mathutil.intersects(min_a.z, min_b.z)
+		and mathutil.intersects(min_a.y, min_b.y)
 end
 
 --- Gets the next lower prime from the given number.
