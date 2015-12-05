@@ -89,7 +89,7 @@ end
 --
 -- @param name The name of the header.
 function test.start(name)
-	io.write("\n\n")
+	io.write("\n")
 	io.write(string.rep("-", 20 - string.len(name)))
 	io.write(name)
 	io.write(string.rep("-", 60))
