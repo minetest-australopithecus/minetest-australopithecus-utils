@@ -39,42 +39,42 @@
 
 <h2>Modules</h2>
 <ul class="$(kind=='Topics' and '' or 'nowrap'">
-  <li><a href="../modules/interpolate.html">interpolate</a></li>
-  <li><a href="../modules/tableutil.html">tableutil</a></li>
-  <li><a href="../modules/stopwatch.html">stopwatch</a></li>
-  <li><a href="../modules/facedirutil.html">facedirutil</a></li>
-  <li><a href="../modules/posutil.html">posutil</a></li>
-  <li><a href="../modules/pathutil.html">pathutil</a></li>
-  <li><a href="../modules/objectrefutil.html">objectrefutil</a></li>
-  <li><a href="../modules/inventoryutil.html">inventoryutil</a></li>
-  <li><a href="../modules/wallmountedutil.html">wallmountedutil</a></li>
-  <li><a href="../modules/tango.html">tango</a></li>
-  <li><a href="../modules/directmapmanipulator.html">directmapmanipulator</a></li>
-  <li><a href="../modules/random.html">random</a></li>
-  <li><a href="../modules/log.html">log</a></li>
-  <li><a href="../modules/rotationutil.html">rotationutil</a></li>
-  <li><a href="../modules/textureutil.html">textureutil</a></li>
-  <li><a href="../modules/mapmanipulator.html">mapmanipulator</a></li>
   <li><a href="../modules/stringutil.html">stringutil</a></li>
+  <li><a href="../modules/random.html">random</a></li>
+  <li><a href="../modules/noisemanager.html">noisemanager</a></li>
+  <li><a href="../modules/nodeutil.html">nodeutil</a></li>
+  <li><a href="../modules/posutil.html">posutil</a></li>
+  <li><a href="../modules/objectrefutil.html">objectrefutil</a></li>
+  <li><a href="../modules/mapmanipulator.html">mapmanipulator</a></li>
+  <li><a href="../modules/fisheryates.html">fisheryates</a></li>
+  <li><a href="../modules/textureutil.html">textureutil</a></li>
+  <li><a href="../modules/blockutil.html">blockutil</a></li>
+  <li><a href="../modules/tango.html">tango</a></li>
+  <li><a href="../modules/arraymanipulator.html">arraymanipulator</a></li>
+  <li><a href="../modules/inventoryutil.html">inventoryutil</a></li>
+  <li><a href="../modules/entityutil.html">entityutil</a></li>
+  <li><a href="../modules/scheduler.html">scheduler</a></li>
+  <li><a href="../modules/blockedcache.html">blockedcache</a></li>
+  <li><strong>mathutil</strong></li>
+  <li><a href="../modules/log.html">log</a></li>
+  <li><a href="../modules/arrayutil.html">arrayutil</a></li>
+  <li><a href="../modules/directmapmanipulator.html">directmapmanipulator</a></li>
+  <li><a href="../modules/rotationutil.html">rotationutil</a></li>
   <li><a href="../modules/settings.html">settings</a></li>
+  <li><a href="../modules/pathutil.html">pathutil</a></li>
+  <li><a href="../modules/wallmountedutil.html">wallmountedutil</a></li>
+  <li><a href="../modules/interpolate.html">interpolate</a></li>
   <li><a href="../modules/transform.html">transform</a></li>
   <li><a href="../modules/numberutil.html">numberutil</a></li>
-  <li><a href="../modules/scheduler.html">scheduler</a></li>
-  <li><strong>mathutil</strong></li>
-  <li><a href="../modules/color.html">color</a></li>
-  <li><a href="../modules/blockutil.html">blockutil</a></li>
-  <li><a href="../modules/nodeutil.html">nodeutil</a></li>
-  <li><a href="../modules/arrayutil.html">arrayutil</a></li>
-  <li><a href="../modules/itemutil.html">itemutil</a></li>
-  <li><a href="../modules/noisemanager.html">noisemanager</a></li>
-  <li><a href="../modules/arraymanipulator.html">arraymanipulator</a></li>
-  <li><a href="../modules/constants.html">constants</a></li>
-  <li><a href="../modules/list.html">list</a></li>
-  <li><a href="../modules/blockedcache.html">blockedcache</a></li>
-  <li><a href="../modules/entityutil.html">entityutil</a></li>
-  <li><a href="../modules/fisheryates.html">fisheryates</a></li>
   <li><a href="../modules/test.html">test</a></li>
+  <li><a href="../modules/facedirutil.html">facedirutil</a></li>
+  <li><a href="../modules/constants.html">constants</a></li>
   <li><a href="../modules/minetestex.html">minetestex</a></li>
+  <li><a href="../modules/list.html">list</a></li>
+  <li><a href="../modules/stopwatch.html">stopwatch</a></li>
+  <li><a href="../modules/itemutil.html">itemutil</a></li>
+  <li><a href="../modules/color.html">color</a></li>
+  <li><a href="../modules/tableutil.html">tableutil</a></li>
 </ul>
 
 </div>
@@ -112,6 +112,10 @@
 	<tr>
 	<td class="name" nowrap><a href="#in_range">in_range (value, min, max)</a></td>
 	<td class="summary">Tests if the given value is within the given range.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#intersects">intersects (value, min, max)</a></td>
+	<td class="summary">Checks if the given value intersects with the min and max values.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#next_lower_prime">next_lower_prime (number)</a></td>
@@ -355,6 +359,40 @@
         </li>
     </ul>
 
+
+
+
+
+</dd>
+    <dt>
+    <a name = "intersects"></a>
+    <strong>intersects (value, min, max)</strong>
+    </dt>
+    <dd>
+    Checks if the given value intersects with the min and max values.  All three
+ values can either by numbers, positions with two dimensions or positions with
+ three dimensions.
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">value</span>
+         The value to check.
+        </li>
+        <li><span class="parameter">min</span>
+         The min value of the range.
+        </li>
+        <li><span class="parameter">max</span>
+         The max value of the range.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        true if the value intersects with the given min/max range.
+    </ol>
 
 
 

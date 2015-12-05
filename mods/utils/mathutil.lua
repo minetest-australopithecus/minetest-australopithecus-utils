@@ -180,6 +180,32 @@ function mathutil.in_range(value, min, max)
 	return value >= min and value <= max
 end
 
+--- Checks if the given value intersects with the min and max values. All three
+-- values can either by numbers, positions with two dimensions or positions with
+-- three dimensions.
+--
+-- @param value The value to check.
+-- @param min The min value of the range.
+-- @param max The max value of the range.
+-- @return true if the value intersects with the given min/max range.
+function mathutil.intersects(value, min, max)
+	if type(value) == "table" then
+		if value.z == nil then
+			return mathutil.in_range(value.x, min.x, max.x)
+				and mathutil.in_range(value.y, min.y, max.y)
+		elseif value.y == nil then
+			return mathutil.in_range(value.x, min.x, max.x)
+				and mathutil.in_range(value.z, min.z, max.z)
+		else
+			return mathutil.in_range(value.x, min.x, max.x)
+				and mathutil.in_range(value.z, min.z, max.z)
+				and mathutil.in_range(value.y, min.y, max.y)
+		end
+	else
+		return mathutil.in_range(value, min, max)
+	end
+end
+
 --- Gets the next lower prime from the given number.
 --
 -- @param number The number.

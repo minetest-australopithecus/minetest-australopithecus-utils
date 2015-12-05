@@ -39,3 +39,19 @@ test.run("in_range", function()
 	test.equals(false, mathutil.in_range(-16, -5, -15))
 end)
 
+test.run("intersects", function()
+	test.equals(true, mathutil.intersects(0, 0, 0))
+	test.equals(true, mathutil.intersects(2, 0, 4))
+	test.equals(false, mathutil.intersects(-1, 0, 0))
+	test.equals(false, mathutil.intersects(5, 0, 4))
+	
+	test.equals(true, mathutil.intersects({ x = 5, y = 5 }, { x = 0, y = 0 }, { x = 10, y = 10 }))
+	test.equals(false, mathutil.intersects({ x = 5, y = 5 }, { x = 0, y = 8 }, { x = 10, y = 10 }))
+	test.equals(false, mathutil.intersects({ x = 5, y = 5 }, { x = 8, y = 0 }, { x = 10, y = 10 }))
+	
+	test.equals(true, mathutil.intersects({ x = 5, z = 5 }, { x = 0, z = 0 }, { x = 10, z = 10 }))
+	test.equals(false, mathutil.intersects({ x = 5, z = 5 }, { x = 0, z = 8 }, { x = 10, z = 10 }))
+	test.equals(false, mathutil.intersects({ x = 5, z = 5 }, { x = 8, z = 0 }, { x = 10, z = 10 }))
+	test.equals(true, mathutil.intersects({ x = 5, y= 5, z = 5 }, { x = 0, y = 0, z = 0 }, { x = 10, y = 10, z = 10 }))
+end)
+
