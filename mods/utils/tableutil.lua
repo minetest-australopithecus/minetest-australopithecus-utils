@@ -196,7 +196,7 @@ function tableutil.to_string(table, one_line, table_ids, indent)
 		local str = ""
 		
 		if table_ids == nil or table_ids then
-			str = str .. tostring(table)
+			str = str .. tostring(table) .. " (" .. tostring(#table) .. ")"
 		end
 		
 		str = str .. " {"
