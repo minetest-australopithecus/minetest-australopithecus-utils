@@ -99,6 +99,8 @@ test.run("get_first", function()
 	test.equals(nil, list:get_first(function(value)
 		return value == 37
 	end))
+	
+	test.equals(1, list:get_first())
 end)
 
 test.run("get_last", function()
@@ -113,6 +115,8 @@ test.run("get_last", function()
 	test.equals(nil, list:get_last(function(value)
 		return value == 37
 	end))
+	
+	test.equals(9, list:get_last())
 end)
 
 test.run("index", function()

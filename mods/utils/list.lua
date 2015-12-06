@@ -160,12 +160,13 @@ end
 
 --- Gets the first value in this List that is accepted by the given function.
 --
--- @param accept The function to accept values. Accepts the value and returns
---               a boolean, true if the value is accepted.
+-- @param accept Optional. The function to accept values. Accepts the value and
+--               returns a boolean, true if the value is accepted. If nil
+--               the first value in the list will be returned.
 -- @return The first accepted value, or if none was accepted, nil.
 function List:get_first(accept)
 	for index = 1, self.counter - 1, 1 do
-		if accept(self[index]) then
+		if accept == nil or accept(self[index]) then
 			return self[index]
 		end
 	end
@@ -175,14 +176,15 @@ end
 
 --- Gets the last value in this List that is accepted by the given function.
 --
--- @param accept The function to accept values. Accepts the value and returns
---               a boolean, true if the value is accepted.
+-- @param accept Optional. The function to accept values. Accepts the value and
+--               returns a boolean, true if the value is accepted. If nil
+--               the last value in the list will be returned.
 -- @return The last accepted value, or if none was accepted, nil.
 function List:get_last(accept)
 	local value = nil
 	
 	for index = 1, self.counter - 1, 1 do
-		if accept(self[index]) then
+		if accept == nil or accept(self[index]) then
 			value = self[index]
 		end
 	end
