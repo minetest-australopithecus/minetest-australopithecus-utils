@@ -247,6 +247,36 @@ function List:matching(condition)
 	return found
 end
 
+--- Removes the given values from the list.
+--
+-- @param ... The values to remove.
+function List:remove(...)
+	for index, value_to_remove in ipairs({...}) do
+		self:remove_index(self:index(value_to_remove))
+	end
+end
+
+--- Removes the given index from the list.
+--
+-- @param ... The index to remove.
+function List:remove_index(...)
+	local to_remove = {...}
+	
+	table.sort(to_remove)
+	
+	for index = #to_remove, 1, -1 do
+		local index_to_remove = to_remove[index]
+		
+		if index_to_remove > 0 and index_to_remove < self.counter then
+			for index_walk = index_to_remove, self.counter, 1 do
+				self[index_walk] = self[index_walk + 1]
+			end
+			
+			self.counter = self.counter - 1
+		end
+	end
+end
+
 --- Invokes the contained functions and returns the first value that is accepted
 -- by the given function.
 --

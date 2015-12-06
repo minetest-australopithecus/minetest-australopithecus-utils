@@ -186,6 +186,35 @@ test.run("matching", function()
 	test.equals("d", found:get(2))
 end)
 
+test.run("remove", function()
+	local list = List:new("a", "b", "c", "d", "e")
+	
+	list:remove("b", "d", "e")
+	
+	test.equals(2, list:size())
+	test.equals("a", list:get(1))
+	test.equals("c", list:get(2))
+	test.equals(nil, list:get(3))
+end)
+
+test.run("remove_index", function()
+	local list = List:new("a", "b", "c", "d", "e")
+	
+	list:remove_index(3)
+	
+	test.equals(4, list:size())
+	test.equals("a", list:get(1))
+	test.equals("b", list:get(2))
+	test.equals("d", list:get(3))
+	test.equals("e", list:get(4))
+	test.equals(nil, list:get(5))
+	
+	list:remove_index(1, 3, 4)
+	
+	test.equals(1, list:size())
+	test.equals("b", list:get(1))
+end)
+
 test.run("return_first", function()
 	local list = List:new()
 	

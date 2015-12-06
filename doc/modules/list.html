@@ -143,8 +143,20 @@
  parameters.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#List:is_empty">List:is_empty ()</a></td>
+	<td class="summary">Gets if this List is empty.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#List:matching">List:matching (condition)</a></td>
 	<td class="summary">Returns a List with all items that match the given condition.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#List:remove">List:remove (...)</a></td>
+	<td class="summary">Removes the given values from the list.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#List:remove_index">List:remove_index (...)</a></td>
+	<td class="summary">Removes the given index from the list.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#List:return_first">List:return_first (accept, ...)</a></td>
@@ -398,8 +410,9 @@
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">accept</span>
-         The function to accept values. Accepts the value and returns
-               a boolean, true if the value is accepted.
+         Optional. The function to accept values. Accepts the value and
+               returns a boolean, true if the value is accepted. If nil
+               the first value in the list will be returned.
         </li>
     </ul>
 
@@ -424,8 +437,9 @@
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">accept</span>
-         The function to accept values. Accepts the value and returns
-               a boolean, true if the value is accepted.
+         Optional. The function to accept values. Accepts the value and
+               returns a boolean, true if the value is accepted. If nil
+               the last value in the list will be returned.
         </li>
     </ul>
 
@@ -489,6 +503,25 @@
 
 </dd>
     <dt>
+    <a name = "List:is_empty"></a>
+    <strong>List:is_empty ()</strong>
+    </dt>
+    <dd>
+    Gets if this List is empty.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        true if this List is empty.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "List:matching"></a>
     <strong>List:matching (condition)</strong>
     </dt>
@@ -509,6 +542,46 @@
 
         The List of matching items.
     </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "List:remove"></a>
+    <strong>List:remove (...)</strong>
+    </dt>
+    <dd>
+    Removes the given values from the list.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">...</span>
+         The values to remove.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "List:remove_index"></a>
+    <strong>List:remove_index (...)</strong>
+    </dt>
+    <dd>
+    Removes the given index from the list.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">...</span>
+         The index to remove.
+        </li>
+    </ul>
+
 
 
 
