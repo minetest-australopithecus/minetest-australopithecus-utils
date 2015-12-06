@@ -219,6 +219,13 @@ function List:invoke(...)
 	end
 end
 
+--- Gets if this List is empty.
+--
+-- @return true if this List is empty.
+function List:is_empty()
+	return self.counter == 1
+end
+
 --- Returns a List with all items that match the given condition.
 --
 -- @param condition The condition, a function that accepts one parameter,

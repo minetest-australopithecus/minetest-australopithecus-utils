@@ -156,6 +156,20 @@ test.run("invoke", function()
 	test.equals(true, c_invoked)
 end)
 
+test.run("is_empty", function()
+	local list = List:new()
+	
+	test.equals(true, list:is_empty())
+	
+	list:add("value")
+	
+	test.equals(false, list:is_empty())
+	
+	list:clear()
+	
+	test.equals(true, list:is_empty())
+end)
+
 test.run("matching", function()
 	local list = List:new("a", "b", "c", "d", "e")
 	
