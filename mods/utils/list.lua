@@ -70,9 +70,20 @@ end
 --
 -- @param ... The items to add.
 function List:add(...)
-	for idx, value in ipairs({...}) do
+	for index, value in ipairs({...}) do
 		self[self.counter] = value
 		self.counter = self.counter + 1
+	end
+end
+
+--- Adds the given List to the list.
+--
+-- @param ... The Lists to add.
+function List:add_list(...)
+	for index, list in ipairs({...}) do
+		list:foreach(function(value, value_index)
+			self:add(value)
+		end)
 	end
 end
 

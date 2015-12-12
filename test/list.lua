@@ -27,6 +27,23 @@ test.run("add", function()
 	test.equals("f", list:get(6))
 end)
 
+test.run("add_list", function()
+	local list = List:new("a", "b")
+	local list_b = List:new("c", "d")
+	local list_c = List:new("e", "f")
+	
+	list:add_list(list_b, list_c)
+	
+	test.equals(6, list:size())
+	
+	test.equals("a", list:get(1))
+	test.equals("b", list:get(2))
+	test.equals("c", list:get(3))
+	test.equals("d", list:get(4))
+	test.equals("e", list:get(5))
+	test.equals("f", list:get(6))
+end)
+
 test.run("clear", function()
 	local list = List:new("a", "b", "c")
 	
