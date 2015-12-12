@@ -33,6 +33,7 @@
 <h2>Contents</h2>
 <ul>
 <li><a href="#Functions">Functions</a></li>
+<li><a href="#Fields">Fields</a></li>
 </ul>
 
 
@@ -88,9 +89,40 @@
 <h2><a href="#Functions">Functions</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#blop">blop (position_or_object, itemstring_or_stack, x_strength, y_strength, z_strength)</a></td>
+	<td class="name" nowrap><a href="#blop">blop (position_or_object, itemstrings_or_stacks, x_strength, y_strength, z_strength, split_mode)</a></td>
 	<td class="summary">"Blops" the item into existence at the given position and assigns it
  a random velocity/acceleration.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#get_itemstring">get_itemstring (item)</a></td>
+	<td class="summary">Gets the item string from the given item.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#split">split (itemstring_or_itemstack, split_mode)</a></td>
+	<td class="summary">Splits the given item stack according to the provided method.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#split_random">split_random (itemstring_or_itemstack)</a></td>
+	<td class="summary">Splits the given item stack randomly.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#split_single">split_single (itemstring_or_itemstack)</a></td>
+	<td class="summary">Splits the given item stack into single items.</td>
+	</tr>
+</table>
+<h2><a href="#Fields">Fields</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#SPLIT_MODE_RANDOM">SPLIT_MODE_RANDOM</a></td>
+	<td class="summary">The split mode for randomly splitting the stack.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#SPLIT_MODE_SINGLE">SPLIT_MODE_SINGLE</a></td>
+	<td class="summary">The split mode for splitting the stack into single items.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#SPLIT_MODE_STACK">SPLIT_MODE_STACK</a></td>
+	<td class="summary">The split mode for preserving the complete stack.</td>
 	</tr>
 </table>
 
@@ -102,7 +134,7 @@
     <dl class="function">
     <dt>
     <a name = "blop"></a>
-    <strong>blop (position_or_object, itemstring_or_stack, x_strength, y_strength, z_strength)</strong>
+    <strong>blop (position_or_object, itemstrings_or_stacks, x_strength, y_strength, z_strength, split_mode)</strong>
     </dt>
     <dd>
     "Blops" the item into existence at the given position and assigns it
@@ -114,7 +146,7 @@
         <li><span class="parameter">position_or_object</span>
          The position, a pos value or an ObjectRef.
         </li>
-        <li><span class="parameter">itemstring_or_stack</span>
+        <li><span class="parameter">itemstrings_or_stacks</span>
          The item string or an ItemStack.
         </li>
         <li><span class="parameter">x_strength</span>
@@ -129,13 +161,167 @@
          Optional. The strength of the random movement in
                    the z direction, defaults to 5.
         </li>
+        <li><span class="parameter">split_mode</span>
+         Optional. The mode for splitting the items, defaults
+                   to SPLIT_MODE_STACK.
+        </li>
     </ul>
 
     <h3>Returns:</h3>
     <ol>
 
-        The spawned item.
+        The spawned items in a List.
     </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "get_itemstring"></a>
+    <strong>get_itemstring (item)</strong>
+    </dt>
+    <dd>
+    Gets the item string from the given item.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">item</span>
+         The item for which to get the item string.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The item string, or nil.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "split"></a>
+    <strong>split (itemstring_or_itemstack, split_mode)</strong>
+    </dt>
+    <dd>
+    Splits the given item stack according to the provided method.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">itemstring_or_itemstack</span>
+         The item string or ItemStack to split.
+        </li>
+        <li><span class="parameter">split_mode</span>
+         The split mode.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        A List of item strings, an empty List it could not be split.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "split_random"></a>
+    <strong>split_random (itemstring_or_itemstack)</strong>
+    </dt>
+    <dd>
+    Splits the given item stack randomly.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">itemstring_or_itemstack</span>
+         The item string or ItemStack to split
+                                randomly.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The List of item strings.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "split_single"></a>
+    <strong>split_single (itemstring_or_itemstack)</strong>
+    </dt>
+    <dd>
+    Splits the given item stack into single items.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">itemstring_or_itemstack</span>
+         The item string or ItemStack to split
+                                into single items.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The List of item strings.
+    </ol>
+
+
+
+
+</dd>
+</dl>
+    <h2><a name="Fields"></a>Fields</h2>
+    <dl class="function">
+    <dt>
+    <a name = "SPLIT_MODE_RANDOM"></a>
+    <strong>SPLIT_MODE_RANDOM</strong>
+    </dt>
+    <dd>
+    The split mode for randomly splitting the stack.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "SPLIT_MODE_SINGLE"></a>
+    <strong>SPLIT_MODE_SINGLE</strong>
+    </dt>
+    <dd>
+    The split mode for splitting the stack into single items.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "SPLIT_MODE_STACK"></a>
+    <strong>SPLIT_MODE_STACK</strong>
+    </dt>
+    <dd>
+    The split mode for preserving the complete stack.
+
+
+
 
 
 
