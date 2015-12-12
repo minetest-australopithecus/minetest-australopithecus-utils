@@ -58,15 +58,10 @@ function itemutil.blop(position_or_object, itemstring_or_stack, x_strength, y_st
 	
 	local spawned_item = minetest.add_item(position, item)
 	
-	spawned_item:setacceleration({
-		x = random.next_float(-x_strength, x_strength),
-		y = -constants.GRAVITY,
-		z = random.next_float(-z_strength, z_strength)
-	})
 	spawned_item:setvelocity({
-		x = 0,
+		x = random.next_float(-x_strength, x_strength),
 		y = random.next_float(1, y_strength),
-		z = 0,
+		z = random.next_float(-z_strength, z_strength)
 	})
 	
 	return spawned_item
