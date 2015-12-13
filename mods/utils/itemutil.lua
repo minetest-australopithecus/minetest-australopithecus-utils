@@ -137,7 +137,7 @@ function itemutil.split_random(itemstring_or_itemstack)
 	local remaining = stack:get_count()
 	
 	while remaining > 0 do
-		local count = random.next_int(1, remaining + 1)
+		local count = random.next_int(1, remaining)
 		local itemstring = name .. " " .. tostring(count)
 		
 		itemstrings:add(itemstring)
