@@ -44,11 +44,11 @@ end)
 test.run("next_float", function()
 	for counter = 0, 1000, 1 do
 		local value = random.next_float(0, 15)
-		test.equals(true, mathutil.in_range(value, 0, 14.9999999999999), value .. " is not in range 0-14.999...")
+		test.equals(true, mathutil.in_range(value, 0, 15), value .. " is not in range 0-15...")
 	end
 	for counter = 0, 1000, 1 do
 		local value = random.next_float(0.25, 0.5)
-		test.equals(true, mathutil.in_range(value, 0.25, 0.49999999999), value .. " is not in range 0.25-0.4999...")
+		test.equals(true, mathutil.in_range(value, 0.25, 0.5), value .. " is not in range 0.25-0.5...")
 	end
 	
 	for counter = 0, 1000, 1 do
@@ -60,11 +60,11 @@ end)
 test.run("next_int", function()
 	for counter = 0, 1000, 1 do
 		local value = random.next_int(0, 15)
-		test.equals(true, mathutil.in_range(value, 0, 14), value .. " is not in range 0-14.")
+		test.equals(true, mathutil.in_range(value, 0, 15), value .. " is not in range 0-15.")
 	end
 	for counter = 0, 1000, 1 do
 		local value = random.next_int(15, 30)
-		test.equals(true, mathutil.in_range(value, 15, 29), value .. " is not in range 15-29.")
+		test.equals(true, mathutil.in_range(value, 15, 30), value .. " is not in range 15-30.")
 	end
 end)
 

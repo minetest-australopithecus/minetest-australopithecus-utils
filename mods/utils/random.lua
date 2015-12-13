@@ -48,7 +48,7 @@ function random.init()
 		
 		random.random_provider = {
 			next = function(self, lower_bound, upper_bound)
-				return math.abs(math.random(lower_bound, upper_bound - 1))
+				return math.abs(math.random(lower_bound, upper_bound))
 			end
 		}
 	end
@@ -74,7 +74,7 @@ end
 --- Returns a float between the given bounds.
 --
 -- @param lower_bound Optional. The lower bound (inclusive), defaults to 0.
--- @param upper_bound Optional. The upper bound (exclusive), defaults to 1.
+-- @param upper_bound Optional. The upper bound (inclusive), defaults to 1.
 -- @param decimal_places Optional. To how many decimal places the resulting
 --                       float should be rounded.
 -- @return a float between the given bounds.
@@ -82,7 +82,7 @@ function random.next_float(lower_bound, upper_bound, decimal_places)
 	lower_bound = lower_bound or 0
 	upper_bound = upper_bound or 1.0
 	
-	local value = random.random_provider:next(random.min, random.max + 1)
+	local value = random.random_provider:next(random.min, random.max)
 	value = (value - random.min) / (random.max - random.min)
 	value = value * (upper_bound - lower_bound) + lower_bound
 	
@@ -97,7 +97,7 @@ end
 --
 -- @param lower_bound Optional. The lower bound (inclusive), defaults to
 --                    random.min.
--- @param upper_bound Optional. The upper bound (exclusive), defaults to
+-- @param upper_bound Optional. The upper bound (inclusive), defaults to
 --                    random.max.
 -- @return a integer between the given bounds.
 function random.next_int(lower_bound, upper_bound)
