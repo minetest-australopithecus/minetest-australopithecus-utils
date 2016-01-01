@@ -90,7 +90,7 @@
 <h2><a href="#Functions">Functions</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#NoiseManager:new">NoiseManager:new (start_seed)</a></td>
+	<td class="name" nowrap><a href="#NoiseManager:new">NoiseManager:new (start_seed, size_x, size_y, size_z)</a></td>
 	<td class="summary">Creates a new instance of NoiseManager.</td>
 	</tr>
 	<tr>
@@ -119,7 +119,7 @@
     <dl class="function">
     <dt>
     <a name = "NoiseManager:new"></a>
-    <strong>NoiseManager:new (start_seed)</strong>
+    <strong>NoiseManager:new (start_seed, size_x, size_y, size_z)</strong>
     </dt>
     <dd>
     Creates a new instance of NoiseManager.
@@ -129,6 +129,16 @@
     <ul>
         <li><span class="parameter">start_seed</span>
          Optional. The initial seed value, defaults to 0.
+        </li>
+        <li><span class="parameter">size_x</span>
+         Optional. The map size in the x direction, defaults to
+               the block size.
+        </li>
+        <li><span class="parameter">size_y</span>
+         Optional. The map size in the y direction, defaults to size_x.
+        </li>
+        <li><span class="parameter">size_z</span>
+         Optional. The map size in the z direction, defaults to size_z.
         </li>
     </ul>
 
