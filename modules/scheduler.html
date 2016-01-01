@@ -33,6 +33,7 @@
 <h2>Contents</h2>
 <ul>
 <li><a href="#Functions">Functions</a></li>
+<li><a href="#Tables">Tables</a></li>
 <li><a href="#Fields">Fields</a></li>
 </ul>
 
@@ -106,6 +107,13 @@
 	<td class="summary">Unschedules/Removes the function with the given name.</td>
 	</tr>
 </table>
+<h2><a href="#Tables">Tables</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#immediate_functions">immediate_functions</a></td>
+	<td class="summary">The table of functions for immediate execution.</td>
+	</tr>
+</table>
 <h2><a href="#Fields">Fields</a></h2>
 <table class="function_list">
 	<tr>
@@ -160,7 +168,8 @@
         </li>
         <li><span class="parameter">interval</span>
          The interval in which to run the function. A value of zero
-                 will basically make the function run on every global step.
+                 will make the function run on every global step,
+                 the overshoot policy will have no effect in that case.
         </li>
         <li><span class="parameter">run_function</span>
          The function to execute.
@@ -213,6 +222,23 @@
          The name of the function to unschedule.
         </li>
     </ul>
+
+
+
+
+
+</dd>
+</dl>
+    <h2><a name="Tables"></a>Tables</h2>
+    <dl class="function">
+    <dt>
+    <a name = "immediate_functions"></a>
+    <strong>immediate_functions</strong>
+    </dt>
+    <dd>
+    The table of functions for immediate execution.
+
+
 
 
 
