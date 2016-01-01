@@ -26,7 +26,19 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 --- Various functions related to blocks/chunks.
-blockutil = {}
+blockutil = {
+	--- The size of one block in nodes.
+	BLOCK_SIZE = 16,
+	
+	--- The size of a mapchunk in blocks.
+	MAPCHUNK_IN_BLOCKS_SIZE = 5,
+	
+	--- The size of one mapchunk in nodes.
+	MAPCHUNK_SIZE = 80,
+	
+	--- The size of one node.
+	NODE_SIZE = 1
+}
 
 
 --- Gets the begin coordinates of the block the given coordinates are in.
