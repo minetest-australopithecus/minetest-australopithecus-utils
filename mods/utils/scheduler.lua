@@ -31,9 +31,13 @@ scheduler = {
 	--- If more time has elapsed than the interval of the scheduled function,
 	-- the function will be run as many times as necessary to catch up.
 	OVERSHOOT_POLICY_CATCH_UP = 1,
+	
 	--- If more time has elpased than the interval of the scheduled function,
 	-- the function will still only be run once.
 	OVERSHOOT_POLICY_RUN_ONCE = 2,
+	
+	--- The table of functions for immediate execution.
+	immediate_functions = {},
 	
 	--- If the scheduler has been initialized.
 	initialized = false,
@@ -56,7 +60,8 @@ end
 --
 -- @param name The name of the function.
 -- @param interval The interval in which to run the function. A value of zero
---                 will basically make the function run on every global step.
+--                 will make the function run on every global step,
+--                 the overshoot policy will have no effect in that case.
 -- @param run_function The function to execute.
 -- @param overshoot_policy Optional. The overshoot policy. Defaults to
 --                         scheduler.OVERSHOOT_POLICY_RUN_ONCE.
@@ -81,20 +86,24 @@ end
 -- @param since_last_call The elapsed time since the last call.
 function scheduler.step(since_last_call)
 	for name, scheduled in pairs(scheduler.scheduled_functions) do
-		scheduled.timer = scheduled.timer + since_last_call
-		
-		if scheduled.timer >= scheduled.interval then
-			scheduled.run_function()
+		if scheduled.interval > 0 then
+			scheduled.timer = scheduled.timer + since_last_call
 			
-			local additional_runs = math.floor(scheduled.timer / scheduled.interval) - 1
-			
-			if scheduled.overshoot_policy == scheduler.OVERSHOOT_POLICY_CATCH_UP then
-				for counter = 1, additional_runs, 1 do
-					scheduled.run_function()
+			if scheduled.timer >= scheduled.interval then
+				scheduled.run_function()
+				
+				local additional_runs = math.floor(scheduled.timer / scheduled.interval) - 1
+				
+				if scheduled.overshoot_policy == scheduler.OVERSHOOT_POLICY_CATCH_UP then
+					for counter = 1, additional_runs, 1 do
+						scheduled.run_function()
+					end
 				end
+				
+				scheduled.timer = 0
 			end
-			
-			scheduled.timer = 0
+		else
+			scheduled.run_function()
 		end
 	end
 end
