@@ -35,16 +35,16 @@ NoiseManager = {}
 --
 -- @param start_seed Optional. The initial seed value, defaults to 0.
 -- @param size_x Optional. The map size in the x direction, defaults to
---               the block size.
+--               the mapchunk size (see blockutil.MAPCHUNK_SIZE).
 -- @param size_y Optional. The map size in the y direction, defaults to size_x.
 -- @param size_z Optional. The map size in the z direction, defaults to size_z.
 -- @return A new instance of NoiseManager.
 function NoiseManager:new(start_seed, size_x, size_y, size_z)
 	local instance = {
 		map_size = {
-			x = size_x or constants.block_size,
-			y = size_y or size_x or constants.block_size,
-			z = size_z or size_x or constants.block_size
+			x = size_x or blockutil.MAPCHUNK_SIZE,
+			y = size_y or size_x or blockutil.MAPCHUNK_SIZE,
+			z = size_z or size_x or blockutil.MAPCHUNK_SIZE
 		},
 		next_seed = start_seed or 0
 	}
