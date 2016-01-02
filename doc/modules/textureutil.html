@@ -88,8 +88,17 @@
 <h2><a href="#Functions">Functions</a></h2>
 <table class="function_list">
 	<tr>
+	<td class="name" nowrap><a href="#cube">cube (textures)</a></td>
+	<td class="summary">Creates a texture like for an unwrapped cube, see the cube_texture.png file
+ in the textures directory for an example.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#dummy">dummy (inner_color, border_color)</a></td>
 	<td class="summary">Creates a dummy texture with the two given colors.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#get_name">get_name (tile)</a></td>
+	<td class="summary">Gets the name from the given tile.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#tileable">tileable (tile, horizontal, vertical)</a></td>
@@ -103,6 +112,32 @@
 
     <h2><a name="Functions"></a>Functions</h2>
     <dl class="function">
+    <dt>
+    <a name = "cube"></a>
+    <strong>cube (textures)</strong>
+    </dt>
+    <dd>
+    Creates a texture like for an unwrapped cube, see the cube_texture.png file
+ in the textures directory for an example.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">textures</span>
+         The textures or tiles.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The cube texture.
+    </ol>
+
+
+
+
+</dd>
     <dt>
     <a name = "dummy"></a>
     <strong>dummy (inner_color, border_color)</strong>
@@ -127,6 +162,31 @@
     <ol>
 
         The dummy texture (string).
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "get_name"></a>
+    <strong>get_name (tile)</strong>
+    </dt>
+    <dd>
+    Gets the name from the given tile.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">tile</span>
+         The tile.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The name of the tile.
     </ol>
 
 

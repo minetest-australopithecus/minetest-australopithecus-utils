@@ -29,6 +29,28 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 textureutil = {}
 
 
+--- Creates a texture like for an unwrapped cube, see the cube_texture.png file
+-- in the textures directory for an example.
+--
+-- @param textures The textures or tiles.
+-- @return The cube texture.
+function textureutil.cube(textures)
+	local top = textureutil.get_name(textures[1])
+	local bottom = textureutil.get_name(textures[2]) or top
+	local front = textureutil.get_name(textures[3]) or top
+	local back = textureutil.get_name(textures[4]) or top
+	local left = textureutil.get_name(textures[5]) or top
+	local right = textureutil.get_name(textures[6]) or top
+	
+	return "[combine:128x96"
+		.. ":32,0=" .. top
+		.. ":32,64=" .. bottom
+		.. ":32,32=" .. front
+		.. ":96,32=" .. back
+		.. ":0,32=" .. left
+		.. ":64,32=" .. right
+end
+
 --- Creates a dummy texture with the two given colors.
 --
 -- @param inner_color The color for the inner part, either a string with
@@ -48,6 +70,18 @@ function textureutil.dummy(inner_color, border_color)
 	local border = "(dummy_border.png^[colorize:" .. border_color .. ":255)"
 	
 	return inner .. "^" .. border
+end
+
+--- Gets the name from the given tile.
+--
+-- @param tile The tile.
+-- @return The name of the tile.
+function textureutil.get_name(tile)
+	if type(tile) == "table" then
+		return tile.name
+	else
+		return tile
+	end
 end
 
 --- Creates a tile with the given tileable parameters.
