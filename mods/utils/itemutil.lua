@@ -78,13 +78,15 @@ function itemutil.blop(position_or_object, itemstrings_or_stacks, x_strength, y_
 	itemstrings:foreach(function(itemstring, index)
 		local spawned_item = minetest.add_item(position, itemstring)
 		
-		spawned_item:setvelocity({
-			x = random.next_float(-x_strength, x_strength),
-			y = random.next_float(1, y_strength),
-			z = random.next_float(-z_strength, z_strength)
-		})
-		
-		spawned_items:add(spawned_item)
+		if spawned_item ~= nil then
+			spawned_item:setvelocity({
+				x = random.next_float(-x_strength, x_strength),
+				y = random.next_float(1, y_strength),
+				z = random.next_float(-z_strength, z_strength)
+			})
+			
+			spawned_items:add(spawned_item)
+		end
 	end)
 	
 	return spawned_items
