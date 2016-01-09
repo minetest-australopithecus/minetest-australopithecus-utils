@@ -112,6 +112,15 @@ function wallmountedutil.get_vector(id)
 	return wallmountedutil.NEGATIVE_Y_VECTOR
 end
 
+--- Checks if the given node is mounted to a wall or the ceiling.
+--
+-- @param node The node.
+-- @return true if the node is mounted at a wall or ceiling, false if it
+--         is mounted on the floor.
+function wallmountedutil.is_wallmounted(node)
+	return node.param2 ~= wallmountedutil.NEGATIVE_Y
+end
+
 --- Gets the corresponding facedir value for the given wallmounted value.
 --
 -- @param wallmounted_id The wallmounted value/ID.
