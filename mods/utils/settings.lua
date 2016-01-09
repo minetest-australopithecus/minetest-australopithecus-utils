@@ -164,7 +164,8 @@ end
 -- @param name The name of the value to get.
 -- @param default_value The default value to return if the value is nil, can be
 --                      nil.
--- @param ... The name of the keys.
+-- @param ... The name of the keys, or a table with the name and the conversion
+--            function.
 -- @return The table with the given name and the given keys, or the default
 --         value it is nil.
 function settings.get_table(name, default_value, ...)
@@ -175,7 +176,11 @@ function settings.get_table(name, default_value, ...)
 		
 		if ... ~= nil then
 			for index, key in ipairs({...}) do
-				table[key] = value:get(index)
+				if type(key) == "table" then
+					table[key.name] = key.convert(value:get(index))
+				else
+					table[key] = value:get(index)
+				end
 			end
 		end
 		

@@ -110,5 +110,11 @@ test.run("get_table", function()
 	test.equals({ a = "a", b = "b", c = "c", d = "d", e = "e" }, settings.get_table("list", nil, "a", "b", "c", "d", "e"))
 	test.equals({ a = "a", b = "b", [3] = "c", [4] = "d", [5] = "e" }, settings.get_table("list", nil, "a", "b"))
 	test.equals({ a = "a", b = "b", c = "c", d = "d", e = "e" }, settings.get_table("list", nil, "a", "b", "c", "d", "e", "f", "g", "h"))
+	
+	local convert_function = function(value)
+		return tonumber(value) - 10
+	end
+	
+	test.equals({ min = 33.23, max = 19.89 }, settings.get_table("pos2d", nil, { name = "min", convert = convert_function }, { name = "max", convert = convert_function }))
 end)
 
