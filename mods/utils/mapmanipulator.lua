@@ -122,13 +122,12 @@ function MapManipulator:set_data(data, param2_data)
 	self.voxelmanip:set_param2_data(param2_data or self.param2_data)
 	
 	self.voxelmanip:set_lighting({
-		day = 1,
+		day = 0,
 		night = 0
 	})
 	self.voxelmanip:calc_lighting()
 	self.voxelmanip:update_liquids()
 	self.voxelmanip:write_to_map()
-	self.voxelmanip:update_map()
 	
 	self.data = nil
 	self.param2_data = nil
