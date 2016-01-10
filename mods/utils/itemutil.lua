@@ -85,6 +85,10 @@ function itemutil.blop(position_or_object, itemstrings_or_stacks, x_strength, y_
 				z = random.next_float(-z_strength, z_strength)
 			})
 			
+			-- This is a workaround because the newly spawned items do not have
+			-- an age field for some reason.
+			spawned_item:get_luaentity().age = 0
+			
 			spawned_items:add(spawned_item)
 		end
 	end)
