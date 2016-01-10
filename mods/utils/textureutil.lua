@@ -53,12 +53,15 @@ end
 
 --- Creates a dummy texture with the two given colors.
 --
--- @param inner_color The color for the inner part, either a string with
---                    leading "#" or a Color.
--- @param border_color The color for the border, either a string with
---                    leading "#" or a Color.
+-- @param inner_color Optional. The color for the inner part, either a string
+--                    with leading "#" or a Color, defaults to a red.
+-- @param border_color Optional. The color for the border, either a string
+--                     with leading "#" or a Color, defauls to gray.
 -- @return The dummy texture (string).
 function textureutil.dummy(inner_color, border_color)
+	inner_color = inner_color or tango.scarletred_2
+	border_color = border_color or tango.aluminium_1
+	
 	if type(inner_color) == "table" then
 		inner_color = "#" .. inner_color.hex
 	end
