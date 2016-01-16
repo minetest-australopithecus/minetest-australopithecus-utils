@@ -44,10 +44,10 @@
   <li><a href="../modules/nodeutil.html">nodeutil</a></li>
   <li><a href="../modules/posutil.html">posutil</a></li>
   <li><a href="../modules/objectrefutil.html">objectrefutil</a></li>
-  <li><a href="../modules/nodeboxutil.html">nodeboxutil</a></li>
+  <li><strong>nodeboxutil</strong></li>
   <li><a href="../modules/mapmanipulator.html">mapmanipulator</a></li>
   <li><a href="../modules/fisheryates.html">fisheryates</a></li>
-  <li><strong>textureutil</strong></li>
+  <li><a href="../modules/textureutil.html">textureutil</a></li>
   <li><a href="../modules/blockutil.html">blockutil</a></li>
   <li><a href="../modules/tango.html">tango</a></li>
   <li><a href="../modules/arraymanipulator.html">arraymanipulator</a></li>
@@ -81,29 +81,16 @@
 
 <div id="content">
 
-<h1>Module <code>textureutil</code></h1>
-<p>Util for various functions regarding textures.</p>
+<h1>Module <code>nodeboxutil</code></h1>
+<p>Various functions related to nodeboxes.</p>
 <p></p>
 
 
 <h2><a href="#Functions">Functions</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#cube">cube (textures)</a></td>
-	<td class="summary">Creates a texture like for an unwrapped cube, see the cube_texture.png file
- in the textures directory for an example.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#dummy">dummy (inner_color, border_color)</a></td>
-	<td class="summary">Creates a dummy texture with the two given colors.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#get_name">get_name (tile)</a></td>
-	<td class="summary">Gets the name from the given tile.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#tileable">tileable (tile, horizontal, vertical)</a></td>
-	<td class="summary">Creates a tile with the given tileable parameters.</td>
+	<td class="name" nowrap><a href="#set_height">set_height (nodebox, new_height)</a></td>
+	<td class="summary">Sets the height of the nodebox to the new value.</td>
 	</tr>
 </table>
 
@@ -114,111 +101,27 @@
     <h2><a name="Functions"></a>Functions</h2>
     <dl class="function">
     <dt>
-    <a name = "cube"></a>
-    <strong>cube (textures)</strong>
+    <a name = "set_height"></a>
+    <strong>set_height (nodebox, new_height)</strong>
     </dt>
     <dd>
-    Creates a texture like for an unwrapped cube, see the cube_texture.png file
- in the textures directory for an example.
+    Sets the height of the nodebox to the new value.
 
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">textures</span>
-         The textures or tiles.
+        <li><span class="parameter">nodebox</span>
+         The nodebox.
+        </li>
+        <li><span class="parameter">new_height</span>
+         The new height.
         </li>
     </ul>
 
     <h3>Returns:</h3>
     <ol>
 
-        The cube texture.
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "dummy"></a>
-    <strong>dummy (inner_color, border_color)</strong>
-    </dt>
-    <dd>
-    Creates a dummy texture with the two given colors.
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">inner_color</span>
-         Optional. The color for the inner part, either a string
-                    with leading "#" or a Color, defaults to a red.
-        </li>
-        <li><span class="parameter">border_color</span>
-         Optional. The color for the border, either a string
-                     with leading "#" or a Color, defauls to gray.
-        </li>
-    </ul>
-
-    <h3>Returns:</h3>
-    <ol>
-
-        The dummy texture (string).
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "get_name"></a>
-    <strong>get_name (tile)</strong>
-    </dt>
-    <dd>
-    Gets the name from the given tile.
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">tile</span>
-         The tile.
-        </li>
-    </ul>
-
-    <h3>Returns:</h3>
-    <ol>
-
-        The name of the tile.
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "tileable"></a>
-    <strong>tileable (tile, horizontal, vertical)</strong>
-    </dt>
-    <dd>
-    Creates a tile with the given tileable parameters.
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">tile</span>
-         The name of the tile.
-        </li>
-        <li><span class="parameter">horizontal</span>
-         If the tile is horizontally tileable.
-        </li>
-        <li><span class="parameter">vertical</span>
-         If the tile is vertically tileable.
-        </li>
-    </ul>
-
-    <h3>Returns:</h3>
-    <ol>
-
-        A tile with tileable information.
+        The new nodebox with the new height.
     </ol>
 
 
