@@ -26,40 +26,59 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 --- The tango color scheme.
-tango = {}
-
-tango.aluminium_1 = Color:new(238, 238, 238)
-tango.aluminium_2 = Color:new(211, 215, 207)
-tango.aluminium_3 = Color:new(186, 189, 182)
-tango.aluminium_4 = Color:new(136, 138, 133)
-tango.aluminium_5 = Color:new(85, 87, 83)
-tango.aluminium_6 = Color:new(46, 52, 54)
-
-tango.butter_1 = Color:new(252, 233, 79)
-tango.butter_2 = Color:new(237, 212, 0)
-tango.butter_3 = Color:new(196, 160, 0)
-
-tango.orange_1 = Color:new(252, 175, 62)
-tango.orange_2 = Color:new(245, 121, 0)
-tango.orange_3 = Color:new(206, 92, 0)
-
-tango.chocolate_1 = Color:new(233, 185, 110)
-tango.chocolate_2 = Color:new(193, 125, 17)
-tango.chocolate_3 = Color:new(143, 89, 2)
-
-tango.chameleon_1 = Color:new(138, 226, 52)
-tango.chameleon_2 = Color:new(115, 210, 22)
-tango.chameleon_3 = Color:new(78, 154, 6)
-
-tango.skyblue_1 = Color:new(114, 159, 207)
-tango.skyblue_2 = Color:new(52, 101, 164)
-tango.skyblue_3 = Color:new(32, 74, 135)
-
-tango.plum_1 = Color:new(173, 127, 168)
-tango.plum_2 = Color:new(117, 80, 123)
-tango.plum_3 = Color:new(92, 53, 102)
-
-tango.scarletred_1 = Color:new(239, 41, 41)
-tango.scarletred_2 = Color:new(204, 0, 0)
-tango.scarletred_3 = Color:new(164, 0, 0)
+tango = {
+	ALUMINIUM_1 = Color:new(238, 238, 238),
+	
+	ALUMINIUM_2 = Color:new(211, 215, 207),
+	
+	ALUMINIUM_3 = Color:new(186, 189, 182),
+	
+	ALUMINIUM_4 = Color:new(136, 138, 133),
+	
+	ALUMINIUM_5 = Color:new(85, 87, 83),
+	
+	ALUMINIUM_6 = Color:new(46, 52, 54),
+	
+	BUTTER_1 = Color:new(252, 233, 79),
+	
+	BUTTER_2 = Color:new(237, 212, 0),
+	
+	BUTTER_3 = Color:new(196, 160, 0),
+	
+	CHAMELEON_1 = Color:new(138, 226, 52),
+	
+	CHAMELEON_2 = Color:new(115, 210, 22),
+	
+	CHAMELEON_3 = Color:new(78, 154, 6),
+	
+	CHOCOLATE_1 = Color:new(233, 185, 110),
+	
+	CHOCOLATE_2 = Color:new(193, 125, 17),
+	
+	CHOCOLATE_3 = Color:new(143, 89, 2),
+	
+	ORANGE_1 = Color:new(252, 175, 62),
+	
+	ORANGE_2 = Color:new(245, 121, 0),
+	
+	ORANGE_3 = Color:new(206, 92, 0),
+	
+	PLUM_1 = Color:new(173, 127, 168),
+	
+	PLUM_2 = Color:new(117, 80, 123),
+	
+	PLUM_3 = Color:new(92, 53, 102),
+	
+	SCARLETRED_1 = Color:new(239, 41, 41),
+	
+	SCARLETRED_2 = Color:new(204, 0, 0),
+	
+	SCARLETRED_3 = Color:new(164, 0, 0),
+	
+	SKYBLUE_1 = Color:new(114, 159, 207),
+	
+	SKYBLUE_2 = Color:new(52, 101, 164),
+	
+	SKYBLUE_3 = Color:new(32, 74, 135)
+}
 
