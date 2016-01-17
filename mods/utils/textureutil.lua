@@ -59,8 +59,8 @@ end
 --                     with leading "#" or a Color, defauls to gray.
 -- @return The dummy texture (string).
 function textureutil.dummy(inner_color, border_color)
-	inner_color = inner_color or tango.scarletred_2
-	border_color = border_color or tango.aluminium_1
+	inner_color = inner_color or tango.SCARLETRED_2
+	border_color = border_color or tango.ALUMINIUM_1
 	
 	if type(inner_color) == "table" then
 		inner_color = "#" .. inner_color.hex
